@@ -1,0 +1,40 @@
+{
+    "citiesPast": [{
+            "cityName": "New York",
+            "dateMonth": "June",
+            "dateYear": "2017"
+        },
+        {
+            "cityName": "Dublin",
+            "dateMonth": "January",
+            "dateYear": "2017"
+        },
+
+        {
+            "cityName": "Athens",
+            "dateMonth": "January",
+            "dateYear": "2018"
+        },
+        {
+            "cityName": "Bilbao",
+            "dateMonth": "February",
+            "dateYear": "2018"
+        },
+        {
+            "cityName": "Istanbul",
+            "dateMonth": "October",
+            "dateYear": "2018"
+        }
+    ],
+    "citiesFuture": [{
+            "cityName": "Copenhagen",
+            "dateMonth": "August",
+            "dateYear": "2019"
+        },
+        {
+            "cityName": "Moscow",
+            "dateMonth": "December",
+            "dateYear": "2019"
+        }
+    ]
+}

@@ -1,0 +1,185 @@
+#timeline {
+    top: 0px;
+    width: 200px;
+    height: 100%;
+    position: absolute;
+    right: 40px;
+    border-right: 5px;
+    border-color: linear-gradient(303deg, #101e2f, #120d20);
+    #timeline-past {
+        position: relative;
+        width: 100%;
+        height: 700px;
+        border-right-width: 8px;
+        border-right-style: solid;
+        border-image: linear-gradient( to top, var(--main-timeline-color), rgba(0, 0, 0, 0)) 1 100%;
+    }
+    #timeline-future-top {
+        position: absolute;
+        width: 100%;
+        height: 150px;
+        top: 750px;
+        border-right-width: 8px;
+        border-right-style: solid;
+        border-image: linear-gradient( to top, var(--main-timeline-color), rgba(0, 0, 0, 0)) 1 100%;
+    }
+    #timeline-future-bottom {
+        position: absolute;
+        width: 100%;
+        height: 200px;
+        top: 900px;
+        border-right-width: 8px;
+        border-right-style: solid;
+        border-image: linear-gradient( to bottom, var(--main-timeline-color), rgba(0, 0, 0, 0)) 1 100%;
+    }
+    h1 {
+        font-family: "AvenirLight";
+        font-size: 15px;
+        letter-spacing: -1px;
+        width: 100%;
+        height: 12px;
+        position: absolute;
+        //display: inline;
+        text-align: right;
+        float: right;
+    }
+    h2 {
+        font-family: "Avenir";
+        font-weight: bold;
+        font-size: 15px;
+        letter-spacing: -0.5px;
+        position: absolute;
+        width: 100%;
+        height: 12px;
+        //display: inline;
+        text-align: right;
+        float: right;
+        line-height: 1.6;
+    }
+    h3 {
+        font-size: 22px;
+        font-family: "AvenirBold";
+        text-align: right;
+        float: right;
+    }
+}
+
+#timeline-past ul {
+    text-transform: uppercase;
+    bottom: 0%;
+    left: 80px;
+    position: absolute;
+    //height: 100%;
+}
+
+#timeline-past li {
+    padding-top: 93px;
+    list-style-type: none;
+    color: white;
+    position: relative;
+    padding-right: 81px;
+    text-align: right;
+    float: right;
+    //display: block;
+    #timeline-date-month {
+        top: 87px;
+        right: 55px;
+        position: absolute;
+        //display: inline;
+        width: 100px;
+    }
+    #timeline-date-year {
+        top: 82px;
+        right: 26px;
+        position: absolute;
+        //display: inline;
+        width: 28px;
+    }
+    #timeline-city-name {
+        top: 89px;
+        width: 200px;
+        // margin-right: 00px;
+        right: 22px;
+        position: absolute;
+        //top: 50px;
+    }
+    #timeline-bubble {
+        list-style: none;
+        font-size: 30px;
+        background-size: 25px;
+        background-color: white;
+        position: absolute;
+        top: 100px;
+        z-index: 2;
+        height: 12px;
+        right: -15px;
+        width: 12px;
+        border: 6px solid var(--main-timeline-color);
+        border-radius: 50%;
+        display: inline-block;
+    }
+}
+
+#timeline-future ul {
+    text-transform: uppercase;
+    left: 80px;
+    padding-top: 28px;
+    position: absolute;
+    //height: 100%;
+}
+
+#timeline-future li {
+    padding-top: 100px;
+    list-style-type: none;
+    color: white;
+    position: relative;
+    padding-right: 81px;
+    text-align: right;
+    float: right;
+    //display: block;
+    #timeline-date-month {
+        top: 80px;
+        right: 67px;
+        position: absolute;
+        width: 160px;
+    }
+    #timeline-date-year {
+        top: 72px;
+        right: 23px;
+        position: absolute;
+        //display: inline;
+        width: 53px;
+    }
+    #timeline-city-name {
+        top: 82px;
+        width: 200px;
+        // margin-right: 00px;
+        right: 22px;
+        position: absolute;
+        //top: 50px;
+    }
+    #timeline-bubble {
+        list-style: none;
+        font-size: 30px;
+        background-size: 25px;
+        background-color: white;
+        position: absolute;
+        top: 100px;
+        z-index: 2;
+        height: 12px;
+        right: -15px;
+        width: 12px;
+        border: 6px solid var(--main-timeline-color);
+        border-radius: 50%;
+        display: inline-block;
+    }
+    h1 {
+        font-size: 20px;
+    }
+    h2 {
+        font-size: 20px;
+    }
+    h3 {
+        font-size: 30px;
+    }
+}

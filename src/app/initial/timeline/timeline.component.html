@@ -1,0 +1,56 @@
+<div>
+    <div id="timeline">
+        <div id="timeline-past">
+            <ul>
+                <div *ngFor="let city of citiesPast;  let i=index">
+                    <li *ngIf="i<5">
+                        <div id="timeline-bubble"></div>
+                        <div id="timeline-date-month">
+                            <h1>{{city.dateMonth}}
+
+                            </h1>
+
+                        </div>
+                        <div id="timeline-date-year">
+                            <h2>{{city.dateYear}}</h2>
+                        </div>
+                        <div id="timeline-city-name">
+                            <h3>{{city.cityName}}</h3>
+
+                        </div>
+                    </li>
+                </div>
+
+            </ul>
+        </div>
+        <div id="timeline-future">
+            <div id="timeline-future-top">
+
+            </div>
+            <ul>
+                <div *ngFor="let city of citiesFuture;  let i=index">
+                    <li *ngIf="i<2">
+                        <div id="timeline-bubble"></div>
+                        <div id="timeline-date-month">
+                            <h1>{{city.dateMonth}}
+
+                            </h1>
+
+                        </div>
+                        <div id="timeline-date-year">
+                            <h2>{{city.dateYear}}</h2>
+                        </div>
+                        <div id="timeline-city-name">
+                            <h3>{{city.cityName}}</h3>
+
+                        </div>
+                    </li>
+                </div>
+
+            </ul>
+            <div id="timeline-future-bottom">
+
+            </div>
+        </div>
+    </div>
+</div>

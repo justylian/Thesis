@@ -1,0 +1,168 @@
+   /* #map {
+        background: url('../../../assets/images/worldmap.png') repeat-x;
+        background-size: auto 100%;
+        position: absolute;
+        left: 170px;
+        top: 165px;
+        height: 750px;
+        width: 1395px;
+        border: none;
+    }*/
+   
+   #globe {
+       position: absolute;
+       left: 170px;
+       top: 165px;
+       height: 750px;
+       width: 1395px;
+       border: none;
+   }
+   
+   .ball {
+       display: block;
+       width: 100%;
+       height: 100%;
+       margin: 0;
+       left: 0;
+       top: 0;
+       border-radius: 0%;
+       background-repeat: repeat-x;
+       position: absolute;
+       background: url('../../../assets/images/worldmap.png') repeat-x;
+       -webkit-transform-style: preserve-3d;
+       background-position: calc(100% - 20px) calc(100% - 10px);
+       position: absolute;
+       -webkit-transform-style: preserve-3d;
+       background-size: auto 100%;
+   }
+   
+   .ball:before {
+       content: "";
+       position: relative;
+       left: 0%;
+       top: 0%;
+       width: 100%;
+       height: 100%;
+       box-shadow: -40px 10px 100px 10px rgba(0, 0, 0, 0.32) inset;
+       z-index: 2;
+   }
+   
+   .ball:after {
+       content: "";
+       position: relative;
+       left: 0;
+       top: 0;
+       width: 100%;
+       height: 100%;
+       box-shadow: -40px 10px 100px 10px rgba(0, 0, 0, 0.32) inset;
+       z-index: 2;
+   }
+   
+   #ballshadow {
+       content: "";
+       position: absolute;
+       border: 1px solid #8080807d;
+       border-radius: 50%;
+       width: 260px;
+       height: 250px;
+       left: 0px;
+       -webkit-filter: blur(0);
+       opacity: 0.3;
+       display: none;
+       background: radial-gradient(circle at 50% 80%, #b3b3b300, #b3b3b300 10%, #00000073 66%, #000000 100%);
+   }
+   
+   .stage {
+       width: 1200px;
+       height: 700px;
+       border-radius: 0%;
+       display: inline-block;
+       margin: 20px;
+       -webkit-perspective: 1200px;
+       -moz-perspective: 1200px;
+       -ms-perspective: 1200px;
+       -o-perspective: 1200px;
+       perspective: 1200px;
+       -webkit-perspective-origin: 50% 50%;
+       -moz-perspective-origin: 50% 50%;
+       -ms-perspective-origin: 50% 50%;
+       -o-perspective-origin: 50% 50%;
+       perspective-origin: 50% 50%;
+   }
+   
+   #pin-images {
+       position: absolute;
+       top: 280px;
+       left: 900px;
+       #pin {
+           position: absolute;
+           top: 20px;
+           z-index: 2;
+           height: 25px;
+           width: 25px;
+           background-color: rgba(187, 187, 187, 0);
+           border: 15px solid var(--main-timeline-color);
+           border-radius: 50%;
+           display: inline-block;
+       }
+       #images-stack {
+           width: 100%;
+           height: 100%;
+           position: absolute;
+           z-index: 1;
+           #image-stack-1 {
+               background: url('../../../assets/images/copenhagen/1.jpg');
+               position: absolute;
+               transform: rotate(25deg);
+               background-repeat: no-repeat;
+               background-size: auto 100%;
+               width: 100px;
+               height: 50px;
+               left: 35px;
+               top: 25px;
+           }
+           #image-stack-2 {
+               background: url('../../../assets/images/copenhagen/2.jpg');
+               position: absolute;
+               transform: rotate(45deg);
+               background-repeat: no-repeat;
+               background-size: auto 100%;
+               width: 100px;
+               height: 50px;
+               left: -40px;
+               top: 30px;
+           }
+           #image-stack-3 {
+               background: url('../../../assets/images/copenhagen/3.jpg');
+               position: absolute;
+               transform: rotate(-25deg);
+               background-repeat: no-repeat;
+               background-size: auto 100%;
+               width: 100px;
+               height: 50px;
+               left: 15px;
+               top: -20px;
+           }
+           #image-stack-4 {
+               background: url('../../../assets/images/copenhagen/4.jpg');
+               position: absolute;
+               transform: rotate(-15deg);
+               background-repeat: no-repeat;
+               background-size: auto 100%;
+               width: 100px;
+               height: 50px;
+               left: -15px;
+               top: 45px;
+           }
+           #image-stack-5 {
+               background: url('../../../assets/images/copenhagen/5.jpg');
+               position: absolute;
+               transform: rotate(10deg);
+               background-repeat: no-repeat;
+               background-size: auto 100%;
+               width: 100px;
+               height: 50px;
+               top: 20px;
+           }
+       }
+   }

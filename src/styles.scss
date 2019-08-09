@@ -1,1 +1,38 @@
 /* You can add global styles to this file, and also import other style files */
+
+@font-face {
+    font-family: "AvenirLight";
+    src: url("/assets/font/avenir/AvenirNextLTPro-UltLt.otf");
+    font-weight: light;
+}
+
+@font-face {
+    font-family: "Avenir";
+    src: url("/assets/font/avenir/AvenirLTStd-Roman.otf");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "AvenirMedium";
+    src: url("/assets/font/avenir/AvenirLTStd-Medium.otf");
+}
+
+@font-face {
+    font-family: "AvenirBold";
+    src: url("/assets/font/avenir/AvenirLTStd-Heavy.otf");
+    font-weight: bold;
+}
+
+html,
+body {
+    font-family: Avenir;
+    overflow: hidden;
+    height: 1080px;
+    width: 1920px;
+    margin: 0;
+    padding: 0;
+    top: 0%;
+    margin: 0%;
+    background: linear-gradient(0deg, #122323, #121426);
+    --main-timeline-color: #c29595;
+}
