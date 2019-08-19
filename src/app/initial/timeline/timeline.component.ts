@@ -1,7 +1,7 @@
+//import { MapComponent } from './../map/map.component';
 import { Component, OnInit } from '@angular/core';
 import { Timelineinfo } from './../../models/timelineinfo';
 import timelinejson from '../../../assets/json/timeline.json';
-
 
 /*
 
@@ -62,6 +62,8 @@ export class TimelineComponent implements OnInit {
  }
 
   ngOnInit() {
+   //this.map.mapMinify();
+
   }
 
 }

@@ -4,13 +4,14 @@ import { TimelineComponent } from './timeline/timeline.component';
 import { MusicComponent } from './music/music.component';
 import { MapComponent } from './map/map.component';
 import { ImagesComponent } from './images/images.component';
+import { InfobubbleComponent } from './infobubble/infobubble.component';
 
 
 
 
 @NgModule({
-  declarations: [TimelineComponent, MusicComponent, MapComponent, ImagesComponent],
-  exports:[TimelineComponent, MusicComponent, MapComponent, ImagesComponent],
+  declarations: [TimelineComponent, MusicComponent, MapComponent, ImagesComponent, InfobubbleComponent],
+  exports:[TimelineComponent, MusicComponent, MapComponent, ImagesComponent,InfobubbleComponent],
   imports: [
     CommonModule
   ]

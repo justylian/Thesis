@@ -1,11 +1,11 @@
 <div>
     <!--<div id="map"></div>-->
-    <div id="globe">
+    <div id="ball-out">
         <section class="stage">
             <div id="ballshadow"></div>
-            <figure class="ball" id="glb1">
+            <figure class="ball-in" id="glb1">
             </figure>
-            <figure class="ball" id="glb2">
+            <figure class="ball-in" id="glb2">
 
             </figure>
         </section>
@@ -20,5 +20,13 @@
             <div id="image-stack-4"></div>
             <div id="image-stack-5"></div>
         </div>
+    </div>
+
+    <div id="city-map-name">
+        <div *ngFor="let city of citiesPast;  let i=index">
+            <div *ngIf="i<5"></div>
+        </div>
+        <div *ngFor="let city of citiesFuture;  let i=index">
+
     </div>
 </div>

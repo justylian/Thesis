@@ -2,7 +2,18 @@
     "citiesPast": [{
             "cityName": "New York",
             "dateMonth": "June",
-            "dateYear": "2017"
+            "dateYear": "2017",
+            "currency": "USD",
+            "timezone": "GMT -5",
+            "language": "English",
+            "countrycode": "+1",
+            "lingo": "Good Morning!",
+            "weather": {
+                "templow": "8",
+                "temphigh": "16",
+                "rainydays": "11"
+            }
+
         },
         {
             "cityName": "Dublin",
@@ -29,7 +40,17 @@
     "citiesFuture": [{
             "cityName": "Copenhagen",
             "dateMonth": "August",
-            "dateYear": "2019"
+            "dateYear": "2019",
+            "currency": "Krone",
+            "timezone": "GMT +1",
+            "language": "Danish",
+            "countrycode": "+45",
+            "lingo": "'God morgen!'",
+            "weather": {
+                "templow": "8°",
+                "temphigh": "16°",
+                "rainydays": "17"
+            }
         },
         {
             "cityName": "Moscow",

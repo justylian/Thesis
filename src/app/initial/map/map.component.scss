@@ -9,16 +9,31 @@
         border: none;
     }*/
    
-   #globe {
+   #ball-out {
        position: absolute;
        left: 170px;
        top: 165px;
-       height: 750px;
-       width: 1395px;
        border: none;
+       .stage {
+           height: 750px;
+           width: 1395px;
+           border-radius: 0%;
+           display: inline-block;
+           margin: 20px;
+           -webkit-perspective: 1200px;
+           -moz-perspective: 1200px;
+           -ms-perspective: 1200px;
+           -o-perspective: 1200px;
+           perspective: 1200px;
+           -webkit-perspective-origin: 50% 50%;
+           -moz-perspective-origin: 50% 50%;
+           -ms-perspective-origin: 50% 50%;
+           -o-perspective-origin: 50% 50%;
+           perspective-origin: 50% 50%;
+       }
    }
    
-   .ball {
+   .ball-in {
        display: block;
        width: 100%;
        height: 100%;
@@ -30,13 +45,13 @@
        position: absolute;
        background: url('../../../assets/images/worldmap.png') repeat-x;
        -webkit-transform-style: preserve-3d;
-       background-position: calc(100% - 20px) calc(100% - 10px);
+       background-position: calc(100% - 0px) calc(100% - 10px);
        position: absolute;
        -webkit-transform-style: preserve-3d;
        background-size: auto 100%;
    }
    
-   .ball:before {
+   .ball-in:before {
        content: "";
        position: relative;
        left: 0%;
@@ -47,7 +62,7 @@
        z-index: 2;
    }
    
-   .ball:after {
+   .ball-in:after {
        content: "";
        position: relative;
        left: 0;
@@ -70,24 +85,6 @@
        opacity: 0.3;
        display: none;
        background: radial-gradient(circle at 50% 80%, #b3b3b300, #b3b3b300 10%, #00000073 66%, #000000 100%);
-   }
-   
-   .stage {
-       width: 1200px;
-       height: 700px;
-       border-radius: 0%;
-       display: inline-block;
-       margin: 20px;
-       -webkit-perspective: 1200px;
-       -moz-perspective: 1200px;
-       -ms-perspective: 1200px;
-       -o-perspective: 1200px;
-       perspective: 1200px;
-       -webkit-perspective-origin: 50% 50%;
-       -moz-perspective-origin: 50% 50%;
-       -ms-perspective-origin: 50% 50%;
-       -o-perspective-origin: 50% 50%;
-       perspective-origin: 50% 50%;
    }
    
    #pin-images {
@@ -164,5 +161,51 @@
                height: 50px;
                top: 20px;
            }
+       }
+   }
+   
+   //ANIMATION
+   @-moz-keyframes move-map-globe {
+       0% {
+           background-position: calc(100% - 0px) calc(100% - 10px);
+       }
+       100% {
+           background-position: calc(-500%) calc(100% - 10px);
+       }
+   }
+   
+   @-webkit-keyframes move-map-globe {
+       0% {
+           background-position: calc(-500%) calc(100% - 10px);
+       }
+       100% {
+           background-position: calc(100% - 0px) calc(100% - 10px);
+       }
+   }
+   
+   @-o-keyframes move-map-globe {
+       0% {
+           background-position: calc(100% - 0px) calc(100% - 10px);
+       }
+       100% {
+           background-position: calc(-500%) calc(100% - 10px);
+       }
+   }
+   
+   @-ms-keyframes move-map-globe {
+       0% {
+           background-position: calc(100% - 0px) calc(100% - 10px);
+       }
+       100% {
+           background-position: calc(-500%) calc(100% - 10px);
+       }
+   }
+   
+   @keyframes move-map-globe {
+       0% {
+           background-position: calc(100% - 0px) calc(100% - 10px);
+       }
+       100% {
+           background-position: -1000px calc(100% - 10px);
        }
    }

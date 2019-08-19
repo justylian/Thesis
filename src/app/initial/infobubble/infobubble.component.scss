@@ -1,0 +1,114 @@
+#info-bubble {
+    position: relative;
+    min-width: 150px;
+    max-width: 200px;
+    margin-top: 20px;
+    margin-left: 30px;
+    .info-bubble-inner {
+        position: absolute;
+        border: 1px solid #647B7C;
+        width: 100%;
+        z-index: 1;
+        padding-left: 5%;
+        padding-top: 5%;
+        padding-bottom: 5%;
+        padding-RIGHT: 5%;
+        border-radius: 0px 15px 15px 15px;
+    }
+    .info-bubble-inner-shadow {
+        z-index: 2;
+        //position: absolute;
+        //width: 200px;
+        //height: 200px;
+        //background: radial-gradient(circle at 50% 80%, #b3b3b300, #b3b3b300 10%, #00000073 66%, #000000 100%);
+        background-image: radial-gradient(circle, #11162680, #11152640);
+    }
+    .info-bubble-title {
+        color: white;
+        font-size: 25px;
+        margin: 0;
+    }
+    .info-bubble-inner-title {
+        border-top: 1px solid #647B7C;
+        color: white;
+        font-size: 15px;
+        padding-top: 12px;
+        padding-BOTTOM: 5px;
+        /* top: 16px; */
+        width: 190px;
+        /* margin-top: 10px; */
+        margin: 0;
+    }
+    .info-bubble-inner-trans {
+        color: #647B7C;
+        font-size: 20px;
+        margin: 0;
+    }
+    .info-bubble-desc {
+        color: #00868B;
+        font-size: 20px;
+        margin: 0;
+    }
+    #info-bubble-desc-lang {
+        padding-bottom: 5px;
+    }
+    #info-bubble-desc-weather-high {
+        right: 8px;
+        position: absolute;
+        top: 58px;
+    }
+    #info-bubble-desc-weather-low {
+        right: 8px;
+        top: 40px;
+        position: absolute;
+    }
+    #info-bubble-desc-weather-days {
+        right: 8px;
+        position: absolute;
+        top: 91px;
+    }
+    .info-bubble-average-temps {
+        color: #647B7C;
+        width: 80px;
+        margin: 0;
+        padding-top: 5px;
+    }
+    .info-bubble-average-rainy {
+        color: #647B7C;
+        width: 80px;
+        margin: 0;
+        padding-top: 8px;
+    }
+    #info-bubble-inner-1 {
+        //display: none;
+    }
+    #info-bubble-inner-shadow-1 {
+        //display: none;
+    }
+    #info-bubble-inner-2 {
+        display: none;
+    }
+    #info-bubble-inner-shadow-2 {
+        display: none;
+    }
+    #info-bubble-inner-3 {
+        display: none;
+    }
+    #info-bubble-inner-shadow-3 {
+        display: none;
+    }
+    #info-bubble-inner-4 {
+        display: none;
+    }
+    #info-bubble-inner-shadow-4 {
+        display: none;
+    }
+    #info-bubble-inner-5 {
+        //left: 50px;
+        display: none;
+        //top: 0px;
+    }
+    #info-bubble-inner-shadow-5 {
+        display: none;
+    }
+}
