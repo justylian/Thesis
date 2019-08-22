@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import timelinejson from '../../../assets/json/timeline.json';
+declare var $: any;
+declare var jQuery: any;
 
 @Component({
   selector: 'app-infotable',
@@ -15,3 +17,13 @@ export class InfotableComponent implements OnInit {
   }
 
 }
+
+
+
+//AUTO RESIZE CITY NAME
+$(document).ready(function() {
+  var fontSize = 1130/parseInt($("#city-name").text().length)+"px";
+
+  //alert(fontSize);
+  $("#city-name").css('font-size', fontSize);
+});

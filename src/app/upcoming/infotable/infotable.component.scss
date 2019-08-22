@@ -5,16 +5,45 @@
     top: 0px;
     overflow: hidden;
     position: absolute;
-    #city-longlat {}
+    h1 {
+        font-size: 20px;
+        font-family: "AvenirBold";
+        color: #254F50;
+    }
+    #city-longlat {
+        opacity: 0.8;
+        top: 10px;
+        position: absolute;
+        left: 10px;
+        color: var(--main-timeline-color);
+        font-size: 1vw;
+    }
     #city-name {
         color: var(--main-timeline-color);
-        top: 10px;
-        left: 2px;
-        width: 850px;
-        position: relative;
+        top: 25px;
+        left: 10px;
+        width: 100%;
+        position: absolute;
         z-index: 4;
         font-family: "AvenirBolder";
-        font-size: 100vw;
+        font-size: 5vw;
         text-transform: uppercase;
+    }
+    #dates {}
+    #accommodation {
+        #accommodation-icon {}
+        #hotel-name {}
+        #hotel-address {}
+        #hotel-check-in {}
+        #hotel-check-out {}
+    }
+    #flight {
+        #flight-icon {}
+        #flight-info-outbound {
+            #flight-info-outbound-icon {}
+        }
+        #flight-info-inbound {
+            #flight-info-inbound-icon {}
+        }
     }
 }
