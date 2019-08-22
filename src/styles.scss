@@ -23,6 +23,12 @@
     font-weight: bold;
 }
 
+@font-face {
+    font-family: "AvenirBolder";
+    src: url("/assets/font/avenir/AvenirLTStd-Black.otf");
+    font-weight: bolder;
+}
+
 html,
 body {
     font-family: Avenir;

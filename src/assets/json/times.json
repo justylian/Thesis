@@ -1,5 +1,5 @@
 {
-    "timePerCity": "1000",
-    "timePerPhoto": "200"
-        
+    "timePerCity": 2500,
+    "timePerPhoto": 500,
+    "delay": 5000
 }

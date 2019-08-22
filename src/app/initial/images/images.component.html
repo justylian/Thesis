@@ -1,0 +1,13 @@
+<div id="image-main">
+    <div *ngFor="let city of citiesPast;  let i=index">
+        <div id="image-main-inner" *ngIf="i<1">
+            <img id="image-one" src={{city.photos.one}}>
+            <img id="image-two" src={{city.photos.two}}>
+            <img id="image-three" src={{city.photos.three}}>
+            <img id="image-four" src={{city.photos.four}}>
+            <img id="image-five" src={{city.photos.five}}>
+
+        </div>
+    </div>
+
+</div>

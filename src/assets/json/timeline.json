@@ -12,50 +12,127 @@
                 "templow": "8",
                 "temphigh": "16",
                 "rainydays": "11"
+            },
+            "photos": {
+                "one": "../../../assets/images/copenhagen/1.jpg",
+                "two": "../../../assets/images/copenhagen/2.jpg",
+                "three": "../../../assets/images/copenhagen/3.jpg",
+                "four": "../../../assets/images/copenhagen/4.jpg",
+                "five": "../../../assets/images/copenhagen/5.jpg"
             }
 
         },
         {
             "cityName": "Dublin",
             "dateMonth": "January",
-            "dateYear": "2017"
+            "dateYear": "2017",
+            "currency": "EUR",
+            "timezone": "GMT",
+            "language": "English",
+            "countrycode": "+1",
+            "lingo": "Good Morning!",
+            "weather": {
+                "templow": "4",
+                "temphigh": "10",
+                "rainydays": "11"
+            },
+            "photos": {
+                "one": "../../../assets/images/copenhagen/1.jpg",
+                "two": "../../../assets/images/copenhagen/2.jpg",
+                "three": "../../../assets/images/copenhagen/3.jpg",
+                "four": "../../../assets/images/copenhagen/4.jpg",
+                "five": "../../../assets/images/copenhagen/5.jpg"
+            }
         },
 
         {
             "cityName": "Athens",
             "dateMonth": "January",
-            "dateYear": "2018"
+            "dateYear": "2018",
+            "currency": "EUR",
+            "timezone": "GMT +2",
+            "language": "Greek",
+            "countrycode": "+30",
+            "lingo": "Καλημέρα!",
+            "weather": {
+                "templow": "10",
+                "temphigh": "25",
+                "rainydays": "11"
+            },
+            "photos": {
+                "one": "../../../assets/images/copenhagen/1.jpg",
+                "two": "../../../assets/images/copenhagen/2.jpg",
+                "three": "../../../assets/images/copenhagen/3.jpg",
+                "four": "../../../assets/images/copenhagen/4.jpg",
+                "five": "../../../assets/images/copenhagen/5.jpg"
+            }
         },
         {
             "cityName": "Bilbao",
             "dateMonth": "February",
-            "dateYear": "2018"
+            "dateYear": "2018",
+            "currency": "EUR",
+            "timezone": "GMT +1",
+            "language": "English",
+            "countrycode": "+1",
+            "lingo": "Buenos Dias!",
+            "weather": {
+                "templow": "4",
+                "temphigh": "10",
+                "rainydays": "11"
+            },
+            "photos": {
+                "one": "../../../assets/images/copenhagen/1.jpg",
+                "two": "../../../assets/images/copenhagen/2.jpg",
+                "three": "../../../assets/images/copenhagen/3.jpg",
+                "four": "../../../assets/images/copenhagen/4.jpg",
+                "five": "../../../assets/images/copenhagen/5.jpg"
+            }
         },
         {
             "cityName": "Istanbul",
             "dateMonth": "October",
-            "dateYear": "2018"
+            "dateYear": "2018",
+            "currency": "TRL",
+            "timezone": "GMT +2",
+            "language": "Turkish",
+            "countrycode": "+45",
+            "lingo": "Merhaba!",
+            "weather": {
+                "templow": "14",
+                "temphigh": "20",
+                "rainydays": "14"
+            },
+            "photos": {
+                "one": "../../../assets/images/copenhagen/1.jpg",
+                "two": "../../../assets/images/copenhagen/2.jpg",
+                "three": "../../../assets/images/copenhagen/3.jpg",
+                "four": "../../../assets/images/copenhagen/4.jpg",
+                "five": "../../../assets/images/copenhagen/5.jpg"
+            }
         }
     ],
     "citiesFuture": [{
-            "cityName": "Copenhagen",
-            "dateMonth": "August",
-            "dateYear": "2019",
-            "currency": "Krone",
-            "timezone": "GMT +1",
-            "language": "Danish",
-            "countrycode": "+45",
-            "lingo": "'God morgen!'",
-            "weather": {
-                "templow": "8°",
-                "temphigh": "16°",
-                "rainydays": "17"
-            }
+        "cityName": "Copenhagen",
+        "dateMonth": "August",
+        "dateYear": "2019",
+        "currency": "Krone",
+        "timezone": "GMT +1",
+        "language": "Danish",
+        "countrycode": "+45",
+        "lingo": "'God morgen!'",
+        "weather": {
+            "templow": "8°",
+            "temphigh": "16°",
+            "rainydays": "17"
         },
-        {
-            "cityName": "Moscow",
-            "dateMonth": "December",
-            "dateYear": "2019"
-        }
-    ]
+        "photos": {
+            "one": "../../../assets/images/copenhagen/1.jpg",
+            "two": "../../../assets/images/copenhagen/2.jpg",
+            "three": "../../../assets/images/copenhagen/3.jpg",
+            "four": "../../../assets/images/copenhagen/4.jpg",
+            "five": "../../../assets/images/copenhagen/5.jpg"
+        },
+        "longlat": "40° 43' 50.1960'' N | 73° 56' 6.8712'' W"
+    }]
 }

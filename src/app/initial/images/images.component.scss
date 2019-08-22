@@ -1,0 +1,17 @@
+#image-main {
+    width: 1920px;
+    height: auto;
+    display: none;
+}
+
+#image-main-inner {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    img {
+        width: 1920px;
+        height: auto;
+        z-index: 1;
+        position: absolute;
+    }
+}
