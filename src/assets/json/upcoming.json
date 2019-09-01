@@ -1,0 +1,75 @@
+{
+    "flight": {
+        "departure": {
+            "flight": "Aegean Airlines A1490",
+            "departureairport": "HER",
+            "departuredate": "24",
+            "departuremonth": "May",
+            "departurehour": "16:00",
+            "departureyear": "2019"
+
+
+        },
+        "arrival": {
+            "flight": "Aegean Airlines A1490",
+            "arrivalairport": "CPH",
+            "arrivaldate": "26",
+            "arrivalmonth": "May",
+            "arrivalhour": "9:20",
+            "arrivalyear": "2019"
+
+
+        }
+
+
+    },
+    "accommodation": {
+        "hotel": "Grand Hotel København",
+        "address": "Viktoriagade 19A, 1655",
+        "checkin": "24 May 9:00-21:00",
+        "checkout": "26 May 9:00-12:00"
+
+
+    },
+    "notes": {
+        "one": "Warm clothes",
+        "two": "Umbrella"
+    },
+    "weather": {
+        "day1": {
+            "state": "Showers",
+            "day": "Sunday",
+            "date": "24 May",
+            "templow": "12°",
+            "temphigh": "14°"
+        },
+        "day2": {
+            "state": "Sunny",
+            "day": "Sunday",
+            "date": "25 May",
+            "templow": "15°",
+            "temphigh": "19°"
+        },
+        "day3": {
+            "state": "Cloudy",
+            "day": "Sunday",
+            "date": "26 May",
+            "templow": "10°",
+            "temphigh": "15°"
+        },
+        "day4": {
+            "state": "Cloudysunny",
+            "day": "Sunday",
+            "date": "27 May",
+            "templow": "12°",
+            "temphigh": "16°"
+        },
+        "day5": {
+            "state": "Cloudy",
+            "day": "Sunday",
+            "date": "28 May",
+            "templow": "13°",
+            "temphigh": "16°"
+        }
+    }
+}

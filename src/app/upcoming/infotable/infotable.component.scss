@@ -5,10 +5,21 @@
     top: 0px;
     overflow: hidden;
     position: absolute;
+    .upper-border {
+        width: 100%;
+        height: 0px;
+        /* border-radius: 25%; */
+        margin-bottom: 8px;
+        border-radius: 10px;
+        margin-left: 20px;
+        border: 1px solid #254F50;
+    }
     h1 {
-        font-size: 20px;
+        font-size: 31px;
         font-family: "AvenirBold";
         color: #254F50;
+        margin-bottom: 0px;
+        margin-top: -1px;
     }
     #city-longlat {
         opacity: 0.8;
@@ -16,7 +27,7 @@
         position: absolute;
         left: 10px;
         color: var(--main-timeline-color);
-        font-size: 1vw;
+        font-size: 0.7vw;
     }
     #city-name {
         color: var(--main-timeline-color);
@@ -29,21 +40,323 @@
         font-size: 5vw;
         text-transform: uppercase;
     }
-    #dates {}
+    #info-frame-low {
+        top: 200px;
+        position: absolute;
+    }
+    .infotable-inner-texts {
+        padding-left: 60px;
+    }
+    .infotable-inner-texts-inside {
+        padding-left: 20px;
+        padding-top: 6px;
+    }
+    #dates {
+        font-family: "AvenirBold";
+        width: 330px;
+        height: 50px;
+        font-size: 25px;
+        position: absolute;
+        top: 170px;
+        color: #254F50;
+        padding-left: 20px;
+        text-transform: uppercase;
+        #dates-month {
+            font-family: "AvenirLight";
+        }
+    }
     #accommodation {
-        #accommodation-icon {}
-        #hotel-name {}
-        #hotel-address {}
-        #hotel-check-in {}
-        #hotel-check-out {}
+        width: 330px;
+        height: 158px;
+        #accommodation-icon {
+            background-image: url("../../../assets/images/icons/accomm.png");
+            width: 22px;
+            position: absolute;
+            height: 25px;
+            background-size: cover;
+            margin-left: 24px;
+            margin-top: 2px;
+        }
+        #hotel-name {
+            font-size: 20px;
+            color: #677C7C;
+        }
+        #hotel-address {
+            font-size: 15px;
+            color: #8d9fa0;
+        }
+        #hotel-check-in {
+            padding-left: 20px;
+            font-size: 12px;
+            color: #8d9fa0;
+            margin-top: 10px;
+            #hotel-checkin-icon {
+                background-image: url("../../../assets/images/icons/flightarrow.png");
+                width: 15px;
+                position: absolute;
+                height: 11px;
+                background-size: cover;
+                margin-left: -18px;
+                margin-top: -13px;
+            }
+        }
+        #hotel-check-out {
+            padding-left: 20px;
+            font-size: 12px;
+            color: #8d9fa0;
+            #hotel-checkout-icon {
+                background-image: url("../../../assets/images/icons/flightarrow.png");
+                width: 15px;
+                transform: rotate(180deg);
+                position: absolute;
+                height: 11px;
+                background-size: cover;
+                margin-left: -17px;
+                margin-top: -13px;
+            }
+        }
     }
     #flight {
-        #flight-icon {}
+        width: 330px;
+        height: 155px;
+        color: #254F50;
+        #flight-icon {
+            background-image: url("../../../assets/images/icons/flights.png");
+            width: 26px;
+            position: absolute;
+            height: 25px;
+            background-size: cover;
+            margin-left: 24px;
+            margin-top: 2px;
+        }
         #flight-info-outbound {
-            #flight-info-outbound-icon {}
+            width: 100%;
+            font-size: 20px;
+            color: #677C7C;
+            #flight-info-outbound-icon {
+                background-image: url("../../../assets/images/icons/flightarrow.png");
+                width: 21px;
+                position: absolute;
+                height: 15px;
+                background-size: cover;
+                margin-left: 86px;
+                margin-top: -21px;
+            }
+            #flight-info-outbound-flightinfo {
+                font-size: 12px;
+                color: #8d9fa0;
+            }
         }
         #flight-info-inbound {
-            #flight-info-inbound-icon {}
+            width: 100%;
+            margin-top: 5px;
+            font-size: 20px;
+            top: 10px;
+            color: #677C7C;
+            #flight-info-inbound-icon {
+                background-image: url("../../../assets/images/icons/flightarrow.png");
+                width: 21px;
+                transform: rotate(180deg);
+                position: absolute;
+                height: 15px;
+                background-size: cover;
+                margin-left: 86px;
+                margin-top: -20px;
+            }
+            #flight-info-inbound-flightinfo {
+                font-size: 12px;
+                color: #8d9fa0;
+            }
+        }
+    }
+    #weather {
+        width: 330px;
+        height: 220px;
+        #weather-icon {
+            background-image: url("../../../assets/images/icons/weather.png");
+            width: 22px;
+            position: absolute;
+            height: 25px;
+            background-size: cover;
+            margin-left: 24px;
+            margin-top: 2px;
+        }
+        #weather-today {
+            width: 50px;
+            height: 50px;
+            #weather-today-state {
+                text-align: center;
+                font-size: 10px;
+                color: #8d9fa0;
+                img {
+                    display: block;
+                    width: 50px;
+                }
+            }
+            #weather-today-date {
+                margin-top: -41px;
+                font-size: 15px;
+                color: #8d9fa0;
+                width: 50px;
+                height: 50px;
+                left: 180px;
+                display: inline;
+                position: absolute;
+            }
+            #weather-today-temp {
+                margin-top: -46px;
+                font-size: 23px;
+                color: #254F50;
+                line-height: 1;
+                width: 20px;
+                height: 50px;
+                left: 280px;
+                display: inline;
+                position: absolute;
+            }
+        }
+        #weather-message {
+            background-color: #b1c9ca;
+            color: #fff;
+            position: absolute;
+            float: right;
+            font-size: 10px;
+            margin-top: 12px;
+            border-radius: 15px 50px 30px;
+            padding-top: 4px;
+            padding-bottom: 4px;
+            padding-left: 6px;
+            padding-right: 6px;
+        }
+        #weather-1 {}
+        #weather-2 {
+            margin-top: -55px;
+            margin-left: 65px;
+        }
+        #weather-3 {
+            margin-top: -55px;
+            margin-left: 129px;
+        }
+        #weather-4 {
+            margin-top: -55px;
+            margin-left: 191px;
+        }
+        .weather-boxes {
+            color: #8d9fa0;
+            border: 1px solid #b1c9ca70;
+            width: 43px;
+            height: 53px;
+            margin-top: 40px;
+            border-radius: 7px;
+            font-size: 15%;
+            text-align: center;
+            img {
+                padding-left: 7px;
+                display: block;
+                width: 30px;
+            }
+        }
+        .weather-boxes-temps {
+            font-size: 10px;
+            padding-top: 2px;
+        }
+    }
+    #info {
+        width: 330px;
+        height: 158px;
+        .info-titles {
+            position: absolute;
+            display: inline;
+            padding-left: 5px;
+            color: #254f50;
+        }
+        #info-icon {
+            background-image: url("../../../assets/images/icons/info.png");
+            width: 22px;
+            position: absolute;
+            height: 25px;
+            background-size: cover;
+            margin-left: 24px;
+            margin-top: 2px;
+        }
+        #info-currency {
+            font-size: 18px;
+            color: #8d9fa0;
+        }
+        #info-language {
+            font-size: 18px;
+            color: #8d9fa0;
+        }
+        #info-countrycode {
+            font-size: 18px;
+            color: #8d9fa0;
+        }
+        #info-timezone {
+            font-size: 18px;
+            color: #8d9fa0;
+        }
+    }
+    #notes {
+        width: 330px;
+        height: 150px;
+        #notes-icon {
+            background-image: url("../../../assets/images/icons/notes.png");
+            width: 22px;
+            position: absolute;
+            height: 25px;
+            background-size: cover;
+            margin-left: 24px;
+            margin-top: 2px;
+        }
+        li {
+            list-style-type: none;
+            color: #8d9fa0;
+            font-size: 18px;
+        }
+    }
+    #places {
+        width: 430px;
+        left: 380px;
+        top: 0px;
+        height: 900px;
+        position: absolute;
+        display: inline-block;
+        #places-icon {
+            background-image: url("../../../assets/images/icons/places.png");
+            width: 22px;
+            position: absolute;
+            height: 25px;
+            background-size: cover;
+            margin-left: 24px;
+            margin-top: 2px;
+        }
+        #places-inner {
+            width: 431px;
+            height: 100%;
+            left: 21px;
+            position: absolute;
+            overflow: scroll;
+            li {
+                list-style-type: none;
+            }
+            img {
+                width: 100%;
+                height: auto;
+            }
+            .places-desc {
+                background-color: white;
+                color: #254f50;
+                position: absolute;
+                float: right;
+                right: 6px;
+                font-size: 14px;
+                margin-top: 4px;
+                border-radius: 15px 50px 30px;
+                padding-top: 4px;
+                padding-bottom: 4px;
+                padding-left: 6px;
+                padding-right: 6px;
+            }
         }
     }
 }

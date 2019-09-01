@@ -4,17 +4,19 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { InitialModule } from './initial/initial.module';
-import { InfotableComponent } from './upcoming/infotable/infotable.component';
+import { UpcomingModule } from './upcoming/upcoming.module';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    InfotableComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    InitialModule
+    InitialModule,
+    UpcomingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

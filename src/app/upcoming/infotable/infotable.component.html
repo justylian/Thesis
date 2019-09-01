@@ -2,70 +2,160 @@
     <div id="city-longlat">{{citiesFuture[0].longlat}}</div>
 
     <div id="city-name">{{citiesFuture[0].cityName}}</div>
-    <div id="dates"></div>
-    <div id="accommodation">
-        <div id="accommodation-icon"></div>
-        <div class="infotable-inner-texts">
-
-            <h1>Accommodation</h1>
-            <div id="hotel-name"></div>
-            <div id="hotel-address"></div>
-            <div id="hotel-check-in"></div>
-            <div id="hotel-check-out"></div>
+    <div id="dates">
+        <div *ngIf="arrivaldiff===false">{{upcoming.flight.departure.departuredate}}
+            <span id="dates-month">{{upcoming.flight.departure.departuremonth}}</span>-{{upcoming.flight.arrival.arrivaldate}}
+            <span id="dates-month">{{upcoming.flight.arrival.arrivalmonth}}</span>{{upcoming.flight.departure.departureyear}}</div>
+        <div *ngIf="arrivaldiff===true">{{upcoming.flight.departure.departuredate}}-{{upcoming.flight.arrival.arrivaldate}}<span id="dates-month">{{upcoming.flight.departure.departuremonth}}</span>{{upcoming.flight.departure.departureyear}}
         </div>
     </div>
-    <div id="flight">
-        <div id="flight-icon"></div>
-        <div class="infotable-inner-texts">
+    <div id="info-frame-low">
+        <div id="accommodation">
+            <div class="upper-border"></div>
 
-            <h1>Flights</h1>
-            <div id="flight-info-outbound">
-                <div id="flight-info-outbound-icon"></div>
+            <div id="accommodation-icon"></div>
+            <div class="infotable-inner-texts">
+
+                <h1>Accommodation</h1>
+                <div class="infotable-inner-texts-inside">
+
+                    <div id="hotel-name">{{upcoming.accommodation.hotel}} </div>
+                    <div id="hotel-address">{{upcoming.accommodation.address}} </div>
+                    <div id="hotel-check-in">&nbsp;Check-in:&nbsp;
+                        <div id="hotel-checkin-icon"></div> {{upcoming.accommodation.checkin}} </div>
+                    <div id="hotel-check-out">&nbsp;Check-out:&nbsp;
+                        <div id="hotel-checkout-icon"></div> {{upcoming.accommodation.checkout}} </div>
+                </div>
             </div>
-            <div id="flight-info-inbound">
-                <div id="flight-info-inbound-icon"></div>
+        </div>
+        <div id="flight">
+            <div class="upper-border"></div>
+            <div id="flight-icon"></div>
+            <div class="infotable-inner-texts">
+
+                <h1>Flights</h1>
+                <div class="infotable-inner-texts-inside">
+
+                    <div id="flight-info-outbound">{{upcoming.flight.departure.departureairport}}-{{upcoming.flight.arrival.arrivalairport}}
+                        <div id="flight-info-outbound-icon"></div>&nbsp;&nbsp; {{upcoming.flight.departure.departuredate}} {{upcoming.flight.departure.departuremonth}} {{upcoming.flight.departure.departurehour}}
+                        <div id="flight-info-outbound-flightinfo">{{upcoming.flight.departure.flight}}</div>
+                    </div>
+                    <div id="flight-info-inbound">{{upcoming.flight.arrival.arrivalairport}}-{{upcoming.flight.departure.departureairport}}
+                        <div id="flight-info-inbound-icon"></div>
+                        &nbsp;&nbsp; {{upcoming.flight.arrival.arrivaldate}} {{upcoming.flight.arrival.arrivalmonth}} {{upcoming.flight.arrival.arrivalhour}}
+                        <div id="flight-info-inbound-flightinfo">{{upcoming.flight.arrival.flight}}</div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <div id="weather">
+            <div class="upper-border"></div>
+
+            <div id="weather-icon"></div>
+            <div class="infotable-inner-texts">
+
+                <h1>Weather</h1>
+                <div class="infotable-inner-texts-inside">
+
+                    <div id="weather-today">
+                        <div id="weather-today-state">{{upcoming.weather.day1.state}}<img [attr.src]="day1"></div>
+                        <div id="weather-today-date">{{upcoming.weather.day1.day}} {{upcoming.weather.day1.date}}</div>
+                        <div id="weather-today-temp">{{upcoming.weather.day1.templow}} {{upcoming.weather.day1.temphigh}}</div>
+                    </div>
+
+                    <div id="weather-message">{{Todaymessage}}</div>
+
+                    <div class="weather-boxes" id="weather-1"><img [attr.src]="day2">
+                        <div class="weather-boxes-temps">{{upcoming.weather.day2.templow}}-{{upcoming.weather.day2.temphigh}}</div> &nbsp; {{upcoming.weather.day2.date}}</div>
+                    <div class="weather-boxes" id="weather-2"><img [attr.src]="day3">
+                        <div class="weather-boxes-temps">{{upcoming.weather.day3.templow}}-{{upcoming.weather.day3.temphigh}}</div> &nbsp; {{upcoming.weather.day3.date}}</div>
+                    <div class="weather-boxes" id="weather-3"><img [attr.src]="day4">
+                        <div class="weather-boxes-temps">{{upcoming.weather.day4.templow}}-{{upcoming.weather.day4.temphigh}}</div> &nbsp; {{upcoming.weather.day4.date}}</div>
+                    <div class="weather-boxes" id="weather-4"><img [attr.src]="day5">
+                        <div class="weather-boxes-temps">{{upcoming.weather.day5.templow}}-{{upcoming.weather.day5.temphigh}}</div> &nbsp; {{upcoming.weather.day5.date}}</div>
+                </div>
             </div>
         </div>
+        <div id="info">
+            <div class="upper-border"></div>
 
-    </div>
-    <div id="weather">
-        <div id="weather-icon"></div>
-        <div class="infotable-inner-texts">
+            <div id="info-icon"></div>
+            <div class="infotable-inner-texts">
 
-            <h1>Weather</h1>
-            <div id="weather-today"></div>
-            <div id="weather-message"></div>
+                <h1>Information</h1>
+                <div class="infotable-inner-texts-inside">
 
-            <div id="weather-1"></div>
-            <div id="weather-2"></div>
-            <div id="weather-3"></div>
-            <div id="weather-4"></div>
+                    <div id="info-currency">
+                        Currency:
+                        <div class="info-titles">{{citiesFuture[0].currency}}</div>
+                    </div>
+                    <div id="info-language">
+                        Language:
+                        <div class="info-titles">{{citiesFuture[0].language}}</div>
+                    </div>
+                    <div id="info-countrycode">
+                        Country Code:
+                        <div class="info-titles">{{citiesFuture[0].countrycode}}</div>
+                    </div>
+                    <div id="info-timezone">
+                        Time Zone:
+                        <div class="info-titles">{{citiesFuture[0].timezone}}</div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-    <div id="info">
-        <div id="info-icon"></div>
-        <div class="infotable-inner-texts">
+        <div id="notes">
+            <div class="upper-border"></div>
 
-            <h1>Information</h1>
-            <div id="info-currency">
-                <div class="info-titles">Currency</div>{{citiesFuture[0].currency}}</div>
-            <div id="info-language">
-                <div class="info-titles">Language</div>{{citiesFuture[0].language}}</div>
-            <div id="info-countrycode">
-                <div class="info-titles">Country Code</div>{{citiesFuture[0].countrycode}}</div>
-            <div id="info-timezone">
-                <div class="info-titles">Time Zone</div>{{citiesFuture[0].timezone}}</div>
+            <div id="notes-icon"></div>
+            <div class="infotable-inner-texts">
+
+                <h1>Notes</h1>
+                <div class="infotable-inner-texts-inside">
+
+                    <li>{{upcoming.notes.one}}</li>
+                    <li>{{upcoming.notes.two}}</li>
+                </div>
+            </div>
         </div>
-    </div>
-    <div id="notes">
-        <div id="notes-icon"></div>
-        <h1>Notes</h1>
-    </div>
-    <div id="places">
-        <div id="places-icon"></div>
-        <div class="infotable-inner-texts">
+        <div id="places">
+            <div class="upper-border"></div>
 
-            <h1>Places</h1>
+            <div id="places-icon"></div>
+            <div class="infotable-inner-texts">
+
+                <h1>Places</h1>
+
+                <div id="places-inner">
+                    <li>
+                        <div class="places-desc">{{citiesFuture[0].photos.one.title}}</div>
+
+                        <img id="places-image-one" src={{citiesFuture[0].photos.one.url}}>
+                    </li>
+                    <li>
+                        <div class="places-desc">{{citiesFuture[0].photos.two.title}}</div>
+
+                        <img id="places-image-two" src={{citiesFuture[0].photos.two.url}}>
+                    </li>
+                    <li>
+                        <div class="places-desc">{{citiesFuture[0].photos.three.title}}</div>
+
+                        <img id="places-image-three" src={{citiesFuture[0].photos.three.url}}>
+                    </li>
+                    <li>
+                        <div class="places-desc">{{citiesFuture[0].photos.four.title}}</div>
+                        <img id="places-image-four" src={{citiesFuture[0].photos.four.url}}>
+                    </li>
+                    <li>
+                        <div class="places-desc">{{citiesFuture[0].photos.five.title}}</div>
+
+                        <img id="places-image-five" src={{citiesFuture[0].photos.five.url}}>
+                    </li>
+                </div>
+            </div>
         </div>
     </div>
 </div>

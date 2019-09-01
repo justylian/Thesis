@@ -9,8 +9,8 @@
             "countrycode": "+1",
             "lingo": "Good Morning!",
             "weather": {
-                "templow": "8",
-                "temphigh": "16",
+                "templow": "8°",
+                "temphigh": "16°",
                 "rainydays": "11"
             },
             "photos": {
@@ -19,7 +19,8 @@
                 "three": "../../../assets/images/copenhagen/3.jpg",
                 "four": "../../../assets/images/copenhagen/4.jpg",
                 "five": "../../../assets/images/copenhagen/5.jpg"
-            }
+            },
+            "longlat": "40° 43' 50.1960'' N | 73° 56' 6.8712'' W"
 
         },
         {
@@ -32,8 +33,8 @@
             "countrycode": "+1",
             "lingo": "Good Morning!",
             "weather": {
-                "templow": "4",
-                "temphigh": "10",
+                "templow": "4°",
+                "temphigh": "10°",
                 "rainydays": "11"
             },
             "photos": {
@@ -42,7 +43,8 @@
                 "three": "../../../assets/images/copenhagen/3.jpg",
                 "four": "../../../assets/images/copenhagen/4.jpg",
                 "five": "../../../assets/images/copenhagen/5.jpg"
-            }
+            },
+            "longlat": "40° 43' 50.1960'' N | 73° 56' 6.8712'' W"
         },
 
         {
@@ -55,8 +57,8 @@
             "countrycode": "+30",
             "lingo": "Καλημέρα!",
             "weather": {
-                "templow": "10",
-                "temphigh": "25",
+                "templow": "10°",
+                "temphigh": "25°",
                 "rainydays": "11"
             },
             "photos": {
@@ -65,7 +67,8 @@
                 "three": "../../../assets/images/copenhagen/3.jpg",
                 "four": "../../../assets/images/copenhagen/4.jpg",
                 "five": "../../../assets/images/copenhagen/5.jpg"
-            }
+            },
+            "longlat": "40° 43' 50.1960'' N | 73° 56' 6.8712'' W"
         },
         {
             "cityName": "Bilbao",
@@ -77,8 +80,8 @@
             "countrycode": "+1",
             "lingo": "Buenos Dias!",
             "weather": {
-                "templow": "4",
-                "temphigh": "10",
+                "templow": "4°",
+                "temphigh": "10°",
                 "rainydays": "11"
             },
             "photos": {
@@ -87,7 +90,8 @@
                 "three": "../../../assets/images/copenhagen/3.jpg",
                 "four": "../../../assets/images/copenhagen/4.jpg",
                 "five": "../../../assets/images/copenhagen/5.jpg"
-            }
+            },
+            "longlat": "40° 43' 50.1960'' N | 73° 56' 6.8712'' W"
         },
         {
             "cityName": "Istanbul",
@@ -99,8 +103,8 @@
             "countrycode": "+45",
             "lingo": "Merhaba!",
             "weather": {
-                "templow": "14",
-                "temphigh": "20",
+                "templow": "14°",
+                "temphigh": "20°",
                 "rainydays": "14"
             },
             "photos": {
@@ -109,7 +113,8 @@
                 "three": "../../../assets/images/copenhagen/3.jpg",
                 "four": "../../../assets/images/copenhagen/4.jpg",
                 "five": "../../../assets/images/copenhagen/5.jpg"
-            }
+            },
+            "longlat": "40° 43' 50.1960'' N | 73° 56' 6.8712'' W"
         }
     ],
     "citiesFuture": [{
@@ -127,11 +132,32 @@
             "rainydays": "17"
         },
         "photos": {
-            "one": "../../../assets/images/copenhagen/1.jpg",
-            "two": "../../../assets/images/copenhagen/2.jpg",
-            "three": "../../../assets/images/copenhagen/3.jpg",
-            "four": "../../../assets/images/copenhagen/4.jpg",
-            "five": "../../../assets/images/copenhagen/5.jpg"
+            "one": {
+                "url": "../../../assets/images/copenhagen/1.jpg",
+                "title": "Opera House",
+                "desc": ""
+            },
+            "two": {
+                "url": "../../../assets/images/copenhagen/2.jpg",
+                "title": "The Little Mermaid",
+                "desc": ""
+            },
+            "three": {
+                "url": "../../../assets/images/copenhagen/3.jpg",
+                "title": "Copenhagen Skyline",
+                "desc": ""
+            },
+            "four": {
+                "url": "../../../assets/images/copenhagen/4.jpg",
+                "title": "Nyhavn",
+                "desc": ""
+            },
+            "five": {
+                "url": "../../../assets/images/copenhagen/5.jpg",
+                "title": "Nyhavn",
+                "desc": ""
+            }
+
         },
         "longlat": "40° 43' 50.1960'' N | 73° 56' 6.8712'' W"
     }]
