@@ -71,44 +71,29 @@
         color: #647B7C;
         width: 80px;
         margin: 0;
+        font-size: 15px;
         padding-top: 5px;
     }
     .info-bubble-average-rainy {
         color: #647B7C;
         width: 80px;
         margin: 0;
+        font-size: 15px;
         padding-top: 8px;
     }
-    #info-bubble-inner-1 {
-        //display: none;
+    #info-bubble-1 {
+        opacity: 0;
     }
-    #info-bubble-inner-shadow-1 {
-        //display: none;
+    #info-bubble-2 {
+        opacity: 0;
     }
-    #info-bubble-inner-2 {
-        display: none;
+    #info-bubble-3 {
+        opacity: 0;
     }
-    #info-bubble-inner-shadow-2 {
-        display: none;
+    #info-bubble-4 {
+        opacity: 0;
     }
-    #info-bubble-inner-3 {
-        display: none;
-    }
-    #info-bubble-inner-shadow-3 {
-        display: none;
-    }
-    #info-bubble-inner-4 {
-        display: none;
-    }
-    #info-bubble-inner-shadow-4 {
-        display: none;
-    }
-    #info-bubble-inner-5 {
-        //left: 50px;
-        display: none;
-        //top: 0px;
-    }
-    #info-bubble-inner-shadow-5 {
-        display: none;
+    #info-bubble-5 {
+        opacity: 0;
     }
 }

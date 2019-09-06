@@ -1,4 +1,5 @@
-//import { MapComponent } from './../map/map.component';
+import { MapComponent } from './../map/map.component';
+import { ImagesComponent } from './../images/images.component';
 import { Component, OnInit } from '@angular/core';
 import { Timelineinfo } from './../../models/timelineinfo';
 import timelinejson from '../../../assets/json/timeline.json';
@@ -53,13 +54,16 @@ export class TimelineComponent implements OnInit {
    citiesPast=timelinejson.citiesPast;
    citiesFuture=timelinejson.citiesFuture;
 
-  constructor() {
+  constructor(private compImages: ImagesComponent,private compMap: MapComponent) {
     //var instance = new ExampleClass().deserialize(timelinejson);
-    //console.log(instance);
 
+  }
+  public futureCitySlideshow(): void {
+    this.compImages.futureCitySlideshowImages();
+    this.compMap.futureCitySlideshowMap();
 
+  }
 
- }
 
   ngOnInit() {
    //this.map.mapMinify();

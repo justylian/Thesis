@@ -1,5 +1,7 @@
 {
-    "timePerCity": 2500,
-    "timePerPhoto": 500,
-    "delay": 5000
+    "timePerCity": 20000,
+    "timePerPhoto": 4000,
+    "infobubbletime": 4000,
+    "delay": 10000
+
 }

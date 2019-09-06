@@ -20,62 +20,96 @@ export class ImagesComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    initialImagesFunc(this.timePerCity,this.timePerPhoto,this.delay);
+    //this.futureCityState();
+    //initialImagesFunc(this.timePerCity,this.timePerPhoto,this.delay);
   }
 
+  public  futureCityState(): void {
+    setTimeout(function() {
+
+    },this.delay)
+  }
+
+  public futureCitySlideshowImages(){
+    var timePerCity=this.timePerCity;
+    var timePerPhoto=this.timePerPhoto;
+    var timelineno=1;
+    var timePerCityLocal=0;
+
+    innerImagesFunc(timePerCity,timePerPhoto,timelineno);//city1
+    setTimeout(function() {
+      innerImagesFunc(timePerCity,timePerPhoto,2);
+    }, timePerCityLocal+=timePerCity);
+      setTimeout(function() {
+        innerImagesFunc(timePerCity,timePerPhoto,3);
+      }, timePerCityLocal+=timePerCity);
+      setTimeout(function() {
+        innerImagesFunc(timePerCity,timePerPhoto,4);
+      }, timePerCityLocal+=timePerCity);
+      setTimeout(function() {
+        innerImagesFunc(timePerCity,timePerPhoto,5);
+      }, timePerCityLocal+=timePerCity);
+      setTimeout(function() {
+        innerImagesFunc(timePerCity,timePerPhoto,6);
+      }, timePerCityLocal+=timePerCity);
+
+
+  }
 }
 
 
 function initialImagesFunc(timePerCity,timePerPhoto,delay){
   setTimeout(function() {
-    innerImagesFunc(timePerCity,timePerPhoto);
+    //innerImagesFunc(timePerCity,timePerPhoto);
   },delay)
 };
 
 
 
-function innerImagesFunc(timePerCity,timePerPhoto){
-  $('#image-main').fadeIn( 250, function() {
-  });
-  for (var i = 1; i <= 6; ++i){
-    imagePlay(i,timePerCity,timePerPhoto);
-}
+function innerImagesFunc(timePerCity,timePerPhoto,timelineno){
+  $('#image-main').fadeIn( 250, function() {});
+
+  var cityno="cityImages"+timelineno;
+  $('#cityImages'+timelineno).show();
+
+  for (var i = 1; i <= 5; ++i){//5 images each
+      imagePlay(i,timePerCity,timePerPhoto,timelineno);
+  }
+
+
+
 };
 
-
-
-
-
-function imagePlay(i,timePerCity,timePerPhoto) {
-
-
-
+function imagePlay(i,timePerCity,timePerPhoto,timelineno) {
   setTimeout(function() {
+    console.log(i,timelineno);
+
     if(i===1){
-      setTimeout(function() {
-      $('#image-five').fadeOut( "slow", function() {
+      $('#image'+timelineno+'-five').fadeOut( "slow", function() {
       });
-    },timePerPhoto)
     }
     else if(i===2){
-      setTimeout(function() {
 
-      $('#image-four').fadeOut( "slow", function() {
+      $('#image'+timelineno+'-four').fadeOut( "slow", function() {
       });
-    },timePerPhoto)
     }
     else if(i===3){
-      $('#image-three').fadeOut( "slow", function() {
+
+      $('#image'+timelineno+'-three').fadeOut( "slow", function() {
       });
+
     }
     else if(i===4){
-      $('#image-two').fadeOut( "slow", function() {
+
+      $('#image'+timelineno+'-two').fadeOut( "slow", function() {
       });
+
     }
     else if(i===5){
-      $('#image-one').fadeOut( "slow", function() {
-      });
-    }
 
-    }, i*timePerCity);
+      $('#image'+timelineno+'-one').fadeOut( "slow", function() {
+      });
+
+    }
+    }, i*timePerPhoto);
 }

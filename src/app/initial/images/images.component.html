@@ -1,12 +1,46 @@
 <div id="image-main">
-    <div *ngFor="let city of citiesPast;  let i=index">
-        <div id="image-main-inner" *ngIf="i<1">
-            <img id="image-one" src={{city.photos.one}}>
-            <img id="image-two" src={{city.photos.two}}>
-            <img id="image-three" src={{city.photos.three}}>
-            <img id="image-four" src={{city.photos.four}}>
-            <img id="image-five" src={{city.photos.five}}>
-
+    <div id="image-main-inner">
+        <div id="cityImages1">
+            <img id="image1-one" src={{citiesPast[0].photos.one}}>
+            <img id="image1-two" src={{citiesPast[0].photos.two}}>
+            <img id="image1-three" src={{citiesPast[0].photos.three}}>
+            <img id="image1-four" src={{citiesPast[0].photos.four}}>
+            <img id="image1-five" src={{citiesPast[0].photos.five}}>
+        </div>
+        <div id="cityImages2">
+            <img id="image2-one" src={{citiesPast[1].photos.one}}>
+            <img id="image2-two" src={{citiesPast[1].photos.two}}>
+            <img id="image2-three" src={{citiesPast[1].photos.three}}>
+            <img id="image2-four" src={{citiesPast[1].photos.four}}>
+            <img id="image2-five" src={{citiesPast[1].photos.five}}>
+        </div>
+        <div id="cityImages3">
+            <img id="image3-one" src={{citiesPast[2].photos.one}}>
+            <img id="image3-two" src={{citiesPast[2].photos.two}}>
+            <img id="image3-three" src={{citiesPast[2].photos.three}}>
+            <img id="image3-four" src={{citiesPast[2].photos.four}}>
+            <img id="image3-five" src={{citiesPast[2].photos.five}}>
+        </div>
+        <div id="cityImages4">
+            <img id="image4-one" src={{citiesPast[3].photos.one}}>
+            <img id="image4-two" src={{citiesPast[3].photos.two}}>
+            <img id="image4-three" src={{citiesPast[3].photos.three}}>
+            <img id="image4-four" src={{citiesPast[3].photos.four}}>
+            <img id="image4-five" src={{citiesPast[3].photos.five}}>
+        </div>
+        <div id="cityImages5">
+            <img id="image5-one" src={{citiesPast[4].photos.one}}>
+            <img id="image5-two" src={{citiesPast[4].photos.two}}>
+            <img id="image5-three" src={{citiesPast[4].photos.three}}>
+            <img id="image5-four" src={{citiesPast[4].photos.four}}>
+            <img id="image5-five" src={{citiesPast[4].photos.five}}>
+        </div>
+        <div id="cityImages6">
+            <img id="image6-one" src={{citiesFuture[0].photos.one.url}}>
+            <img id="image6-two" src={{citiesFuture[0].photos.two.url}}>
+            <img id="image6-three" src={{citiesFuture[0].photos.three.url}}>
+            <img id="image6-four" src={{citiesFuture[0].photos.four.url}}>
+            <img id="image6-five" src={{citiesFuture[0].photos.five.url}}>
         </div>
     </div>
 

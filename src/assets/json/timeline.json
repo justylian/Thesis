@@ -14,35 +14,35 @@
                 "rainydays": "11"
             },
             "photos": {
-                "one": "../../../assets/images/copenhagen/1.jpg",
-                "two": "../../../assets/images/copenhagen/2.jpg",
-                "three": "../../../assets/images/copenhagen/3.jpg",
-                "four": "../../../assets/images/copenhagen/4.jpg",
-                "five": "../../../assets/images/copenhagen/5.jpg"
+                "one": "../../../assets/images/newyork/1.jpg",
+                "two": "../../../assets/images/newyork/2.jpg",
+                "three": "../../../assets/images/newyork/3.jpg",
+                "four": "../../../assets/images/newyork/4.jpg",
+                "five": "../../../assets/images/newyork/5.jpg"
             },
             "longlat": "40° 43' 50.1960'' N | 73° 56' 6.8712'' W"
 
         },
         {
-            "cityName": "Dublin",
+            "cityName": "Paris",
             "dateMonth": "January",
             "dateYear": "2017",
             "currency": "EUR",
-            "timezone": "GMT",
-            "language": "English",
+            "timezone": "GMT+1",
+            "language": "French",
             "countrycode": "+1",
-            "lingo": "Good Morning!",
+            "lingo": "Bonjour!",
             "weather": {
                 "templow": "4°",
                 "temphigh": "10°",
                 "rainydays": "11"
             },
             "photos": {
-                "one": "../../../assets/images/copenhagen/1.jpg",
-                "two": "../../../assets/images/copenhagen/2.jpg",
-                "three": "../../../assets/images/copenhagen/3.jpg",
-                "four": "../../../assets/images/copenhagen/4.jpg",
-                "five": "../../../assets/images/copenhagen/5.jpg"
+                "one": "../../../assets/images/paris/1.jpg",
+                "two": "../../../assets/images/paris/2.jpg",
+                "three": "../../../assets/images/paris/3.jpg",
+                "four": "../../../assets/images/paris/4.jpg",
+                "five": "../../../assets/images/paris/5.jpg"
             },
             "longlat": "40° 43' 50.1960'' N | 73° 56' 6.8712'' W"
         },
@@ -62,34 +62,34 @@
                 "rainydays": "11"
             },
             "photos": {
-                "one": "../../../assets/images/copenhagen/1.jpg",
-                "two": "../../../assets/images/copenhagen/2.jpg",
-                "three": "../../../assets/images/copenhagen/3.jpg",
-                "four": "../../../assets/images/copenhagen/4.jpg",
-                "five": "../../../assets/images/copenhagen/5.jpg"
+                "one": "../../../assets/images/athens/1.jpg",
+                "two": "../../../assets/images/athens/2.jpg",
+                "three": "../../../assets/images/athens/3.jpg",
+                "four": "../../../assets/images/athens/4.jpg",
+                "five": "../../../assets/images/athens/5.jpg"
             },
             "longlat": "40° 43' 50.1960'' N | 73° 56' 6.8712'' W"
         },
         {
-            "cityName": "Bilbao",
+            "cityName": "Tokyo",
             "dateMonth": "February",
             "dateYear": "2018",
             "currency": "EUR",
             "timezone": "GMT +1",
             "language": "English",
             "countrycode": "+1",
-            "lingo": "Buenos Dias!",
+            "lingo": "おはようございます!",
             "weather": {
                 "templow": "4°",
                 "temphigh": "10°",
                 "rainydays": "11"
             },
             "photos": {
-                "one": "../../../assets/images/copenhagen/1.jpg",
-                "two": "../../../assets/images/copenhagen/2.jpg",
-                "three": "../../../assets/images/copenhagen/3.jpg",
-                "four": "../../../assets/images/copenhagen/4.jpg",
-                "five": "../../../assets/images/copenhagen/5.jpg"
+                "one": "../../../assets/images/tokyo/1.jpg",
+                "two": "../../../assets/images/tokyo/2.jpg",
+                "three": "../../../assets/images/tokyo/3.jpg",
+                "four": "../../../assets/images/tokyo/4.jpg",
+                "five": "../../../assets/images/tokyo/5.jpg"
             },
             "longlat": "40° 43' 50.1960'' N | 73° 56' 6.8712'' W"
         },
@@ -108,11 +108,11 @@
                 "rainydays": "14"
             },
             "photos": {
-                "one": "../../../assets/images/copenhagen/1.jpg",
-                "two": "../../../assets/images/copenhagen/2.jpg",
-                "three": "../../../assets/images/copenhagen/3.jpg",
-                "four": "../../../assets/images/copenhagen/4.jpg",
-                "five": "../../../assets/images/copenhagen/5.jpg"
+                "one": "../../../assets/images/istanbul/1.jpg",
+                "two": "../../../assets/images/istanbul/2.jpg",
+                "three": "../../../assets/images/istanbul/3.jpg",
+                "four": "../../../assets/images/istanbul/4.jpg",
+                "five": "../../../assets/images/istanbul/5.jpg"
             },
             "longlat": "40° 43' 50.1960'' N | 73° 56' 6.8712'' W"
         }

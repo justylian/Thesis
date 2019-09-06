@@ -14,6 +14,9 @@ import { InfobubbleComponent } from './infobubble/infobubble.component';
   exports:[TimelineComponent, MusicComponent, MapComponent, ImagesComponent,InfobubbleComponent],
   imports: [
     CommonModule
-  ]
+  ],
+  providers: [TimelineComponent, MusicComponent, MapComponent, ImagesComponent,InfobubbleComponent],
+
+
 })
 export class InitialModule { }
