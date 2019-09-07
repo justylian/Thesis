@@ -1,3 +1,5 @@
+import { InfobubbleComponent } from './../infobubble/infobubble.component';
+import { MapComponent } from './../map/map.component';
 import { Component, OnInit } from '@angular/core';
 import timesjson from '../../../assets/json/times.json';
 import timelinejson from '../../../assets/json/timeline.json';
@@ -17,7 +19,7 @@ export class ImagesComponent implements OnInit {
   delay=timesjson.delay;
 
 
-  constructor() { }
+  constructor(private compMap: MapComponent,private compBubble: InfobubbleComponent) { }
 
   ngOnInit() {
     //this.futureCityState();
@@ -30,28 +32,33 @@ export class ImagesComponent implements OnInit {
     },this.delay)
   }
 
-  public futureCitySlideshowImages(){
+  public slideShow(){
     var timePerCity=this.timePerCity;
     var timePerPhoto=this.timePerPhoto;
     var timelineno=1;
     var timePerCityLocal=0;
+    var compMap=this.compMap;
+    var compBubble=this.compBubble;
 
-    innerImagesFunc(timePerCity,timePerPhoto,timelineno);//city1
+
+    // ------------CITY 1
+    compMap.manageInitialMin(1);// minify
+    compBubble.hideBubble();
     setTimeout(function() {
-      innerImagesFunc(timePerCity,timePerPhoto,2);
+      manageImagesShow(timePerCity,timePerPhoto,1);//city1
+    }, timePerCityLocal+=3000);
+
+    // ------------CITY 2
+    setTimeout(function() {
+      manageImagesHide(timePerCity,timePerPhoto,0);//hide prev
+      compMap.manageInitialMax(0);
     }, timePerCityLocal+=timePerCity);
-      setTimeout(function() {
-        innerImagesFunc(timePerCity,timePerPhoto,3);
-      }, timePerCityLocal+=timePerCity);
-      setTimeout(function() {
-        innerImagesFunc(timePerCity,timePerPhoto,4);
-      }, timePerCityLocal+=timePerCity);
-      setTimeout(function() {
-        innerImagesFunc(timePerCity,timePerPhoto,5);
-      }, timePerCityLocal+=timePerCity);
-      setTimeout(function() {
-        innerImagesFunc(timePerCity,timePerPhoto,6);
-      }, timePerCityLocal+=timePerCity);
+    setTimeout(function() {
+      compMap.manageInitialMin(2);
+      manageImagesShow(timePerCity,timePerPhoto,2);//
+    }, timePerCityLocal+=3000);
+
+
 
 
   }
@@ -60,24 +67,33 @@ export class ImagesComponent implements OnInit {
 
 function initialImagesFunc(timePerCity,timePerPhoto,delay){
   setTimeout(function() {
-    //innerImagesFunc(timePerCity,timePerPhoto);
+    //manageImages(timePerCity,timePerPhoto);
   },delay)
 };
 
 
-
-function innerImagesFunc(timePerCity,timePerPhoto,timelineno){
-  $('#image-main').fadeIn( 250, function() {});
-
-  var cityno="cityImages"+timelineno;
-  $('#cityImages'+timelineno).show();
-
-  for (var i = 1; i <= 5; ++i){//5 images each
-      imagePlay(i,timePerCity,timePerPhoto,timelineno);
-  }
+function innerImagesFuncHide(){
+  $('#image-main').fadeOut( 250, function() {});
+}
 
 
 
+function manageImagesHide(timePerCity,timePerPhoto,timelineno){
+    $('#image-main').fadeOut( 250, function() {});
+
+};
+
+function manageImagesShow(timePerCity,timePerPhoto,timelineno){
+
+      $('#image-main').fadeIn( 250, function() {});
+
+      //Show group of photos of city
+      var cityno="cityImages"+timelineno;
+      $('#cityImages'+timelineno).show();
+
+      for (var i = 1; i <= 5; ++i){//5 images each
+        imagePlay(i,timePerCity,timePerPhoto,timelineno);
+      }
 };
 
 function imagePlay(i,timePerCity,timePerPhoto,timelineno) {

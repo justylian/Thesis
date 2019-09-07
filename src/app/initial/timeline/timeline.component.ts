@@ -59,8 +59,8 @@ export class TimelineComponent implements OnInit {
 
   }
   public futureCitySlideshow(): void {
-    this.compImages.futureCitySlideshowImages();
-    this.compMap.futureCitySlideshowMap();
+    this.compImages.slideShow();
+    //this.compMap.futureCitySlideshowMap(1);
 
   }
 

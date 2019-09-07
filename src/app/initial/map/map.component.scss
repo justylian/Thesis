@@ -8,7 +8,7 @@
         width: 1395px;
         border: none;
     }*/
-
+   
    #ball-out {
        position: absolute;
        left: 170px;
@@ -33,7 +33,7 @@
            perspective-origin: 50% 50%;
        }
    }
-
+   
    .ball-in {
        display: block;
        width: 100%;
@@ -51,7 +51,7 @@
        -webkit-transform-style: preserve-3d;
        background-size: auto 100%;
    }
-
+   
    .ball-in:before {
        content: "";
        position: relative;
@@ -62,7 +62,7 @@
        box-shadow: -40px 10px 100px 10px rgba(0, 0, 0, 0.32) inset;
        z-index: 2;
    }
-
+   
    .ball-in:after {
        content: "";
        position: relative;
@@ -73,21 +73,21 @@
        box-shadow: -40px 10px 100px 10px rgba(0, 0, 0, 0.32) inset;
        z-index: 2;
    }
-
+   
    #ballshadow {
        content: "";
        position: absolute;
        border: 1px solid #8080807d;
        border-radius: 50%;
-       width: 210px;
-       height: 200px;
+       width: 180px;
+       height: 170px;
        left: 0px;
        -webkit-filter: blur(0);
        opacity: 0.3;
        display: none;
        background: radial-gradient(circle at 50% 80%, #b3b3b300, #b3b3b300 10%, #00000073 66%, #000000 100%);
    }
-
+   
    #pin-images {
        position: absolute;
        top: 300px;
@@ -165,7 +165,7 @@
            }
        }
    }
-
+   
    #citytext {
        mix-blend-mode: difference;
        font-size: 80px;
@@ -174,7 +174,7 @@
        color: #111626;
        top: 159px;
    }
-
+   
    #wsd {
        background: url('../../../assets/images/worldmap.png') repeat-x;
        z-index: 7;
@@ -183,35 +183,35 @@
        top: -35px;
        width: 1000px;
    }
-
+   
    #city1 {
-       opacity: 0;
+       opacity: 1;
    }
-
+   
    #city2 {
        opacity: 0;
    }
-
+   
    #city3 {
        opacity: 0;
    }
-
+   
    #city4 {
        opacity: 0;
    }
-
+   
    #city5 {
        opacity: 0;
    }
-
+   
    #city6 {
-       opacity: 1;
+       opacity: 0;
    }
-
+   
    #city7 {
        opacity: 0;
    }
-
+   
    .city-map-name-inner {
        mix-blend-mode: difference;
        color: #fff;
@@ -219,6 +219,7 @@
        left: -150px;
        position: absolute;
        z-index: 4;
+       line-height: 0.8;
        font-family: "AvenirBolder";
        font-size: 200px;
        //color: white;
@@ -232,7 +233,7 @@
            position: absolute;
        }
    }
-
+   
    //ANIMATION
    @-moz-keyframes move-map-globe {
        0% {
@@ -242,7 +243,7 @@
            background-position: calc(-500%) calc(100% - 0px);
        }
    }
-
+   
    @-webkit-keyframes move-map-globe {
        0% {
            background-position: calc(-500%) calc(100% - 0px);
@@ -251,7 +252,7 @@
            background-position: calc(100% - 0px) calc(100% - 0px);
        }
    }
-
+   
    @-o-keyframes move-map-globe {
        0% {
            background-position: calc(100% - 0px) calc(100% - 0px);
@@ -260,7 +261,7 @@
            background-position: calc(-500%) calc(100% - 0px);
        }
    }
-
+   
    @-ms-keyframes move-map-globe {
        0% {
            background-position: calc(100% - 0px) calc(100% - 0px);
@@ -269,7 +270,7 @@
            background-position: calc(-500%) calc(100% - 0px);
        }
    }
-
+   
    @keyframes move-map-globe {
        0% {
            background-position: calc(100% - 0px) calc(100% - 0px);

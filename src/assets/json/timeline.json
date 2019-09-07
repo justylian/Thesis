@@ -20,7 +20,11 @@
                 "four": "../../../assets/images/newyork/4.jpg",
                 "five": "../../../assets/images/newyork/5.jpg"
             },
-            "longlat": "40° 43' 50.1960'' N | 73° 56' 6.8712'' W"
+            "longlat": "40° 43' 50.1960'' N | 73° 56' 6.8712'' W",
+            "cityLocation": {
+                "left": "580",
+                "top": "400"
+            }
 
         },
         {
@@ -44,7 +48,11 @@
                 "four": "../../../assets/images/paris/4.jpg",
                 "five": "../../../assets/images/paris/5.jpg"
             },
-            "longlat": "40° 43' 50.1960'' N | 73° 56' 6.8712'' W"
+            "longlat": "40° 43' 50.1960'' N | 73° 56' 6.8712'' W",
+            "cityLocation": {
+                "left": "840",
+                "top": "350"
+            }
         },
 
         {
@@ -68,7 +76,11 @@
                 "four": "../../../assets/images/athens/4.jpg",
                 "five": "../../../assets/images/athens/5.jpg"
             },
-            "longlat": "40° 43' 50.1960'' N | 73° 56' 6.8712'' W"
+            "longlat": "40° 43' 50.1960'' N | 73° 56' 6.8712'' W",
+            "cityLocation": {
+                "left": "940",
+                "top": "400"
+            }
         },
         {
             "cityName": "Tokyo",
@@ -91,7 +103,12 @@
                 "four": "../../../assets/images/tokyo/4.jpg",
                 "five": "../../../assets/images/tokyo/5.jpg"
             },
-            "longlat": "40° 43' 50.1960'' N | 73° 56' 6.8712'' W"
+            "longlat": "40° 43' 50.1960'' N | 73° 56' 6.8712'' W",
+
+            "cityLocation": {
+                "left": "1400",
+                "top": "400"
+            }
         },
         {
             "cityName": "Istanbul",
@@ -114,7 +131,11 @@
                 "four": "../../../assets/images/istanbul/4.jpg",
                 "five": "../../../assets/images/istanbul/5.jpg"
             },
-            "longlat": "40° 43' 50.1960'' N | 73° 56' 6.8712'' W"
+            "longlat": "40° 43' 50.1960'' N | 73° 56' 6.8712'' W",
+            "cityLocation": {
+                "left": "950",
+                "top": "400"
+            }
         }
     ],
     "citiesFuture": [{
@@ -159,6 +180,10 @@
             }
 
         },
-        "longlat": "40° 43' 50.1960'' N | 73° 56' 6.8712'' W"
+        "longlat": "40° 43' 50.1960'' N | 73° 56' 6.8712'' W",
+        "cityLocation": {
+            "left": "900",
+            "top": "300"
+        }
     }]
 }

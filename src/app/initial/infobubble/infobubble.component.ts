@@ -27,9 +27,18 @@ export class InfobubbleComponent implements OnInit {
 
 
 
+  public hideBubble(){
+    $('#info-bubble').fadeOut( 400, function() {
 
+    });
+  }
+  public showBubble(){
+    $('#info-bubble').fadeTo( 600, 1 , function() {
+    });
+  }
 
 }
+
 function repeatBubble(infobubbletime){
   infoBubbleShow(infobubbletime);
 }
