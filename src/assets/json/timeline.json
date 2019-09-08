@@ -14,11 +14,31 @@
                 "rainydays": "11"
             },
             "photos": {
-                "one": "../../../assets/images/newyork/1.jpg",
-                "two": "../../../assets/images/newyork/2.jpg",
-                "three": "../../../assets/images/newyork/3.jpg",
-                "four": "../../../assets/images/newyork/4.jpg",
-                "five": "../../../assets/images/newyork/5.jpg"
+                "one": {
+                    "url": "../../../assets/images/newyork/1.jpg",
+                    "title": "Brooklyn Bridge",
+                    "desc": "The Brooklyn Bridge is a hybrid cable-stayed/suspension bridge in New York City. It connects the boroughs of Manhattan and Brooklyn, spanning the East River. The Brooklyn Bridge has a main span of 1,595.5 feet (486.3 m) and a height of 133 ft (40.5 m) above Mean High Water. It is one of the oldest roadway bridges in the United States and was the world's first steel-wire suspension bridge, as well as the first fixed crossing across the East River."
+                },
+                "two": {
+                    "url": "../../../assets/images/newyork/2.jpg",
+                    "title": "Central Park",
+                    "desc": "Central Park is an urban park in Manhattan, New York City, located between the Upper West Side and the Upper East Side. Central Park is the most visited urban park in the United States, with an estimated 37–38 million visitors annually, and one of the most filmed locations in the world. In terms of area, Central Park is the fifth largest park in New York City, covering 843 acres (341 ha)."
+                },
+                "three": {
+                    "url": "../../../assets/images/newyork/3.jpg",
+                    "title": "One World Trade Center",
+                    "desc": "One World Trade Center (also known as One WTC, 1 World Trade Center, 1 WTC, or Freedom Tower) is the main building of the rebuilt World Trade Center complex in Lower Manhattan, New York City. One WTC is the tallest building in the United States, the tallest building in the Western Hemisphere, and the sixth-tallest in the world. The supertall structure has the same name as the North Tower of the original World Trade Center, which was destroyed in the terrorist attacks of September 11, 2001. The new skyscraper stands on the northwest corner of the 16-acre (6.5 ha) World Trade Center site, on the site of the original 6 World Trade Center. The building is bounded by West Street to the west, Vesey Street to the north, Fulton Street to the south, and Washington Street to the east."
+                },
+                "four": {
+                    "url": "../../../assets/images/newyork/4.jpg",
+                    "title": "Manhattan",
+                    "desc": "Manhattan, (or the City), is the most densely populated of the five boroughs of New York City, coextensive with New York County, one of the original counties of the U.S. state of New York. Manhattan serves as the city's economic and administrative center, cultural identifier, and historical birthplace. The borough consists mostly of Manhattan Island, bounded by the Hudson, East, and Harlem rivers; several small adjacent islands; and Marble Hill, a small neighborhood now on the U.S. mainland, physically connected to the Bronx and separated from the rest of Manhattan by the Harlem River."
+                },
+                "five": {
+                    "url": "../../../assets/images/newyork/5.jpg",
+                    "title": "Grand Central Terminal",
+                    "desc": "Grand Central Terminal (GCT; also referred to as Grand Central Station or simply as Grand Central) is a commuter rail terminal located at 42nd Street and Park Avenue in Midtown Manhattan, New York City. Grand Central is the southern terminus of the Metro-North Railroad's Harlem, Hudson and New Haven Lines, serving the northern parts of the New York metropolitan area. It also contains a connection to the New York City Subway at Grand Central–42nd Street station. The terminal is the third-busiest train station in North America, after New York Penn Station and Toronto Union Station."
+                }
             },
             "longlat": "40° 43' 50.1960'' N | 73° 56' 6.8712'' W",
             "cityLocation": {

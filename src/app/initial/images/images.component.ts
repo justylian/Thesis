@@ -22,6 +22,7 @@ export class ImagesComponent implements OnInit {
   constructor(private compMap: MapComponent,private compBubble: InfobubbleComponent) { }
 
   ngOnInit() {
+    descPlacing();
     //this.futureCityState();
     //initialImagesFunc(this.timePerCity,this.timePerPhoto,this.delay);
   }
@@ -55,10 +56,22 @@ export class ImagesComponent implements OnInit {
     }, timePerCityLocal+=timePerCity);
     setTimeout(function() {
       compMap.manageInitialMin(2);
+    }, timePerCityLocal+=3000);
+    setTimeout(function() {
       manageImagesShow(timePerCity,timePerPhoto,2);//
     }, timePerCityLocal+=3000);
 
-
+    // ------------CITY 3
+    setTimeout(function() {
+      manageImagesHide(timePerCity,timePerPhoto,0);//hide prev
+      compMap.manageInitialMax(0);
+    }, timePerCityLocal+=timePerCity);
+    setTimeout(function() {
+      compMap.manageInitialMin(3);
+    }, timePerCityLocal+=3000);
+    setTimeout(function() {
+      manageImagesShow(timePerCity,timePerPhoto,3);//
+    }, timePerCityLocal+=3000);
 
 
   }
@@ -90,6 +103,7 @@ function manageImagesShow(timePerCity,timePerPhoto,timelineno){
       //Show group of photos of city
       var cityno="cityImages"+timelineno;
       $('#cityImages'+timelineno).show();
+      $('#cityImages'+timelineno+' #image'+timelineno+'-five-inner').show();//show desc
 
       for (var i = 1; i <= 5; ++i){//5 images each
         imagePlay(i,timePerCity,timePerPhoto,timelineno);
@@ -103,29 +117,54 @@ function imagePlay(i,timePerCity,timePerPhoto,timelineno) {
     if(i===1){
       $('#image'+timelineno+'-five').fadeOut( "slow", function() {
       });
+      $('#image'+timelineno+'-five-inner').hide();//hide prev desc
+      $('#image'+timelineno+'-four-inner').show();//show current desc
     }
     else if(i===2){
 
       $('#image'+timelineno+'-four').fadeOut( "slow", function() {
       });
+      $('#image'+timelineno+'-four-inner').hide();
+      $('#image'+timelineno+'-three-inner').show();
+
     }
     else if(i===3){
 
       $('#image'+timelineno+'-three').fadeOut( "slow", function() {
       });
+      $('#image'+timelineno+'-three-inner').hide();
+      $('#image'+timelineno+'-two-inner').show();
+
 
     }
     else if(i===4){
 
       $('#image'+timelineno+'-two').fadeOut( "slow", function() {
       });
+      $('#image'+timelineno+'-two-inner').hide();
+      $('#image'+timelineno+'-one-inner').show();
 
     }
     else if(i===5){
 
       $('#image'+timelineno+'-one').fadeOut( "slow", function() {
       });
+      $('#image'+timelineno+'-one-inner').hide();
+
 
     }
     }, i*timePerPhoto);
+}
+
+
+
+function descPlacing() {
+  for(var i=0;i<7;i++)
+  {
+      $('#image'+i+'-five-inner').css({ "top": "500px", "left": "900px" });
+      $('#image'+i+'-four-inner').css({ "top": "200px", "left": "1200px" });
+      $('#image'+i+'-three-inner').css({ "top": "300px", "left": "600px" });
+      $('#image'+i+'-two-inner').css({ "top": "200px", "left": "200px" });
+      $('#image'+i+'-one-inner').css({ "top": "500px", "left": "900px" });
+   }
 }

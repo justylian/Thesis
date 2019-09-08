@@ -29,6 +29,7 @@ export class MapComponent implements OnInit {
 
   public manageInitialMax(timelineno){
         //console.log(cityLoc.left);
+
         mapMaximize();
 
   }
@@ -61,27 +62,44 @@ function changeCityNamePin(cityName,cityLocLeft,cityLocTop){
   });
 }
 
+// ---------------Change pin-images
+function changePinPhotos(timelineno,citiesPast,citiesFuture){
+  $('#image-stack-1').css('background-image', 'url(' + citiesPast[timelineno-1].photos.one.url + ')');
+  $('#image-stack-2').css('background-image', 'url(' + citiesPast[timelineno-1].photos.two.url + ')');
+  $('#image-stack-3').css('background-image', 'url(' + citiesPast[timelineno-1].photos.three.url + ')');
+  $('#image-stack-4').css('background-image', 'url(' + citiesPast[timelineno-1].photos.four.url + ')');
+  $('#image-stack-5').css('background-image', 'url(' + citiesPast[timelineno-1].photos.five.url + ')');
+}
+
+// ---------------Find next city
 function findCityName(timelineno,citiesPast,citiesFuture){
   if(timelineno===1){
+    changePinPhotos(timelineno,citiesPast,citiesFuture);
     return citiesPast[0].cityName;
   }
   else if(timelineno===2){
+    changePinPhotos(timelineno,citiesPast,citiesFuture);
     return citiesPast[1].cityName;
   }
   else if(timelineno===3){
+    changePinPhotos(timelineno,citiesPast,citiesFuture);
     return citiesPast[2].cityName;
   }
   else if(timelineno===4){
+    changePinPhotos(timelineno,citiesPast,citiesFuture);
     return citiesPast[3].cityName;
   }
   else if(timelineno===5){
+    changePinPhotos(timelineno,citiesPast,citiesFuture);
     return citiesPast[4].cityName;
   }
   else{
+    changePinPhotos(timelineno,citiesPast,citiesFuture);
     return citiesFuture[0].cityName;
   }
 }
 
+// ---------------Change pin location
 function findCityLoc(timelineno,citiesPast,citiesFuture,cityName){
   var cityLocLeft;
   var cityLocTop;
@@ -116,46 +134,6 @@ function findCityLoc(timelineno,citiesPast,citiesFuture,cityName){
 
 
 
-function initialCitiesFunc(timePerCity,timePerPhoto,delay){
-  setTimeout(function() {
-    showCities(timePerCity,timePerPhoto,delay);
-  },delay)
-}
-
-
-function showCities(timePerCity,timePerPhoto,delay) {
-
-  mapMinify();
-
-    for (var i = 1; i <= 6; ++i){
-      showCitiesTimeout(i,timePerCity,timePerPhoto,delay);
-    }
-}
-
-
-var city="city0";
-function showCitiesTimeout(i,timePerCity,timePerPhoto,delay) {
-
-  var cityprev;
-  var time;
-  setTimeout(function() {
-    cityprev=city;
-    city="city"+i;
-
-    //time=i*timePerCity;
-
-    console.log(i*timePerCity);
-    //console.log(time);
-    //console.log(cityprev);
-    $('#'+cityprev).fadeOut( 400, function() {
-      $('#'+city).fadeTo( 600,1, function() {
-      });
-    });
-
-    mapMinify();
-
-   }, i*timePerCity);
-}
 
 
 
@@ -170,13 +148,16 @@ function cityNameMinify(timePerCity) {
   },timePerCity)
 }*/
 
-var mapState=false;
 
+
+// --------------Minimize map
 function mapMinify() {
   //$(".city-map-name-inner").animate({  top: 0 ,left:-50,fontSize:90}, 300);
       //$(".city-map-name-inner").animate({ left: 3000}, 500);
-      $(".city-map-name-inner").fadeOut( 400, function() {
-      });
+        //$(".city-map-name-inner").animate({ left: -150}, 1000);
+        $(".city-map-name-inner").fadeOut( 400, function() {
+        });
+
       //$(".city-map-name-inner").animate({ top: 20,left:-1700,fontSize:90}, 1500);
 
       $(".stage").animate({ width: 180, height: 170, borderRadius: '50%' }, 1000);
@@ -187,17 +168,22 @@ function mapMinify() {
 
       /*$("#info-bubble").fadeOut( 600, function() {
       });*/
-      $("#pin-images").fadeOut( 400, function() {
+      $("#pin-images").fadeOut( 600, function() {
       });
       $("#ballshadow").show(500);
 
 };
 
-function mapMaximize() {
+// --------------Maximize map
 
-    //$(".city-map-name-inner").animate({ left: -150}, 1000);
-    $(".city-map-name-inner").fadeTo( 1500,1, function() {
-    });
+function mapMaximize() {
+    setTimeout(function() {
+      //$(".city-map-name-inner").animate({ left: -150}, 1000);
+      $(".city-map-name-inner").fadeTo( 500,1, function() {
+      });
+      $("#pin-images").fadeTo( 1400,1,function() {
+      });
+    }, 800);
     //$(".city-map-name-inner").animate({ top: 200,left:-150,fontSize:200}, 1500);
 
     $(".stage").animate({ width: 1395, height: 750, borderRadius: '0%' }, 1000);
@@ -207,8 +193,7 @@ function mapMaximize() {
 
    /* $("#info-bubble").fadeTo( 600,1, function() {
     });*/
-    $("#pin-images").fadeTo( 1400,1,function() {
-    });
+
     $("#ballshadow").hide(500);
 
 };

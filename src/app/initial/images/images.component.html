@@ -1,11 +1,36 @@
 <div id="image-main">
     <div id="image-main-inner">
         <div id="cityImages1">
-            <img id="image1-one" src={{citiesPast[0].photos.one}}>
-            <img id="image1-two" src={{citiesPast[0].photos.two}}>
-            <img id="image1-three" src={{citiesPast[0].photos.three}}>
-            <img id="image1-four" src={{citiesPast[0].photos.four}}>
-            <img id="image1-five" src={{citiesPast[0].photos.five}}>
+            <div id="image1-one">
+                <div class="image-inner-descs" id="image1-one-inner">
+                    <h1>{{citiesPast[0].photos.one.title}}</h1>
+                    <h2>{{citiesPast[0].photos.one.desc}}</h2>
+                </div>
+                <img src={{citiesPast[0].photos.one.url}}></div>
+            <div id="image1-two">
+                <div class="image-inner-descs" id="image1-two-inner">
+                    <h1>{{citiesPast[0].photos.two.title}}</h1>
+                    <h2>{{citiesPast[0].photos.two.desc}}</h2>
+                </div>
+                <img src={{citiesPast[0].photos.two.url}}>
+            </div>
+            <div id="image1-three">
+                <div class="image-inner-descs" id="image1-three-inner">
+                    <h1>{{citiesPast[0].photos.three.title}}</h1>
+                    <h2>{{citiesPast[0].photos.three.desc}}</h2>
+                </div>
+                <img src={{citiesPast[0].photos.three.url}}></div>
+            <div id="image1-four">
+                <div class="image-inner-descs" id="image1-four-inner">
+                    <h1>{{citiesPast[0].photos.four.title}}</h1>
+                    <h2>{{citiesPast[0].photos.four.desc}}</h2>
+                </div>
+                <img src={{citiesPast[0].photos.four.url}}></div>
+            <div id="image1-five">
+                <div class="image-inner-descs" id="image1-five-inner">
+                    <h1>{{citiesPast[0].photos.five.title}}</h1>
+                    <h2>{{citiesPast[0].photos.five.desc}}</h2>
+                </div> <img src={{citiesPast[0].photos.five.url}}></div>
         </div>
         <div id="cityImages2">
             <img id="image2-one" src={{citiesPast[1].photos.one}}>
