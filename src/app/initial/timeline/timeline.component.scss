@@ -7,6 +7,7 @@
     right: 40px;
     border-right: 5px;
     border-color: linear-gradient(303deg, #101e2f, #120d20);
+    //filter: drop-shadow(30px 0 20px #000);
     #timeline-past {
         position: relative;
         width: 100%;
@@ -18,7 +19,7 @@
         //transition-timing-function: ease;
         //transition: 0.5s;
         //box-shadow: 2px 1px 9px var(--main-timeline-shadow);
-        filter: drop-shadow(0 0 20px var(--main-timeline-shadow));
+        filter: drop-shadow(0 0 20px #000);
     }
     #timeline-future-top {
         position: absolute;
@@ -31,7 +32,7 @@
         //transition: 1s;
         //transition-timing-function: ease;
         // transition: 0.5s;
-        filter: drop-shadow(0 0 20px var(--main-timeline-shadow));
+        filter: drop-shadow(0 0 20px #000);
         //filter: drop-shadow(0 0 20px var(--main-timeline-shadow));
     }
     #timeline-future-bottom {
@@ -51,7 +52,7 @@
         font-size: 15px;
         letter-spacing: -1px;
         width: 100%;
-        text-shadow: 2px 1px 9px var(--main-timeline-shadow);
+        text-shadow: 2px 1px 9px #000;
         //filter: drop-shadow(0 0 30px var(--main-timeline-shadow));
         height: 12px;
         position: absolute;
@@ -80,7 +81,7 @@
         font-size: 22px;
         font-family: "AvenirBold";
         text-shadow: 2px 1px 9px var(--main-timeline-color);
-        filter: drop-shadow(0 0 70px var(--main-timeline-shadow));
+        filter: drop-shadow(0 0 70px #000);
         text-align: right;
         line-height: 1;
         //background-color: rgba(0, 0, 0, 0.08);
@@ -94,6 +95,8 @@
     left: 80px;
     position: absolute;
     //height: 100%;
+    filter: drop-shadow(80px 10px 100px var(--main-timeline-shadow));
+    transition: 0.5s ease;
 }
 
 #timeline-past li {
@@ -152,6 +155,8 @@
     left: 80px;
     padding-top: 28px;
     position: absolute;
+    filter: drop-shadow(80px 10px 100px var(--main-timeline-shadow));
+    transition: 0.5s ease;
     //height: 100%;
 }
 
