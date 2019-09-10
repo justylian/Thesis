@@ -14,34 +14,50 @@
         border-right-width: 8px;
         border-right-style: solid;
         border-image: linear-gradient( to top, var(--main-timeline-color), rgba(0, 0, 0, 0)) 1 100%;
+        //transition: 1s;
+        //transition-timing-function: ease;
+        //transition: 0.5s;
+        //box-shadow: 2px 1px 9px var(--main-timeline-shadow);
+        filter: drop-shadow(0 0 20px var(--main-timeline-shadow));
     }
     #timeline-future-top {
         position: absolute;
         width: 100%;
-        height: 150px;
+        height: 300px;
         top: 750px;
         border-right-width: 8px;
         border-right-style: solid;
-        border-image: linear-gradient( to top, var(--main-timeline-color), rgba(0, 0, 0, 0)) 1 100%;
+        border-image: linear-gradient( to top, rgba(0, 0, 0, 0), var(--main-timeline-color), rgba(0, 0, 0, 0)) 1 100%;
+        //transition: 1s;
+        //transition-timing-function: ease;
+        // transition: 0.5s;
+        filter: drop-shadow(0 0 20px var(--main-timeline-shadow));
+        //filter: drop-shadow(0 0 20px var(--main-timeline-shadow));
     }
     #timeline-future-bottom {
         position: absolute;
         width: 100%;
         height: 200px;
         top: 900px;
-        border-right-width: 8px;
+        //border-right-width: 8px;
         border-right-style: solid;
         border-image: linear-gradient( to bottom, var(--main-timeline-color), rgba(0, 0, 0, 0)) 1 100%;
+        //transition: 1s;
+        //transition-timing-function: ease;
+        transition: 0.5s ease;
     }
     h1 {
         font-family: "AvenirLight";
         font-size: 15px;
         letter-spacing: -1px;
         width: 100%;
+        text-shadow: 2px 1px 9px var(--main-timeline-shadow);
+        //filter: drop-shadow(0 0 30px var(--main-timeline-shadow));
         height: 12px;
         position: absolute;
         //display: inline;
         text-align: right;
+        text-shadow: 2px 1px 9px var(--main-timeline-color);
         float: right;
     }
     h2 {
@@ -49,9 +65,12 @@
         font-weight: bold;
         font-size: 15px;
         letter-spacing: -0.5px;
+        //text-shadow: 2px 1px 9px var(--main-timeline-shadow);
+        //filter: drop-shadow(0 0 30px var(--main-timeline-shadow));
         position: absolute;
         width: 100%;
         height: 12px;
+        text-shadow: 2px 1px 9px var(--main-timeline-color);
         //display: inline;
         text-align: right;
         float: right;
@@ -60,11 +79,11 @@
     h3 {
         font-size: 22px;
         font-family: "AvenirBold";
-        text-shadow: 2px 1px 9px #ffffff;
-        filter: drop-shadow(0 0 30px #000);
+        text-shadow: 2px 1px 9px var(--main-timeline-color);
+        filter: drop-shadow(0 0 70px var(--main-timeline-shadow));
         text-align: right;
         line-height: 1;
-        background-color: rgba(0, 0, 0, 0.08);
+        //background-color: rgba(0, 0, 0, 0.08);
         float: right;
     }
 }
@@ -120,6 +139,9 @@
         right: -15px;
         width: 12px;
         border: 6px solid var(--main-timeline-color);
+        //transition: 1s;
+        //transition-timing-function: ease;
+        transition: 0.5s ease;
         border-radius: 50%;
         display: inline-block;
     }
@@ -175,6 +197,7 @@
         right: -15px;
         width: 12px;
         border: 6px solid var(--main-timeline-color);
+        transition: 1s;
         border-radius: 50%;
         display: inline-block;
     }

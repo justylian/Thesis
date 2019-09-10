@@ -14,7 +14,7 @@
                         <div id="timeline-date-year">
                             <h2>{{city.dateYear}}</h2>
                         </div>
-                        <div id="timeline-city-name">
+                        <div id="timeline-city-name" (click)="nextCitySlideshow()">
                             <h3>{{city.cityName}}</h3>
 
                         </div>
@@ -40,7 +40,7 @@
                         <div id="timeline-date-year">
                             <h2>{{city.dateYear}}</h2>
                         </div>
-                        <div id="timeline-city-name" (click)="futureCitySlideshow()">
+                        <div id="timeline-city-name" (click)="CitySlideshow()">
                             <h3>{{city.cityName}}</h3>
 
                         </div>
@@ -48,9 +48,9 @@
                 </div>
 
             </ul>
-            <div id="timeline-future-bottom">
+            <!--<div id="timeline-future-bottom">
 
-            </div>
+            </div>-->
         </div>
     </div>
 </div>

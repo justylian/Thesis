@@ -47,6 +47,8 @@ export class MapComponent implements OnInit {
 }
 
 
+
+// ---------------Change pin location & city name
 function changeCityNamePin(cityName,cityLocLeft,cityLocTop){
   $('.city-map-name-inner').fadeOut( 400, function() {
     $('.city-map-name-inner').text(cityName);
@@ -70,6 +72,9 @@ function changePinPhotos(timelineno,citiesPast,citiesFuture){
   $('#image-stack-4').css('background-image', 'url(' + citiesPast[timelineno-1].photos.four.url + ')');
   $('#image-stack-5').css('background-image', 'url(' + citiesPast[timelineno-1].photos.five.url + ')');
 }
+
+
+
 
 // ---------------Find next city
 function findCityName(timelineno,citiesPast,citiesFuture){
@@ -99,7 +104,7 @@ function findCityName(timelineno,citiesPast,citiesFuture){
   }
 }
 
-// ---------------Change pin location
+// ---------------Find pin location
 function findCityLoc(timelineno,citiesPast,citiesFuture,cityName){
   var cityLocLeft;
   var cityLocTop;

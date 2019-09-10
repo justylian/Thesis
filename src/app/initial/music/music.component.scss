@@ -5,6 +5,7 @@
     height: 100px;
     position: absolute;
     z-index: 4;
+    filter: drop-shadow(0 0 20px var(--main-timeline-shadow));
     #audio-button {
         width: 30px;
         height: 30px;

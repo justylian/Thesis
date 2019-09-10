@@ -3,7 +3,9 @@ import { ImagesComponent } from './../images/images.component';
 import { Component, OnInit } from '@angular/core';
 import { Timelineinfo } from './../../models/timelineinfo';
 import timelinejson from '../../../assets/json/timeline.json';
-
+declare var require: any
+declare var $: any;
+declare var jQuery: any;
 /*
 
 interface Serializable<T> {
@@ -54,20 +56,32 @@ export class TimelineComponent implements OnInit {
    citiesPast=timelinejson.citiesPast;
    citiesFuture=timelinejson.citiesFuture;
 
+
   constructor(private compImages: ImagesComponent,private compMap: MapComponent) {
     //var instance = new ExampleClass().deserialize(timelinejson);
 
   }
-  public futureCitySlideshow(): void {
+  public CitySlideshow(): void {
     this.compImages.slideShow();
+    //this.compMap.futureCitySlideshowMap(1);
+
+  }
+  public nextCitySlideshow(): void {
+    this.compImages.nextCity();
     //this.compMap.futureCitySlideshowMap(1);
 
   }
 
 
-  ngOnInit() {
-   //this.map.mapMinify();
 
+
+
+  ngOnInit() {
+
+    //color();
   }
 
+
 }
+
+
