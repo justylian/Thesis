@@ -125,10 +125,10 @@ function continueSlideShowInner(timePerCity,timePerPhoto,compMap,compBubble,star
   var multiplier=0;
 
 
-  if(startingCity!==1){
+  if(startingCity!==1 && startingCity===i){
     multiplier=0;
     //clearTimeouts();
-    //console.log("clear");
+    console.log("clear timer 0");
     timer=0;
 
   }
@@ -160,6 +160,7 @@ function continueSlideShowInner(timePerCity,timePerPhoto,compMap,compBubble,star
 
         console.log("n"+i);
         console.log("n"+timer);
+        console.log("changed city");
 
         $('#image-main').fadeOut( 250, function() {});
         //hide prev
@@ -191,6 +192,7 @@ function continueSlideShowInner(timePerCity,timePerPhoto,compMap,compBubble,star
 
   if(i===3){
     console.log("multi"+multiplier);
+    console.log("third just in");
 
     if(startingCity===3){
       setTimeout(function() {
@@ -198,6 +200,7 @@ function continueSlideShowInner(timePerCity,timePerPhoto,compMap,compBubble,star
         multiplier=1;
         console.log("is notn"+i);
         console.log("n"+timer);
+        console.log("third as next city");
 
         $('#image-main').fadeOut( 250, function() {});
         compMap.manageInitialMax(0);
@@ -263,13 +266,12 @@ function continueSlideShowInner(timePerCity,timePerPhoto,compMap,compBubble,star
     },timer+=time2);
     setTimeout(function() {
       manageImagesShow(timePerCity,timePerPhoto,i);//
-      compBubble.showBubble();
     },timer+=time2);
 
 
   }
   multiplier++;
-/*
+
   if(i===5){
     console.log("multi"+multiplier);
 
@@ -302,6 +304,7 @@ function continueSlideShowInner(timePerCity,timePerPhoto,compMap,compBubble,star
     },timer+=time2);
     setTimeout(function() {
       manageImagesShow(timePerCity,timePerPhoto,i);//
+      compBubble.showBubble();
 
     },timer+=time2);
 
@@ -350,7 +353,7 @@ function continueSlideShowInner(timePerCity,timePerPhoto,compMap,compBubble,star
 
 
 
-  }*/
+  }
 
 }
 
