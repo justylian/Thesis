@@ -11,27 +11,28 @@
    
    #ball-out {
        position: absolute;
-       left: 170px;
-       top: 165px;
        border: none;
        z-index: 4;
-       .stage {
-           height: 750px;
-           width: 1395px;
-           border-radius: 0%;
-           display: inline-block;
-           margin: 20px;
-           -webkit-perspective: 1200px;
-           -moz-perspective: 1200px;
-           -ms-perspective: 1200px;
-           -o-perspective: 1200px;
-           perspective: 1200px;
-           -webkit-perspective-origin: 50% 50%;
-           -moz-perspective-origin: 50% 50%;
-           -ms-perspective-origin: 50% 50%;
-           -o-perspective-origin: 50% 50%;
-           perspective-origin: 50% 50%;
-       }
+       left: 170px;
+       top: 165px;
+   }
+   
+   .stage {
+       height: 750px;
+       width: 1395px;
+       border-radius: 0%;
+       display: inline-block;
+       margin: 20px;
+       -webkit-perspective: 1200px;
+       -moz-perspective: 1200px;
+       -ms-perspective: 1200px;
+       -o-perspective: 1200px;
+       perspective: 1200px;
+       -webkit-perspective-origin: 50% 50%;
+       -moz-perspective-origin: 50% 50%;
+       -ms-perspective-origin: 50% 50%;
+       -o-perspective-origin: 50% 50%;
+       perspective-origin: 50% 50%;
    }
    
    .ball-in {
@@ -175,15 +176,6 @@
        top: 159px;
    }
    
-   #wsd {
-       background: url('../../../assets/images/worldmap.png') repeat-x;
-       z-index: 7;
-       position: absolute;
-       height: 1000px;
-       top: -35px;
-       width: 1000px;
-   }
-   
    #city1 {
        opacity: 1;
    }
@@ -214,7 +206,7 @@
    
    .city-map-name-inner {
        mix-blend-mode: difference;
-       color: #fff;
+       color: var(--main-timeline-color);
        top: 250px;
        left: -150px;
        position: absolute;
@@ -225,13 +217,17 @@
        //color: white;
        text-transform: uppercase;
        //color: rgb(61, 78, 99);
-       #next-city {
-           font-size: 1vw;
-           font-family: "AvenirLight";
-           bottom: 185px;
-           left: 6px;
-           position: absolute;
-       }
+   }
+   
+   #next-city {
+       font-size: 1vw;
+       font-family: "AvenirLight";
+       top: 202px;
+       text-transform: uppercase;
+       mix-blend-mode: difference;
+       color: var(--main-timeline-color);
+       left: -135px;
+       position: absolute;
    }
    
    //ANIMATION

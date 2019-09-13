@@ -5,7 +5,7 @@
                 <div *ngFor="let city of citiesPast;  let i=index">
                     <li *ngIf="i<5">
                         <div id="timeline-bubble"></div>
-                        <div id="timeline-date-month">
+                        <div id="timeline-date-month" (click)="previousCitySlideshow()">
                             <h1>{{city.dateMonth}}
 
                             </h1>

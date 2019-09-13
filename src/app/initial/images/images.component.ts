@@ -29,6 +29,7 @@ export class ImagesComponent implements OnInit {
 
   //public currentCity:number;
   ngOnInit() {
+
     descPlacing();
   }
 
@@ -96,13 +97,13 @@ export class ImagesComponent implements OnInit {
     //var timer=0;
     //console.log(upcomingCity);
 
-    for (var i = startingCity; i <= 3; ++i){
+    for (var i = startingCity; i <= 6; ++i){
       //setTimeout(function() {
         console.log(i);
         continueSlideShowInner(timePerCity,timePerPhoto,compMap,compBubble,startingCity,i);
-        if(i===7){ //loop
+        /*if(i===6){ //loop
           i=1;
-        }
+        }*/
     //}, timer+=timePerCity);
     }
 
@@ -115,6 +116,8 @@ export class ImagesComponent implements OnInit {
 /* ----- Slideshow inner ----- */
 
 var timer=0;
+
+
 function continueSlideShowInner(timePerCity,timePerPhoto,compMap,compBubble,startingCity,i){
 
   var time2=3000;
@@ -186,10 +189,52 @@ function continueSlideShowInner(timePerCity,timePerPhoto,compMap,compBubble,star
   multiplier++;
 
 
-  if(i==3){
+  if(i===3){
     console.log("multi"+multiplier);
 
     if(startingCity===3){
+      setTimeout(function() {
+        currentCity=i;
+        multiplier=1;
+        console.log("is notn"+i);
+        console.log("n"+timer);
+
+        $('#image-main').fadeOut( 250, function() {});
+        compMap.manageInitialMax(0);
+      },timer+=0);
+
+    }
+    else{
+
+
+        setTimeout(function() {
+          console.log("why here"+i+"d"+timer);
+          $('#image-main').fadeOut( 250, function() {});
+          compMap.manageInitialMax(0);
+          },timer+=time1);
+
+    }
+
+    setTimeout(function() {
+      compMap.manageInitialMin(i);
+
+    },timer+=time2);
+    setTimeout(function() {
+      manageImagesShow(timePerCity,timePerPhoto,i);//
+
+    },timer+=time2);
+
+
+  }
+
+  multiplier++;
+
+
+
+  if(i===4){
+    console.log("multi"+multiplier);
+
+    if(startingCity===4){
       setTimeout(function() {
         currentCity=i;
         multiplier=1;
@@ -218,12 +263,94 @@ function continueSlideShowInner(timePerCity,timePerPhoto,compMap,compBubble,star
     },timer+=time2);
     setTimeout(function() {
       manageImagesShow(timePerCity,timePerPhoto,i);//
+      compBubble.showBubble();
+    },timer+=time2);
+
+
+  }
+  multiplier++;
+/*
+  if(i===5){
+    console.log("multi"+multiplier);
+
+    if(startingCity===5){
+      setTimeout(function() {
+        currentCity=i;
+        multiplier=1;
+        console.log("n"+i);
+        console.log("n"+timer);
+
+        $('#image-main').fadeOut( 250, function() {});
+        compMap.manageInitialMax(0);
+      },timer);
+
+    }
+    else{
+
+
+        setTimeout(function() {
+          console.log("n"+i);
+          $('#image-main').fadeOut( 250, function() {});
+          compMap.manageInitialMax(0);
+          },timer+=time1);
+
+    }
+
+    setTimeout(function() {
+      compMap.manageInitialMin(i);
+
+    },timer+=time2);
+    setTimeout(function() {
+      manageImagesShow(timePerCity,timePerPhoto,i);//
 
     },timer+=time2);
 
 
   }
+  multiplier++;
 
+  if(i===6){
+    console.log("multi"+multiplier);
+
+    if(startingCity===6){
+      setTimeout(function() {
+        currentCity=i;
+        multiplier=1;
+        console.log("n"+i);
+        console.log("n"+timer);
+
+        $('#image-main').fadeOut( 250, function() {});
+        compMap.manageInitialMax(0);
+      },timer);
+
+    }
+    else{
+
+
+        setTimeout(function() {
+          console.log("n"+i);
+          $('#image-main').fadeOut( 250, function() {});
+          compMap.manageInitialMax(0);
+          },timer+=time1);
+
+    }
+
+    setTimeout(function() {
+      compMap.manageInitialMin(i);
+
+    },timer+=time2);
+    setTimeout(function() {
+      manageImagesShow(timePerCity,timePerPhoto,i);//
+
+    },timer+=time2);
+    setTimeout(function() {
+      compMap.manageInitialMax(0);
+
+    },timer+=time1);
+
+
+
+  }*/
 
 }
 
@@ -280,12 +407,12 @@ function manageImagesShow(timePerCity,timePerPhoto,timelineno){
      // $('#cityImages'+timelineprev).hide();
       $('#cityImages'+timelineno).show();
       $('#cityImages'+timelineno+' #image'+timelineno+'-five-inner').show();//show desc
-      //this.getColor
+
+
       handleDominantColor(timelineno,"five");
       currentCity=timelineno;
 
-      //$('#cityImages'+timelineno).
-      for (var i = 1; i <= 5; ++i){//5 images each
+      for (var i = 1; i <= 5; ++i){//5 images each city
         imagePlay(i,timePerCity,timePerPhoto,timelineno);
       }
 };
@@ -297,19 +424,20 @@ function imagePlay(i,timePerCity,timePerPhoto,timelineno) {
   setTimeout(function() {
     //console.log(i,timelineno);
     if(i===1){
+      $('#image'+timelineno+'-four-inner').show( "slow", function() {});
       handleDominantColor(timelineno,"four");
       $('#image'+timelineno+'-five-inner').fadeOut( "slow", function() {
       });//hide prev desc
-      $('#image'+timelineno+'-four-inner').show();
       $( '#image'+timelineno+'-five-img').fadeOut("slow", function()
       {
         $( '#image'+timelineno+'-five').fadeOut( 'fast');
       });
     }
     else if(i===2){
+      $('#image'+timelineno+'-three-inner').show( "slow", function() {});
+
       handleDominantColor(timelineno,"three");
       $('#image'+timelineno+'-four-inner').hide( "slow", function() {});//hide prev desc
-      $('#image'+timelineno+'-three-inner').show();//hide prev desc
       $( '#image'+timelineno+'-four-img').fadeOut("slow", function()
       {
         $( '#image'+timelineno+'-four').fadeOut( 'fast');
@@ -317,9 +445,10 @@ function imagePlay(i,timePerCity,timePerPhoto,timelineno) {
       });
     }
     else if(i===3){
+      $('#image'+timelineno+'-two-inner').show( "slow", function() {});
+
       handleDominantColor(timelineno,"two");
       $('#image'+timelineno+'-three-inner').hide( "slow", function() {});//hide prev desc
-      $('#image'+timelineno+'-two-inner').show();
       $( '#image'+timelineno+'-three-img').fadeOut("slow", function()
       {
         $( '#image'+timelineno+'-three').fadeOut( 'fast');
@@ -327,9 +456,10 @@ function imagePlay(i,timePerCity,timePerPhoto,timelineno) {
       });
     }
     else if(i===4){
+      $('#image'+timelineno+'-one-inner').show( "slow", function() {});
+
       handleDominantColor(timelineno,"one");
       $('#image'+timelineno+'-two-inner').hide( "slow", function() {});//hide prev desc
-      $('#image'+timelineno+'-one-inner').show();
       $( '#image'+timelineno+'-two-img').fadeOut("slow", function()
       {
         $( '#image'+timelineno+'-two').fadeOut( 'fast');

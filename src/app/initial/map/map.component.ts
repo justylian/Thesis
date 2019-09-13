@@ -30,8 +30,8 @@ export class MapComponent implements OnInit {
 
   }
   public manageInitialMin(timelineno){
-
       var cityName=findCityName(timelineno,this.citiesPast,this.citiesFuture);//change city name
+      //cityFocus(timelineno);
       findCityLoc(timelineno,this.citiesPast,this.citiesFuture,cityName);//change pin
 
       setTimeout(function() {
@@ -42,39 +42,61 @@ export class MapComponent implements OnInit {
 
 
 
-// ---------------Change pin location & city name
-function changeCityNamePin(cityName,cityLocLeft,cityLocTop){
+/* --------- Change pin location & city name ---------*/
+function changeCityNamePin(timelineno,cityName,cityLocLeft,cityLocTop){
   $('.city-map-name-inner').fadeOut( 400, function() {
     $('.city-map-name-inner').text(cityName);
   });
+
   $('.city-map-name-inner').fadeIn( 400, function() {});
+
+
+  if(timelineno===6){
+    $('#next-city').fadeIn( 400, function() {});
+  }
+  if(timelineno===1){
+    $('#next-city').fadeOut( 400, function() {});
+  }
 
 
 
 
   $('#pin-images').fadeOut( 400, function() {
     $('#pin-images').animate({ left: cityLocLeft, top: cityLocTop}, 200);
-    $('#pin-images').fadeIn( 300, function() {
+    $('#pin-images').fadeIn( 600, function() {
     });
   });
 
 }
 
-// ---------------Change pin-images
+/* --------- Change pin-images ---------*/
 function changePinPhotos(timelineno,citiesPast,citiesFuture){
-  setTimeout(function() {
-  $('#image-stack-1').css('background-image', 'url(' + citiesPast[timelineno-1].photos.one.url + ')');
-  $('#image-stack-2').css('background-image', 'url(' + citiesPast[timelineno-1].photos.two.url + ')');
-  $('#image-stack-3').css('background-image', 'url(' + citiesPast[timelineno-1].photos.three.url + ')');
-  $('#image-stack-4').css('background-image', 'url(' + citiesPast[timelineno-1].photos.four.url + ')');
-  $('#image-stack-5').css('background-image', 'url(' + citiesPast[timelineno-1].photos.five.url + ')');
-  },400)
+  if(timelineno===6){
+    setTimeout(function() {
+      $('#image-stack-1').css('background-image', 'url(' + citiesFuture[0].photos.one.url + ')');
+      $('#image-stack-2').css('background-image', 'url(' + citiesFuture[0].photos.two.url + ')');
+      $('#image-stack-3').css('background-image', 'url(' + citiesFuture[0].photos.three.url + ')');
+      $('#image-stack-4').css('background-image', 'url(' + citiesFuture[0].photos.four.url + ')');
+      $('#image-stack-5').css('background-image', 'url(' + citiesFuture[0].photos.five.url + ')');
+      console.log("ve");
+
+      },400)
+  }
+  else{
+    setTimeout(function() {
+    $('#image-stack-1').css('background-image', 'url(' + citiesPast[timelineno-1].photos.one.url + ')');
+    $('#image-stack-2').css('background-image', 'url(' + citiesPast[timelineno-1].photos.two.url + ')');
+    $('#image-stack-3').css('background-image', 'url(' + citiesPast[timelineno-1].photos.three.url + ')');
+    $('#image-stack-4').css('background-image', 'url(' + citiesPast[timelineno-1].photos.four.url + ')');
+    $('#image-stack-5').css('background-image', 'url(' + citiesPast[timelineno-1].photos.five.url + ')');
+    },400)
+  }
 }
 
 
 
 
-// ---------------Find next city
+/* --------- Find next city ---------*/
 function findCityName(timelineno,citiesPast,citiesFuture){
   if(timelineno===1){
     changePinPhotos(timelineno,citiesPast,citiesFuture);
@@ -102,7 +124,7 @@ function findCityName(timelineno,citiesPast,citiesFuture){
   }
 }
 
-// ---------------Find pin location
+/* --------- Find pin location ---------*/
 function findCityLoc(timelineno,citiesPast,citiesFuture,cityName){
   var cityLocLeft;
   var cityLocTop;
@@ -126,7 +148,7 @@ function findCityLoc(timelineno,citiesPast,citiesFuture,cityName){
     cityLocLeft=citiesFuture[0].cityLocation.left;
     cityLocTop=citiesFuture[0].cityLocation.top;
   }
-  changeCityNamePin(cityName,cityLocLeft,cityLocTop);
+  changeCityNamePin(timelineno,cityName,cityLocLeft,cityLocTop);
 }
 
 
@@ -142,64 +164,46 @@ function findCityLoc(timelineno,citiesPast,citiesFuture,cityName){
 
 
 
-/*
 
-function cityNameMinify(timePerCity) {
-  //$('#text').html('cda');
-  setTimeout(function() {
-    $('#text').html('cda');
-  },timePerCity)
-}*/
-
-
-
-// --------------Minimize map
+/* ---------Minimize map ---------*/
 function mapMinify() {
-  //$(".city-map-name-inner").animate({  top: 0 ,left:-50,fontSize:90}, 300);
-      //$(".city-map-name-inner").animate({ left: 3000}, 500);
-        //$(".city-map-name-inner").animate({ left: -150}, 1000);
-        $(".city-map-name-inner").fadeOut( 400, function() {
-        });
-        setTimeout(function() {
+      //scatterImages();
 
-      //$(".city-map-name-inner").animate({ top: 20,left:-1700,fontSize:90}, 1500);
+      $(".city-map-name-inner").fadeOut( 400, function() {});
+      $('#next-city').fadeOut( 400, function() {});
 
-      $(".stage").animate({ width: 180, height: 170, borderRadius: '50%' }, 800);
-      $("#ball-out").animate({ left: 10, top: 0 }, 800);
-      $(".ball-in").animate({ borderRadius: '50%' }, 800);
-      $(".ball-in").css("animation", "move-map-globe 60s infinite linear");
-      $("#ballshadow").show(500);
+      $("#pin-images").fadeOut(1000, function() {});
 
+      setTimeout(function() {
+        $(".stage").animate({ width: 180, height: 170, borderRadius: '50%' }, 1000);
+        $("#ball-out").animate({ left: 10, top: 0 }, 1000);
+        $(".ball-in").animate({ borderRadius: '50%' }, 1000);
+        $(".ball-in").css("animation", "move-map-globe 60s infinite linear");
+        $("#ballshadow").show(1200);
       }, 400);
-
-      /*$("#info-bubble").fadeOut( 600, function() {
-      });*/
-      $("#pin-images").fadeOut(1000, function() {
-      });
-
 };
 
-// --------------Maximize map
+/* ---------Maximize map ---------*/
 
 function mapMaximize() {
     setTimeout(function() {
-      //$(".city-map-name-inner").animate({ left: -150}, 1000);
-      $(".city-map-name-inner").fadeTo( 500,1, function() {
-      });
-      $("#pin-images").fadeTo( 500,1,function() {
-      });
+      $(".city-map-name-inner").fadeTo( 500,1, function() {});
+      $("#pin-images").fadeTo( 800,1,function() {});
     }, 800);
-    //$(".city-map-name-inner").animate({ top: 200,left:-150,fontSize:200}, 1500);
 
-    $(".stage").animate({ width: 1395, height: 750, borderRadius: '0%' }, 800);
-    $("#ball-out").animate({ left: 165, top: 170 }, 800);
-    $(".ball-in").animate({ borderRadius: '0%' }, 800);
+    $(".stage").animate({ width: 1395, height: 750, borderRadius: '0%' }, 1000);
+    $("#ball-out").animate({ left: 165, top: 170 }, 1000);
+    $(".ball-in").animate({ borderRadius: '0%' }, 1000);
     $(".ball-in").css("animation", "none");
-
-   /* $("#info-bubble").fadeTo( 600,1, function() {
-    });*/
-
     $("#ballshadow").hide(500);
-
 };
 
+
+
+function scatterImages(){
+  $("#image-stack-1").animate({width:'400px',height:'200px',left:'10000px'},300);
+  $("#image-stack-2").animate({width:'400px',height:'200px',left:'10000px',bottom:'10000px'},300);
+  $("#image-stack-3").animate({width:'400px',height:'200px',top:'10000px'},300);
+  $("#image-stack-4").animate({width:'400px',height:'200px',bottom:'10000px'},300);
+  $("#image-stack-5").animate({width:'400px',height:'200px',right:'10000px'},300);
+}

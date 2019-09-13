@@ -1,4 +1,3 @@
-import { MapComponent } from './../map/map.component';
 import { ImagesComponent } from './../images/images.component';
 import { Component, OnInit } from '@angular/core';
 import { Timelineinfo } from './../../models/timelineinfo';
@@ -57,7 +56,7 @@ export class TimelineComponent implements OnInit {
    citiesFuture=timelinejson.citiesFuture;
 
 
-  constructor(private compImages: ImagesComponent,private compMap: MapComponent) {
+  constructor(private compImages: ImagesComponent) {
     //var instance = new ExampleClass().deserialize(timelinejson);
 
   }
@@ -72,9 +71,18 @@ export class TimelineComponent implements OnInit {
 
   }
 
+  public previousCitySlideshow(): void {
+    this.compImages.previousCity();
+    //this.compMap.futureCitySlideshowMap(1);
 
+  }
 
+  public cityFocus(timelineno){
+    if(timelineno===1){
+     // $('#timeline-bubble').animate({});
 
+    }
+  }
 
   ngOnInit() {
 
