@@ -1,3 +1,4 @@
+import { InitialService } from './../../services/initial.service';
 import { InfobubbleComponent } from './../infobubble/infobubble.component';
 import { MapComponent } from './../map/map.component';
 import { Component, OnInit } from '@angular/core';
@@ -25,7 +26,7 @@ export class ImagesComponent implements OnInit {
   delay=timesjson.delay;
 
 
-  constructor(private compMap: MapComponent,private compBubble: InfobubbleComponent) { }
+  constructor(private compMap: MapComponent,private compBubble: InfobubbleComponent,private initialService: InitialService ) { }
 
   //public currentCity:number;
   ngOnInit() {
@@ -41,6 +42,7 @@ export class ImagesComponent implements OnInit {
 
 
   public slideShow(){
+    firstTime=true;
     this.continueSlideShow(1);
   }
 
@@ -92,6 +94,7 @@ export class ImagesComponent implements OnInit {
     var timePerCity=this.timePerCity;
     var timePerPhoto=this.timePerPhoto;
     var compMap=this.compMap;
+    var initialService=this.initialService;
     var compBubble=this.compBubble;
     var timePerCity=this.timePerCity;
     //var timer=0;
@@ -100,7 +103,7 @@ export class ImagesComponent implements OnInit {
     for (var i = startingCity; i <= 6; ++i){
       //setTimeout(function() {
         console.log(i);
-        continueSlideShowInner(timePerCity,timePerPhoto,compMap,compBubble,startingCity,i);
+        continueSlideShowInner(timePerCity,timePerPhoto,compMap,compBubble,initialService,startingCity,i);
         /*if(i===6){ //loop
           i=1;
         }*/
@@ -108,7 +111,10 @@ export class ImagesComponent implements OnInit {
     }
 
   }
-
+  public pause(){
+    Timer();
+    isPaused = true;
+  }
 
 }
 
@@ -116,16 +122,16 @@ export class ImagesComponent implements OnInit {
 /* ----- Slideshow inner ----- */
 
 var timer=0;
+var firstTime
 
-
-function continueSlideShowInner(timePerCity,timePerPhoto,compMap,compBubble,startingCity,i){
+function continueSlideShowInner(timePerCity,timePerPhoto,compMap,compBubble,initialService,startingCity,i){
 
   var time2=3000;
   var time1=timePerCity;
   var multiplier=0;
 
 
-  if(startingCity!==1 && startingCity===i){
+  if( startingCity===i){
     multiplier=0;
     //clearTimeouts();
     console.log("clear timer 0");
@@ -135,21 +141,45 @@ function continueSlideShowInner(timePerCity,timePerPhoto,compMap,compBubble,star
 
   if(i===1){
       // ------------CITY 1
-      console.log("he"+i);
-      console.log("he"+timer);
-      currentCity=i;
+      if(startingCity===1 && firstTime===false){
 
-      compMap.manageInitialMin(1);// minify
-      compBubble.hideBubble();
-      setTimeout(function() {
-        manageImagesShow(timePerCity,timePerPhoto,1);//city1
-        //continueSlideShowInner(timePerCity,timePerPhoto,compMap,compBubble,timer,upcomingCity,2);
-      }, timer+=time2);
+        setTimeout(function() {
+          currentCity=i;
+          multiplier=1;
+
+
+          $('#image-main').fadeOut( 250, function() {});
+          //hide prev
+          initialService.timelineFocus(i);
+
+          compMap.manageInitialMax(0);
+        },timer+=0);
+        setTimeout(function() {
+
+          compMap.manageInitialMin(i);
+
+        },timer+=time2);
+        setTimeout(function() {
+          manageImagesShow(timePerCity,timePerPhoto,i);//
+        },timer+=time2);
+      }
+      else{
+        firstTime=false;
+        currentCity=i;
+        initialService.timelineFocus(i);
+        compMap.manageInitialMin(1);// minify
+        compBubble.hideBubble();
+        setTimeout(function() {
+          manageImagesShow(timePerCity,timePerPhoto,1);//city1
+          //continueSlideShowInner(timePerCity,timePerPhoto,compMap,compBubble,timer,upcomingCity,2);
+        }, timer+=time2);
+      }
   }
   //console.log(i);
   multiplier++;
 
   if(i===2){
+
     console.log("multi"+multiplier);
 
     if(startingCity===2){
@@ -164,6 +194,8 @@ function continueSlideShowInner(timePerCity,timePerPhoto,compMap,compBubble,star
 
         $('#image-main').fadeOut( 250, function() {});
         //hide prev
+        initialService.timelineFocus(i);
+
         compMap.manageInitialMax(0);
       },timer+=0);
     }
@@ -175,10 +207,13 @@ function continueSlideShowInner(timePerCity,timePerPhoto,compMap,compBubble,star
 
         $('#image-main').fadeOut( 250, function() {});
         //hide prev
+        initialService.timelineFocus(i);
+
         compMap.manageInitialMax(0);
       },timer+=time1);
     }
     setTimeout(function() {
+
       compMap.manageInitialMin(i);
 
     },timer+=time2);
@@ -203,6 +238,8 @@ function continueSlideShowInner(timePerCity,timePerPhoto,compMap,compBubble,star
         console.log("third as next city");
 
         $('#image-main').fadeOut( 250, function() {});
+        initialService.timelineFocus(i);
+
         compMap.manageInitialMax(0);
       },timer+=0);
 
@@ -213,6 +250,8 @@ function continueSlideShowInner(timePerCity,timePerPhoto,compMap,compBubble,star
         setTimeout(function() {
           console.log("why here"+i+"d"+timer);
           $('#image-main').fadeOut( 250, function() {});
+          initialService.timelineFocus(i);
+
           compMap.manageInitialMax(0);
           },timer+=time1);
 
@@ -245,6 +284,8 @@ function continueSlideShowInner(timePerCity,timePerPhoto,compMap,compBubble,star
         console.log("n"+timer);
 
         $('#image-main').fadeOut( 250, function() {});
+        initialService.timelineFocus(i);
+
         compMap.manageInitialMax(0);
       },timer+=0);
 
@@ -255,6 +296,8 @@ function continueSlideShowInner(timePerCity,timePerPhoto,compMap,compBubble,star
         setTimeout(function() {
           console.log("n"+i);
           $('#image-main').fadeOut( 250, function() {});
+          initialService.timelineFocus(i);
+
           compMap.manageInitialMax(0);
           },timer+=time1);
 
@@ -283,6 +326,8 @@ function continueSlideShowInner(timePerCity,timePerPhoto,compMap,compBubble,star
         console.log("n"+timer);
 
         $('#image-main').fadeOut( 250, function() {});
+        initialService.timelineFocus(i);
+
         compMap.manageInitialMax(0);
       },timer);
 
@@ -293,6 +338,8 @@ function continueSlideShowInner(timePerCity,timePerPhoto,compMap,compBubble,star
         setTimeout(function() {
           console.log("n"+i);
           $('#image-main').fadeOut( 250, function() {});
+          initialService.timelineFocus(i);
+
           compMap.manageInitialMax(0);
           },timer+=time1);
 
@@ -323,6 +370,8 @@ function continueSlideShowInner(timePerCity,timePerPhoto,compMap,compBubble,star
         console.log("n"+timer);
 
         $('#image-main').fadeOut( 250, function() {});
+        initialService.timelineFocus(i);
+
         compMap.manageInitialMax(0);
       },timer);
 
@@ -333,6 +382,8 @@ function continueSlideShowInner(timePerCity,timePerPhoto,compMap,compBubble,star
         setTimeout(function() {
           console.log("n"+i);
           $('#image-main').fadeOut( 250, function() {});
+          initialService.timelineFocus(i);
+
           compMap.manageInitialMax(0);
           },timer+=time1);
 
@@ -366,6 +417,27 @@ function clearTimeouts(){
   }
 }
 
+var isPaused = false;
+
+function Timer() {
+
+  var time = 0;
+  var t = window.setInterval(function() {
+    if(!isPaused) {
+      time++;
+    }
+  }, 1000);
+}
+
+function play(){
+  Timer();
+  isPaused = false;
+}
+
+//timer.pause();
+// Do some stuff...
+
+
 /* ----- Dominant colours ----- */
 
 
@@ -398,7 +470,6 @@ function handleDominantColor(timelineno,no){
 
 
 
-
 /* ----- Photos manage main ----- */
 
 function manageImagesShow(timePerCity,timePerPhoto,timelineno){
@@ -410,6 +481,8 @@ function manageImagesShow(timePerCity,timePerPhoto,timelineno){
      // $('#cityImages'+timelineprev).hide();
       $('#cityImages'+timelineno).show();
       $('#cityImages'+timelineno+' #image'+timelineno+'-five-inner').show();//show desc
+
+
 
 
       handleDominantColor(timelineno,"five");

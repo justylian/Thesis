@@ -2,24 +2,95 @@
     <div id="timeline">
         <div id="timeline-past">
             <ul>
-                <div *ngFor="let city of citiesPast;  let i=index">
-                    <li *ngIf="i<5">
-                        <div id="timeline-bubble"></div>
-                        <div id="timeline-date-month" (click)="previousCitySlideshow()">
-                            <h1>{{city.dateMonth}}
+                <li>
+                    <div class="timeline-bubble" id="timeline-city-1"></div>
+                    <div class="timeline-bubble"></div>
+                    <div id="timeline-date-month">
+                        <h1>{{citiesPast[0].dateMonth}}
 
-                            </h1>
+                        </h1>
 
-                        </div>
-                        <div id="timeline-date-year">
-                            <h2>{{city.dateYear}}</h2>
-                        </div>
-                        <div id="timeline-city-name" (click)="nextCitySlideshow()">
-                            <h3>{{city.cityName}}</h3>
+                    </div>
+                    <div id="timeline-date-year">
+                        <h2>{{citiesPast[0].dateYear}}</h2>
+                    </div>
+                    <div id="timeline-city-name">
+                        <h3>{{citiesPast[0].cityName}}</h3>
 
-                        </div>
-                    </li>
-                </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="timeline-bubble" id="timeline-city-2"></div>
+
+                    <div class="timeline-bubble"></div>
+                    <div id="timeline-date-month">
+                        <h1>{{citiesPast[1].dateMonth}}
+
+                        </h1>
+
+                    </div>
+                    <div id="timeline-date-year">
+                        <h2>{{citiesPast[1].dateYear}}</h2>
+                    </div>
+                    <div id="timeline-city-name">
+                        <h3>{{citiesPast[1].cityName}}</h3>
+
+                    </div>
+                </li>
+                <li>
+                    <div class="timeline-bubble" id="timeline-city-3"></div>
+
+                    <div class="timeline-bubble"></div>
+                    <div id="timeline-date-month">
+                        <h1>{{citiesPast[2].dateMonth}}
+
+                        </h1>
+
+                    </div>
+                    <div id="timeline-date-year">
+                        <h2>{{citiesPast[2].dateYear}}</h2>
+                    </div>
+                    <div id="timeline-city-name">
+                        <h3>{{citiesPast[2].cityName}}</h3>
+
+                    </div>
+                </li>
+                <li>
+                    <div class="timeline-bubble" id="timeline-city-4"></div>
+
+                    <div class="timeline-bubble"></div>
+                    <div id="timeline-date-month">
+                        <h1>{{citiesPast[3].dateMonth}}
+
+                        </h1>
+
+                    </div>
+                    <div id="timeline-date-year">
+                        <h2>{{citiesPast[3].dateYear}}</h2>
+                    </div>
+                    <div id="timeline-city-name" (click)="previousCitySlideshow()">
+                        <h3>{{citiesPast[3].cityName}}</h3>
+
+                    </div>
+                </li>
+                <li>
+                    <div class="timeline-bubble" id="timeline-city-5"></div>
+
+                    <div class="timeline-bubble"></div>
+                    <div id="timeline-date-month">
+                        <h1>{{citiesPast[4].dateMonth}}
+
+                        </h1>
+
+                    </div>
+                    <div id="timeline-date-year">
+                        <h2>{{citiesPast[4].dateYear}}</h2>
+                    </div>
+                    <div id="timeline-city-name" (click)="nextCitySlideshow()">
+                        <h3>{{citiesPast[4].cityName}}</h3>
+
+                    </div>
+                </li>
 
             </ul>
         </div>
@@ -30,7 +101,9 @@
             <ul>
                 <div *ngFor="let city of citiesFuture;  let i=index">
                     <li *ngIf="i<2">
-                        <div id="timeline-bubble"></div>
+                        <div class="timeline-bubble" id="timeline-city-6"></div>
+
+                        <div class="timeline-bubble"></div>
                         <div id="timeline-date-month">
                             <h1>{{city.dateMonth}}
 

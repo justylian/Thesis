@@ -2,6 +2,7 @@ import { ImagesComponent } from './../images/images.component';
 import { Component, OnInit } from '@angular/core';
 import { Timelineinfo } from './../../models/timelineinfo';
 import timelinejson from '../../../assets/json/timeline.json';
+import { InitialService } from './../../services/initial.service';
 declare var require: any
 declare var $: any;
 declare var jQuery: any;
@@ -56,8 +57,15 @@ export class TimelineComponent implements OnInit {
    citiesFuture=timelinejson.citiesFuture;
 
 
-  constructor(private compImages: ImagesComponent) {
+  constructor(private compImages: ImagesComponent,private initialService: InitialService) {
     //var instance = new ExampleClass().deserialize(timelinejson);
+    this.initialService.timelineFocus$.subscribe(
+      (i) => {
+        //alert('(Component2) Method called!'+i);
+        cityFocus(i);
+
+      }
+    );
 
   }
   public CitySlideshow(): void {
@@ -77,12 +85,7 @@ export class TimelineComponent implements OnInit {
 
   }
 
-  public cityFocus(timelineno){
-    if(timelineno===1){
-     // $('#timeline-bubble').animate({});
 
-    }
-  }
 
   ngOnInit() {
 
@@ -90,6 +93,58 @@ export class TimelineComponent implements OnInit {
   }
 
 
+
 }
 
+
+function cityFocus(timelineno){
+  //$('#timeline-city-1 h1').animate({scale: '+=0.33'},100);
+ // $('#timeline-city-1 h1').addClass('animate');
+
+    $('#timeline-city-'+timelineno).fadeTo(200,1, function() {});
+    if(timelineno===1){
+      $('#timeline-city-2').fadeOut(200, function() {});
+      $('#timeline-city-3').fadeOut(200, function() {});
+      $('#timeline-city-4').fadeOut(200, function() {});
+      $('#timeline-city-5').fadeOut(200, function() {});
+      $('#timeline-city-6').fadeOut(200, function() {});
+    }
+    else if(timelineno===2){
+      $('#timeline-city-1').fadeOut(200, function() {});
+      $('#timeline-city-3').fadeOut(200, function() {});
+      $('#timeline-city-4').fadeOut(200, function() {});
+      $('#timeline-city-5').fadeOut(200, function() {});
+      $('#timeline-city-6').fadeOut(200, function() {});
+    }
+    else if(timelineno===3){
+      $('#timeline-city-2').fadeOut(200, function() {});
+      $('#timeline-city-1').fadeOut(200, function() {});
+      $('#timeline-city-4').fadeOut(200, function() {});
+      $('#timeline-city-5').fadeOut(200, function() {});
+      $('#timeline-city-6').fadeOut(200, function() {});
+    }
+    else if(timelineno===4){
+      $('#timeline-city-2').fadeOut(200, function() {});
+      $('#timeline-city-3').fadeOut(200, function() {});
+      $('#timeline-city-1').fadeOut(200, function() {});
+      $('#timeline-city-5').fadeOut(200, function() {});
+      $('#timeline-city-6').fadeOut(200, function() {});
+    }
+    else if(timelineno===5){
+      $('#timeline-city-2').fadeOut(200, function() {});
+      $('#timeline-city-3').fadeOut(200, function() {});
+      $('#timeline-city-4').fadeOut(200, function() {});
+      $('#timeline-city-1').fadeOut(200, function() {});
+      $('#timeline-city-6').fadeOut(200, function() {});
+    }
+    else {
+      $('#timeline-city-2').fadeOut(200, function() {});
+      $('#timeline-city-3').fadeOut(200, function() {});
+      $('#timeline-city-4').fadeOut(200, function() {});
+      $('#timeline-city-5').fadeOut(200, function() {});
+      $('#timeline-city-1').fadeOut(200, function() {});
+    }
+
+
+  }
 

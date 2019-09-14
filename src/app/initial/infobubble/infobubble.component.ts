@@ -1,7 +1,7 @@
+import { TimelineComponent } from './../timeline/timeline.component';
 import { Component, OnInit } from '@angular/core';
 import timelinejson from '../../../assets/json/timeline.json';
 import timesjson from '../../../assets/json/times.json';
-
 declare var $: any;
 declare var jQuery: any;
 
