@@ -7,7 +7,7 @@ import timelinejson from '../../../assets/json/timeline.json';
 const { getColorFromURL } = require('color-thief-node');
 declare var require: any
 
-
+declare var Load: any;
 declare var $: any;
 declare var jQuery: any;
 var currentCity;
@@ -30,6 +30,8 @@ export class ImagesComponent implements OnInit {
 
   //public currentCity:number;
   ngOnInit() {
+ 
+    Load.allTheThings();
 
     descPlacing();
   }
@@ -114,6 +116,13 @@ export class ImagesComponent implements OnInit {
   public pause(){
     Timer();
     isPaused = true;
+  }
+
+
+  public preloadImage(url)
+  {
+      var img=new Image();
+      img.src=url;
   }
 
 }

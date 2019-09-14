@@ -21,7 +21,7 @@ export class MapComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {  }
+  ngOnInit() { this.initPin() }
 
 
 
@@ -37,6 +37,14 @@ export class MapComponent implements OnInit {
       setTimeout(function() {
           mapMinify();
       },3000)
+  }
+
+  public initPin(){
+    $('#image-stack-1').css('background-image', 'url(' + this.citiesFuture[0].photos.one.urlmin + ')');
+    $('#image-stack-2').css('background-image', 'url(' + this.citiesFuture[0].photos.two.urlmin + ')');
+    $('#image-stack-3').css('background-image', 'url(' + this.citiesFuture[0].photos.three.urlmin + ')');
+    $('#image-stack-4').css('background-image', 'url(' + this.citiesFuture[0].photos.four.urlmin + ')');
+    $('#image-stack-5').css('background-image', 'url(' + this.citiesFuture[0].photos.five.urlmin + ')');
   }
 }
 
@@ -73,10 +81,12 @@ function changeCityNamePin(timelineno,cityName,cityLocLeft,cityLocTop){
 function changePinPhotos(timelineno,citiesPast,citiesFuture){
   if(timelineno===6){
     setTimeout(function() {
-      $('#image-stack-1').css('background-image', 'url(' + citiesFuture[0].photos.one.url + ')');
-      $('#image-stack-2').css('background-image', 'url(' + citiesFuture[0].photos.two.url + ')');
-      $('#image-stack-3').css('background-image', 'url(' + citiesFuture[0].photos.three.url + ')');
-      $('#image-stack-4').css('background-image', 'url(' + citiesFuture[0].photos.four.url + ')');
+
+      $('#image-stack-1').attr("data-src",'url(' + citiesFuture[0].photos.one.url + ')');
+      $('#image-stack-1').css('background-image', 'url(' + citiesFuture[0].photos.one.urlmin + ')');
+      $('#image-stack-2').css('background-image', 'url(' + citiesFuture[0].photos.two.urlmin + ')');
+      $('#image-stack-3').css('background-image', 'url(' + citiesFuture[0].photos.three.urlmin + ')');
+      $('#image-stack-4').css('background-image', 'url(' + citiesFuture[0].photos.four.urlmin + ')');
       $('#image-stack-5').css('background-image', 'url(' + citiesFuture[0].photos.five.url + ')');
       console.log("ve");
 
@@ -84,11 +94,11 @@ function changePinPhotos(timelineno,citiesPast,citiesFuture){
   }
   else{
     setTimeout(function() {
-    $('#image-stack-1').css('background-image', 'url(' + citiesPast[timelineno-1].photos.one.url + ')');
-    $('#image-stack-2').css('background-image', 'url(' + citiesPast[timelineno-1].photos.two.url + ')');
-    $('#image-stack-3').css('background-image', 'url(' + citiesPast[timelineno-1].photos.three.url + ')');
-    $('#image-stack-4').css('background-image', 'url(' + citiesPast[timelineno-1].photos.four.url + ')');
-    $('#image-stack-5').css('background-image', 'url(' + citiesPast[timelineno-1].photos.five.url + ')');
+    $('#image-stack-1').css('background-image', 'url(' + citiesPast[timelineno-1].photos.one.urlmin + ')');
+    $('#image-stack-2').css('background-image', 'url(' + citiesPast[timelineno-1].photos.two.urlmin + ')');
+    $('#image-stack-3').css('background-image', 'url(' + citiesPast[timelineno-1].photos.three.urlmin + ')');
+    $('#image-stack-4').css('background-image', 'url(' + citiesPast[timelineno-1].photos.four.urlmin + ')');
+    $('#image-stack-5').css('background-image', 'url(' + citiesPast[timelineno-1].photos.five.urlmin + ')');
     },400)
   }
 }

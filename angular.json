@@ -31,7 +31,9 @@
                             "src/styles.scss"
                         ],
                         "scripts": [
-                            "node_modules/jquery/dist/jquery.min.js"
+                            "node_modules/jquery/dist/jquery.min.js",
+                            "src/assets/js/Load.allTheThings.js",
+                            "src/assets/js/Load.allTheThings.min.js"
                         ]
                     },
                     "configurations": {
