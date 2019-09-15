@@ -82,7 +82,7 @@ function changePinPhotos(timelineno,citiesPast,citiesFuture){
   if(timelineno===6){
     setTimeout(function() {
 
-      $('#image-stack-1').attr("data-src",'url(' + citiesFuture[0].photos.one.url + ')');
+      //$('#image-stack-1').attr("data-src",'url(' + citiesFuture[0].photos.one.url + ')');
       $('#image-stack-1').css('background-image', 'url(' + citiesFuture[0].photos.one.urlmin + ')');
       $('#image-stack-2').css('background-image', 'url(' + citiesFuture[0].photos.two.urlmin + ')');
       $('#image-stack-3').css('background-image', 'url(' + citiesFuture[0].photos.three.urlmin + ')');
@@ -92,8 +92,9 @@ function changePinPhotos(timelineno,citiesPast,citiesFuture){
 
       },400)
   }
-  else{
+  else {
     setTimeout(function() {
+      console.log(timelineno+"!!!!");
     $('#image-stack-1').css('background-image', 'url(' + citiesPast[timelineno-1].photos.one.urlmin + ')');
     $('#image-stack-2').css('background-image', 'url(' + citiesPast[timelineno-1].photos.two.urlmin + ')');
     $('#image-stack-3').css('background-image', 'url(' + citiesPast[timelineno-1].photos.three.urlmin + ')');
@@ -182,15 +183,18 @@ function mapMinify() {
       $(".city-map-name-inner").fadeOut( 400, function() {});
       $('#next-city').fadeOut( 400, function() {});
 
-      $("#pin-images").fadeOut(1000, function() {});
+      $("#pin-images").fadeOut(400, function() {});
 
       setTimeout(function() {
-        $(".stage").animate({ width: 180, height: 170, borderRadius: '50%' }, 1000);
-        $("#ball-out").animate({ left: 10, top: 0 }, 1000);
-        $(".ball-in").animate({ borderRadius: '50%' }, 1000);
-        $(".ball-in").css("animation", "move-map-globe 60s infinite linear");
-        $("#ballshadow").show(1200);
+        $(".stage").animate({ width: 180, height: 170, borderRadius: '50%' }, 800);
+        $("#ball-out").animate({ left: 10, top: 0 }, 800);
+        $(".ball-in").animate({ borderRadius: '50%' }, 800);
+        $("#ballshadow").show(1000);
       }, 400);
+      setTimeout(function() {
+        $(".ball-in").css("animation", "move-map-globe 60s infinite linear");
+
+      }, 800);
 };
 
 /* ---------Maximize map ---------*/
@@ -203,7 +207,7 @@ function mapMaximize() {
 
     $(".stage").animate({ width: 1395, height: 750, borderRadius: '0%' }, 1000);
     $("#ball-out").animate({ left: 165, top: 170 }, 1000);
-    $(".ball-in").animate({ borderRadius: '0%' }, 1000);
+    $(".ball-in").animate({ borderRadius: '0%' }, 200);
     $(".ball-in").css("animation", "none");
     $("#ballshadow").hide(500);
 };

@@ -203,7 +203,7 @@
        mix-blend-mode: difference;
        color: var(--main-timeline-color);
        top: 250px;
-       left: -150px;
+       left: 0px;
        position: absolute;
        z-index: 4;
        line-height: 0.8;
@@ -217,11 +217,11 @@
    #next-city {
        font-size: 1vw;
        font-family: "AvenirLight";
-       top: 202px;
+       top: 396px;
        text-transform: uppercase;
        mix-blend-mode: difference;
        color: var(--main-timeline-color);
-       left: -135px;
+       left: 8px;
        position: absolute;
    }
    
