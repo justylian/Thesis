@@ -60,3 +60,43 @@ $(document).ready(function() {
 
 });
 
+$(document).ready(function(){
+  
+  var currentheight=0;
+  $('#places-inner').on('scroll', function(){ 
+    var height1=$('#places-inner li:nth-child(1) img').height();
+    var height2=$('#places-inner li:nth-child(2) img').height();
+    var height3=$('#places-inner li:nth-child(3) img').height();
+    var height4=$('#places-inner li:nth-child(4) img').height();
+    var height5=$('#places-inner li:nth-child(5) img').height();
+
+    //console.log($('#places-inner').scrollTop());
+    console.log('scrolling');
+    //console.log($('#places-inner li:nth-child(1) img').height());
+    //console.log($('#places-inner li:nth-child(2) img').height());
+    currentheight=$('#places-inner').scrollTop();
+    console.log(currentheight+'vdw'+height1);
+
+    if(currentheight<height1){
+
+      $('#places-inner li').removeClass("active");
+      $('#places-inner li:nth-child(1)').addClass("active");
+    }
+    if(currentheight>=height1 && currentheight<(height1+height2)){
+      $('#places-inner li').removeClass("active");
+      $('#places-inner li:nth-child(2)').addClass("active");
+    }
+    if(currentheight>=height1+height2 && currentheight<height1+height2+height3){
+      $('#places-inner li').removeClass("active");
+      $('#places-inner li:nth-child(3)').addClass("active");
+    }
+    if(currentheight>=(height1+height2+height3) && currentheight<(height1+height2+height3+height4)){
+      $('#places-inner li').removeClass("active");
+      $('#places-inner li:nth-child(4)').addClass("active");
+    }
+    if(currentheight>=(height1+height2+height3+height4) && currentheight<(height1+height2+height3+height4+height5)){
+      $('#places-inner li').removeClass("active");
+      $('#places-inner li:nth-child(5)').addClass("active");
+    }
+});
+ });

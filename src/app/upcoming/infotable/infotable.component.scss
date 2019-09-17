@@ -352,10 +352,13 @@
                 font-size: 14px;
                 margin-top: 4px;
                 border-radius: 15px 50px 30px;
-                padding-top: 4px;
-                padding-bottom: 4px;
+                padding-top: 3px;
+                padding-bottom: 3px;
                 padding-left: 6px;
                 padding-right: 6px;
+            }
+            .active {
+                transform: scale(1);
             }
         }
     }
