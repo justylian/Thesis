@@ -50,7 +50,12 @@
             "cityLocation": {
                 "left": "580",
                 "top": "400"
+            },
+            "sound": {
+                "url": "../../../assets/music/Manhattan Traffic Jam.mp3",
+                "desc": "Manhattan Traffic Jam"
             }
+
 
         },
         {
@@ -103,7 +108,12 @@
             "cityLocation": {
                 "left": "840",
                 "top": "350"
+            },
+            "sound": {
+                "url": "../../../assets/music/Paris Café.mp3",
+                "desc": "Paris Café"
             }
+
         },
 
         {
@@ -161,6 +171,10 @@
             "cityLocation": {
                 "left": "940",
                 "top": "400"
+            },
+            "sound": {
+                "url": "../../../assets/music/Athens Traffic.mp3",
+                "desc": "Athens Traffic"
             }
         },
         {
@@ -219,6 +233,10 @@
             "cityLocation": {
                 "left": "1400",
                 "top": "400"
+            },
+            "sound": {
+                "url": "../../../assets/music/Japan Bustle.mp3",
+                "desc": "Japan Bustle"
             }
         },
         {
@@ -276,7 +294,12 @@
             "cityLocation": {
                 "left": "950",
                 "top": "400"
+            },
+            "sound": {
+                "url": "../../../assets/music/Istanbul Bazaar.mp3",
+                "desc": "Istanbul Bazaar"
             }
+
         }
     ],
     "citiesFuture": [{
@@ -335,6 +358,11 @@
         "cityLocation": {
             "left": "900",
             "top": "300"
+        },
+        "sound": {
+            "url": "../../../assets/music/Copenhagen Bicycles.mp3",
+            "desc": "Copenhagen Bicycles"
         }
+
     }]
 }

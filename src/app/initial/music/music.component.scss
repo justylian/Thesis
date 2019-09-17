@@ -34,15 +34,35 @@
     h4 {
         position: absolute;
         left: 40px;
-        bottom: -19px;
+        bottom: -27px;
         color: white;
+        filter: drop-shadow(0 0 10px #000);
         font-size: 15px;
     }
     h5 {
         position: absolute;
+        display: none;
         left: 40px;
         bottom: -33px;
         color: white;
         font-size: 12px;
+    }
+    #music-desc1 {
+        display: none;
+    }
+    #music-desc2 {
+        display: none;
+    }
+    #music-desc3 {
+        display: none;
+    }
+    #music-desc4 {
+        display: none;
+    }
+    #music-desc5 {
+        display: none;
+    }
+    #music-desc6 {
+        display: block;
     }
 }

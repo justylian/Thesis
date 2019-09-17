@@ -1,7 +1,32 @@
 <div id="audio-player">
     <h1>NOW PLAYING</h1>
-    <audio id="player" src="../../../assets/music/Bach - 4 Seasons.mp3"></audio>
-    <h4>Copenhagen</h4>
+    <div id="music-desc6">
+        <audio id="player" src="{{citiesFuture[0].sound.url}}"></audio>
+        <h4>{{citiesFuture[0].sound.desc}}</h4>
+    </div>
+    <div id="music-desc1">
+        <audio id="player" src="{{citiesPast[0].sound.url}}"></audio>
+        <h4>{{citiesPast[0].sound.desc}}</h4>
+    </div>
+    <div id="music-desc2">
+        <audio id="player" src="{{citiesPast[1].sound.url}}"></audio>
+        <h4>{{citiesPast[1].sound.desc}}</h4>
+    </div>
+    <div id="music-desc3">
+        <audio id="player" src="{{citiesPast[2].sound.url}}"></audio>
+        <h4>{{citiesPast[2].sound.desc}}</h4>
+    </div>
+    <div id="music-desc4">
+        <audio id="player" src="{{citiesPast[3].sound.url}}"></audio>
+        <h4>{{citiesPast[3].sound.desc}}</h4>
+    </div>
+    <div id="music-desc5">
+        <audio id="player" src="{{citiesPast[4].sound.url}}"></audio>
+        <h4>{{citiesPast[4].sound.desc}}</h4>
+    </div>
+
+
+
     <h5>Chris Ledoux</h5>
     <div id="audio-button" (click)="playerManage()"></div>
 
