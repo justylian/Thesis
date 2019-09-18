@@ -1,3 +1,4 @@
+import { MusicComponent } from './../music/music.component';
 import { ImagesComponent } from './../images/images.component';
 import { Component, OnInit } from '@angular/core';
 import { Timelineinfo } from './../../models/timelineinfo';
@@ -57,7 +58,7 @@ export class TimelineComponent implements OnInit {
    citiesFuture=timelinejson.citiesFuture;
 
 
-  constructor(private compImages: ImagesComponent,private initialService: InitialService) {
+  constructor(private compMusic: MusicComponent,private compImages: ImagesComponent,private initialService: InitialService) {
     //var instance = new ExampleClass().deserialize(timelinejson);
     this.initialService.timelineFocus$.subscribe(
       (i) => {
@@ -86,8 +87,61 @@ export class TimelineComponent implements OnInit {
   }
 
 
+  /* ----- Leap ----- */
 
+
+  public manageLeap(): void {
+    var compImages=this.compImages;
+    var compMusic=this.compMusic;
+    var leapjs      = require('leapjs');
+    var controller  = new leapjs.Controller({enableGestures: true});
+
+    if($('#initial').css('display')==='block'){
+      controller.on('deviceFrame', function(frame) {
+        // loop through available gestures
+        for(var i = 0; i < frame.gestures.length; i++){
+          var gesture = frame.gestures[i];
+          var type    = gesture.type;
+
+          switch( type ){
+
+            case "circle":
+              if (gesture.state == "stop") {
+                console.log('circle');
+                compMusic.playerManage();
+              }
+              break;
+
+            case "swipe":
+              if (gesture.state == "stop") {
+                console.log('swipe');
+                compImages.nextCity();
+              }
+              break;
+
+            case "screenTap":
+              if (gesture.state == "stop") {
+                console.log('screenTap');
+                compImages.slideShow();
+
+              }
+              break;
+
+            case "keyTap":
+              if (gesture.state == "stop") {
+                console.log('keyTap');
+            }
+              break;
+
+            }
+          }
+      });
+    }
+
+    controller.connect();
+  }
   ngOnInit() {
+    this.manageLeap();
 
     //color();
   }

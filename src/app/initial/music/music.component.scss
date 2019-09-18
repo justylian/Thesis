@@ -1,14 +1,14 @@
 #audio-player {
-    bottom: 25px;
+    bottom: 2%;
     left: 50px;
     width: 200px;
-    height: 100px;
+    height: 38px;
     position: absolute;
     z-index: 4;
-    filter: drop-shadow(0 0 20px var(--main-timeline-shadow));
+    filter: drop-shadow(0 0 8px #000);
     #audio-button {
-        width: 30px;
-        height: 30px;
+        width: 20px;
+        height: 20px;
         bottom: -10px;
         position: absolute;
         margin-left: -1px;
@@ -23,21 +23,25 @@
         width: 100%;
     }
     h1 {
+        font-family: "AvenirLight";
         position: absolute;
-        width: 46px;
+        width: 33px;
         left: -100px;
-        bottom: 1px;
+        bottom: -3px;
         color: white;
-        font-size: 7px;
+        font-size: 5px;
         transform: ROTATE(270DEG);
     }
     h4 {
         position: absolute;
-        left: 40px;
-        bottom: -27px;
+        font-family: "AvenirLight";
+        left: 28px;
+        width: 100%;
+        margin-top: 16%;
+        line-height: 17px;
         color: white;
-        filter: drop-shadow(0 0 10px #000);
-        font-size: 15px;
+        filter: drop-shadow(0 0 5px #000);
+        font-size: 16px;
     }
     h5 {
         position: absolute;

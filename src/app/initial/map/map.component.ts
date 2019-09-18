@@ -4,6 +4,7 @@ declare var $: any;
 declare var jQuery: any;
 import timelinejson from '../../../assets/json/timeline.json';
 import timesjson from '../../../assets/json/times.json';
+declare var require: any;
 
 @Component({
   selector: 'app-map',
@@ -21,9 +22,11 @@ export class MapComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() { this.initPin() }
+  ngOnInit() {
+    this.initPin()
 
 
+  }
 
   public manageInitialMax(timelineno){
         mapMaximize();

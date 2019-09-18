@@ -17,8 +17,9 @@
                 "one": {
                     "url": "../../../assets/images/newyork/1.jpg",
                     "urlmin": "../../../assets/images/newyork/1min.jpg",
-                    "title": "Brooklyn Bridge",
-                    "desc": "The Brooklyn Bridge is a hybrid cable-stayed/suspension bridge in New York City. It connects the boroughs of Manhattan and Brooklyn, spanning the East River. The Brooklyn Bridge has a main span of 1,595.5 feet (486.3 m) and a height of 133 ft (40.5 m) above Mean High Water. It is one of the oldest roadway bridges in the United States and was the world's first steel-wire suspension bridge, as well as the first fixed crossing across the East River."
+                    "title": "Grand Central Terminal",
+                   "desc": "Grand Central Terminal (GCT; also referred to as Grand Central Station or simply as Grand Central) is a commuter rail terminal located at 42nd Street and Park Avenue in Midtown Manhattan, New York City. Grand Central is the southern terminus of the Metro-North Railroad's Harlem, Hudson and New Haven Lines, serving the northern parts of the New York metropolitan area. It also contains a connection to the New York City Subway at Grand Central–42nd Street station. The terminal is the third-busiest train station in North America, after New York Penn Station and Toronto Union Station."
+
                 },
                 "two": {
                     "url": "../../../assets/images/newyork/2.jpg",
@@ -42,8 +43,9 @@
                 "five": {
                     "url": "../../../assets/images/newyork/5.jpg",
                     "urlmin": "../../../assets/images/newyork/5min.jpg",
-                    "title": "Grand Central Terminal",
-                    "desc": "Grand Central Terminal (GCT; also referred to as Grand Central Station or simply as Grand Central) is a commuter rail terminal located at 42nd Street and Park Avenue in Midtown Manhattan, New York City. Grand Central is the southern terminus of the Metro-North Railroad's Harlem, Hudson and New Haven Lines, serving the northern parts of the New York metropolitan area. It also contains a connection to the New York City Subway at Grand Central–42nd Street station. The terminal is the third-busiest train station in North America, after New York Penn Station and Toronto Union Station."
+                    "title": "Brooklyn Bridge",
+                    "desc": "The Brooklyn Bridge is a hybrid cable-stayed/suspension bridge in New York City. It connects the boroughs of Manhattan and Brooklyn, spanning the East River. The Brooklyn Bridge has a main span of 1,595.5 feet (486.3 m) and a height of 133 ft (40.5 m) above Mean High Water. It is one of the oldest roadway bridges in the United States and was the world's first steel-wire suspension bridge, as well as the first fixed crossing across the East River."
+
                 }
             },
             "longlat": "40° 43' 50.1960'' N | 73° 56' 6.8712'' W",

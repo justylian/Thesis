@@ -31,6 +31,7 @@ export class ImagesComponent implements OnInit {
 
   //public currentCity:number;
   ngOnInit() {
+
     Load.allTheThings();
     //descPlacing();
     //this.compMusic.manageMusic(6)
@@ -46,7 +47,6 @@ export class ImagesComponent implements OnInit {
     firstTime=true;
     this.continueSlideShow(1);
   }
-
 
 
 
@@ -138,6 +138,10 @@ export class ImagesComponent implements OnInit {
   }
 
 }
+
+
+
+
 /* ----- Desc placing  ----- */
 
 function getColors(i){
@@ -194,7 +198,7 @@ function getColors(i){
       length=templength;
       lessx=700;
       lessy=50;
-    }    
+    }
     console.log(length,lessx,lessy);
 
 
@@ -313,7 +317,7 @@ function continueSlideShowInner(timePerCity,timePerPhoto,compMusic,compMap,compB
   if(i===1){
       // ------------CITY 1
      // if(isPaused===false){
-      
+
       if(startingCity===1 && firstTime===false){
 
         console.log("IFFFFF");
@@ -417,7 +421,10 @@ function continueSlideShowInner(timePerCity,timePerPhoto,compMusic,compMap,compB
       setTimeout(function() {
         //getColors(i);
         compMap.manageInitialMax(0);
+
+
       },timer+=time1);
+
     }
 
   //}
@@ -497,13 +504,13 @@ function imagePlay(i,timePerCity,timePerPhoto,timelineno) {
   console.log("outpause"+timelineno+i);
 
     setTimeout(function() {
-      if(isPaused===false){
+      //if(isPaused===false){
 
           //console.log("inpause"+timelineno+i);
         //console.log(i,timelineno);
 
         if(i===1){
-          $('#image'+timelineno+'-four-inner').show( "slow", function() {});
+          $('#cityImages'+timelineno+' #image'+timelineno+'-four-inner').show( "fast", function() {});
           handleDominantColor(timelineno,"four");
           $('#image'+timelineno+'-five-inner').fadeOut( "slow", function() {
           });//hide prev desc
@@ -513,7 +520,7 @@ function imagePlay(i,timePerCity,timePerPhoto,timelineno) {
           });
         }
         else if(i===2){
-          $('#image'+timelineno+'-three-inner').show( "slow", function() {});
+          $('#image'+timelineno+'-three-inner').show( "fast", function() {});
 
           handleDominantColor(timelineno,"three");
           $('#image'+timelineno+'-four-inner').hide( "slow", function() {});//hide prev desc
@@ -524,7 +531,7 @@ function imagePlay(i,timePerCity,timePerPhoto,timelineno) {
           });
         }
         else if(i===3){
-          $('#image'+timelineno+'-two-inner').show( "slow", function() {});
+          $('#image'+timelineno+'-two-inner').show( "fast", function() {});
 
           handleDominantColor(timelineno,"two");
           $('#image'+timelineno+'-three-inner').hide( "slow", function() {});//hide prev desc
@@ -535,7 +542,7 @@ function imagePlay(i,timePerCity,timePerPhoto,timelineno) {
           });
         }
         else if(i===4){
-          $('#image'+timelineno+'-one-inner').show( "slow", function() {});
+          $('#image'+timelineno+'-one-inner').show( "fast", function() {});
 
           handleDominantColor(timelineno,"one");
           $('#image'+timelineno+'-two-inner').hide( "slow", function() {});//hide prev desc
@@ -545,16 +552,14 @@ function imagePlay(i,timePerCity,timePerPhoto,timelineno) {
           });
         }
         else if(i===5){
-          $('#image'+timelineno+'-one-inner').hide( "slow", function() {});//hide prev desc
+          $('.image-inner-descs #image'+timelineno+'-one-inner').show( "fast", function() {});//hide prev desc
           $( '#image'+timelineno+'-one-img').fadeOut("slow", function()
           {
             $( '#image'+timelineno+'-one').fadeOut( 'fast');
           });
         }
-      }
-      else{
+      //}
 
-      }
       }, i*timePerPhoto);
 
 }

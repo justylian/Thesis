@@ -39,7 +39,7 @@ export class MusicComponent implements OnInit {
       player.play();
       document.getElementById('audio-button').style.background="url('../../../assets/images/pause.png')";
       document.getElementById('audio-button').style.backgroundSize="cover";
-      $("#audio-player h1").animate({ left:-35}, 100);
+      $("#audio-player h1").animate({ left:-26}, 100);
 
     }
     else{

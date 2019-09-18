@@ -11,7 +11,7 @@ export class MapboxComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    var mapboxgl = require('mapbox-gl/dist/mapbox-gl.js');
+    /*var mapboxgl = require('mapbox-gl/dist/mapbox-gl.js');
 
     mapboxgl.accessToken = 'pk.eyJ1IjoieGVuYWtpcyIsImEiOiJjanczdDBpMHAwZWgzM3lrbW9xaDVpNnlzIn0.9O8d2q7A_DUaGbswoygSTA';
 
@@ -24,7 +24,7 @@ export class MapboxComponent implements OnInit {
     zoom: 13,
 
 
-    });
+    });*/
   }
 
 }

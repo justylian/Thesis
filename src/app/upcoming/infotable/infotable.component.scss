@@ -358,7 +358,8 @@
                 padding-right: 6px;
             }
             .active {
-                transform: scale(1);
+                width: 100%;
+                // transform: scale(1);
             }
         }
     }
