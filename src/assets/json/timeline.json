@@ -1,66 +1,5 @@
 {
     "citiesPast": [{
-            "cityName": "New York",
-            "dateMonth": "June",
-            "dateYear": "2017",
-            "currency": "USD",
-            "timezone": "GMT -5",
-            "language": "English",
-            "countrycode": "+1",
-            "lingo": "Good Morning!",
-            "weather": {
-                "templow": "8°",
-                "temphigh": "16°",
-                "rainydays": "11"
-            },
-            "photos": {
-                "one": {
-                    "url": "../../../assets/images/newyork/1.jpg",
-                    "urlmin": "../../../assets/images/newyork/1min.jpg",
-                    "title": "Grand Central Terminal",
-                   "desc": "Grand Central Terminal (GCT; also referred to as Grand Central Station or simply as Grand Central) is a commuter rail terminal located at 42nd Street and Park Avenue in Midtown Manhattan, New York City. Grand Central is the southern terminus of the Metro-North Railroad's Harlem, Hudson and New Haven Lines, serving the northern parts of the New York metropolitan area. It also contains a connection to the New York City Subway at Grand Central–42nd Street station. The terminal is the third-busiest train station in North America, after New York Penn Station and Toronto Union Station."
-
-                },
-                "two": {
-                    "url": "../../../assets/images/newyork/2.jpg",
-                    "urlmin": "../../../assets/images/newyork/2min.jpg",
-
-                    "title": "Central Park",
-                    "desc": "Central Park is an urban park in Manhattan, New York City, located between the Upper West Side and the Upper East Side. Central Park is the most visited urban park in the United States, with an estimated 37–38 million visitors annually, and one of the most filmed locations in the world. In terms of area, Central Park is the fifth largest park in New York City, covering 843 acres (341 ha)."
-                },
-                "three": {
-                    "url": "../../../assets/images/newyork/3.jpg",
-                    "urlmin": "../../../assets/images/newyork/3min.jpg",
-                    "title": "One World Trade Center",
-                    "desc": "One World Trade Center (also known as One WTC, 1 World Trade Center, 1 WTC, or Freedom Tower) is the main building of the rebuilt World Trade Center complex in Lower Manhattan, New York City. One WTC is the tallest building in the United States, the tallest building in the Western Hemisphere, and the sixth-tallest in the world. The supertall structure has the same name as the North Tower of the original World Trade Center, which was destroyed in the terrorist attacks of September 11, 2001. The new skyscraper stands on the northwest corner of the 16-acre (6.5 ha) World Trade Center site, on the site of the original 6 World Trade Center. The building is bounded by West Street to the west, Vesey Street to the north, Fulton Street to the south, and Washington Street to the east."
-                },
-                "four": {
-                    "url": "../../../assets/images/newyork/4.jpg",
-                    "urlmin": "../../../assets/images/newyork/4min.jpg",
-                    "title": "Manhattan",
-                    "desc": "Manhattan, (or the City), is the most densely populated of the five boroughs of New York City, coextensive with New York County, one of the original counties of the U.S. state of New York. Manhattan serves as the city's economic and administrative center, cultural identifier, and historical birthplace. The borough consists mostly of Manhattan Island, bounded by the Hudson, East, and Harlem rivers; several small adjacent islands; and Marble Hill, a small neighborhood now on the U.S. mainland, physically connected to the Bronx and separated from the rest of Manhattan by the Harlem River."
-                },
-                "five": {
-                    "url": "../../../assets/images/newyork/5.jpg",
-                    "urlmin": "../../../assets/images/newyork/5min.jpg",
-                    "title": "Brooklyn Bridge",
-                    "desc": "The Brooklyn Bridge is a hybrid cable-stayed/suspension bridge in New York City. It connects the boroughs of Manhattan and Brooklyn, spanning the East River. The Brooklyn Bridge has a main span of 1,595.5 feet (486.3 m) and a height of 133 ft (40.5 m) above Mean High Water. It is one of the oldest roadway bridges in the United States and was the world's first steel-wire suspension bridge, as well as the first fixed crossing across the East River."
-
-                }
-            },
-            "longlat": "40° 43' 50.1960'' N | 73° 56' 6.8712'' W",
-            "cityLocation": {
-                "left": "580",
-                "top": "400"
-            },
-            "sound": {
-                "url": "../../../assets/music/Manhattan Traffic Jam.mp3",
-                "desc": "Manhattan Traffic Jam"
-            }
-
-
-        },
-        {
             "cityName": "Paris",
             "dateMonth": "January",
             "dateYear": "2017",
@@ -78,32 +17,32 @@
                 "one": {
                     "url": "../../../assets/images/paris/1.jpg",
                     "urlmin": "../../../assets/images/paris/1min.jpg",
-                    "title": "Brooklyn Bridge",
-                    "desc": "The Brooklyn Bridge is a hybrid cable-stayed/suspension bridge in New York City. It connects the boroughs of Manhattan and Brooklyn, spanning the East River. The Brooklyn Bridge has a main span of 1,595.5 feet (486.3 m) and a height of 133 ft (40.5 m) above Mean High Water. It is one of the oldest roadway bridges in the United States and was the world's first steel-wire suspension bridge, as well as the first fixed crossing across the East River."
+                    "title": "View from the Apartment",
+                    "desc": "Our day started by the window. On previous trips to Paris, Larry and I always seemed to traverse the city in a frantic fashion, zig-zagging from landmark to landmark and spending too much time burrowed in the underground consulting the route map of the Metro. Sure, we checked off many sites on our to-see list but I always returned home feeling like we'd seen a lot but experienced little. So, this year we decided to tour the city differently - slow down, condense our sightseeing to a smaller area and really take the time to experience our surroundings. "
                 },
                 "two": {
                     "url": "../../../assets/images/paris/2.jpg",
                     "urlmin": "../../../assets/images/paris/2min.jpg",
-                    "title": "Central Park",
-                    "desc": "Central Park is an urban park in Manhattan, New York City, located between the Upper West Side and the Upper East Side. Central Park is the most visited urban park in the United States, with an estimated 37–38 million visitors annually, and one of the most filmed locations in the world. In terms of area, Central Park is the fifth largest park in New York City, covering 843 acres (341 ha)."
+                    "title": "Visiting the Eiffel Tower",
+                    "desc": "We loved our visit to the Eiffel Tower! It’s an amazing structure that’s beautiful to look at night and day, near and far. Even though this was my second time seeing the tower, it still took my breath away when it first came into view. In fact, the first batch of photos I took of it are blurry because I was shaking from excitement!"
                 },
                 "three": {
                     "url": "../../../assets/images/paris/3.jpg",
                     "urlmin": "../../../assets/images/paris/3min.jpg",
-                    "title": "One World Trade Center",
-                    "desc": "One World Trade Center (also known as One WTC, 1 World Trade Center, 1 WTC, or Freedom Tower) is the main building of the rebuilt World Trade Center complex in Lower Manhattan, New York City. One WTC is the tallest building in the United States, the tallest building in the Western Hemisphere, and the sixth-tallest in the world. The supertall structure has the same name as the North Tower of the original World Trade Center, which was destroyed in the terrorist attacks of September 11, 2001. The new skyscraper stands on the northwest corner of the 16-acre (6.5 ha) World Trade Center site, on the site of the original 6 World Trade Center. The building is bounded by West Street to the west, Vesey Street to the north, Fulton Street to the south, and Washington Street to the east."
+                    "title": "Day 3: Notre-Dame",
+                    "desc": "One of the biggest items on my travel to-do list was to visit Notre-Dame Cathedral in Paris. Prior to visiting, my knowledge of the cathedral extended about as far as watching Disney’s The Hunchback of Notre-Dame, but I had heard how beautiful it was inside and I wanted it to be one of the first places I experienced in Paris.Notre-Dame Cathedral was built alongside the Seine beginning in 1163. Restorations and alterations have been made since, but the cathedral still has a similar appearance to when it was first completed in 1345. The pointed spires and flying buttresses on the outside of the cathedral are common to many churches built in the Gothic architectural style, but what I think sets Notre-Dame apart, and really any church for that matter, are the smaller details – the statues, carvings, and sculptures that tell the church’s stories."
                 },
                 "four": {
                     "url": "../../../assets/images/paris/4.jpg",
                     "urlmin": "../../../assets/images/paris/4min.jpg",
-                    "title": "Manhattan",
-                    "desc": "Manhattan, (or the City), is the most densely populated of the five boroughs of New York City, coextensive with New York County, one of the original counties of the U.S. state of New York. Manhattan serves as the city's economic and administrative center, cultural identifier, and historical birthplace. The borough consists mostly of Manhattan Island, bounded by the Hudson, East, and Harlem rivers; several small adjacent islands; and Marble Hill, a small neighborhood now on the U.S. mainland, physically connected to the Bronx and separated from the rest of Manhattan by the Harlem River."
+                    "title": "The Iconic Arc De Triomphe",
+                    "desc": "Our first evening in Paris was spent taking a stroll (that was anything but leisurely) down the Avenue des Champs-Élysées. I knew before we came to Paris that this street was popular, but popular is an understatement. It was absolutely packed with people shopping, eating, taking photos, busking, and my favorite – people workin’ it. And by that, I’m referring to those people (both men and women) who were walking along the street with their backs arched, lips in a pout, eyes with vacant stares, ready to burn us with their cigarettes if we got too close. For those people, the Champs-Élysées isn’t a street, it’s a runway."
                 },
                 "five": {
                     "url": "../../../assets/images/paris/5.jpg",
                     "urlmin": "../../../assets/images/paris/5min.jpg",
-                    "title": "Grand Central Terminal",
-                    "desc": "Grand Central Terminal (GCT; also referred to as Grand Central Station or simply as Grand Central) is a commuter rail terminal located at 42nd Street and Park Avenue in Midtown Manhattan, New York City. Grand Central is the southern terminus of the Metro-North Railroad's Harlem, Hudson and New Haven Lines, serving the northern parts of the New York metropolitan area. It also contains a connection to the New York City Subway at Grand Central–42nd Street station. The terminal is the third-busiest train station in North America, after New York Penn Station and Toronto Union Station."
+                    "title": "Magic of the Louvre",
+                    "desc": "The Louvre Museum tells so many stories – from the irreplaceable artwork it is home to, to the building itself – you’ll feel as though you are as close to touching history as humanly possible. The original purpose of the Louvre was not as a museum, nor was its purpose to house one of the world’s greatest collections of art. Originally it was built as a fortress towards the end of the twelfth century during the reign of King Philip Auguste. You didn’t realise it was quite that old did you? If you did, you’re doing better than I."
                 }
             },
             "longlat": "40° 43' 50.1960'' N | 73° 56' 6.8712'' W",
@@ -119,14 +58,14 @@
         },
 
         {
-            "cityName": "Athens",
+            "cityName": "Lisbon",
             "dateMonth": "January",
             "dateYear": "2018",
             "currency": "EUR",
-            "timezone": "GMT +2",
-            "language": "Greek",
+            "timezone": "GMT",
+            "language": "Portuguese",
             "countrycode": "+30",
-            "lingo": "Καλημέρα!",
+            "lingo": "Bom Dia!",
             "weather": {
                 "templow": "10°",
                 "temphigh": "25°",
@@ -134,50 +73,111 @@
             },
             "photos": {
                 "one": {
-                    "url": "../../../assets/images/athens/1.jpg",
-                    "urlmin": "../../../assets/images/athens/1min.jpg",
+                    "url": "../../../assets/images/lisbon/1.jpg",
+                    "urlmin": "../../../assets/images/lisbon/1min.jpg",
 
-                    "title": "Brooklyn Bridnkge",
-                    "desc": "The Brooklyn Bridge is a hybrid cable-stayed/suspension bridge in New York City. It connects the boroughs of Manhattan and Brooklyn, spanning the East River. The Brooklyn Bridge has a main span of 1,595.5 feet (486.3 m) and a height of 133 ft (40.5 m) above Mean High Water. It is one of the oldest roadway bridges in the United States and was the world's first steel-wire suspension bridge, as well as the first fixed crossing across the East River."
+                    "title": "By the River",
+                    "desc": "First stop, the MAAT museum. It's the newest and most modern in Lisbon, opening just two years ago. Architecture, technology and art combine here to revive the underdeveloped industrial port area. I did my search for that before coming. Stunning waterfront just by the amazing facade of the museum, in the background you could see the red bridge standing tall and even further on the other side of the river, the Christ Statue overlooking the harbour. "
                 },
                 "two": {
-                    "url": "../../../assets/images/athens/2.jpg",
-                    "urlmin": "../../../assets/images/athens/2min.jpg",
+                    "url": "../../../assets/images/lisbon/2.jpg",
+                    "urlmin": "../../../assets/images/lisbon/2min.jpg",
 
-                    "title": "Central Park",
-                    "desc": "Central Park is an urban park in Manhattan, New York City, located between the Upper West Side and the Upper East Side. Central Park is the most visited urban park in the United States, with an estimated 37–38 million visitors annually, and one of the most filmed locations in the world. In terms of area, Central Park is the fifth largest park in New York City, covering 843 acres (341 ha)."
+                    "title": "Riding the Tram",
+                    "desc": "Past lunch time, led by our hunger we hopped on a train and got back to the city centre. A very promising place with Brazilian cuisine caught our eyes, not the best idea after all. The food was just ok, we should have searched a little more, I guess. With our bellies full, we walked again uphill just by the tram lines with the old yellow cabs passing right in front of us with doors open. Following the track we found a small square in Santa Catarina with a panoramic view of the Tagus delta."
                 },
                 "three": {
-                    "url": "../../../assets/images/athens/3.jpg",
-                    "urlmin": "../../../assets/images/athens/3min.jpg",
+                    "url": "../../../assets/images/lisbon/3.jpg",
+                    "urlmin": "../../../assets/images/lisbon/3min.jpg",
 
-                    "title": "One World Trade Center",
-                    "desc": "One World Trade Center (also known as One WTC, 1 World Trade Center, 1 WTC, or Freedom Tower) is the main building of the rebuilt World Trade Center complex in Lower Manhattan, New York City. One WTC is the tallest building in the United States, the tallest building in the Western Hemisphere, and the sixth-tallest in the world. The supertall structure has the same name as the North Tower of the original World Trade Center, which was destroyed in the terrorist attacks of September 11, 2001. The new skyscraper stands on the northwest corner of the 16-acre (6.5 ha) World Trade Center site, on the site of the original 6 World Trade Center. The building is bounded by West Street to the west, Vesey Street to the north, Fulton Street to the south, and Washington Street to the east."
+                    "title": "Drinks with a view",
+                    "desc": "The district, like the most of this city, is on a hill, but I was so excited to walk around a city new to me I didn't mind walking at all. The neighbourhood was so vibrant. Bars and pubs in every corner with people standing outside drinking their beverages, Lisbon is alive 24/7. Although a drink sounded intriguing, we decided to walk down the hill towards the river."
                 },
                 "four": {
-                    "url": "../../../assets/images/athens/4.jpg",
-                    "urlmin": "../../../assets/images/athens/4min.jpg",
+                    "url": "../../../assets/images/lisbon/4.jpg",
+                    "urlmin": "../../../assets/images/lisbon/4min.jpg",
 
-                    "title": "Manhattan",
-                    "desc": "Manhattan, (or the City), is the most densely populated of the five boroughs of New York City, coextensive with New York County, one of the original counties of the U.S. state of New York. Manhattan serves as the city's economic and administrative center, cultural identifier, and historical birthplace. The borough consists mostly of Manhattan Island, bounded by the Hudson, East, and Harlem rivers; several small adjacent islands; and Marble Hill, a small neighborhood now on the U.S. mainland, physically connected to the Bronx and separated from the rest of Manhattan by the Harlem River."
+                    "title": "Belem Tower with friends",
+                    "desc": "We walked towards the ocean following the Tagus stream. Right beside us, people were jogging, exercising and riding their bikes peacefully. After all, it is apparent that this is one of the coolest places to spend your time in the city. Five minutes later, we reached the Monument of the Discoveries. Here, statues of great Portuguese sailors celebrate the years when they conquered the seas spreading their culture from Brazil to India. Portugal is a nation traditionally dominating the oceans of the world. After sitting there for a while, enjoying the ocean breeze and the shadow the monument provided, we said goodbye to the explorers to continue our walk. "
                 },
                 "five": {
-                    "url": "../../../assets/images/athens/5.jpg",
-                    "urlmin": "../../../assets/images/athens/5min.jpg",
+                    "url": "../../../assets/images/lisbon/5.jpg",
+                    "urlmin": "../../../assets/images/lisbon/5min.jpg",
 
-                    "title": "Grand Central Terminal",
-                    "desc": "Grand Central Terminal (GCT; also referred to as Grand Central Station or simply as Grand Central) is a commuter rail terminal located at 42nd Street and Park Avenue in Midtown Manhattan, New York City. Grand Central is the southern terminus of the Metro-North Railroad's Harlem, Hudson and New Haven Lines, serving the northern parts of the New York metropolitan area. It also contains a connection to the New York City Subway at Grand Central–42nd Street station. The terminal is the third-busiest train station in North America, after New York Penn Station and Toronto Union Station."
+                    "title": "Lisbon Pavillion",
+                    "desc": "The story starts in the check-in area of Toulouse airport. We boarded on a 2 hour flight to Lisbon. This would be our first time in Portugal, I couldn't be more excited. Arrival was scheduled in Lisbon late in the afternoon, around dusk. I was really looking forward for this trip, Portugal was number one on my to go list for a really long time. Eyes set on the window, waiting to see the ocean for the very first time. Finally, there it is, I can see the blue in the distance. At the same time the capital shows itself, tiled roofs, all in red,  spread everywhere cutting through the hills. On the one side, traditional Portuguese architecture and on the other modern high-rise buildings, state-of-the-art stadiums and two breathtaking bridges connecting the shores of Tagus river (Tejo in Portuguese)."
                 }
             },
             "longlat": "40° 43' 50.1960'' N | 73° 56' 6.8712'' W",
             "cityLocation": {
-                "left": "940",
+                "left": "778",
                 "top": "400"
             },
             "sound": {
-                "url": "../../../assets/music/Athens Traffic.mp3",
-                "desc": "Athens Traffic"
+                "url": "../../../assets/music/Lisbon Streets.mp3",
+                "desc": "Lisbon Streets"
             }
+        },
+        {
+            "cityName": "New York",
+            "dateMonth": "June",
+            "dateYear": "2017",
+            "currency": "USD",
+            "timezone": "GMT -5",
+            "language": "English",
+            "countrycode": "+1",
+            "lingo": "Good Morning!",
+            "weather": {
+                "templow": "8°",
+                "temphigh": "16°",
+                "rainydays": "11"
+            },
+            "photos": {
+                "one": {
+                    "url": "../../../assets/images/newyork/1.jpg",
+                    "urlmin": "../../../assets/images/newyork/1min.jpg",
+                    "title": "First Stop:Grand Central Terminal enjjbaslbjsajbbjsabjanjsnj",
+                    "desc": "Starting our trip in the Grand Central Terminal, a commuter rail terminal located at 42nd Street and Park Avenue in Midtown Manhattan, New York City. Grand Central is the southern terminus of the Metro-North Railroad's Harlem, Hudson and New Haven Lines, serving the northern parts of the New York metropolitan area. It also contains a connection to the New York City Subway at Grand Central–42nd Street station. The terminal is the third-busiest train station in North America, after New York Penn Station and Toronto Union Station."
+
+                },
+                "two": {
+                    "url": "../../../assets/images/newyork/2.jpg",
+                    "urlmin": "../../../assets/images/newyork/2min.jpg",
+
+                    "title": "Visit at the Central Park",
+                    "desc": "Central Park is an urban park in Manhattan, New York City, located between the Upper West Side and the Upper East Side. Central Park is the most visited urban park in the United States, with an estimated 37–38 million visitors annually, and one of the most filmed locations in the world. In terms of area, Central Park is the fifth largest park in New York City, covering 843 acres (341 ha)."
+                },
+                "three": {
+                    "url": "../../../assets/images/newyork/3.jpg",
+                    "urlmin": "../../../assets/images/newyork/3min.jpg",
+                    "title": "Afternoon at Lower Manhattan",
+                    "desc": "The view was astonishing. One World Trade Center is the main building of the rebuilt World Trade Center complex in Lower Manhattan, New York City. One WTC is the tallest building in the United States, the tallest building in the Western Hemisphere, and the sixth-tallest in the world. The supertall structure has the same name as the North Tower of the original World Trade Center, which was destroyed in the terrorist attacks of September 11, 2001. The new skyscraper stands on the northwest corner of the 16-acre (6.5 ha) World Trade Center site, on the site of the original 6 World Trade Center. The building is bounded by West Street to the west, Vesey Street to the north, Fulton Street to the south, and Washington Street to the east."
+                },
+                "four": {
+                    "url": "../../../assets/images/newyork/4.jpg",
+                    "urlmin": "../../../assets/images/newyork/4min.jpg",
+                    "title": "Day 2: Downtown Manhattan",
+                    "desc": "Manhattan, (or the City), is the most densely populated of the five boroughs of New York City, coextensive with New York County, one of the original counties of the U.S. state of New York. Manhattan serves as the city's economic and administrative center, cultural identifier, and historical birthplace. The borough consists mostly of Manhattan Island, bounded by the Hudson, East, and Harlem rivers; several small adjacent islands; and Marble Hill, a small neighborhood now on the U.S. mainland, physically connected to the Bronx and separated from the rest of Manhattan by the Harlem River."
+                },
+                "five": {
+                    "url": "../../../assets/images/newyork/5.jpg",
+                    "urlmin": "../../../assets/images/newyork/5min.jpg",
+                    "title": "Brooklyn Bridge at night",
+                    "desc": "The Brooklyn Bridge is a hybrid cable-stayed/suspension bridge in New York City. It connects the boroughs of Manhattan and Brooklyn, spanning the East River. The Brooklyn Bridge has a main span of 1,595.5 feet (486.3 m) and a height of 133 ft (40.5 m) above Mean High Water. It is one of the oldest roadway bridges in the United States and was the world's first steel-wire suspension bridge, as well as the first fixed crossing across the East River."
+
+                }
+            },
+            "longlat": "40° 43' 50.1960'' N | 73° 56' 6.8712'' W",
+            "cityLocation": {
+                "left": "580",
+                "top": "400"
+            },
+            "sound": {
+                "url": "../../../assets/music/Manhattan Traffic Jam.mp3",
+                "desc": "Manhattan Traffic Jam"
+            }
+
+
         },
         {
             "cityName": "Tokyo",
@@ -246,7 +246,7 @@
             "dateMonth": "October",
             "dateYear": "2018",
             "currency": "TRL",
-            "timezone": "GMT +2",
+            "timezone": "GMT +3",
             "language": "Turkish",
             "countrycode": "+45",
             "lingo": "Merhaba!",
@@ -260,36 +260,36 @@
                     "url": "../../../assets/images/istanbul/1.jpg",
                     "urlmin": "../../../assets/images/istanbul/1min.jpg",
 
-                    "title": "Brooklyn Bridnkge",
-                    "desc": "The Brooklyn Bridge is a hybrid cable-stayed/suspension bridge in New York City. It connects the boroughs of Manhattan and Brooklyn, spanning the East River. The Brooklyn Bridge has a main span of 1,595.5 feet (486.3 m) and a height of 133 ft (40.5 m) above Mean High Water. It is one of the oldest roadway bridges in the United States and was the world's first steel-wire suspension bridge, as well as the first fixed crossing across the East River."
+                    "title": "Last Day: Sultanahmet Camii",
+                    "desc": "The magnificent Blue Mosque (Sultan Ahmet Camii) - built in the sixteenth century - is a world-famous landmark that is an essential part of any visit to Istanbul. Admire the use of six slender minarets to guard the huge open courtyard, and be amazed by the large prayer hall - covered by a dominant dome - with the internal ceiling decorated with intricate blue iznik tiles. As you explore this mosque, absorb the history and respect its religious operation by avoiding prayer times and dressing in accordance with regulations."
                 },
                 "two": {
                     "url": "../../../assets/images/istanbul/2.jpg",
                     "urlmin": "../../../assets/images/istanbul/2min.jpg",
 
-                    "title": "Central Park",
-                    "desc": "Central Park is an urban park in Manhattan, New York City, located between the Upper West Side and the Upper East Side. Central Park is the most visited urban park in the United States, with an estimated 37–38 million visitors annually, and one of the most filmed locations in the world. In terms of area, Central Park is the fifth largest park in New York City, covering 843 acres (341 ha)."
+                    "title": "Bosphorus Cruise",
+                    "desc": "The Bosphorus Straits are impressive. The strait (which is commonly misunderstood to be the Bosphorus River) is actually a natural sea channel connecting the Black Sea to the north with the Sea of Marmara to the south. The Bosphorus is 31 km (19 miles) long. It is 3420 meters (2.1 miles) wide at the widest point, and 700 meters (765 yars, or 0.4 miles) wide at the narrowest point. These are actually the narrowest straits in the world that allow for major international transportation (i.e., large contain ships)."
                 },
                 "three": {
                     "url": "../../../assets/images/istanbul/3.jpg",
                     "urlmin": "../../../assets/images/istanbul/3min.jpg",
 
-                    "title": "One World Trade Center",
-                    "desc": "One World Trade Center (also known as One WTC, 1 World Trade Center, 1 WTC, or Freedom Tower) is the main building of the rebuilt World Trade Center complex in Lower Manhattan, New York City. One WTC is the tallest building in the United States, the tallest building in the Western Hemisphere, and the sixth-tallest in the world. The supertall structure has the same name as the North Tower of the original World Trade Center, which was destroyed in the terrorist attacks of September 11, 2001. The new skyscraper stands on the northwest corner of the 16-acre (6.5 ha) World Trade Center site, on the site of the original 6 World Trade Center. The building is bounded by West Street to the west, Vesey Street to the north, Fulton Street to the south, and Washington Street to the east."
+                    "title": "Beyoglu Neighborhood",
+                    "desc": "This time around in Istanbul I’m staying in the neighborhood of Beyoğlu. It’s on the European side of the city and is considered the newer part of town. In the past I’ ve stayed in the neighborhood of Sultanahmet on the Asian side of the city.This is the older part of town.The title image of this blog is of Sultanahmet as seen from Beyoğlu. The illuminated Galata Tower, seen in the foreground of the title image, is in Beyoğlu and dates from 1348, which seems old enough."
                 },
                 "four": {
                     "url": "../../../assets/images/istanbul/4.jpg",
                     "urlmin": "../../../assets/images/istanbul/4min.jpg",
 
-                    "title": "Manhattan",
-                    "desc": "Manhattan, (or the City), is the most densely populated of the five boroughs of New York City, coextensive with New York County, one of the original counties of the U.S. state of New York. Manhattan serves as the city's economic and administrative center, cultural identifier, and historical birthplace. The borough consists mostly of Manhattan Island, bounded by the Hudson, East, and Harlem rivers; several small adjacent islands; and Marble Hill, a small neighborhood now on the U.S. mainland, physically connected to the Bronx and separated from the rest of Manhattan by the Harlem River."
+                    "title": "Maiden Tower and the Asiatic Shore",
+                    "desc": "The Maiden’s Tower is an elegant house built on a small island in the middle of the sea, located at the Üsküdar district of Istanbul. This legendary tower whose making of many years, is home to a large number of domestic and foreign tourists with all its glory. The Maiden’s Tower is a unique structure that was mentioned in legends and used for many purposes throughout its history and beauty. Although there are many legends about this building, the most known legend is certainly sneaky one."
                 },
                 "five": {
                     "url": "../../../assets/images/istanbul/5.jpg",
                     "urlmin": "../../../assets/images/istanbul/5min.jpg",
 
-                    "title": "Grand Central Terminal",
-                    "desc": "Grand Central Terminal (GCT; also referred to as Grand Central Station or simply as Grand Central) is a commuter rail terminal located at 42nd Street and Park Avenue in Midtown Manhattan, New York City. Grand Central is the southern terminus of the Metro-North Railroad's Harlem, Hudson and New Haven Lines, serving the northern parts of the New York metropolitan area. It also contains a connection to the New York City Subway at Grand Central–42nd Street station. The terminal is the third-busiest train station in North America, after New York Penn Station and Toronto Union Station."
+                    "title": "Day 1: Aya Sofia",
+                    "desc": "Ayasofya (or Hagia Sophia in Greek) is one of Istanbul’s most iconic structures. It graces travel brochures and glossy magazines and has even made a cameo in video game Assassin’s Creed. The 1,500-year-old structure is considered the most important of the Byzantine era and is one of the world’s great monuments. Completed in 537 AD, Ayasofya was the world’s largest cathedral for nearly a thousand years, until Seville Cathedral was completed in 1520. Ayasofya and its central dome, a giant 32 metres (105ft) in diameter, stands sentry over Istanbul, offering beguiling views both inside and out. Here’s how to make the most of your time there."
                 }
             },
             "longlat": "40° 43' 50.1960'' N | 73° 56' 6.8712'' W",
@@ -331,7 +331,7 @@
                 "urlmin": "../../../assets/images/copenhagen/2min.jpg",
 
                 "title": "The Little Mermaid",
-                "desc": "sdcds"
+                "desc": "At Langelinje Pier you will find one of Copenhagen's most famous tourist attractions: The sculpture of The Little Mermaid. 23 August 2013 she turned 100 years old. Unveiled on 23 August 1913, The Little Mermaid was a gift from Danish brewer Carl Jacobsen to the City of Copenhagen. The sculpture is made of bronze and granite and was inspired by Hans Christian Andersen’s fairy tale about a mermaid who gives up everything to be united with a young, handsome prince on land. Every morning and evening she swims to the surface from the bottom of the sea and, perched on her rock in the water, she stares longingly towards the shore hoping to catch a glimpse of her beloved prince."
             },
             "three": {
                 "url": "../../../assets/images/copenhagen/3.jpg",
@@ -345,7 +345,7 @@
                 "urlmin": "../../../assets/images/copenhagen/4min.jpg",
 
                 "title": "Nyhavn",
-                "desc": "cds"
+                "desc": "Especially during summer, Nyhavn is the perfect place to end a long day. With a cold one on the quay like the locals, or at one of the many restaurants. Originally, Nyhavn was a busy commercial port where ships from all over the world would dock. The area was packed with sailors, ladies of pleasure, pubs and alehouses. Today the beautiful old houses have been renovated and restaurants dominate the old port. Nyhavn is filled with people enjoying the relaxed atmosphere by the canal, jazz music and great food."
             },
             "five": {
                 "url": "../../../assets/images/copenhagen/5.jpg",
