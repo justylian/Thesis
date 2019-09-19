@@ -86,7 +86,6 @@ function infoBubbleShow(infobubbletime) {
       $('#info-bubble-1').fadeTo( 900, 1 , function() {
       });
     });
-    repeatBubble(infobubbletime);
   },infobubbletimecurrent+=infobubbletime)
   setTimeout(function() {
     repeatBubble(infobubbletime);
