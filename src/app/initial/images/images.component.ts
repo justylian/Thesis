@@ -23,8 +23,7 @@ export class ImagesComponent implements OnInit {
   citiesPast=timelinejson.citiesPast;
   citiesFuture=timelinejson.citiesFuture;
   timePerPhoto=timesjson.timePerPhoto;
-  timePerCity=timesjson.timePerCity;
-  delay=timesjson.delay;
+  timePerCity=this.timePerPhoto*5;
 
 
   constructor(private compMap: MapComponent,private compBubble: InfobubbleComponent,private initialService: InitialService,private compMusic: MusicComponent ) { }
@@ -37,11 +36,7 @@ export class ImagesComponent implements OnInit {
     //this.compMusic.manageMusic(6)
   }
 
-  public  futureCityState(): void {
-    setTimeout(function() {
 
-    },this.delay)
-  }
 
   public slideShow(){
     firstTime=true;
@@ -375,6 +370,7 @@ function continueSlideShowInner(timePerCity,timePerPhoto,compMusic,compMap,compB
     if(startingCity===i){
 
       setTimeout(function() {
+
         getColors(i);
 
         currentCity=i;
@@ -421,6 +417,10 @@ function continueSlideShowInner(timePerCity,timePerPhoto,compMusic,compMap,compB
       setTimeout(function() {
         //getColors(i);
         compMap.manageInitialMax(0);
+        compBubble.showBubble();
+        compMap.showNextCity();
+        firstTime=true;
+
 
 
       },timer+=time1);
@@ -503,6 +503,7 @@ function manageImagesShow(timePerCity,timePerPhoto,timelineno){
 function imagePlay(i,timePerCity,timePerPhoto,timelineno) {
   console.log("outpause"+timelineno+i);
 
+    // tslint:disable-next-line: align
     setTimeout(function() {
       //if(isPaused===false){
 
@@ -552,10 +553,24 @@ function imagePlay(i,timePerCity,timePerPhoto,timelineno) {
           });
         }
         else if(i===5){
-          $('.image-inner-descs #image'+timelineno+'-one-inner').show( "fast", function() {});//hide prev desc
+          $('#image'+timelineno+'-one-inner').hide( "slow", function() {});//hide prev desc
           $( '#image'+timelineno+'-one-img').fadeOut("slow", function()
           {
-            $( '#image'+timelineno+'-one').fadeOut( 'fast');
+            $( '#image'+timelineno+'-one').fadeOut( 'fast', function()
+            {
+              $('#cityImages'+timelineno).hide();
+              $( '#image'+timelineno+'-one-img').show();
+              $( '#image'+timelineno+'-two-img').show();
+              $( '#image'+timelineno+'-three-img').show();
+              $( '#image'+timelineno+'-four-img').show();
+              $( '#image'+timelineno+'-five-img').show();
+
+              $( '#image'+timelineno+'-one').show();
+              $( '#image'+timelineno+'-two').show();
+              $( '#image'+timelineno+'-three').show();
+              $( '#image'+timelineno+'-four').show();
+              $( '#image'+timelineno+'-five').show();
+            });
           });
         }
       //}

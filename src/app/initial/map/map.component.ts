@@ -15,9 +15,9 @@ export class MapComponent implements OnInit {
 
   citiesPast=timelinejson.citiesPast;
   citiesFuture=timelinejson.citiesFuture;
-  timePerCity=timesjson.timePerCity;
   timePerPhoto=timesjson.timePerPhoto;
-  delay=timesjson.delay;
+  timePerCity=this.timePerPhoto*5;
+
 
 
   constructor() { }
@@ -28,6 +28,14 @@ export class MapComponent implements OnInit {
 
   }
 
+  public showNextCity(){
+    $('#next-city').fadeIn( 400, function() {});
+
+  }
+  public hideNextCity(){
+    $('#next-city').fadeOut( 400, function() {});
+
+  }
   public manageInitialMax(timelineno){
         mapMaximize();
 
@@ -91,7 +99,6 @@ function changePinPhotos(timelineno,citiesPast,citiesFuture){
       $('#image-stack-3').css('background-image', 'url(' + citiesFuture[0].photos.three.urlmin + ')');
       $('#image-stack-4').css('background-image', 'url(' + citiesFuture[0].photos.four.urlmin + ')');
       $('#image-stack-5').css('background-image', 'url(' + citiesFuture[0].photos.five.url + ')');
-      console.log("ve");
 
       },400)
   }

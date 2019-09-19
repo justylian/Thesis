@@ -21,8 +21,8 @@ export class InfobubbleComponent implements OnInit {
    }
 
   ngOnInit() {
-    infoBubbleShow(this.infobubbletime); //run first
-
+    //infoBubbleShow(this.infobubbletime); //run first
+    infoBubbleShow(this.infobubbletime);
   }
 
 
@@ -33,8 +33,19 @@ export class InfobubbleComponent implements OnInit {
     });
   }
   public showBubble(){
+    //this.hideBubble();
+
+
+    $('#info-bubble-1').fadeOut(400);
+    $('#info-bubble-2').fadeOut(400);
+    $('#info-bubble-3').fadeOut(400);
+    $('#info-bubble-4').fadeOut(400);
+    $('#info-bubble-5').fadeOut(400);
     $('#info-bubble').fadeTo( 600, 1 , function() {
     });
+    infoBubbleShow(this.infobubbletime);
+
+    //infoBubbleShow(this.infobubbletime);
   }
 
 }
@@ -45,8 +56,7 @@ function repeatBubble(infobubbletime){
 function infoBubbleShow(infobubbletime) {
   var infobubbletimecurrent=0;
 
-    $('#info-bubble-1').fadeTo( 900, 1 , function() {
-    });
+
   setTimeout(function() {
     $('#info-bubble-1').fadeOut( 400, function() {
       $('#info-bubble-2').fadeTo( 600, 1 , function() {
@@ -73,8 +83,12 @@ function infoBubbleShow(infobubbletime) {
   },infobubbletimecurrent+=infobubbletime)
   setTimeout(function() {
     $('#info-bubble-5').fadeOut( 400, function() {
-
+      $('#info-bubble-1').fadeTo( 900, 1 , function() {
+      });
     });
+    repeatBubble(infobubbletime);
+  },infobubbletimecurrent+=infobubbletime)
+  setTimeout(function() {
     repeatBubble(infobubbletime);
   },infobubbletimecurrent+=infobubbletime)
 }
