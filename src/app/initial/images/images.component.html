@@ -1,5 +1,52 @@
 <div id="image-main" (click)="pause()">
     <div id="image-main-inner">
+        <div *ngFor="let city of citiesPast;  let i=index">
+            <canvas id="myCanvas">
+            </canvas>
+            <canvas id="myCanvas1">
+              </canvas>
+            <canvas id="myCanvas2">
+                </canvas><canvas id="myCanvas3">
+                  </canvas><canvas id="myCanvas4">
+                    </canvas><canvas id="myCanvas5">
+                      </canvas>
+            <div *ngIf="i<5">
+                <div id="{{ 'cityImages' + (i+1) }}">
+                    <div id="{{ 'image' + (i+1) +'-one'}}">
+                        <div class="image-inner-descs" id="{{ 'image' + (i+1) +'-one-inner'}}">
+                            <h1>{{city.photos.one.title}}</h1>
+                            <h2>{{city.photos.one.desc}}</h2>
+                        </div>
+                        <img id="{{ 'image' + (i+1) +'-one-img'}}" data-src={{city.photos.one.url}}></div>
+                    <div id="{{ 'image' + (i+1) +'-two'}}">
+                        <div class="image-inner-descs" id="{{ 'image' + (i+1) +'-two-inner'}}">
+                            <h1>{{city.photos.two.title}}</h1>
+                            <h2>{{city.photos.two.desc}}</h2>
+                        </div>
+                        <img id="{{ 'image' + (i+1) +'-two-img'}}" data-src={{city.photos.two.url}}>
+                    </div>
+                    <div id="{{ 'image' + (i+1) +'-three'}}">
+                        <div class="image-inner-descs" id="{{ 'image' + (i+1) +'-three-inner'}}">
+                            <h1>{{city.photos.three.title}}</h1>
+                            <h2>{{city.photos.three.desc}}</h2>
+                        </div>
+                        <img id="{{ 'image' + (i+1) +'-three-img'}}" data-src={{city.photos.three.url}}></div>
+                    <div id="{{ 'image' + (i+1) +'-four'}}">
+                        <div class="image-inner-descs" id="{{ 'image' + (i+1) +'-four-inner'}}">
+                            <h1>{{city.photos.four.title}}</h1>
+                            <h2>{{city.photos.four.desc}}</h2>
+                        </div>
+                        <img id="{{ 'image' + (i+1) +'-four-img'}}" data-src={{city.photos.four.url}}></div>
+                    <div id="{{ 'image' + (i+1) +'-five'}}">
+                        <div class="image-inner-descs" id="{{ 'image' + (i+1) +'-five-inner'}}">
+                            <h1>{{city.photos.five.title}}</h1>
+                            <h2>{{city.photos.five.desc}}</h2>
+                        </div>
+                        <img id="{{ 'image' + (i+1) +'-five-img'}}" data-src={{city.photos.five.url}}></div>
+                </div>
+            </div>
+        </div>
+        <!--
         <div id="cityImages1">
             <div id="image1-one">
                 <div class="image-inner-descs" id="image1-one-inner">
@@ -170,7 +217,7 @@
                     <h1>{{citiesPast[4].photos.five.title}}</h1>
                     <h2>{{citiesPast[4].photos.five.desc}}</h2>
                 </div> <img id="image5-five-img" data-src={{citiesPast[4].photos.five.url}}></div>
-        </div>
+        </div>-->
         <div id="cityImages6">
             <div id="image6-one">
                 <div class="image-inner-descs" id="image6-one-inner">

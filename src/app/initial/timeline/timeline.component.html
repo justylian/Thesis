@@ -2,6 +2,31 @@
     <div id="timeline">
         <div id="timeline-past">
             <ul>
+                <div *ngFor="let city of citiesPast;  let i=index">
+                    <li *ngIf="i<5">
+                        <div class="timeline-bubble" id="{{ 'timeline-city-' + (i+1) }}"></div>
+
+                        <div class="timeline-bubble"></div>
+                        <div id="timeline-date-month">
+                            <h1>{{city.dateMonth}}
+
+                            </h1>
+
+                        </div>
+                        <div id="timeline-date-year">
+                            <h2>{{city.dateYear}}</h2>
+                        </div>
+                        <div id="timeline-city-name" (click)="nextCitySlideshow()">
+                            <h3>{{city.cityName}}</h3>
+
+                        </div>
+                    </li>
+                </div>
+
+            </ul>
+        </div>
+        <!--   <div id="timeline-past">
+            <ul>
                 <li>
                     <div class="timeline-bubble" id="timeline-city-1"></div>
                     <div class="timeline-bubble"></div>
@@ -93,7 +118,7 @@
                 </li>
 
             </ul>
-        </div>
+        </div>-->
         <div id="timeline-future">
             <div id="timeline-future-top">
 

@@ -12,6 +12,8 @@ declare var jQuery: any;
 })
 export class InfobubbleComponent implements OnInit {
   citiesPast=timelinejson.citiesPast;
+  citiesPastCount=Object.keys(timelinejson.citiesPast).length;
+
   citiesFuture=timelinejson.citiesFuture;
 
   infobubbletime=timesjson.infobubbletime;

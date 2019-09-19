@@ -22,6 +22,8 @@ var currentCity;
 export class ImagesComponent implements OnInit {
   citiesPast=timelinejson.citiesPast;
   citiesFuture=timelinejson.citiesFuture;
+  citiesPastCount=Object.keys(timelinejson.citiesPast).length;
+
   timePerPhoto=timesjson.timePerPhoto;
   timePerCity=this.timePerPhoto*5;
 
@@ -53,7 +55,11 @@ export class ImagesComponent implements OnInit {
     if(nextCity===7){
       nextCity=1;
     }
-
+    if(nextCity>this.citiesPastCount)
+    {
+      nextCity=6;
+    }
+console.log(nextCity);
     $('#cityImages'+currentCity).hide( "slow", function() {
     });
 
@@ -88,6 +94,10 @@ export class ImagesComponent implements OnInit {
     if(previousCity===0){
       previousCity=6;
     }
+    if(previousCity>this.citiesPastCount)
+    {
+      previousCity=this.citiesPastCount;
+    }
 
     $('#cityImages'+currentCity).hide( "slow", function() {
     });
@@ -109,13 +119,17 @@ export class ImagesComponent implements OnInit {
     var compBubble=this.compBubble;
     var compMusic=this.compMusic;
     var timePerCity=this.timePerCity;
+    var loop=this.citiesPastCount+1;
     //var timer=0;
-    //console.log(upcomingCity);
+    console.log(loop,startingCity);
 
     for (var i = startingCity; i <= 6; ++i){
       //setTimeout(function() {
-        console.log(i);
-        continueSlideShowInner(timePerCity,timePerPhoto,compMusic,compMap,compBubble,initialService,startingCity,i);
+        if(i<=this.citiesPastCount || i===6){
+          console.log(i);
+          continueSlideShowInner(timePerCity,timePerPhoto,compMusic,compMap,compBubble,initialService,startingCity,i);
+        }
+
         /*if(i===6){ //loop
           i=1;
         }*/
@@ -133,7 +147,6 @@ export class ImagesComponent implements OnInit {
   }
 
 }
-
 
 
 

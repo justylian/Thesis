@@ -11,6 +11,8 @@ let plays=false;
 })
 export class MusicComponent implements OnInit {
   citiesPast=timelinejson.citiesPast;
+  citiesPastCount=Object.keys(timelinejson.citiesPast).length;
+
   citiesFuture=timelinejson.citiesFuture;
   //plays;
 
@@ -24,13 +26,15 @@ export class MusicComponent implements OnInit {
     let player;
     var i;
     for( i=1;i<=6;i++){
-      //onsole.log(i);
+      console.log(i+"HEMMMM,,,");
+      if(i<=this.citiesPastCount || i===6){
 
-      if($('#music-desc'+i).css('display') === 'block')
-      {
-        player=$('#music-desc'+i+' #player')[0];
-        console.log(player);
-        break;
+        if($('#music-desc'+i).css('display') === 'block')
+        {
+          player=$('#music-desc'+i+' #player')[0];
+          console.log(player);
+          break;
+        }
       }
     }
     //let player=<HTMLVideoElement>document.getElementById('player');
@@ -53,12 +57,14 @@ export class MusicComponent implements OnInit {
   }
 
   public manageMusic(i){
+    var j;
     if(i===1){
-      $('#music-desc6 #player')[0].pause();
-      $('#music-desc5 #player')[0].pause();
-      $('#music-desc4 #player')[0].pause();
-      $('#music-desc3 #player')[0].pause();
-      $('#music-desc2 #player')[0].pause();
+      for(j=2;j<=this.citiesPastCount;j++)
+      {
+        $('#music-desc'+j+' #player')[0].pause();
+
+      }
+     $('#music-desc6 #player')[0].pause();
 
 
       if(plays){
@@ -66,104 +72,128 @@ export class MusicComponent implements OnInit {
       }
 
       $('#music-desc1').show();
+      for(j=2;j<=this.citiesPastCount;j++)
+      {
+        $('#music-desc'+j).hide();
 
-      $('#music-desc2').hide();
-      $('#music-desc3').hide();
-      $('#music-desc4').hide();
-      $('#music-desc5').hide();
+      }
       $('#music-desc6').hide();
 
     }
     else  if(i===2){
+      for(j=1;j<=this.citiesPastCount;j++)
+      {
+        if(j!==2){
+          $('#music-desc'+j+' #player')[0].pause();
+        }
+      }
       $('#music-desc6 #player')[0].pause();
-      $('#music-desc5 #player')[0].pause();
-      $('#music-desc4 #player')[0].pause();
-      $('#music-desc3 #player')[0].pause();
-      $('#music-desc1 #player')[0].pause();
+
 
       if(plays){
       $('#music-desc2 #player')[0].play();
       }
       $('#music-desc2').show();
 
-      $('#music-desc1').hide();
-      $('#music-desc3').hide();
-      $('#music-desc4').hide();
-      $('#music-desc5').hide();
+      for(j=1;j<=this.citiesPastCount;j++)
+      {
+        if(j!==2){
+          $('#music-desc'+j).hide();
+        }
+
+      }
       $('#music-desc6').hide();
     }
     else  if(i===3){
+      for(j=1;j<=this.citiesPastCount;j++)
+      {
+        if(j!==3){
+          $('#music-desc'+j+' #player')[0].pause();
+        }
+      }
       $('#music-desc6 #player')[0].pause();
-      $('#music-desc5 #player')[0].pause();
-      $('#music-desc4 #player')[0].pause();
-      $('#music-desc2 #player')[0].pause();
-      $('#music-desc1 #player')[0].pause();
+
 
       if(plays){
       $('#music-desc3 #player')[0].play();
       }
       $('#music-desc3').show();
 
-      $('#music-desc1').hide();
-      $('#music-desc2').hide();
-      $('#music-desc4').hide();
-      $('#music-desc5').hide();
+      for(j=1;j<=this.citiesPastCount;j++)
+      {
+        if(j!==3){
+          $('#music-desc'+j).hide();
+        }
+
+      }
       $('#music-desc6').hide();
     }
     else  if(i===4){
+      for(j=1;j<=this.citiesPastCount;j++)
+      {
+        if(j!==4){
+          $('#music-desc'+j+' #player')[0].pause();
+        }
+      }
       $('#music-desc6 #player')[0].pause();
-      $('#music-desc5 #player')[0].pause();
-      $('#music-desc2 #player')[0].pause();
-      $('#music-desc3 #player')[0].pause();
-      $('#music-desc1 #player')[0].pause();
+
 
       if(plays){
       $('#music-desc4 #player')[0].play();
       }
       $('#music-desc4').show();
 
-      $('#music-desc1').hide();
-      $('#music-desc3').hide();
-      $('#music-desc2').hide();
-      $('#music-desc5').hide();
+      for(j=1;j<=this.citiesPastCount;j++)
+      {
+        if(j!==4){
+          $('#music-desc'+j).hide();
+        }
+
+      }
       $('#music-desc6').hide();
     }
     else  if(i===5){
+      for(j=1;j<=this.citiesPastCount;j++)
+      {
+        if(j!==5){
+          $('#music-desc'+j+' #player')[0].pause();
+        }
+      }
       $('#music-desc6 #player')[0].pause();
-      $('#music-desc2 #player')[0].pause();
-      $('#music-desc4 #player')[0].pause();
-      $('#music-desc3 #player')[0].pause();
-      $('#music-desc1 #player')[0].pause();
+
 
       if(plays){
       $('#music-desc5 #player')[0].play();
       }
       $('#music-desc5').show();
 
-      $('#music-desc1').hide();
-      $('#music-desc3').hide();
-      $('#music-desc4').hide();
-      $('#music-desc2').hide();
+      for(j=1;j<=this.citiesPastCount;j++)
+      {
+        if(j!==5){
+          $('#music-desc'+j).hide();
+        }
+
+      }
       $('#music-desc6').hide();
     }
-    else{
-      $('#music-desc2 #player')[0].pause();
-      $('#music-desc5 #player')[0].pause();
-      $('#music-desc4 #player')[0].pause();
-      $('#music-desc3 #player')[0].pause();
-      $('#music-desc1 #player')[0].pause();
+    else if(i===6){
+      for(j=1;j<=this.citiesPastCount;j++)
+      {
+          $('#music-desc'+j+' #player')[0].pause();
+
+      }
+
 
       if(plays){
       $('#music-desc6 #player')[0].play();
       }
-      
+
       $('#music-desc6').show();
 
-      $('#music-desc1').hide();
-      $('#music-desc3').hide();
-      $('#music-desc4').hide();
-      $('#music-desc5').hide();
-      $('#music-desc2').hide();
+      for(j=1;j<=this.citiesPastCount;j++)
+      {
+          $('#music-desc'+j).hide();
+      }
 
     }
   }

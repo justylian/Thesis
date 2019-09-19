@@ -4,26 +4,17 @@
         <audio id="player" src="{{citiesFuture[0].sound.url}}"></audio>
         <h4>{{citiesFuture[0].sound.desc}}</h4>
     </div>
-    <div id="music-desc1">
-        <audio id="player" src="{{citiesPast[0].sound.url}}"></audio>
-        <h4>{{citiesPast[0].sound.desc}}</h4>
+    <div *ngFor="let city of citiesPast;  let i=index">
+
+        <div *ngIf="i<5">
+            <div id="{{ 'music-desc' + (i+1) }}">
+                <audio id="player" src="{{city.sound.url}}"></audio>
+                <h4>{{city.sound.desc}}</h4>
+            </div>
+        </div>
     </div>
-    <div id="music-desc2">
-        <audio id="player" src="{{citiesPast[1].sound.url}}"></audio>
-        <h4>{{citiesPast[1].sound.desc}}</h4>
-    </div>
-    <div id="music-desc3">
-        <audio id="player" src="{{citiesPast[2].sound.url}}"></audio>
-        <h4>{{citiesPast[2].sound.desc}}</h4>
-    </div>
-    <div id="music-desc4">
-        <audio id="player" src="{{citiesPast[3].sound.url}}"></audio>
-        <h4>{{citiesPast[3].sound.desc}}</h4>
-    </div>
-    <div id="music-desc5">
-        <audio id="player" src="{{citiesPast[4].sound.url}}"></audio>
-        <h4>{{citiesPast[4].sound.desc}}</h4>
-    </div>
+
+
 
 
 

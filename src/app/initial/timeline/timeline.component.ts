@@ -55,6 +55,7 @@ export class TimelineComponent implements OnInit {
 
 
    citiesPast=timelinejson.citiesPast;
+   citiesPastCount=Object.keys(timelinejson.citiesPast).length;
    citiesFuture=timelinejson.citiesFuture;
 
 
@@ -150,13 +151,14 @@ export class TimelineComponent implements OnInit {
 
 }
 
-
 function cityFocus(timelineno){
   //$('#timeline-city-1 h1').animate({scale: '+=0.33'},100);
  // $('#timeline-city-1 h1').addClass('animate');
 
     $('#timeline-city-'+timelineno).fadeTo(200,1, function() {});
+
     if(timelineno===1){
+
       $('#timeline-city-2').fadeOut(200, function() {});
       $('#timeline-city-3').fadeOut(200, function() {});
       $('#timeline-city-4').fadeOut(200, function() {});

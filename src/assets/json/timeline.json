@@ -3,16 +3,6 @@
             "cityName": "Paris",
             "dateMonth": "January",
             "dateYear": "2017",
-            "currency": "EUR",
-            "timezone": "GMT+1",
-            "language": "French",
-            "countrycode": "+1",
-            "lingo": "Bonjour!",
-            "weather": {
-                "templow": "4°",
-                "temphigh": "10°",
-                "rainydays": "11"
-            },
             "photos": {
                 "one": {
                     "url": "../../../assets/images/paris/1.jpg",
@@ -45,7 +35,6 @@
                     "desc": "The Louvre Museum tells so many stories – from the irreplaceable artwork it is home to, to the building itself – you’ll feel as though you are as close to touching history as humanly possible. The original purpose of the Louvre was not as a museum, nor was its purpose to house one of the world’s greatest collections of art. Originally it was built as a fortress towards the end of the twelfth century during the reign of King Philip Auguste. You didn’t realise it was quite that old did you? If you did, you’re doing better than I."
                 }
             },
-            "longlat": "40° 43' 50.1960'' N | 73° 56' 6.8712'' W",
             "cityLocation": {
                 "left": "840",
                 "top": "350"
@@ -61,16 +50,6 @@
             "cityName": "Lisbon",
             "dateMonth": "January",
             "dateYear": "2018",
-            "currency": "EUR",
-            "timezone": "GMT",
-            "language": "Portuguese",
-            "countrycode": "+30",
-            "lingo": "Bom Dia!",
-            "weather": {
-                "templow": "10°",
-                "temphigh": "25°",
-                "rainydays": "11"
-            },
             "photos": {
                 "one": {
                     "url": "../../../assets/images/lisbon/1.jpg",
@@ -108,7 +87,6 @@
                     "desc": "The story starts in the check-in area of Toulouse airport. We boarded on a 2 hour flight to Lisbon. This would be our first time in Portugal, I couldn't be more excited. Arrival was scheduled in Lisbon late in the afternoon, around dusk. I was really looking forward for this trip, Portugal was number one on my to go list for a really long time. Eyes set on the window, waiting to see the ocean for the very first time. Finally, there it is, I can see the blue in the distance. At the same time the capital shows itself, tiled roofs, all in red,  spread everywhere cutting through the hills. On the one side, traditional Portuguese architecture and on the other modern high-rise buildings, state-of-the-art stadiums and two breathtaking bridges connecting the shores of Tagus river (Tejo in Portuguese)."
                 }
             },
-            "longlat": "40° 43' 50.1960'' N | 73° 56' 6.8712'' W",
             "cityLocation": {
                 "left": "778",
                 "top": "400"
@@ -122,16 +100,6 @@
             "cityName": "New York",
             "dateMonth": "June",
             "dateYear": "2017",
-            "currency": "USD",
-            "timezone": "GMT -5",
-            "language": "English",
-            "countrycode": "+1",
-            "lingo": "Good Morning!",
-            "weather": {
-                "templow": "8°",
-                "temphigh": "16°",
-                "rainydays": "11"
-            },
             "photos": {
                 "one": {
                     "url": "../../../assets/images/newyork/1.jpg",
@@ -167,7 +135,6 @@
 
                 }
             },
-            "longlat": "40° 43' 50.1960'' N | 73° 56' 6.8712'' W",
             "cityLocation": {
                 "left": "580",
                 "top": "400"
@@ -183,16 +150,6 @@
             "cityName": "Tokyo",
             "dateMonth": "February",
             "dateYear": "2018",
-            "currency": "EUR",
-            "timezone": "GMT +1",
-            "language": "English",
-            "countrycode": "+1",
-            "lingo": "おはようございます!",
-            "weather": {
-                "templow": "4°",
-                "temphigh": "10°",
-                "rainydays": "11"
-            },
             "photos": {
                 "one": {
                     "url": "../../../assets/images/tokyo/1.jpg",
@@ -230,8 +187,6 @@
                     "desc": "We spent only two days here as something like a stopover because our plane leaves from Narita. But instead of being all mopey about it, I’ve made up my mind not to feel anything other than determined. I’ve settled myself with the notion that I’ll be coming back here in the next few years to explore some more, and we’ll see how that idea comes into fruition! Japan has always been one of my “dream countries” to travel to because I genuinely love its culture and even its language, and the fact that it’s becoming a mainstream tourist destination won’t stop me."
                 }
             },
-            "longlat": "40° 43' 50.1960'' N | 73° 56' 6.8712'' W",
-
             "cityLocation": {
                 "left": "1400",
                 "top": "400"
@@ -245,16 +200,6 @@
             "cityName": "Istanbul",
             "dateMonth": "October",
             "dateYear": "2018",
-            "currency": "TRL",
-            "timezone": "GMT +3",
-            "language": "Turkish",
-            "countrycode": "+45",
-            "lingo": "Merhaba!",
-            "weather": {
-                "templow": "14°",
-                "temphigh": "20°",
-                "rainydays": "14"
-            },
             "photos": {
                 "one": {
                     "url": "../../../assets/images/istanbul/1.jpg",
@@ -292,7 +237,6 @@
                     "desc": "Ayasofya (or Hagia Sophia in Greek) is one of Istanbul’s most iconic structures. It graces travel brochures and glossy magazines and has even made a cameo in video game Assassin’s Creed. The 1,500-year-old structure is considered the most important of the Byzantine era and is one of the world’s great monuments. Completed in 537 AD, Ayasofya was the world’s largest cathedral for nearly a thousand years, until Seville Cathedral was completed in 1520. Ayasofya and its central dome, a giant 32 metres (105ft) in diameter, stands sentry over Istanbul, offering beguiling views both inside and out. Here’s how to make the most of your time there."
                 }
             },
-            "longlat": "40° 43' 50.1960'' N | 73° 56' 6.8712'' W",
             "cityLocation": {
                 "left": "950",
                 "top": "400"
@@ -314,9 +258,9 @@
         "countrycode": "+45",
         "lingo": "'God morgen!'",
         "weather": {
-            "templow": "8°",
-            "temphigh": "16°",
-            "rainydays": "17"
+            "templow": "14°",
+            "temphigh": "21°",
+            "rainydays": "12"
         },
         "photos": {
             "one": {

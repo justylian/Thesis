@@ -14,6 +14,8 @@ declare var require: any;
 export class MapComponent implements OnInit {
 
   citiesPast=timelinejson.citiesPast;
+  citiesPastCount=Object.keys(timelinejson.citiesPast).length;
+
   citiesFuture=timelinejson.citiesFuture;
   timePerPhoto=timesjson.timePerPhoto;
   timePerCity=this.timePerPhoto*5;
