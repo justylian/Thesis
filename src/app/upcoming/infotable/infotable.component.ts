@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { PlacesComponent } from './../places/places.component';
 import timelinejson from '../../../assets/json/timeline.json';
 import upcomingjson from '../../../assets/json/upcoming.json';
 import { Message } from '@angular/compiler/src/i18n/i18n_ast';
+import { Component, OnInit } from '@angular/core';
 
 declare var $: any;
 declare var jQuery: any;
@@ -23,7 +24,7 @@ export class InfotableComponent implements OnInit {
 
   public Todaymessage=JSON.parse(JSON.stringify(this.upcoming.weather.day1.state));
 
-  constructor() { }
+  constructor(private placesComponent: PlacesComponent) { }
 
   ngOnInit() {
     if(this.upcoming.flight.arrival.arrivalmonth=== this.upcoming.flight.departure.departuremonth){
@@ -46,6 +47,13 @@ export class InfotableComponent implements OnInit {
   }
 
 
+  public showImages():void{
+    //$('#info-frame').fadeOut('slow');
+    this.placesComponent.manageImagesUpcoming(4);
+
+  }
+
+
 }
 
 
@@ -61,9 +69,9 @@ $(document).ready(function() {
 });
 
 $(document).ready(function(){
-  
+
   var currentheight=0;
-  $('#places-inner').on('scroll', function(){ 
+  $('#places-inner').on('scroll', function(){
     var height1=$('#places-inner li:nth-child(1) img').height();
     var height2=$('#places-inner li:nth-child(2) img').height();
     var height3=$('#places-inner li:nth-child(3) img').height();
@@ -85,6 +93,8 @@ $(document).ready(function(){
     if(currentheight>=height1 && currentheight<(height1+height2)){
       $('#places-inner li').removeClass("active");
       $('#places-inner li:nth-child(2)').addClass("active");
+
+
     }
     if(currentheight>=height1+height2 && currentheight<height1+height2+height3){
       $('#places-inner li').removeClass("active");

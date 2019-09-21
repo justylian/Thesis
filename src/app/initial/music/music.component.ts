@@ -1,3 +1,4 @@
+import { LeapService } from './../../services/leap.service';
 import { Component, OnInit } from '@angular/core';
 declare var $: any;
 declare var jQuery: any;
@@ -16,7 +17,15 @@ export class MusicComponent implements OnInit {
   citiesFuture=timelinejson.citiesFuture;
   //plays;
 
-  constructor() { }
+  constructor(private leapService:LeapService) {
+    this.leapService.manageMusic$.subscribe(
+      () => {
+        //alert('(Component2) Method called!'+i);
+        this.playerManage();
+
+      }
+    );
+   }
 
   ngOnInit() {
   }

@@ -10,6 +10,8 @@ import { PlacesComponent } from './places/places.component';
   exports:[InfotableComponent, MapboxComponent,PlacesComponent],
   imports: [
     CommonModule
-  ]
+  ],
+  providers: [InfotableComponent, MapboxComponent, PlacesComponent],
+
 })
 export class UpcomingModule { }

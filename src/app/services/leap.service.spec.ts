@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { DescplacingService } from './descplacing.service';
+import { LeapService } from './leap.service';
 
-describe('DescplacingService', () => {
+describe('LeapService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: DescplacingService = TestBed.get(DescplacingService);
+    const service: LeapService = TestBed.get(LeapService);
     expect(service).toBeTruthy();
   });
 });

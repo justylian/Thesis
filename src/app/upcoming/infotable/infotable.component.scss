@@ -26,12 +26,13 @@
         top: 10px;
         position: absolute;
         left: 10px;
+        z-index: 4;
         color: var(--main-timeline-color);
         font-size: 0.7vw;
     }
     #city-name {
         color: var(--main-timeline-color);
-        top: 25px;
+        top: 20px;
         left: 10px;
         width: 100%;
         position: absolute;
@@ -41,7 +42,7 @@
         text-transform: uppercase;
     }
     #info-frame-low {
-        top: 200px;
+        top: 170px;
         position: absolute;
     }
     .infotable-inner-texts {
@@ -57,7 +58,7 @@
         height: 50px;
         font-size: 25px;
         position: absolute;
-        top: 170px;
+        top: 130px;
         color: #254F50;
         padding-left: 20px;
         text-transform: uppercase;
