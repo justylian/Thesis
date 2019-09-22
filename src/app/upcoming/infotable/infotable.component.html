@@ -1,7 +1,8 @@
-<div id="info-frame">
-    <div id="city-longlat">{{citiesFuture[0].longlat}}</div>
+<div id="city-longlat">{{citiesFuture[0].longlat}}</div>
 
-    <div id="city-name">{{citiesFuture[0].cityName}}</div>
+<div id="city-name">{{citiesFuture[0].cityName}}</div>
+<div id="info-frame">
+
     <div id="dates">
         <div *ngIf="arrivaldiff===false">{{upcoming.flight.departure.departuredate}}
             <span id="dates-month">{{upcoming.flight.departure.departuremonth}}</span>-{{upcoming.flight.arrival.arrivaldate}}
@@ -111,7 +112,7 @@
             <div class="upper-border"></div>
 
             <div id="notes-icon"></div>
-            <div class="infotable-inner-texts">
+            <div class="infotable-inner-texts" (click)="nextScroll()">
 
                 <h1>Notes</h1>
                 <div class="infotable-inner-texts-inside">
@@ -130,26 +131,26 @@
                 <h1>Places</h1>
 
                 <div id="places-inner" (click)="showImages();">
-                    <li class="active">
+                    <li id="scroll-places-1" class="deactive">
                         <div class="places-desc">{{citiesFuture[0].photos.one.title}}</div>
 
                         <img id="places-image-one" src={{citiesFuture[0].photos.one.url}}>
                     </li>
-                    <li class="active">
+                    <li id="scroll-places-2" class="deactive">
                         <div class="places-desc">{{citiesFuture[0].photos.two.title}}</div>
 
                         <img id="places-image-two" src={{citiesFuture[0].photos.two.url}}>
                     </li>
-                    <li class="active">
+                    <li id="scroll-places-3" class="deactive">
                         <div class="places-desc">{{citiesFuture[0].photos.three.title}}</div>
 
                         <img id="places-image-three" src={{citiesFuture[0].photos.three.url}}>
                     </li>
-                    <li class="active">
+                    <li id="scroll-places-4" class="deactive">
                         <div class="places-desc">{{citiesFuture[0].photos.four.title}}</div>
                         <img id="places-image-four" src={{citiesFuture[0].photos.four.url}}>
                     </li>
-                    <li class="active">
+                    <li id="scroll-places-5" class="deactive">
                         <div class="places-desc">{{citiesFuture[0].photos.five.title}}</div>
 
                         <img id="places-image-five" src={{citiesFuture[0].photos.five.url}}>

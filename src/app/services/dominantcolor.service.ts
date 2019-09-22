@@ -19,6 +19,12 @@ export class DominantcolorService {
 
 
 
+  private getDominantColorSource = new Subject<any>();
+
+  // Observable string streams
+  getDominantColor$ = this.getDominantColorSource.asObservable();
+
+
 
   /* ----- Dominant colours ----- */
 
@@ -46,6 +52,24 @@ public handleDominantColor(timelineno,no){
       //console.log('dark');
       $("body").css("--main-timeline-shadow", '#fff');
     }
+
+  })();
+}
+
+
+
+
+
+
+public getDominantColor(timelineno,no){
+  var imageURL=$('#cityImages'+timelineno+' #image'+timelineno+'-'+no+'-img').attr('src');//get img color
+
+  (async () => {
+    const dominantColor = await getColorFromURL(imageURL);
+    //console.log(dominantColor);
+    var rgb='rgb('+dominantColor[0]+','+dominantColor[1]+','+dominantColor[2]+')';
+
+    $("body").css("--main-timeline-color-"+no+"", 'rgb('+dominantColor[0]+','+dominantColor[1]+','+dominantColor[2]+')');
 
   })();
 }

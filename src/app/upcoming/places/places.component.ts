@@ -38,7 +38,7 @@ export class PlacesComponent implements OnInit {
 
   ngOnInit() {
     //this.manageImagesShow();
-    getColors();
+
 
   }
 
@@ -56,10 +56,10 @@ export class PlacesComponent implements OnInit {
     }
 
     console.log(nextImage);
+    this.manageImagesUpcoming(nextImage);
 
     this.currentImage=nextImage;
 
-    this.manageImagesUpcoming(this.currentImage);
   }
 
   /* ----- Hide manage main ----- */
@@ -75,7 +75,7 @@ export class PlacesComponent implements OnInit {
     var timePerCity=this.timePerCity;
     var timePerPhoto=this.timePerPhoto;
     var dominantcolorService=this.dominantcolorService;
-
+    getColors();
     $('#places').fadeIn( 250, function() {});
     console.log(i);
 
@@ -86,6 +86,8 @@ export class PlacesComponent implements OnInit {
       $('#cityImages6 #image6-one').hide();
       $('#cityImages6 #image6-two').hide();
       $('#cityImages6').show();
+      $('#cityImages6 #image6-five').fadeIn('slow');
+
       dominantcolorService.handleDominantColor(6,"five");
       $('#cityImages6 #image6-five-inner').show();//show desc
     }
@@ -97,6 +99,8 @@ export class PlacesComponent implements OnInit {
       $('#cityImages6 #image6-one').hide();
       $('#cityImages6 #image6-two').hide();
       $('#cityImages6').show();
+      $('#cityImages6 #image6-four').fadeIn('slow');
+
       dominantcolorService.handleDominantColor(6,"four");
       $('#cityImages6 #image6-four-inner').show();//show desc
 
@@ -109,6 +113,8 @@ export class PlacesComponent implements OnInit {
       $('#cityImages6 #image6-one').hide();
       $('#cityImages6 #image6-two').hide();
       $('#cityImages6').show();
+      $('#cityImages6 #image6-three').fadeIn('slow');
+
       dominantcolorService.handleDominantColor(6,"three");
       $('#cityImages6 #image6-three-inner').show();//show desc
     }
@@ -120,6 +126,8 @@ export class PlacesComponent implements OnInit {
       $('#cityImages6 #image6-three').hide();
       $('#cityImages6 #image6-one').hide();
       $('#cityImages6').show();
+      $('#cityImages6 #image6-two').fadeIn('slow');
+
       dominantcolorService.handleDominantColor(6,"two");
       $('#cityImages6 #image6-two-inner').show();//show desc
     }
@@ -131,6 +139,8 @@ export class PlacesComponent implements OnInit {
       $('#cityImages6 #image6-three').hide();
       $('#cityImages6 #image6-two').hide();
       $('#cityImages6').show();
+      $('#cityImages6 #image6-one').fadeIn('slow');
+
       dominantcolorService.handleDominantColor(6,"one");
       $('#cityImages6 #image6-one-inner').show();//show desc
     }

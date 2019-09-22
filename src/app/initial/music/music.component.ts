@@ -22,7 +22,6 @@ export class MusicComponent implements OnInit {
       () => {
         //alert('(Component2) Method called!'+i);
         this.playerManage();
-
       }
     );
    }

@@ -53,6 +53,8 @@ export class LeapService {
     this.nextCitySource.next();
   }
 
+
+
   private slideShowSource = new Subject<any>();
   slideShow$ = this.slideShowSource.asObservable();
 
@@ -93,16 +95,22 @@ export class LeapService {
                 if (gesture.state == "stop") {
                   console.log('swipe');
                   if($('#initial').css('display')==='block'){
-                    //compImages.nextCity();
+                    this.nextCity();
                   }
                   if($('#upcoming').css('display')==='block'){
+                    if($('#map').css('display')==='block'){
+
+                    }
+                    else if($('#places').css('display')==='block'){
+
+                    }
                   }
                 }
                 break;
 
               case "screenTap":
                 if($('#initial').css('display')==='block'){
-                  //compImages.slideShow();
+                  this.slideShow();
                 }
                 if($('#upcoming').css('display')==='block'){
                 }
