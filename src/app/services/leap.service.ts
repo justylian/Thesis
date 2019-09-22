@@ -16,21 +16,30 @@ export class LeapService {
 
   /* ----- Upcoming ----- */
 
-  private manageImageSource = new Subject<any>();
-  manageImage$ = this.manageImageSource.asObservable();
+  private showHideImagesSource = new Subject<any>();
+  showHideImages$ = this.showHideImagesSource.asObservable();
 
 
-  private nextImageSource = new Subject<any>();
-  nextImage$ = this.nextImageSource.asObservable();
-
-
-
-  manageImage(i){
-    this.manageImageSource.next(i);
+  showHideImages(){
+    this.showHideImagesSource.next();
   }
 
-  nextImage(i){
-    this.nextImageSource.next(i);
+  private nextImageUpcomingSource = new Subject<any>();
+  nextImageUpcoming$ = this.nextImageUpcomingSource.asObservable();
+
+
+  nextImageUpcoming(i){
+    this.nextImageUpcomingSource.next(i);
+  }
+
+
+
+  private nextScrollSource = new Subject<any>();
+  nextScroll$ = this.nextScrollSource.asObservable();
+
+
+  nextScroll(i){
+    this.nextScrollSource.next(i);
   }
 
 
@@ -113,6 +122,7 @@ export class LeapService {
                   this.slideShow();
                 }
                 if($('#upcoming').css('display')==='block'){
+                  this.showHideImages();
                 }
                 break;
 

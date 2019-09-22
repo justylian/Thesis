@@ -18,26 +18,24 @@ export class MapboxComponent implements OnInit {
 
   ngOnInit() {
     var mapboxgl = require('mapbox-gl/dist/mapbox-gl.js');
-    //var mapboxgll = require('https://unpkg.com/es6-promise@4.2.4/dist/es6-promise.auto.min.js');
-    //var mapboxglm = require('https://unpkg.com/@mapbox/mapbox-sdk/umd/mapbox-sdk.min.js');
-    //var mbxClient = require('@mapbox/mapbox-sdk/services/umd/mapbox-sdk.min.js');
-
-  mapboxgl.accessToken = 'pk.eyJ1IjoieGVuYWtpcyIsImEiOiJjanczdDBpMHAwZWgzM3lrbW9xaDVpNnlzIn0.9O8d2q7A_DUaGbswoygSTA';
+    mapboxgl.accessToken = 'pk.eyJ1IjoieGVuYWtpcyIsImEiOiJjanczdDBpMHAwZWgzM3lrbW9xaDVpNnlzIn0.9O8d2q7A_DUaGbswoygSTA';
 
 
     var MapboxClient = require('mapbox');
-
-
     const map = new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/xenakis/cjw3t12b71b0f1coggwaltmwy',
       //center: [12.486, 41.89],
       center: [12.585791540330206, 55.69010470068136],
       //pitch: 60,
-      zoom: 13,
-
-
+      zoom: 2,
       });
+      setTimeout(function() {
+        map.flyTo({
+          center: [12.585791540330206, 55.69010470068136],
+          zoom: 13
+          });
+        },5000);
 
     var client = new MapboxClient('pk.eyJ1IjoieGVuYWtpcyIsImEiOiJjanczdDBpMHAwZWgzM3lrbW9xaDVpNnlzIn0.9O8d2q7A_DUaGbswoygSTA');
 
@@ -45,13 +43,10 @@ export class MapboxComponent implements OnInit {
     var ad1title=this.citiesFuture[0].photos.one.title;
     var ad2=this.citiesFuture[0].cityName+" "+this.citiesFuture[0].photos.two.title;
     var ad2title=this.citiesFuture[0].photos.two.title;
-
     var ad3=this.citiesFuture[0].cityName+" "+this.citiesFuture[0].photos.three.title;
     var ad3title=this.citiesFuture[0].photos.three.title;
-
     var ad4=this.citiesFuture[0].cityName+" "+this.citiesFuture[0].photos.four.title;
     var ad4title=this.citiesFuture[0].photos.four.title;
-
     var ad5=this.citiesFuture[0].cityName+" "+this.citiesFuture[0].photos.five.title;
     var ad5title=this.citiesFuture[0].photos.five.title;
 
@@ -62,7 +57,7 @@ export class MapboxComponent implements OnInit {
     this.infotableComponent.getDominantColor(4,"four");
     this.infotableComponent.getDominantColor(5,"five");*/
 
-    //var address = 'nyhavn'
+
 
 
       // tslint:disable-next-line: align
@@ -80,7 +75,7 @@ export class MapboxComponent implements OnInit {
       });
 
       var test = client.geocodeForward(ad2, function(err, data, res) {
-        console.log(data);
+      console.log(data);
 
         var coordinates = data.features[0].center;
         console.log(coordinates);
@@ -135,7 +130,7 @@ export class MapboxComponent implements OnInit {
           .setLngLat(coordinates)
           .addTo(map);
       });
-   // }
+
 
 
 

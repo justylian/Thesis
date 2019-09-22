@@ -1,3 +1,4 @@
+import { LeapService } from './../../services/leap.service';
 import { MapboxComponent } from './../mapbox/mapbox.component';
 import { PlacesComponent } from './../places/places.component';
 import timelinejson from '../../../assets/json/timeline.json';
@@ -27,7 +28,24 @@ export class InfotableComponent implements OnInit {
 
   public Todaymessage=JSON.parse(JSON.stringify(this.upcoming.weather.day1.state));
 
-  constructor(private placesComponent: PlacesComponent,private mapboxComponent:MapboxComponent) { }
+  constructor(private placesComponent: PlacesComponent,private mapboxComponent:MapboxComponent,private leapService:LeapService) {
+
+    this.leapService.nextScroll$.subscribe(
+      () => {
+        //alert('(Component2) Method called!'+i);
+        this.nextScroll();
+      }
+    );
+
+
+
+    this.leapService.showHideImages$.subscribe(
+      () => {
+        //alert('(Component2) Method called!'+i);
+        this.showHideImages();
+      }
+    );
+  }
 
   ngOnInit() {
     this.mapboxComponent.focusPin(1);
@@ -52,12 +70,25 @@ export class InfotableComponent implements OnInit {
   }
 
 
-  public showImages():void{
-    $('#info-frame').fadeOut('slow');
-    this.mapboxComponent.hideMap();
-    this.placesComponent.manageImagesUpcoming(1);
+  turn=true;
+  public showHideImages():void{
+    if(this.turn===true){
+      $('#info-frame').fadeOut('slow');
+      this.mapboxComponent.hideMap();
+      this.placesComponent.manageImagesUpcoming(this.currentImage);
+      this.turn=false;
+    }
+    else{
+      $('#info-frame').fadeIn('slow');
+      this.mapboxComponent.showMap();
+      this.turn=true;
+
+    }
+
 
   }
+
+
 
   currentImage=0;
 
