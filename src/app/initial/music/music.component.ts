@@ -17,13 +17,13 @@ export class MusicComponent implements OnInit {
   citiesFuture=timelinejson.citiesFuture;
   //plays;
 
-  constructor(private leapService:LeapService) {
-    this.leapService.manageMusic$.subscribe(
+  constructor() {
+  /*  this.leapService.manageMusic$.subscribe(
       () => {
         //alert('(Component2) Method called!'+i);
         this.playerManage();
       }
-    );
+    );*/
    }
 
   ngOnInit() {

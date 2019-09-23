@@ -8,7 +8,6 @@ import { InfobubbleComponent } from './infobubble/infobubble.component';
 
 
 
-
 @NgModule({
   declarations: [TimelineComponent, MusicComponent, MapComponent, ImagesComponent, InfobubbleComponent],
   exports:[TimelineComponent, MusicComponent, MapComponent, ImagesComponent,InfobubbleComponent],

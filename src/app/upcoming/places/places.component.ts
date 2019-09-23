@@ -18,13 +18,13 @@ export class PlacesComponent implements OnInit {
   timePerCity=this.timePerPhoto*5;
 
 
-  constructor(private dominantcolorService:DominantcolorService,private leapService:LeapService) {
-    this.leapService.nextImageUpcoming$.subscribe(
+  constructor(private dominantcolorService:DominantcolorService) {
+  /*  this.leapService.nextImageUpcoming$.subscribe(
       () => {
         //alert('(Component2) Method called!'+i);
         this.nextImageUpcoming();
       }
-    );
+    );*/
 
   }
 

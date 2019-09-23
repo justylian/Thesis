@@ -17,6 +17,10 @@ export class MapboxComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.mapBox();
+  }
+
+  public mapBox() {
     var mapboxgl = require('mapbox-gl/dist/mapbox-gl.js');
     mapboxgl.accessToken = 'pk.eyJ1IjoieGVuYWtpcyIsImEiOiJjanczdDBpMHAwZWgzM3lrbW9xaDVpNnlzIn0.9O8d2q7A_DUaGbswoygSTA';
 
@@ -30,12 +34,16 @@ export class MapboxComponent implements OnInit {
       //pitch: 60,
       zoom: 2,
       });
-      setTimeout(function() {
+
+      map.on('load', function () {
         map.flyTo({
           center: [12.585791540330206, 55.69010470068136],
-          zoom: 13
-          });
-        },5000);
+          zoom: 13});
+
+      });
+
+
+
 
     var client = new MapboxClient('pk.eyJ1IjoieGVuYWtpcyIsImEiOiJjanczdDBpMHAwZWgzM3lrbW9xaDVpNnlzIn0.9O8d2q7A_DUaGbswoygSTA');
 
@@ -62,10 +70,10 @@ export class MapboxComponent implements OnInit {
 
       // tslint:disable-next-line: align
       var test = client.geocodeForward(ad1, function(err, data, res) {
-        console.log(data);
+        //console.log(data);
 
         var coordinates = data.features[0].center;
-        console.log(coordinates);
+       // console.log(coordinates);
 
         var el=stylePin(1,ad1title);
 
@@ -75,10 +83,10 @@ export class MapboxComponent implements OnInit {
       });
 
       var test = client.geocodeForward(ad2, function(err, data, res) {
-      console.log(data);
+      //console.log(data);
 
         var coordinates = data.features[0].center;
-        console.log(coordinates);
+       // console.log(coordinates);
 
         var el=stylePin(2,ad2title);
 
@@ -89,10 +97,10 @@ export class MapboxComponent implements OnInit {
       });
 
       var test = client.geocodeForward(ad3, function(err, data, res) {
-        console.log(data);
+       // console.log(data);
 
         var coordinates = data.features[0].center;
-        console.log(coordinates);
+       // console.log(coordinates);
 
         var el=stylePin(3,ad3title);
 
@@ -104,10 +112,10 @@ export class MapboxComponent implements OnInit {
 
 
       var test = client.geocodeForward(ad4, function(err, data, res) {
-        console.log(data);
+       // console.log(data);
 
         var coordinates = data.features[0].center;
-        console.log(coordinates);
+        //console.log(coordinates);
 
         var el=stylePin(4,ad4title);
 
@@ -118,10 +126,10 @@ export class MapboxComponent implements OnInit {
       });
 
       var test = client.geocodeForward(ad5, function(err, data, res) {
-        console.log(data);
+        //console.log(data);
 
         var coordinates = data.features[0].center;
-        console.log(coordinates);
+       // console.log(coordinates);
 
         var el=stylePin(5,ad5title);
 
@@ -139,7 +147,7 @@ export class MapboxComponent implements OnInit {
 
 
   public focusPin(no){
-    console.log(no);
+    //console.log(no);
     $('#markerbubble'+no).animate({
       height: '20px',
       width: '20px',
@@ -182,8 +190,8 @@ function stylePin(i,adtitle){
   el.style.padding='8px';
   el.style.fontSize='1vw';
   el.style.position='absolute';
-  console.log(el.className);
-  console.log(el);
+ // console.log(el.className);
+ // console.log(el);
 
   var elbubble = document.createElement('div');
   el.appendChild(elbubble);

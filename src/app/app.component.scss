@@ -3,11 +3,40 @@
 }
 
 #upcoming {
-    display: block;
+    display: none;
 }
 
 #away {
     display: none;
 }
 
-#choice {}
+#choice {
+    color: white;
+    display: block;
+    #choice-1 {
+        top: 500px;
+        font-size: 30px;
+        left: 300px;
+        padding-top: 10px;
+        position: absolute;
+    }
+    #choice-2 {
+        top: 500px;
+        font-size: 30px;
+        left: 900px;
+        padding-top: 10px;
+        position: absolute;
+    }
+    #choice-3 {
+        top: 500px;
+        font-size: 30px;
+        left: 1600px;
+        padding-top: 10px;
+        position: absolute;
+    }
+    .active {
+        border-top: 2px solid #fff;
+        border-radius: 15px 0px 15px 15px;
+        transition: 3s;
+    }
+}

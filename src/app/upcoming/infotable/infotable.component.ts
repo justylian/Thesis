@@ -28,9 +28,9 @@ export class InfotableComponent implements OnInit {
 
   public Todaymessage=JSON.parse(JSON.stringify(this.upcoming.weather.day1.state));
 
-  constructor(private placesComponent: PlacesComponent,private mapboxComponent:MapboxComponent,private leapService:LeapService) {
+  constructor(private placesComponent: PlacesComponent,private mapboxComponent:MapboxComponent) {
 
-    this.leapService.nextScroll$.subscribe(
+   /* this.leapService.manageLeap$.subscribe(
       () => {
         //alert('(Component2) Method called!'+i);
         this.nextScroll();
@@ -44,7 +44,7 @@ export class InfotableComponent implements OnInit {
         //alert('(Component2) Method called!'+i);
         this.showHideImages();
       }
-    );
+    );*/
   }
 
   ngOnInit() {
@@ -88,6 +88,10 @@ export class InfotableComponent implements OnInit {
 
   }
 
+  public nextImageUpcoming(){
+    this.placesComponent.nextImageUpcoming();
+  }
+
 
 
   currentImage=0;
@@ -108,6 +112,21 @@ export class InfotableComponent implements OnInit {
 
   }
 
+  public previousScroll():void{
+    var prevImage=this.currentImage;
+    this.currentImage=--this.currentImage;
+    if(this.currentImage===0){
+      this.currentImage=5;
+    }
+    this.mapboxComponent.focusPin(this.currentImage);
+    var element = document.getElementById('scroll-places-'+this.currentImage);
+    $('#scroll-places-'+prevImage).addClass('deactive').removeClass('active');
+
+    $('#scroll-places-'+this.currentImage).addClass('active').removeClass('deactive');
+    console.log(element);
+    element.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+
+}
 
 /*
     public getDominantColor(no,imgno):void{

@@ -30,8 +30,8 @@ export class ImagesComponent implements OnInit {
   timePerCity=this.timePerPhoto*5;
 
 
-  constructor(private compMap: MapComponent,private compBubble: InfobubbleComponent,private initialService: InitialService,private compMusic: MusicComponent,private dominantcolorService:DominantcolorService,private leapService:LeapService) {
-    this.leapService.nextCity$.subscribe(
+  constructor(private compMap: MapComponent,private compBubble: InfobubbleComponent,private initialService: InitialService,private compMusic: MusicComponent,private dominantcolorService:DominantcolorService) {
+   /* this.leapService.nextCity$.subscribe(
       () => {
         //alert('(Component2) Method called!'+i);
         this.nextCity();
@@ -43,7 +43,7 @@ export class ImagesComponent implements OnInit {
         //alert('(Component2) Method called!'+i);
         this.continueSlideShow(i);
       }
-    );
+    );*/
    }
 
 

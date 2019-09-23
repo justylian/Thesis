@@ -1,3 +1,8 @@
+import { AppComponent } from './../app.component';
+import {  ImagesawayComponent } from './../away/imagesaway/imagesaway.component';
+import { MusicComponent } from './../initial/music/music.component';
+import { ImagesComponent} from './../initial/images/images.component';
+import { InfotableComponent } from './../upcoming/infotable/infotable.component';
 import { Injectable } from '@angular/core';
 import {Subject} from 'rxjs';
 declare var $: any;
@@ -9,67 +14,23 @@ declare var require: any
 })
 export class LeapService {
 
-  constructor() {
-
+  constructor(private infotableComponent:InfotableComponent,private imagesawayComponent:ImagesawayComponent,private appComponent:AppComponent,private imagesComponent:ImagesComponent,private musicComponent:MusicComponent) {
+    this.manageLeap();
   }
+  ngOnInit() {
+  }
+
 
 
   /* ----- Upcoming ----- */
 
-  private showHideImagesSource = new Subject<any>();
-  showHideImages$ = this.showHideImagesSource.asObservable();
-
-
-  showHideImages(){
-    this.showHideImagesSource.next();
-  }
-
-  private nextImageUpcomingSource = new Subject<any>();
-  nextImageUpcoming$ = this.nextImageUpcomingSource.asObservable();
-
-
-  nextImageUpcoming(i){
-    this.nextImageUpcomingSource.next(i);
-  }
 
 
 
-  private nextScrollSource = new Subject<any>();
-  nextScroll$ = this.nextScrollSource.asObservable();
 
-
-  nextScroll(i){
-    this.nextScrollSource.next(i);
-  }
 
 
   /* ----- Initial ----- */
-
-
-  private manageMusicSource = new Subject<any>();
-  manageMusic$ = this.manageMusicSource.asObservable();
-
-
-  manageMusic(){
-    this.manageMusicSource.next();
-  }
-
-
-  private nextCitySource = new Subject<any>();
-  nextCity$ = this.nextCitySource.asObservable();
-
-  nextCity(){
-    this.nextCitySource.next();
-  }
-
-
-
-  private slideShowSource = new Subject<any>();
-  slideShow$ = this.slideShowSource.asObservable();
-
-  slideShow(){
-    this.slideShowSource.next();
-  }
 
 
   /* ----- Away ----- */
@@ -78,8 +39,23 @@ export class LeapService {
 
 
     public manageLeap(): void {
+      // tslint:disable-next-line: member-ordering
+
+     // nextScroll$ = this.nextScrollSource.asObservable();
+    //  nextScroll(){
+
+     // }
+      var imagesawayComponent=this.imagesawayComponent;
+      var musicComponent=this.musicComponent;
+      var imagesComponent=this.imagesComponent;
+      var appComponent=this.appComponent;
+
+      var infotableComponent=this.infotableComponent;
+      var onceFlag=true;
+
       var leapjs      = require('leapjs');
       var controller  = new leapjs.Controller({enableGestures: true});
+      console.log('LEAP OK');
 
       controller.on('deviceFrame', function(frame) {
           // loop through available gestures
@@ -93,42 +69,87 @@ export class LeapService {
                 if (gesture.state == "stop") {
                   console.log('circle');
                   if($('#initial').css('display')==='block'){
-                    this.manageMusic();
+                    musicComponent.playerManage();
                   }
                   if($('#upcoming').css('display')==='block'){
+                    infotableComponent.showHideImages();
+
                   }
                 }
                 break;
 
               case "swipe":
-                if (gesture.state == "stop") {
+                if (gesture.state == "start") {
                   console.log('swipe');
                   if($('#initial').css('display')==='block'){
-                    this.nextCity();
+                    console.log(gesture.direction[0]);
+                    if (gesture.direction[0] > 0){
+                      imagesComponent.nextCity();
+                    }
+                    else{
+                      imagesComponent.previousCity();
+
+                    }
                   }
-                  if($('#upcoming').css('display')==='block'){
+                  else if($('#upcoming').css('display')==='block'){
                     if($('#map').css('display')==='block'){
+                      if (gesture.direction[0] > 0){
+                        infotableComponent.nextScroll();
+                      }
+                      else{
+                        infotableComponent.previousScroll();
+  
+                      }
+
 
                     }
                     else if($('#places').css('display')==='block'){
-
+                      infotableComponent.nextImageUpcoming();
                     }
                   }
+                  else if($('#away').css('display')==='block'){
+                    imagesawayComponent.showImage();
+                  }
+                  else if($('#choice').css('display')==='block'){
+                    appComponent.activeChange();
+                  }
+
                 }
                 break;
 
               case "screenTap":
                 if($('#initial').css('display')==='block'){
-                  this.slideShow();
+                  if(onceFlag===true){
+                    imagesComponent.slideShow();
+                    onceFlag=false;
+                  }
                 }
-                if($('#upcoming').css('display')==='block'){
-                  this.showHideImages();
+                else if($('#upcoming').css('display')==='block'){
+                  infotableComponent.showHideImages();
+
+                }
+                else if($('#choice').css('display')==='block'){
+                  appComponent.activeChoose();
                 }
                 break;
 
               case "keyTap":
-                if (gesture.state == "stop") {
                   console.log('keyTap');
+
+                if (gesture.state == "stop") {
+                  if($('#initial').css('display')==='block'){
+                    if(onceFlag===true){
+                      imagesComponent.slideShow();
+                      onceFlag=false;
+                    }
+                  }
+                  else if($('#upcoming').css('display')==='block'){
+                    infotableComponent.showHideImages();
+
+                  }
+                  else if($('#choice').css('display')==='block'){
+                    appComponent.activeChoose();
+                  }
               }
                 break;
   // tslint:disable-next-line: no-trailing-whitespace
@@ -140,10 +161,7 @@ export class LeapService {
 
       controller.connect();
     }
-    ngOnInit() {
-      this.manageLeap();
 
-    }
   }
 
 
