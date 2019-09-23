@@ -115,7 +115,7 @@ export class InfotableComponent implements OnInit {
   public previousScroll():void{
     var prevImage=this.currentImage;
     this.currentImage=--this.currentImage;
-    if(this.currentImage===0){
+    if(this.currentImage<=0){
       this.currentImage=5;
     }
     this.mapboxComponent.focusPin(this.currentImage);

@@ -3,7 +3,7 @@
 }
 
 #upcoming {
-    display: none;
+   display: none;
 }
 
 #away {
@@ -11,6 +11,7 @@
 }
 
 #choice {
+    position: absolute;
     color: white;
     display: block;
     #choice-1 {
@@ -35,8 +36,10 @@
         position: absolute;
     }
     .active {
+      position: absolute;
+
         border-top: 2px solid #fff;
-        border-radius: 15px 0px 15px 15px;
+        border-radius: 0px 0px 15px 15px;
         transition: 3s;
     }
 }

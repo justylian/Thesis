@@ -1,4 +1,6 @@
 import { DominantcolorService } from './../../services/dominantcolor.service';
+import { ChoiceService } from './../../services/choice.service';
+
 import { Component, OnInit } from '@angular/core';
 declare var require: any
 import timelinejson from '../../../assets/json/timeline.json';
@@ -14,13 +16,20 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 export class MapboxComponent implements OnInit {
   citiesFuture=timelinejson.citiesFuture;
 
-  constructor() { }
+  constructor(private choiceService:  ChoiceService) { 
+    this.choiceService.upcoming$.subscribe(
+      () => {
+        //alert('(Component2) Method called!'+i);
+        this.mapBox();
 
-  ngOnInit() {
-    this.mapBox();
+      }
+    );
   }
 
-  public mapBox() {
+  ngOnInit() {
+
+  }
+  public mapBox(){
     var mapboxgl = require('mapbox-gl/dist/mapbox-gl.js');
     mapboxgl.accessToken = 'pk.eyJ1IjoieGVuYWtpcyIsImEiOiJjanczdDBpMHAwZWgzM3lrbW9xaDVpNnlzIn0.9O8d2q7A_DUaGbswoygSTA';
 
@@ -32,18 +41,27 @@ export class MapboxComponent implements OnInit {
       //center: [12.486, 41.89],
       center: [12.585791540330206, 55.69010470068136],
       //pitch: 60,
-      zoom: 2,
+      zoom: 3,
       });
+        // tslint:disable-next-line: align
+        setTimeout(function() {
+        map.flyTo({
+          center: [12.585791540330206, 55.69010470068136],
+          zoom: 13
+          });
+        },5000);
 
-      map.on('load', function () {
+     //   var mapcanvas = $('.mapboxgl-canvas');
+     //   mapcanvas.width='1070px';
+      //  mapcanvas.height='1080px';
+
+
+         /* map.on('load', function () {
         map.flyTo({
           center: [12.585791540330206, 55.69010470068136],
           zoom: 13});
 
-      });
-
-
-
+      });*/
 
     var client = new MapboxClient('pk.eyJ1IjoieGVuYWtpcyIsImEiOiJjanczdDBpMHAwZWgzM3lrbW9xaDVpNnlzIn0.9O8d2q7A_DUaGbswoygSTA');
 
@@ -142,9 +160,10 @@ export class MapboxComponent implements OnInit {
 
 
 
+     // jQuery(window).resize(function(){map.resize()});
 
   }
-
+  
 
   public focusPin(no){
     //console.log(no);

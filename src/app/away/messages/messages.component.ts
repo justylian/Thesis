@@ -1,6 +1,6 @@
 import { LeapService } from './../../services/leap.service';
 import timelinejson from '../../../assets/json/timeline.json';
-
+import {ChoiceService}from './../../services/choice.service';
 declare var Load: any;
 declare var $: any;
 declare var jQuery: any;
@@ -13,10 +13,16 @@ import { Component, OnInit } from '@angular/core';
 export class MessagesComponent implements OnInit {
   citiesFuture=timelinejson.citiesFuture;
 
-  constructor(private leapService:LeapService) { }
+  constructor(private leapService:LeapService,private choiceService:  ChoiceService) { 
+    this.choiceService.away$.subscribe(
+      () => {
+        //alert('(Component2) Method called!'+i);
+        this.showMessages();
 
+      }
+    );
+  }
   ngOnInit() {
-      this.showMessages();
   }
 
 
@@ -24,12 +30,12 @@ export class MessagesComponent implements OnInit {
     setTimeout(function() {
       $("#away #info-bubble-1").fadeIn( 400, function() {});
 
-    },10000);
+    },2000);
 
     setTimeout(function() {
       $("#away #info-bubble-2").fadeIn( 400, function() {});
 
-    },14000);
+    },4000);
   }
 
 }

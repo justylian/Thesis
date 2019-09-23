@@ -59,6 +59,10 @@ export class LeapService {
 
       controller.on('deviceFrame', function(frame) {
           // loop through available gestures
+          //console.log('NEXTTTLEAP OK');
+
+          //leapjs.loop(controller, function(frame) {
+          
           for(var i = 0; i < frame.gestures.length; i++){
             var gesture = frame.gestures[i];
             var type    = gesture.type;
@@ -66,8 +70,8 @@ export class LeapService {
             switch( type ){
 
               case "circle":
+                console.log('circle');
                 if (gesture.state == "stop") {
-                  console.log('circle');
                   if($('#initial').css('display')==='block'){
                     musicComponent.playerManage();
                   }
@@ -79,8 +83,8 @@ export class LeapService {
                 break;
 
               case "swipe":
-                if (gesture.state == "start") {
-                  console.log('swipe');
+                console.log('swipe');
+                if (gesture.state == "stop") {
                   if($('#initial').css('display')==='block'){
                     console.log(gesture.direction[0]);
                     if (gesture.direction[0] > 0){
@@ -98,7 +102,7 @@ export class LeapService {
                       }
                       else{
                         infotableComponent.previousScroll();
-  
+
                       }
 
 
@@ -118,23 +122,7 @@ export class LeapService {
                 break;
 
               case "screenTap":
-                if($('#initial').css('display')==='block'){
-                  if(onceFlag===true){
-                    imagesComponent.slideShow();
-                    onceFlag=false;
-                  }
-                }
-                else if($('#upcoming').css('display')==='block'){
-                  infotableComponent.showHideImages();
-
-                }
-                else if($('#choice').css('display')==='block'){
-                  appComponent.activeChoose();
-                }
-                break;
-
-              case "keyTap":
-                  console.log('keyTap');
+                console.log('screenTap');
 
                 if (gesture.state == "stop") {
                   if($('#initial').css('display')==='block'){
@@ -152,14 +140,36 @@ export class LeapService {
                   }
               }
                 break;
+
+              case "keyTap":
+                  console.log('keyTap');
+
+                  if (gesture.state == "stop") {
+                    if($('#initial').css('display')==='block'){
+                      if(onceFlag===true){
+                        imagesComponent.slideShow();
+                        onceFlag=false;
+                      }
+                    }
+                    else if($('#upcoming').css('display')==='block'){
+                      infotableComponent.showHideImages();
+
+                    }
+                    else if($('#choice').css('display')==='block'){
+                      appComponent.activeChoose();
+                    }
+                }
+                break;
   // tslint:disable-next-line: no-trailing-whitespace
 
               }
-            }
+            
+          }
         });
 
 
       controller.connect();
+    
     }
 
   }

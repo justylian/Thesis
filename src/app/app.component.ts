@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ChoiceService } from './services/choice.service';
+
 declare var Load: any;
 declare var $: any;
 declare var jQuery: any;
@@ -8,6 +10,11 @@ declare var jQuery: any;
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  constructor(private choiceService:ChoiceService) {
+    
+  
+    }
+
   title = 'thesis-app';
 
   public activeChange(){
@@ -27,16 +34,19 @@ export class AppComponent {
 
   public activeChoose(){
     if ($("#choice-1").hasClass("active")) {
+
       $("#choice").hide();
       $("#initial").show();
     }
     else if ($("#choice-2").hasClass("active")) {
       $("#choice").hide();
       $("#upcoming").show();
+      this.choiceService.upcoming()
     }
     else if ($("#choice-3").hasClass("active")) {
       $("#choice").hide();
       $("#away").show();
+      this.choiceService.away();
     }
   }
 }
