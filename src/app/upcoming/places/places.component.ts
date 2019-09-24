@@ -39,7 +39,14 @@ export class PlacesComponent implements OnInit {
   public savePlace(){
    if($('#cityImages6 #image6-'+this.currentImage).hasClass("saved")){
     $('#cityImages6 #image6-'+this.currentImage).removeClass("saved");
+
     $('#cityImages6 #image6-'+this.currentImage).addClass("unsaved");
+
+    $('#cityImages6 #image6-'+this.currentImage+'-inner').fadeIn(200);
+    var currentImage=this.currentImage;
+    setTimeout(function() {
+      $('#cityImages6 #image6-'+currentImage+'-inner').fadeOut(200);
+    }, 500);
    }
    else{
     $('#cityImages6 #image6-'+this.currentImage).removeClass("unsaved");

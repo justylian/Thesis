@@ -37,6 +37,8 @@
     font-size: 38px;
     border: 1px solid var(--main-timeline-color);
     border-radius: 0px 20px 20px 20px;
+    filter: drop-shadow(0 0 100px #fff);
+
     #leave-note-inner{
         font-size: 20px;
         font-family: "AvenirLight";
@@ -109,9 +111,11 @@
         #hotel-name {
             font-size: 18px;
             color: #677C7C;
+            width: 270px;
         }
         #hotel-address {
             font-size: 15px;
+            width: 270px;
             color: #8d9fa0;
         }
         #hotel-check-in {
@@ -224,7 +228,7 @@
                 margin-top: -41px;
                 font-size: 15px;
                 color: #8d9fa0;
-                width: 50px;
+                width: 70px;
                 height: 50px;
                 left: 180px;
                 display: inline;
