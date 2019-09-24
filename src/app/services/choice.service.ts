@@ -27,4 +27,13 @@ export class ChoiceService {
   away(){
     this.awaySource.next();
   }
+
+  private initialSource = new Subject<any>();
+
+  // Observable string streams
+  initial$ = this.initialSource.asObservable();
+
+  initial(){
+    this.initialSource.next();
+  }
 }

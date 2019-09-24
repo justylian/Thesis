@@ -1,6 +1,5 @@
 import { DominantcolorService } from './../../services/dominantcolor.service';
 import { ChoiceService } from './../../services/choice.service';
-
 import { Component, OnInit } from '@angular/core';
 declare var require: any
 import timelinejson from '../../../assets/json/timeline.json';
@@ -24,6 +23,8 @@ export class MapboxComponent implements OnInit {
 
       }
     );
+
+  
   }
 
   ngOnInit() {
@@ -55,7 +56,7 @@ export class MapboxComponent implements OnInit {
         setTimeout(function() {
         map.flyTo({
           center: coordinates,
-          zoom: 13
+          zoom: 12
           });
         },7000);
 

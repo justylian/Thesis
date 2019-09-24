@@ -16,8 +16,8 @@
     <app-messages></app-messages>
 </div>
 <div id="choice">
-    <div id="choice-1">INITIAL</div>
-    <div id="choice-2" class="active">UPCOMING</div>
-    <div id="choice-3">AWAY</div>
+    <div id="choice-1" (click)="initialClicked()">INITIAL</div>
+    <div id="choice-2" (click)="upcomingClicked()" class="active">UPCOMING</div>
+    <div id="choice-3" (click)="awayClicked()">AWAY</div>
 
 </div>

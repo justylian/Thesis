@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { ChoiceService } from './services/choice.service';
-
 declare var Load: any;
 declare var $: any;
 declare var jQuery: any;
@@ -37,16 +36,37 @@ export class AppComponent {
 
       $("#choice").hide();
       $("#initial").show();
+      //this.choiceService.initial();
+
     }
     else if ($("#choice-2").hasClass("active")) {
       $("#choice").hide();
       $("#upcoming").show();
-      this.choiceService.upcoming()
+      this.choiceService.upcoming();
+
     }
     else if ($("#choice-3").hasClass("active")) {
       $("#choice").hide();
       $("#away").show();
       this.choiceService.away();
     }
+  }
+
+  public initialClicked(){
+
+    $("#choice").hide();
+    $("#initial").show();
+    //this.choiceonclickService.initial();
+  }
+  public upcomingClicked(){
+    $("#choice").hide();
+      $("#upcoming").show();
+      this.choiceService.upcoming();
+
+  }
+  public awayClicked(){
+    $("#choice").hide();
+    $("#away").show();
+    this.choiceService.away();
   }
 }

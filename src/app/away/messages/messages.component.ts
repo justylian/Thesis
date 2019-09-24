@@ -1,6 +1,7 @@
 import { LeapService } from './../../services/leap.service';
 import timelinejson from '../../../assets/json/timeline.json';
 import {ChoiceService}from './../../services/choice.service';
+
 declare var Load: any;
 declare var $: any;
 declare var jQuery: any;
@@ -21,6 +22,8 @@ export class MessagesComponent implements OnInit {
 
       }
     );
+   
+
   }
   ngOnInit() {
   }
