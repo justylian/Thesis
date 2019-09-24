@@ -250,8 +250,6 @@
     ],
     "citiesFuture": [{
         "cityName": "Copenhagen",
-        "dateMonth": "August",
-        "dateYear": "2019",
         "currency": "Krone",
         "timezone": "GMT +1",
         "language": "Danish",

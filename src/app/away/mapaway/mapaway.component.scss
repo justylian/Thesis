@@ -221,3 +221,23 @@
            background-position: -1000px calc(100% - 0px);
        }
    }
+   #leave-note{
+    background-color: var(--main-timeline-color);
+    position: absolute;
+    font-family: "Avenir";
+    width: 163px;
+    height: 70px;
+    top: 2%;
+    right: 1%;
+    color: white;
+    z-index: 10;
+    padding: 5px;
+    font-size: 38px;
+    border: 1px solid var(--main-timeline-color);
+    border-radius: 0px 20px 20px 20px;
+    #leave-note-inner{
+        font-size: 20px;
+        font-family: "AvenirLight";
+  
+    }
+  }

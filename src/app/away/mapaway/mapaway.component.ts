@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import timelinejson from '../../../assets/json/timeline.json';
+import upcomingjson from '../../../assets/json/upcoming.json';  
 
 declare var Load: any;
 declare var $: any;
@@ -11,12 +12,41 @@ declare var jQuery: any;
 })
 export class MapawayComponent implements OnInit {
   citiesFuture=timelinejson.citiesFuture;
+  arrivaldiff=false;
+  remainingDays:number;
+  upcoming=upcomingjson;
 
-  constructor() { }
+  constructor() {
+    this.remainingDays=this.getRemainingdays(this.remainingDays);
+
+   }
 
   ngOnInit() {
   }
 
+/* -------------- Remaining days --------------- */ 
+public getRemainingdays(remainingDays){
+  var today = new Date();
+  var dd = today.getDate();
+  var mm =today.getMonth()+1;
+  var yyyy = today.getFullYear();
+
+  var todaystring = mm + '/' + dd + '/' + yyyy;
+
+  var str=this.upcoming.flight.arrival.arrivalmonth
+  var strsub=str.substring(0, 3);
+  var monthno=( "JanFebMarAprMayJunJulAugSepOctNovDec".indexOf(strsub) / 3 + 1 )
+  //console.log(monthno)
+
+  var arrivaldate= monthno+ '/' +  this.upcoming.flight.arrival.arrivaldate+ '/' + this.upcoming.flight.arrival.arrivalyear;
+
+
+  const date1 = +new Date(todaystring);
+  const date2 = +new Date(arrivaldate);
+  const diffTime = Math.abs(date2 - date1);
+  remainingDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+  return remainingDays;
+}
 
 /* ---------Minimize map ---------*/
 public mapMinify() {

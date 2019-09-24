@@ -34,9 +34,18 @@ export class PlacesComponent implements OnInit {
 
   }
 
-
+  
   currentImage=1;
-
+  public savePlace(){
+   if($('#cityImages6 #image6-'+this.currentImage).hasClass("saved")){
+    $('#cityImages6 #image6-'+this.currentImage).removeClass("saved");
+    $('#cityImages6 #image6-'+this.currentImage).addClass("unsaved");
+   }
+   else{
+    $('#cityImages6 #image6-'+this.currentImage).removeClass("unsaved");
+    $('#cityImages6 #image6-'+this.currentImage).addClass("saved");
+   }
+  }
   /* ----- Next Photos manage main ----- */
 
   public nextImageUpcoming(){

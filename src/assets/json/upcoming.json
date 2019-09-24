@@ -3,8 +3,8 @@
         "departure": {
             "flight": "Aegean Airlines A1490",
             "departureairport": "HER",
-            "departuredate": "24",
-            "departuremonth": "May",
+            "departuredate": "30",
+            "departuremonth": "September",
             "departurehour": "16:00",
             "departureyear": "2019"
 
@@ -13,8 +13,8 @@
         "arrival": {
             "flight": "Aegean Airlines A1490",
             "arrivalairport": "CPH",
-            "arrivaldate": "26",
-            "arrivalmonth": "May",
+            "arrivaldate": "31",
+            "arrivalmonth": "September",
             "arrivalhour": "9:20",
             "arrivalyear": "2019"
 

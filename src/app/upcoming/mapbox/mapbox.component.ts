@@ -5,7 +5,7 @@ declare var require: any
 import timelinejson from '../../../assets/json/timeline.json';
 declare var $: any;
 declare var jQuery: any;
-import 'mapbox-gl/dist/mapbox-gl.css';
+//import 'mapbox-gl/dist/mapbox-gl.css';
 
 @Component({
   selector: 'app-mapbox',
@@ -14,12 +14,13 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 })
 export class MapboxComponent implements OnInit {
   citiesFuture=timelinejson.citiesFuture;
-
+  
   constructor(private choiceService:  ChoiceService) { 
     this.choiceService.upcoming$.subscribe(
       () => {
         //alert('(Component2) Method called!'+i);
         this.mapBox();
+       
 
       }
     );
@@ -27,11 +28,12 @@ export class MapboxComponent implements OnInit {
   
   }
 
+ 
   ngOnInit() {
 
   }
-  
   public mapBox(){
+    //if(this.mapboxflag===true){
     var mapboxgl = require('mapbox-gl/dist/mapbox-gl.js');
     mapboxgl.accessToken = 'pk.eyJ1IjoieGVuYWtpcyIsImEiOiJjanczdDBpMHAwZWgzM3lrbW9xaDVpNnlzIn0.9O8d2q7A_DUaGbswoygSTA';
 
@@ -39,29 +41,36 @@ export class MapboxComponent implements OnInit {
     var MapboxClient = require('mapbox');
     var client = new MapboxClient('pk.eyJ1IjoieGVuYWtpcyIsImEiOiJjanczdDBpMHAwZWgzM3lrbW9xaDVpNnlzIn0.9O8d2q7A_DUaGbswoygSTA');
     var coordinates;
-    var city=client.geocodeForward(this.citiesFuture[0].cityName, function(err, data, res) {
-      coordinates = data.features[0].center;
-      console.log(coordinates);
-    });
-
-    const map = new mapboxgl.Map({
+    console.log("HER");
+    const mymap = new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/xenakis/cjw3t12b71b0f1coggwaltmwy',
       center: [12.486, 41.89],
       //center: coordinates,
       //pitch: 60,
       zoom: 3,
+     
+
+      
       });
-        // tslint:disable-next-line: align
-        setTimeout(function() {
-        map.flyTo({
+    client.geocodeForward(this.citiesFuture[0].cityName, function(err, data, res) {
+      coordinates = data.features[0].center;
+      console.log(coordinates);
+    });
+
+    
+
+     setTimeout(function() {
+        mymap.flyTo({
           center: coordinates,
           zoom: 12
           });
         },7000);
+        // tslint:disable-next-line: align
+   
 
-     //   var mapcanvas = $('.mapboxgl-canvas');
-     //   mapcanvas.width='1070px';
+     
+        //mapcanvas.width='1070px';
       //  mapcanvas.height='1080px';
 
 
@@ -105,7 +114,7 @@ export class MapboxComponent implements OnInit {
 
         new mapboxgl.Marker(el)
           .setLngLat(coordinates)
-          .addTo(map);
+          .addTo(mymap);
       });
 
       var test = client.geocodeForward(ad2, function(err, data, res) {
@@ -119,7 +128,7 @@ export class MapboxComponent implements OnInit {
 
         new mapboxgl.Marker(el)
           .setLngLat(coordinates)
-          .addTo(map);
+          .addTo(mymap);
       });
 
       var test = client.geocodeForward(ad3, function(err, data, res) {
@@ -133,7 +142,7 @@ export class MapboxComponent implements OnInit {
 
         new mapboxgl.Marker(el)
           .setLngLat(coordinates)
-          .addTo(map);
+          .addTo(mymap);
       });
 
 
@@ -148,7 +157,7 @@ export class MapboxComponent implements OnInit {
 
         new mapboxgl.Marker(el)
           .setLngLat(coordinates)
-          .addTo(map);
+          .addTo(mymap);
       });
 
       var test = client.geocodeForward(ad5, function(err, data, res) {
@@ -162,14 +171,14 @@ export class MapboxComponent implements OnInit {
 
         new mapboxgl.Marker(el)
           .setLngLat(coordinates)
-          .addTo(map);
+          .addTo(mymap);
       });
 
 
 
 
      // jQuery(window).resize(function(){map.resize()});
-
+   
   }
   
 

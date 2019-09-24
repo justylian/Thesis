@@ -2,6 +2,7 @@ import { AppComponent } from './../app.component';
 import {  ImagesawayComponent } from './../away/imagesaway/imagesaway.component';
 import { MusicComponent } from './../initial/music/music.component';
 import { ImagesComponent} from './../initial/images/images.component';
+import { PlacesComponent}from './../upcoming/places/places.component';
 import { InfotableComponent } from './../upcoming/infotable/infotable.component';
 import { Injectable } from '@angular/core';
 import {Subject} from 'rxjs';
@@ -14,7 +15,7 @@ declare var require: any
 })
 export class LeapService {
 
-  constructor(private infotableComponent:InfotableComponent,private imagesawayComponent:ImagesawayComponent,private appComponent:AppComponent,private imagesComponent:ImagesComponent,private musicComponent:MusicComponent) {
+  constructor(private infotableComponent:InfotableComponent,private imagesawayComponent:ImagesawayComponent,private appComponent:AppComponent,private imagesComponent:ImagesComponent,private musicComponent:MusicComponent,private placesComponent:PlacesComponent) {
     this.manageLeap();
   }
   ngOnInit() {
@@ -49,7 +50,7 @@ export class LeapService {
       var musicComponent=this.musicComponent;
       var imagesComponent=this.imagesComponent;
       var appComponent=this.appComponent;
-
+      var placesComponent=this.placesComponent;
       var infotableComponent=this.infotableComponent;
       var onceFlag=true;
 
@@ -151,7 +152,11 @@ export class LeapService {
                       }
                     }
                     else if($('#upcoming').css('display')==='block'){
-                      infotableComponent.showHideImages();
+                        if($('#places').css('display')==='block'){
+                          placesComponent.savePlace();
+                          infotableComponent.savePlace();
+
+                        }
 
                     }
                     else if($('#choice').css('display')==='block'){

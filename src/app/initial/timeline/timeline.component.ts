@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { Timelineinfo } from './../../models/timelineinfo';
 import timelinejson from '../../../assets/json/timeline.json';
 import { InitialService } from './../../services/initial.service';
+import upcomingjson from '../../../assets/json/upcoming.json';  
 declare var require: any
 declare var $: any;
 declare var jQuery: any;
@@ -53,7 +54,7 @@ export class TimelineComponent implements OnInit {
   //var instance = deserialize("../../assets/json/InputDeviceInfo.json", Timelineinfo);
 
 
-
+  upcoming=upcomingjson;
    citiesPast=timelinejson.citiesPast;
    citiesPastCount=Object.keys(timelinejson.citiesPast).length;
    citiesFuture=timelinejson.citiesFuture;

@@ -1,6 +1,5 @@
 #away {
-    right: 2%;
-    position: absolute;
+  left: 0%;    position: absolute;
 }
 
 #info-bubble {
@@ -20,7 +19,7 @@
         padding-top: 6px;
         padding-bottom: 6px;
         padding-right: 10px;
-        border-radius: 15px 0px 15px 15px;
+        border-radius: 0px 15px 15px 15px;
     }
     .info-bubble-inner-shadow {
         z-index: 2;

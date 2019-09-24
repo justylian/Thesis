@@ -23,6 +23,27 @@
     filter: drop-shadow(-50px 0px 50px #fff);
 }
 
+#leave-note{
+    background-color: var(--main-timeline-color);
+    position: absolute;
+    font-family: "Avenir";
+    width: 163px;
+    height: 70px;
+    top: 10px;
+    right: 10px;
+    color: white;
+    z-index: 10;
+    padding: 5px;
+    font-size: 38px;
+    border: 1px solid var(--main-timeline-color);
+    border-radius: 0px 20px 20px 20px;
+    #leave-note-inner{
+        font-size: 20px;
+        font-family: "AvenirLight";
+
+    }
+}
+
 #info-frame {
     width: 850px;
     height: 1080px;
@@ -61,11 +82,11 @@
     }
     #dates {
         font-family: "AvenirBold";
-        width: 330px;
+        width: 500px;
         height: 50px;
         font-size: 25px;
         position: absolute;
-        top: 130px;
+        top: 129px;
         color: #254F50;
         padding-left: 20px;
         text-transform: uppercase;
@@ -86,7 +107,7 @@
             margin-top: 2px;
         }
         #hotel-name {
-            font-size: 20px;
+            font-size: 18px;
             color: #677C7C;
         }
         #hotel-address {
@@ -138,8 +159,7 @@
             margin-top: 2px;
         }
         #flight-info-outbound {
-            width: 100%;
-            font-size: 20px;
+            width: 275px;            font-size: 18px;
             color: #677C7C;
             #flight-info-outbound-icon {
                 background-image: url("../../../assets/images/icons/flightarrow.png");
@@ -147,7 +167,7 @@
                 position: absolute;
                 height: 15px;
                 background-size: cover;
-                margin-left: 86px;
+                margin-left: 77px;
                 margin-top: -21px;
             }
             #flight-info-outbound-flightinfo {
@@ -156,9 +176,8 @@
             }
         }
         #flight-info-inbound {
-            width: 100%;
-            margin-top: 5px;
-            font-size: 20px;
+            width: 275px;            margin-top: 5px;
+            font-size: 18px;
             top: 10px;
             color: #677C7C;
             #flight-info-inbound-icon {
@@ -168,7 +187,7 @@
                 position: absolute;
                 height: 15px;
                 background-size: cover;
-                margin-left: 86px;
+                margin-left: 77px;
                 margin-top: -20px;
             }
             #flight-info-inbound-flightinfo {
@@ -355,7 +374,7 @@
                 height: auto;
             }
             
-            .saved{
+            .saved::before{
                 //background-image: url("../../../assets/images/icons/saved.png");
                 //background-color: white;
                 //color: #254f50;
@@ -371,12 +390,18 @@
                 line-height: 6px;
                 /* margin-top: 4px; */
                 top: 14px;
-                border: 1px solid #fff;
+                //border: 1px solid #fff;
                 border-radius: 4px 4px 4px 4px;
                 padding-bottom: -2px;
                 padding-left: -5px;
                 padding-right: 11px;
                 filter: drop-shadow(0 0 4px #fff);
+                content: "+";
+
+            }
+            .unsaved{
+                content: "";
+
             }
             #places-desc {
                 

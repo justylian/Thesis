@@ -1,6 +1,7 @@
 import { MapawayComponent } from './../mapaway/mapaway.component';
 import { Component, OnInit } from '@angular/core';
 import timelinejson from '../../../assets/json/timeline.json';
+
 declare var Load: any;
 declare var $: any;
 declare var jQuery: any;
@@ -12,11 +13,16 @@ declare var jQuery: any;
 })
 export class ImagesawayComponent implements OnInit {
   citiesFuture=timelinejson.citiesFuture;
+ 
+  constructor(private mapawayComponent:MapawayComponent) {
 
-  constructor(private mapawayComponent:MapawayComponent) { }
+   }
 
   ngOnInit() {
   }
+
+
+  
 
   turn=true;
   public showImage(){

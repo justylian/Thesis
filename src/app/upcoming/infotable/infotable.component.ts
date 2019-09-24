@@ -2,7 +2,8 @@ import { LeapService } from './../../services/leap.service';
 import { MapboxComponent } from './../mapbox/mapbox.component';
 import { PlacesComponent } from './../places/places.component';
 import timelinejson from '../../../assets/json/timeline.json';
-import upcomingjson from '../../../assets/json/upcoming.json';
+import upcomingjson from '../../../assets/json/upcoming.json';  
+
 import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 import { Component, OnInit } from '@angular/core';
 const { getColorFromURL } = require('color-thief-node');
@@ -16,10 +17,12 @@ declare var jQuery: any;
   templateUrl: './infotable.component.html',
   styleUrls: ['./infotable.component.scss']
 })
+
 export class InfotableComponent implements OnInit {
   citiesFuture=timelinejson.citiesFuture;
   upcoming=upcomingjson;
   arrivaldiff=false;
+  remainingDays:number;
   public day1="../../../assets/images/weather/"+this.upcoming.weather.day1.state+".png";
   public day2="../../../assets/images/weather/"+this.upcoming.weather.day2.state+".png";
   public day3="../../../assets/images/weather/"+this.upcoming.weather.day3.state+".png";
@@ -29,6 +32,7 @@ export class InfotableComponent implements OnInit {
   public Todaymessage=JSON.parse(JSON.stringify(this.upcoming.weather.day1.state));
 
   constructor(private placesComponent: PlacesComponent,private mapboxComponent:MapboxComponent) {
+    this.remainingDays=this.getRemainingdays(this.remainingDays);
 
    /* this.leapService.manageLeap$.subscribe(
       () => {
@@ -48,6 +52,7 @@ export class InfotableComponent implements OnInit {
   }
 
   ngOnInit() {
+    
     this.mapboxComponent.focusPin(1);
 
     if(this.upcoming.flight.arrival.arrivalmonth=== this.upcoming.flight.departure.departuremonth){
@@ -67,7 +72,35 @@ export class InfotableComponent implements OnInit {
     else{
       this.Todaymessage="Who cares about the clouds when we're together!";
     }
+    
+
+   
   }
+
+  /* -------------- Remaining days --------------- */ 
+  public getRemainingdays(remainingDays){
+    var today = new Date();
+    var dd = today.getDate();
+    var mm =today.getMonth()+1;
+    var yyyy = today.getFullYear();
+
+    var todaystring = mm + '/' + dd + '/' + yyyy;
+
+    var str=this.upcoming.flight.departure.departuremonth
+    var strsub=str.substring(0, 3);
+    var monthno=( "JanFebMarAprMayJunJulAugSepOctNovDec".indexOf(strsub) / 3 + 1 )
+    //console.log(monthno)
+
+    var departuredate= monthno+ '/' +  this.upcoming.flight.departure.departuredate+ '/' + this.upcoming.flight.departure.departureyear;
+
+
+    const date1 = +new Date(todaystring);
+    const date2 = +new Date(departuredate);
+    const diffTime = Math.abs(date2 - date1);
+    remainingDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+    return remainingDays;
+  }
+
 
 
   turn=true;
@@ -95,7 +128,20 @@ export class InfotableComponent implements OnInit {
     this.placesComponent.nextImageUpcoming();
   }
 
-
+  public savePlace(){
+    if(this.currentImage!=0){
+      if($('#scroll-places-'+this.currentImage+' #places-desc').hasClass("saved")){
+        $('#scroll-places-'+this.currentImage+' #places-desc').removeClass("saved");
+        $('#scroll-places-'+this.currentImage+' #places-desc').addClass("unsaved");
+       }
+       else{
+        $('#scroll-places-'+this.currentImage+' #places-desc').removeClass("unsaved");
+        $('#scroll-places-'+this.currentImage+' #places-desc').addClass("saved");
+       }
+    }
+    
+   }
+  
 
   currentImage=0;
 
@@ -201,3 +247,4 @@ $(document).ready(function(){
     }
 });
  });*/
+
