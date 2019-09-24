@@ -107,7 +107,6 @@ function changePinPhotos(timelineno,citiesPast,citiesFuture){
   }
   else {
     setTimeout(function() {
-      console.log(timelineno+"!!!!");
     $('#image-stack-1').css('background-image', 'url(' + citiesPast[timelineno-1].photos.one.urlmin + ')');
     $('#image-stack-2').css('background-image', 'url(' + citiesPast[timelineno-1].photos.two.urlmin + ')');
     $('#image-stack-3').css('background-image', 'url(' + citiesPast[timelineno-1].photos.three.urlmin + ')');
@@ -156,9 +155,9 @@ function findCityLoc(timelineno,citiesPast,citiesFuture,cityName){
 
 
   for(var i=0;i<citiesonmap.citieslocs.length;i++){
-    console.log(citiesonmap.citieslocs[i]);
+    //console.log(citiesonmap.citieslocs[i]);
     if(citiesonmap.citieslocs[i].city===cityName){
-      console.log(i);
+      //console.log(i);
       cityLocLeft=citiesonmap.citieslocs[i].left
       cityLocTop=citiesonmap.citieslocs[i].top
 

@@ -7,9 +7,9 @@
                 "one": {
                     "url": "../../../assets/images/paris/1.jpg",
                     "urlmin": "../../../assets/images/paris/1min.jpg",
-                    "title": "View from the Apartment",
-                    "desc": "Our day started by the window. On previous trips to Paris, Larry and I always seemed to traverse the city in a frantic fashion, zig-zagging from landmark to landmark and spending too much time burrowed in the underground consulting the route map of the Metro. Sure, we checked off many sites on our to-see list but I always returned home feeling like we'd seen a lot but experienced little. So, this year we decided to tour the city differently - slow down, condense our sightseeing to a smaller area and really take the time to experience our surroundings. "
-                },
+                    "title": "The Iconic Arc De Triomphe",
+                    "desc": "Our first evening in Paris was spent taking a stroll (that was anything but leisurely) down the Avenue des Champs-Élysées. I knew before we came to Paris that this street was popular, but popular is an understatement. It was absolutely packed with people shopping, eating, taking photos, busking, and my favorite – people workin’ it. And by that, I’m referring to those people (both men and women) who were walking along the street with their backs arched, lips in a pout, eyes with vacant stares, ready to burn us with their cigarettes if we got too close. For those people, the Champs-Élysées isn’t a street, it’s a runway."
+                         },
                 "two": {
                     "url": "../../../assets/images/paris/2.jpg",
                     "urlmin": "../../../assets/images/paris/2min.jpg",
@@ -25,8 +25,8 @@
                 "four": {
                     "url": "../../../assets/images/paris/4.jpg",
                     "urlmin": "../../../assets/images/paris/4min.jpg",
-                    "title": "The Iconic Arc De Triomphe",
-                    "desc": "Our first evening in Paris was spent taking a stroll (that was anything but leisurely) down the Avenue des Champs-Élysées. I knew before we came to Paris that this street was popular, but popular is an understatement. It was absolutely packed with people shopping, eating, taking photos, busking, and my favorite – people workin’ it. And by that, I’m referring to those people (both men and women) who were walking along the street with their backs arched, lips in a pout, eyes with vacant stares, ready to burn us with their cigarettes if we got too close. For those people, the Champs-Élysées isn’t a street, it’s a runway."
+                    "title": "View from the Apartment",
+                    "desc": "Our day started by the window. On previous trips to Paris, Larry and I always seemed to traverse the city in a frantic fashion, zig-zagging from landmark to landmark and spending too much time burrowed in the underground consulting the route map of the Metro. Sure, we checked off many sites on our to-see list but I always returned home feeling like we'd seen a lot but experienced little. So, this year we decided to tour the city differently - slow down, condense our sightseeing to a smaller area and really take the time to experience our surroundings. "
                 },
                 "five": {
                     "url": "../../../assets/images/paris/5.jpg",
@@ -259,8 +259,8 @@
                 "url": "../../../assets/images/copenhagen/3.jpg",
                 "urlmin": "../../../assets/images/copenhagen/3min.jpg",
 
-                "title": "City Hall",
-                "desc": "Copenhagen City Hall (Danish: Københavns Rådhus) is the headquarters of the municipal council as well as the Lord mayor of the Copenhagen Municipality, Denmark. The building is situated on City Hall Square in central Copenhagen. The current building was inaugurated in 1905. It was designed by the architect Martin Nyrop in the National Romantic style but with inspiration from the Siena City Hall. It is dominated by its richly ornamented front, the gilded statue of Absalon just above the balcony and the tall, slim clock tower. The latter is at 105.6 metres one of the tallest buildings in the generally low city of Copenhagen. In addition to the tower clock, the City Hall also houses Jens Olsen's World Clock."
+                "title": "Rundetaarn",
+                "desc": "The Round Tower (Danish: Rundetårn), formerly Stellaburgis Hafniens, is a 17th-century tower located in central Copenhagen, Denmark, and one of the many architectural projects of Christian IV of Denmark, built as an astronomical observatory. It is most noted for its equestrian staircase, a 7.5-turn helical corridor leading to the platform at the top at 34.8 meters above ground, and for the expansive views which it affords over Copenhagen."
             },
             "four": {
                 "url": "../../../assets/images/copenhagen/4.jpg",

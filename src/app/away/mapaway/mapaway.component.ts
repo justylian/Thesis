@@ -17,6 +17,7 @@ export class MapawayComponent implements OnInit {
   remainingDays:number;
   upcoming=upcomingjson;
   dist:number;
+  public day1="../../../assets/images/weather/Showerstrans.png";
 
   constructor() {
     this.dist=this.mapboxDistance();
@@ -39,7 +40,7 @@ export class MapawayComponent implements OnInit {
     
     client.geocodeForward(this.citiesFuture[0].cityName, function(err, data, res) {
       coordinates = data.features[0].center;
-      console.log(coordinates);
+      //console.log(coordinates);
 
     });
     

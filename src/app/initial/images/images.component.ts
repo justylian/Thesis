@@ -76,7 +76,7 @@ export class ImagesComponent implements OnInit {
     {
       nextCity=6;
     }
-console.log(nextCity);
+    //console.log(nextCity);
     $('#cityImages'+currentCity).hide( "slow", function() {
     });
 
@@ -140,12 +140,12 @@ console.log(nextCity);
     var timePerCity=this.timePerCity;
     var loop=this.citiesPastCount+1;
     //var timer=0;
-    console.log(loop,startingCity);
+    //console.log(loop,startingCity);
 
     for (var i = startingCity; i <= 6; ++i){
       //setTimeout(function() {
         if(i<=this.citiesPastCount || i===6){
-          console.log(i);
+          //console.log(i);
           continueSlideShowInner(timePerCity,timePerPhoto,compMusic,compMap,compBubble,initialService,startingCity,dominantcolorService,i);
         }
 
@@ -239,20 +239,91 @@ function getColors(i){
       lessx=700;
       lessy=50;
     }
-    console.log(length,lessx,lessy);
+   // console.log(length,lessx,lessy);
 
 
     if(j===5){
       $('#image'+i+'-five-inner').css({ "top": lessy, "left": lessx });
+      //console.log(length);
+      if(length>=3800){
+        $('#image'+i+'-five-inner h1').css({ 
+        "filter": "drop-shadow(0 0 30px #fff)",
+        "mix-blend-mode": "unset",
+        "color":"black",
+        "text-shadow": "0px 0px 5px #fff"
+              });
+        $('#image'+i+'-five-inner h2').css({ 
+          "filter": "drop-shadow(0 0 30px #fff)",
+          "mix-blend-mode": "unset",
+          "color":"black",
+          "text-shadow": "0px 0px 5px #fff"
+        });
+      }
     }
     else  if(j===4){
       $('#image'+i+'-four-inner').css({ "top": lessy, "left": lessx });
+      if(length>=3800){
+        $('#image'+i+'-four-inner h1').css({ 
+        "filter": "drop-shadow(0 0 30px #fff)",
+        "mix-blend-mode": "unset",
+        "color":"black",
+        "text-shadow": "0px 0px 5px #fff"
+        });
+        $('#image'+i+'-four-inner h2').css({ 
+          "filter": "drop-shadow(0 0 30px #fff)",
+          "mix-blend-mode": "unset",
+          "color":"black",
+          "text-shadow": "0px 0px 5px #fff"
+        });
+      }
     }else  if(j===3){
       $('#image'+i+'-three-inner').css({ "top": lessy, "left": lessx  });
+      if(length>=3800){
+        $('#image'+i+'-three-inner h1').css({ 
+          "filter": "drop-shadow(0 0 30px #fff)",
+          "mix-blend-mode": "unset",
+          "color":"black",
+          "text-shadow": "0px 0px 5px #fff"
+        });
+        $('#image'+i+'-three-inner h2').css({ 
+          "filter": "drop-shadow(0 0 30px #fff)",
+          "mix-blend-mode": "unset",
+          "color":"black",
+          "text-shadow": "0px 0px 5px #fff"
+        });
+      }
     }else  if(j===2){
       $('#image'+i+'-two-inner').css({ "top": lessy, "left": lessx  });
+      if(length>=3800){
+        $('#image'+i+'-two-inner h1').css({ 
+          "filter": "drop-shadow(0 0 30px #fff)",
+          "mix-blend-mode": "unset",
+          "color":"black",
+          "text-shadow": "0px 0px 5px #fff"
+        });
+        $('#image'+i+'-two-inner h2').css({ 
+          "filter": "drop-shadow(0 0 30px #fff)",
+          "mix-blend-mode": "unset",
+          "color":"black",
+          "text-shadow": "0px 0px 5px #fff"
+        });
+      }
     }else{
       $('#image'+i+'-one-inner').css({ "top": lessy, "left": lessx  });
+      if(length>=3800){
+        $('#image'+i+'-one-inner h1').css({ 
+          "filter": "drop-shadow(0 0 30px #fff)",
+          "mix-blend-mode": "unset",
+          "color":"black",
+          "text-shadow": "0px 0px 5px #fff"
+        });
+        $('#image'+i+'-one-inner h2').css({ 
+          "filter": "drop-shadow(0 0 30px #fff)",
+          "mix-blend-mode": "unset",
+          "color":"black",
+          "text-shadow": "0px 0px 5px #fff"
+        });
+      }
     }
 
   }
@@ -340,7 +411,7 @@ function continueSlideShowInner(timePerCity,timePerPhoto,compMusic,compMap,compB
   if( startingCity===i){
     multiplier=0;
     //clearTimeouts();
-    console.log("clear timer 0");
+   // console.log("clear timer 0");
     timer=0;
 
   }
@@ -351,7 +422,7 @@ function continueSlideShowInner(timePerCity,timePerPhoto,compMusic,compMap,compB
 
       if(startingCity===1 && firstTime===false){
 
-        console.log("IFFFFF");
+        //ole.log("IFFFFF");
 
         setTimeout(function() {
           getColors(i);
@@ -380,7 +451,7 @@ function continueSlideShowInner(timePerCity,timePerPhoto,compMusic,compMap,compB
       else{
         getColors(i);
 
-        console.log("ELSE");
+        //console.log("ELSE");
 
         firstTime=false;
         currentCity=i;
@@ -401,7 +472,7 @@ function continueSlideShowInner(timePerCity,timePerPhoto,compMusic,compMap,compB
 
     //if(isPaused===false){
 
-    console.log("multi 2"+multiplier);
+    //console.log("multi 2"+multiplier);
 
     if(startingCity===i){
 
@@ -412,9 +483,7 @@ function continueSlideShowInner(timePerCity,timePerPhoto,compMusic,compMap,compB
         currentCity=i;
         multiplier=1;
 
-        console.log("n"+i);
-        console.log("n"+timer);
-        console.log("changed city");
+        
 
         $('#image-main').fadeOut( 250, function() {});
         //hide prev
@@ -427,8 +496,7 @@ function continueSlideShowInner(timePerCity,timePerPhoto,compMusic,compMap,compB
         getColors(i);
 
         currentCity=i;
-        console.log("n"+i);
-        console.log("n"+timer);
+  
 
         $('#image-main').fadeOut( 250, function() {});
         //hide prev
@@ -509,7 +577,7 @@ function manageImagesShow(timePerCity,timePerPhoto,timelineno,dominantcolorServi
 /* ----- Photos manage inner ----- */
 
 function imagePlay(i,timePerCity,timePerPhoto,timelineno,dominantcolorService) {
-  console.log("outpause"+timelineno+i);
+  //console.log("outpause"+timelineno+i);
 
     // tslint:disable-next-line: align
     setTimeout(function() {

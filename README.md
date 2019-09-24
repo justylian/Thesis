@@ -6,6 +6,20 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
+## Configurable
+
+    timeline.json: Information about past destinations
+    upcoming.json: Information about future destination
+    times.json: Timings(Image Slideshow & InfoBubble)
+
+
+## Guide
+
+![alt text](guide/states.png)
+![alt text](guide/initial.png)
+![alt text](guide/upcoming.png)
+![alt text](guide/away.png)
+
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
@@ -26,11 +40,5 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
-
-
-![alt text](guide/states.png)
-![alt text](guide/initial.png)
-![alt text](guide/upcoming.png)
-![alt text](guide/away.png)
 
 

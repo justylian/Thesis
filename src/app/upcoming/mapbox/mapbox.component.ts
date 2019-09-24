@@ -39,7 +39,7 @@ export class MapboxComponent implements OnInit {
     var coordinates=[12.486, 41.89]; //Rome as start
     var MapboxClient = require('mapbox');
     var client = new MapboxClient('pk.eyJ1IjoieGVuYWtpcyIsImEiOiJjanczdDBpMHAwZWgzM3lrbW9xaDVpNnlzIn0.9O8d2q7A_DUaGbswoygSTA');
-    console.log("HER");
+
     const mymap = new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/xenakis/cjw3t12b71b0f1coggwaltmwy',

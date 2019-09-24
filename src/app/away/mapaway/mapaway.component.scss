@@ -175,6 +175,29 @@
        left: 8px;
        position: absolute;
    }
+   #weather-away
+   {
+        font-size: 1.5vw;
+        font-family: "AvenirLight";
+        top: 430px;
+        //text-transform: uppercase;
+        mix-blend-mode: difference;
+        color: #b0b6b6;
+        left: 51px;
+        position: absolute;
+        letter-spacing: -2px;
+
+        
+    }
+    #weather-away-img{
+        display: inline;
+    position: absolute;
+    width: 40px;
+    left: 7px;
+    top: 420px;
+    padding-top: 7px;
+        
+    }
 
    //ANIMATION
    @-moz-keyframes move-map-globe {
@@ -226,11 +249,14 @@
     position: absolute;
     font-family: "Avenir";
     width: 163px;
-    height: 70px;
+    height: 65px;
+    line-height: 28px;
     top: 2%;
     right: 1%;
     color: white;
     z-index: 10;
+    
+
     padding: 5px;
     font-size: 38px;
     border: 1px solid var(--main-timeline-color);

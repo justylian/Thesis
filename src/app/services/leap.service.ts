@@ -80,23 +80,23 @@ export class LeapService {
                 case "keyTap":
                     if (gesture.state == "stop") {
 
-                    console.log("Key Tap Gesture");
+                      console.log("Key Tap Gesture");
                       if($('#upcoming').css('display')==='block'){
-                       console.log('keyTap');
-   
-                         if($('#places').css('display')==='block'){
-                           placesComponent.savePlace();
-                           infotableComponent.savePlace();
-   
-                         }
-   
-                     }
-                     else if($('#choice').css('display')==='block'){
-                       console.log('keyTap');
-   
-                       appComponent.activeChoose();
-   
-                     }
+                        console.log('keyTap');
+    
+                          if($('#places').css('display')==='block'){
+                            placesComponent.savePlace();
+                            infotableComponent.savePlace();
+    
+                          }
+    
+                      }
+                      else if($('#choice').css('display')==='block'){
+                        console.log('keyTap');
+    
+                        appComponent.activeChoose();
+    
+                      }
                     }
                     break;
                 case "screenTap":
