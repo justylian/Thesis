@@ -88,18 +88,18 @@ console.log(nextCity);
 
   }
 
-    /* ----- Future city in slideshow ----- */
+    /* ----- Choose city in slideshow ----- */
 
-  public futureCity(){
+  public chooseCity(){
 
     $('#cityImages'+currentCity).hide( "slow", function() {
     });
 
     clearTimeouts();
 
-    currentCity=6;
+    //currentCity=6;
 
-    this.continueSlideShow(6);
+    this.continueSlideShow(currentCity);
 
   }
 
@@ -157,16 +157,28 @@ console.log(nextCity);
 
   }
 
+    /* ----- Play/Pause Slideshow  ----- */
 
+  isPaused=false;
   public pause(){
-    console.log("pause");
-    playPause();
+    if(this.isPaused===false){
+      console.log("pause");
+      clearTimeouts();
+      this.isPaused=true;
+    }
+    else if(this.isPaused===true){
+      console.log("unpause");
+  
+      this.chooseCity();
+      this.isPaused=false;
+    }
 
 
   }
 
-}
 
+
+}
 
 
 
@@ -308,18 +320,7 @@ function rgb2hex(rgb) {
 
 
 
-/* ----- Play/Pause Slideshow  ----- */
 
-var isPaused=false;
-
-function playPause(){
-  if(isPaused===false){
-    isPaused=true;
-  }
-  else if(isPaused===true){
-    isPaused=false;
-  }
-}
 
 
 

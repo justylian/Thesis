@@ -4,6 +4,7 @@ declare var $: any;
 declare var jQuery: any;
 import timelinejson from '../../../assets/json/timeline.json';
 import timesjson from '../../../assets/json/times.json';
+import citiesonmap from '../../../assets/json/citiesonmap.json';
 declare var require: any;
 
 @Component({
@@ -26,7 +27,7 @@ export class MapComponent implements OnInit {
 
   ngOnInit() {
     this.initPin()
-
+   
 
   }
 
@@ -151,6 +152,20 @@ function findCityName(timelineno,citiesPast,citiesFuture){
 function findCityLoc(timelineno,citiesPast,citiesFuture,cityName){
   var cityLocLeft;
   var cityLocTop;
+
+
+
+  for(var i=0;i<citiesonmap.citieslocs.length;i++){
+    console.log(citiesonmap.citieslocs[i]);
+    if(citiesonmap.citieslocs[i].city===cityName){
+      console.log(i);
+      cityLocLeft=citiesonmap.citieslocs[i].left
+      cityLocTop=citiesonmap.citieslocs[i].top
+
+    }
+  }
+
+  /*searchInCitiesJSON(cityLocLeft,cityLocTop);
   if(timelineno===1){
     cityLocLeft=citiesPast[0].cityLocation.left;
     cityLocTop=citiesPast[0].cityLocation.top;
@@ -170,14 +185,9 @@ function findCityLoc(timelineno,citiesPast,citiesFuture,cityName){
   else{
     cityLocLeft=citiesFuture[0].cityLocation.left;
     cityLocTop=citiesFuture[0].cityLocation.top;
-  }
+  }*/
   changeCityNamePin(timelineno,cityName,cityLocLeft,cityLocTop);
 }
-
-
-
-
-
 
 
 

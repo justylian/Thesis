@@ -23,16 +23,16 @@ export class MusicComponent implements OnInit {
         //alert('(Component2) Method called!'+i);
         this.playerManage();
       }
-    );*/
+    );*/  
    }
 
   ngOnInit() {
   }
 
+  player=$('#music-desc1 #player')[0];
 
   public  playerManage(): void {
-    let player;
-    player=$('#music-desc1 #player')[0];
+    
 
     var i;
     for( i=1;i<=6;i++){
@@ -41,16 +41,16 @@ export class MusicComponent implements OnInit {
 
         if($('#music-desc'+i).css('display') === 'block')
         {
-          player=$('#music-desc'+i+' #player')[0];
-          console.log(player);
+          this.player=$('#music-desc'+i+' #player')[0];
+          console.log(this.player);
           break;
         }
       }
     }
     //let player=<HTMLVideoElement>document.getElementById('player');
-    if(player.paused){
+    if(this.player.paused){
       plays=true;
-      player.play();
+      this.player.play();
       document.getElementById('audio-button').style.background="url('../../../assets/images/pause.png')";
       document.getElementById('audio-button').style.backgroundSize="cover";
       $("#audio-player h1").animate({ left:-26}, 100);
@@ -58,7 +58,7 @@ export class MusicComponent implements OnInit {
     }
     else{
       plays=false;
-      player.pause();
+      this.player.pause();
       document.getElementById('audio-button').style.background="url('../../../assets/images/play.png')";
       document.getElementById('audio-button').style.backgroundSize="cover";
       $("#audio-player h1").animate({ left:-100}, 100);

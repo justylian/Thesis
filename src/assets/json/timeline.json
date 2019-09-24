@@ -35,10 +35,6 @@
                     "desc": "The Louvre Museum tells so many stories – from the irreplaceable artwork it is home to, to the building itself – you’ll feel as though you are as close to touching history as humanly possible. The original purpose of the Louvre was not as a museum, nor was its purpose to house one of the world’s greatest collections of art. Originally it was built as a fortress towards the end of the twelfth century during the reign of King Philip Auguste. You didn’t realise it was quite that old did you? If you did, you’re doing better than I."
                 }
             },
-            "cityLocation": {
-                "left": "840",
-                "top": "350"
-            },
             "sound": {
                 "url": "../../../assets/music/Paris Café.mp3",
                 "desc": "Paris Café"
@@ -87,10 +83,6 @@
                     "desc": "The story starts in the check-in area of Toulouse airport. We boarded on a 2 hour flight to Lisbon. This would be our first time in Portugal, I couldn't be more excited. Arrival was scheduled in Lisbon late in the afternoon, around dusk. I was really looking forward for this trip, Portugal was number one on my to go list for a really long time. Eyes set on the window, waiting to see the ocean for the very first time. Finally, there it is, I can see the blue in the distance. At the same time the capital shows itself, tiled roofs, all in red,  spread everywhere cutting through the hills. On the one side, traditional Portuguese architecture and on the other modern high-rise buildings, state-of-the-art stadiums and two breathtaking bridges connecting the shores of Tagus river (Tejo in Portuguese)."
                 }
             },
-            "cityLocation": {
-                "left": "778",
-                "top": "400"
-            },
             "sound": {
                 "url": "../../../assets/music/Lisbon Streets.mp3",
                 "desc": "Lisbon Streets"
@@ -134,10 +126,6 @@
                     "desc": "The destination for today was Brooklyn, so it’s obvious to cross the Brooklyn Bridge to get there. Since in NYC there is so much to explore on foot I got myself a couple of tips before. But in case you get lazy you can use one of the countless taxis or the subway, which are the most used means of transport here. The Brooklyn Bridge is a hybrid cable-stayed/suspension bridge in New York City. It connects the boroughs of Manhattan and Brooklyn, spanning the East River. The Brooklyn Bridge has a main span of 1,595.5 feet (486.3 m) and a height of 133 ft (40.5 m) above Mean High Water. It is one of the oldest roadway bridges in the United States and was the world's first steel-wire suspension bridge, as well as the first fixed crossing across the East River."
 
                 }
-            },
-            "cityLocation": {
-                "left": "580",
-                "top": "400"
             },
             "sound": {
                 "url": "../../../assets/music/Manhattan Traffic Jam.mp3",
@@ -187,10 +175,6 @@
                     "desc": "We spent only two days here as something like a stopover because our plane leaves from Narita. But instead of being all mopey about it, I’ve made up my mind not to feel anything other than determined. I’ve settled myself with the notion that I’ll be coming back here in the next few years to explore some more, and we’ll see how that idea comes into fruition! Japan has always been one of my “dream countries” to travel to because I genuinely love its culture and even its language, and the fact that it’s becoming a mainstream tourist destination won’t stop me."
                 }
             },
-            "cityLocation": {
-                "left": "1400",
-                "top": "400"
-            },
             "sound": {
                 "url": "../../../assets/music/Japan Bustle.mp3",
                 "desc": "Japan Bustle"
@@ -236,10 +220,6 @@
                     "title": "Day 1: Aya Sofia",
                     "desc": "Ayasofya (or Hagia Sophia in Greek) is one of Istanbul’s most iconic structures. It graces travel brochures and glossy magazines and has even made a cameo in video game Assassin’s Creed. The 1,500-year-old structure is considered the most important of the Byzantine era and is one of the world’s great monuments. Completed in 537 AD, Ayasofya was the world’s largest cathedral for nearly a thousand years, until Seville Cathedral was completed in 1520. Ayasofya and its central dome, a giant 32 metres (105ft) in diameter, stands sentry over Istanbul, offering beguiling views both inside and out. Here’s how to make the most of your time there."
                 }
-            },
-            "cityLocation": {
-                "left": "950",
-                "top": "400"
             },
             "sound": {
                 "url": "../../../assets/music/Istanbul Bazaar.mp3",
@@ -299,16 +279,9 @@
 
         },
         "longlat": "40° 43' 50.1960'' N | 73° 56' 6.8712'' W",
-        "cityLocation": {
-            "left": "900",
-            "top": "300"
-        },
         "sound": {
             "url": "../../../assets/music/Copenhagen Bicycles.mp3",
             "desc": "Copenhagen Bicycles"
-        },
-        "distance": "1.200",
-        "mapbox":""
-
+        }
     }]
 }

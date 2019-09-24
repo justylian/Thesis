@@ -36,4 +36,17 @@ export class ChoiceService {
   initial(){
     this.initialSource.next();
   }
+
+
+
+
+
+  private distSource = new Subject<any>();
+
+  // Observable string streams
+  dist$ = this.distSource.asObservable();
+
+  dist(i){
+    this.distSource.next(i);
+  }
 }

@@ -37,6 +37,7 @@
     font-size: 38px;
     border: 1px solid var(--main-timeline-color);
     border-radius: 0px 20px 20px 20px;
+    transition:3s;
     filter: drop-shadow(0 0 100px #fff);
 
     #leave-note-inner{
