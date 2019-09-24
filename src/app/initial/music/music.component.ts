@@ -32,6 +32,8 @@ export class MusicComponent implements OnInit {
 
   public  playerManage(): void {
     let player;
+    player=$('#music-desc1 #player')[0];
+
     var i;
     for( i=1;i<=6;i++){
       console.log(i+"HEMMMM,,,");

@@ -70,21 +70,22 @@ export class LeapService {
             switch( type ){
 
               case "circle":
-                console.log('circle');
                 if (gesture.state == "stop") {
+                  console.log('circle');
+
                   if($('#initial').css('display')==='block'){
                     musicComponent.playerManage();
                   }
                   if($('#upcoming').css('display')==='block'){
-                    infotableComponent.showHideImages();
+                    //infotableComponent.showHideImages();
 
                   }
                 }
                 break;
 
               case "swipe":
-                console.log('swipe');
                 if (gesture.state == "stop") {
+                  console.log('swipe');
                   if($('#initial').css('display')==='block'){
                     console.log(gesture.direction[0]);
                     if (gesture.direction[0] > 0){
@@ -104,8 +105,6 @@ export class LeapService {
                         infotableComponent.previousScroll();
 
                       }
-
-
                     }
                     else if($('#places').css('display')==='block'){
                       infotableComponent.nextImageUpcoming();

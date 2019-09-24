@@ -81,6 +81,9 @@ export class InfotableComponent implements OnInit {
     else{
       $('#info-frame').fadeIn('slow');
       this.mapboxComponent.showMap();
+      this.placesComponent.hideImagesUpcoming();
+
+      
       this.turn=true;
 
     }
@@ -108,7 +111,7 @@ export class InfotableComponent implements OnInit {
 
       $('#scroll-places-'+this.currentImage).addClass('active').removeClass('deactive');
       console.log(element);
-      element.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+      element.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
 
   }
 
@@ -124,7 +127,7 @@ export class InfotableComponent implements OnInit {
 
     $('#scroll-places-'+this.currentImage).addClass('active').removeClass('deactive');
     console.log(element);
-    element.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+    element.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
 
 }
 

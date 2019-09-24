@@ -28,8 +28,10 @@
     height: 1080px;
     background: white;
     top: 0px;
-    overflow: hidden;
-    position: absolute;
+    position: fixed;
+
+    overflow-x: hidden;
+    overflow-y: hidden;
     .upper-border {
         width: 100%;
         height: 0px;
@@ -352,20 +354,33 @@
                 width: 100%;
                 height: auto;
             }
-            .places-desc {
-                background-color: white;
-                color: #254f50;
+            
+            .saved{
+                //background-image: url("../../../assets/images/icons/saved.png");
+                //background-color: white;
+                //color: #254f50;
+                color: white;
+                height: 1px;
+                width: 13px;
+                background-size: cover;
                 position: absolute;
                 float: right;
-                right: 6px;
-                font-size: 14px;
-                margin-top: 4px;
-                border-radius: 15px 50px 30px;
-                padding-top: 3px;
-                padding-bottom: 3px;
-                padding-left: 6px;
-                padding-right: 6px;
-                display: none;
+                /* left: 50%; */
+                right: 5px;
+                font-size: 37px;
+                line-height: 6px;
+                /* margin-top: 4px; */
+                top: 14px;
+                border: 1px solid #fff;
+                border-radius: 4px 4px 4px 4px;
+                padding-bottom: -2px;
+                padding-left: -5px;
+                padding-right: 11px;
+                filter: drop-shadow(0 0 4px #fff);
+            }
+            #places-desc {
+                
+                //display: none;
             }
             .active {
                 filter: grayscale(0%);

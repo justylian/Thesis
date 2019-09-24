@@ -309,7 +309,8 @@
             "url": "../../../assets/music/Copenhagen Bicycles.mp3",
             "desc": "Copenhagen Bicycles"
         },
-        "distance": "1200"
+        "distance": "1.200",
+        "mapbox":""
 
     }]
 }

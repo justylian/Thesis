@@ -29,27 +29,35 @@ export class MapboxComponent implements OnInit {
   ngOnInit() {
 
   }
+  
   public mapBox(){
     var mapboxgl = require('mapbox-gl/dist/mapbox-gl.js');
     mapboxgl.accessToken = 'pk.eyJ1IjoieGVuYWtpcyIsImEiOiJjanczdDBpMHAwZWgzM3lrbW9xaDVpNnlzIn0.9O8d2q7A_DUaGbswoygSTA';
 
 
     var MapboxClient = require('mapbox');
+    var client = new MapboxClient('pk.eyJ1IjoieGVuYWtpcyIsImEiOiJjanczdDBpMHAwZWgzM3lrbW9xaDVpNnlzIn0.9O8d2q7A_DUaGbswoygSTA');
+    var coordinates;
+    var city=client.geocodeForward(this.citiesFuture[0].cityName, function(err, data, res) {
+      coordinates = data.features[0].center;
+      console.log(coordinates);
+    });
+
     const map = new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/xenakis/cjw3t12b71b0f1coggwaltmwy',
-      //center: [12.486, 41.89],
-      center: [12.585791540330206, 55.69010470068136],
+      center: [12.486, 41.89],
+      //center: coordinates,
       //pitch: 60,
       zoom: 3,
       });
         // tslint:disable-next-line: align
         setTimeout(function() {
         map.flyTo({
-          center: [12.585791540330206, 55.69010470068136],
+          center: coordinates,
           zoom: 13
           });
-        },5000);
+        },7000);
 
      //   var mapcanvas = $('.mapboxgl-canvas');
      //   mapcanvas.width='1070px';
@@ -63,7 +71,6 @@ export class MapboxComponent implements OnInit {
 
       });*/
 
-    var client = new MapboxClient('pk.eyJ1IjoieGVuYWtpcyIsImEiOiJjanczdDBpMHAwZWgzM3lrbW9xaDVpNnlzIn0.9O8d2q7A_DUaGbswoygSTA');
 
     var ad1=this.citiesFuture[0].cityName+" "+this.citiesFuture[0].photos.one.title;
     var ad1title=this.citiesFuture[0].photos.one.title;
