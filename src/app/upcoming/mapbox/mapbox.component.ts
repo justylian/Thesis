@@ -50,7 +50,7 @@ export class MapboxComponent implements OnInit {
       });
     client.geocodeForward(this.citiesFuture[0].cityName, function(err, data, res) {
       coordinates = data.features[0].center;
-      console.log(coordinates);
+      //console.log(coordinates);
 
     });
     

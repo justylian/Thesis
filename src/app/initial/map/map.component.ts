@@ -210,7 +210,7 @@ function mapMinify() {
         $(".stage").animate({ width: 180, height: 170, borderRadius: '50%' }, 800);
         $("#ball-out").animate({ left: 10, top: 0 }, 800);
         $(".ball-in").animate({ borderRadius: '50%' }, 800);
-        $("#ballshadow").show(1000);
+        $("#ballshadow").show(1200);
       }, 400);
       setTimeout(function() {
         $(".ball-in").css("animation", "move-map-globe 60s infinite linear");

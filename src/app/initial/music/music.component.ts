@@ -36,13 +36,12 @@ export class MusicComponent implements OnInit {
 
     var i;
     for( i=1;i<=6;i++){
-      console.log(i+"HEMMMM,,,");
       if(i<=this.citiesPastCount || i===6){
 
         if($('#music-desc'+i).css('display') === 'block')
         {
           this.player=$('#music-desc'+i+' #player')[0];
-          console.log(this.player);
+          //console.log(this.player);
           break;
         }
       }

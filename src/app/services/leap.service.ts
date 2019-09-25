@@ -82,9 +82,10 @@ export class LeapService {
 
                       console.log("Key Tap Gesture");
                       if($('#upcoming').css('display')==='block'){
-                        console.log('keyTap');
     
                           if($('#places').css('display')==='block'){
+                            console.log('keyTap');
+
                             placesComponent.savePlace();
                             infotableComponent.savePlace();
     
@@ -102,10 +103,9 @@ export class LeapService {
                 case "screenTap":
                     if (gesture.state == "stop") {
 
-                        console.log("Screen Tap Gesture");
                     
                         if($('#initial').css('display')==='block'){
-                          console.log('screenTap');
+                          console.log("Screen Tap Gesture");
         
                           if(onceFlag===true){
                             imagesComponent.slideShow();
@@ -117,13 +117,13 @@ export class LeapService {
                           }
                         }
                         else if($('#upcoming').css('display')==='block'){
-                          console.log('screenTap');
+                          console.log("Screen Tap Gesture");
         
                           infotableComponent.showHideImages();
         
                         }
                         else if($('#choice').css('display')==='block'){
-                          console.log('screenTap');
+                          console.log("Screen Tap Gesture");
         
                           appComponent.activeChoose();
         
@@ -153,24 +153,30 @@ export class LeapService {
       
                           if (gesture.direction[0] > 0){
                             console.log("Swipe left Gesture");
+                            infotableComponent.previousScroll();
 
-                            infotableComponent.nextScroll();
       
                           }
                           else{
                             console.log("Swipe right Gesture");
+                            infotableComponent.nextScroll();
 
-                            infotableComponent.previousScroll();
       
                           }
                         }
                         else if($('#places').css('display')==='block'){
-                          console.log('swipe');
+                          console.log("Swipe Gesture");
 
                           infotableComponent.nextImageUpcoming();
       
                         }
                      }
+                     else if($('#choice').css('display')==='block'){
+                      console.log("Swipe Gesture");
+    
+                      appComponent.activeChange();
+    
+                    }
                     }
                     break;
                     
