@@ -156,7 +156,7 @@ export class InfotableComponent implements OnInit {
       $('#scroll-places-'+prevImage).addClass('deactive').removeClass('active');
 
       $('#scroll-places-'+this.currentImage).addClass('active').removeClass('deactive');
-      console.log(element);
+      //console.log(element);
       element.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
 
   }
@@ -172,7 +172,7 @@ export class InfotableComponent implements OnInit {
     $('#scroll-places-'+prevImage).addClass('deactive').removeClass('active');
 
     $('#scroll-places-'+this.currentImage).addClass('active').removeClass('deactive');
-    console.log(element);
+    //console.log(element);
     element.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
 
 }

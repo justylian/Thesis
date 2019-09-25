@@ -68,9 +68,8 @@ export class LeapService {
                 case "circle":
                     if (gesture.state == "stop") {
 
-                      console.log("Circle Gesture");
                       if($('#initial').css('display')==='block'){
-                        console.log('circle');
+                        console.log("Circle Gesture");
       
                         musicComponent.playerManage();
       
@@ -80,11 +79,10 @@ export class LeapService {
                 case "keyTap":
                     if (gesture.state == "stop") {
 
-                      console.log("Key Tap Gesture");
                       if($('#upcoming').css('display')==='block'){
     
                           if($('#places').css('display')==='block'){
-                            console.log('keyTap');
+                            console.log("Key Tap Gesture");
 
                             placesComponent.savePlace();
                             infotableComponent.savePlace();
@@ -93,7 +91,7 @@ export class LeapService {
     
                       }
                       else if($('#choice').css('display')==='block'){
-                        console.log('keyTap');
+                        console.log("Key Tap Gesture");
     
                         appComponent.activeChoose();
     
@@ -136,15 +134,13 @@ export class LeapService {
                       if($('#initial').css('display')==='block'){
                         if (gesture.direction[0] > 0){
                           console.log("Swipe left Gesture");
+                          imagesComponent.previousCity();
 
-                          imagesComponent.nextCity();
       
                         }
                         else{
                           console.log("Swipe right Gesture");
-
-                          imagesComponent.previousCity();
-      
+                          imagesComponent.nextCity();
       
                         }
                       }
@@ -167,7 +163,7 @@ export class LeapService {
                         else if($('#places').css('display')==='block'){
                           console.log("Swipe Gesture");
 
-                          infotableComponent.nextImageUpcoming();
+                          placesComponent.nextImageUpcoming();
       
                         }
                      }
@@ -175,6 +171,12 @@ export class LeapService {
                       console.log("Swipe Gesture");
     
                       appComponent.activeChange();
+    
+                    }
+                    else if($('#away').css('display')==='block'){
+                      console.log('swipe');
+    
+                      imagesawayComponent.showImage();
     
                     }
                     }

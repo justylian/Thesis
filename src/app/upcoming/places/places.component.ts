@@ -90,29 +90,36 @@ export class PlacesComponent implements OnInit {
     if(i===5){
       this.currentImage=5;
       //$('#cityImages6 #image6-four').hide();
+      
+
       $('#cityImages6 #image6-three').hide();
       $('#cityImages6 #image6-one').hide();
       $('#cityImages6 #image6-two').hide();
-      $('#cityImages6 #image6-four').fadeIn('fast');
       $('#cityImages6').show();
-      $('#cityImages6 #image6-five').fadeIn('slow');
-      $('#cityImages6 #image6-four').fadeOut('fast');
+      $('#cityImages6 #image6-four').fadeIn( 100, function() {
+        $('#cityImages6 #image6-five').fadeIn('slow');
+
+      });
+      $('#cityImages6 #image6-four').fadeOut('slow');
 
       dominantcolorService.handleDominantColor(6,"five");
       $('#cityImages6 #image6-five-inner').show();//show desc
     }
     else if(i===4){
       this.currentImage=4;
+      
 
       $('#cityImages6 #image6-five').hide();
       //$('#cityImages6 #image6-three').hide();
       $('#cityImages6 #image6-one').hide();
       $('#cityImages6 #image6-two').hide();
-      $('#cityImages6 #image6-three').fadeIn('fast');
 
       $('#cityImages6').show();
-      $('#cityImages6 #image6-four').fadeIn('slow');
-      $('#cityImages6 #image6-three').fadeOut('fast');
+      $('#cityImages6 #image6-three').fadeIn( 100, function() {
+        $('#cityImages6 #image6-four').fadeIn('slow');
+
+      });
+      $('#cityImages6 #image6-three').fadeOut('slow');
 
       dominantcolorService.handleDominantColor(6,"four");
       $('#cityImages6 #image6-four-inner').show();//show desc
@@ -120,47 +127,56 @@ export class PlacesComponent implements OnInit {
     }
     else if(i===3){
       this.currentImage=3;
+     
 
       $('#cityImages6 #image6-five').hide();
       $('#cityImages6 #image6-four').hide();
       $('#cityImages6 #image6-one').hide();
       //$('#cityImages6 #image6-two').hide();
-      $('#cityImages6 #image6-two').fadeIn('fast');
 
       $('#cityImages6').show();
-      $('#cityImages6 #image6-three').fadeIn('slow');
-      $('#cityImages6 #image6-two').fadeOut('fast');
+      $('#cityImages6 #image6-two').fadeIn( 100, function() {
+        $('#cityImages6 #image6-three').fadeIn('slow');
+
+      });
+      $('#cityImages6 #image6-two').fadeOut('slow');
 
       dominantcolorService.handleDominantColor(6,"three");
       $('#cityImages6 #image6-three-inner').show();//show desc
     }
     else if(i===2){
       this.currentImage=2;
+     
 
       $('#cityImages6 #image6-five').hide();
       $('#cityImages6 #image6-four').hide();
       $('#cityImages6 #image6-three').hide();
       //$('#cityImages6 #image6-one').hide();
-      $('#cityImages6 #image6-one').fadeIn('fast');
       $('#cityImages6').show();
-      $('#cityImages6 #image6-two').fadeIn('slow');
-      $('#cityImages6 #image6-one').fadeOut('fast');
+      $('#cityImages6 #image6-one').fadeIn( 100, function() {
+        $('#cityImages6 #image6-two').fadeIn('slow');
+
+      });
+      $('#cityImages6 #image6-one').fadeOut('slow');
 
       dominantcolorService.handleDominantColor(6,"two");
       $('#cityImages6 #image6-two-inner').show();//show desc
     }
     else if(i===1){
       this.currentImage=1;
+     
 
       //$('#cityImages6 #image6-five').hide();
       $('#cityImages6 #image6-four').hide();
       $('#cityImages6 #image6-three').hide();
       $('#cityImages6 #image6-two').hide();
-      $('#cityImages6 #image6-five').fadeIn('fast');
 
       $('#cityImages6').show();
-      $('#cityImages6 #image6-one').fadeIn('slow');
-      $('#cityImages6 #image6-five').fadeOut('fast');
+      $('#cityImages6 #image6-five').fadeIn( 100, function() {
+        $('#cityImages6 #image6-one').fadeIn('slow');
+
+      });
+      $('#cityImages6 #image6-five').fadeOut('slow');
 
 
       dominantcolorService.handleDominantColor(6,"one");

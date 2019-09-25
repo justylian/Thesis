@@ -1,7 +1,7 @@
 <div id="audio-player">
     <h1>NOW PLAYING</h1>
     <div id="music-desc6">
-        <audio id="player" src="{{citiesFuture[0].sound.url}}"></audio>
+        <audio loop id="player" src="{{citiesFuture[0].sound.url}}"></audio>
         <h4>{{citiesFuture[0].sound.desc}}</h4>
     </div>
     <div *ngFor="let city of citiesPast;  let i=index">

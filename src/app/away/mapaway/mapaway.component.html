@@ -8,11 +8,14 @@
             <figure class="ball-in" id="glb1">
 
                 <div id="next-city">{{dist}} km away</div>
-                <div id="weather-away">{{upcoming.weather.day1.temphigh}}</div>
-                <img id="weather-away-img" [attr.src]="day1">
+        
+              
+              
 
                 <div class="city-map-name-inner" id="city1">
-                    {{citiesFuture[0].cityName}}</div>
+                    {{citiesFuture[0].cityName}}
+                      <div id="weather-away">{{upcoming.weather.day1.temphigh}}</div>
+                <img id="weather-away-img" [attr.src]="day1"></div>
 
 
             </figure>
