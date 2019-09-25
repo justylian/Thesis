@@ -265,17 +265,17 @@
             "four": {
                 "url": "../../../assets/images/copenhagen/4.jpg",
                 "urlmin": "../../../assets/images/copenhagen/4min.jpg",
-
-                "title": "Nyhavn",
-                "desc": "Especially during summer, Nyhavn is the perfect place to end a long day. With a cold one on the quay like the locals, or at one of the many restaurants. Originally, Nyhavn was a busy commercial port where ships from all over the world would dock. The area was packed with sailors, ladies of pleasure, pubs and alehouses. Today the beautiful old houses have been renovated and restaurants dominate the old port. Nyhavn is filled with people enjoying the relaxed atmosphere by the canal, jazz music and great food."
+                "title": "Oresund Bridge",
+                "desc": "On the third day we crossed the strait to get to Sweden. The bridge runs nearly 8 kilometres (5 miles) from the Swedish coast to the artificial island Peberholm in the middle of the strait. The crossing is completed by the 4-kilometre (2.5 mi) Drogden Tunnel from Peberholm to the Danish island of Amager. The underwater parts of the bridge have become covered in marine organisms and act as an artificial reef."
+            
             },
             "five": {
                 "url": "../../../assets/images/copenhagen/5.jpg",
                 "urlmin": "../../../assets/images/copenhagen/5min.jpg",
-
-                "title": "Oresund Bridge",
-                "desc": "On the third day we crossed the strait to get to Sweden. The bridge runs nearly 8 kilometres (5 miles) from the Swedish coast to the artificial island Peberholm in the middle of the strait. The crossing is completed by the 4-kilometre (2.5 mi) Drogden Tunnel from Peberholm to the Danish island of Amager. The underwater parts of the bridge have become covered in marine organisms and act as an artificial reef."
-            }
+                "title": "Nyhavn",
+                "desc": "Especially during summer, Nyhavn is the perfect place to end a long day. With a cold one on the quay like the locals, or at one of the many restaurants. Originally, Nyhavn was a busy commercial port where ships from all over the world would dock. The area was packed with sailors, ladies of pleasure, pubs and alehouses. Today the beautiful old houses have been renovated and restaurants dominate the old port. Nyhavn is filled with people enjoying the relaxed atmosphere by the canal, jazz music and great food."
+            
+                }
 
         },
         "longlat": "40° 43' 50.1960'' N | 73° 56' 6.8712'' W",
