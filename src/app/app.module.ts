@@ -1,3 +1,4 @@
+import { ImagesService } from './services/images.service';
 import { AwayModule } from './away/away.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -6,7 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { InitialModule } from './initial/initial.module';
 import { UpcomingModule } from './upcoming/upcoming.module';
-
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,9 +18,10 @@ import { UpcomingModule } from './upcoming/upcoming.module';
     AppRoutingModule,
     InitialModule,
     UpcomingModule,
-    AwayModule
+    AwayModule,
+    HttpClientModule
   ],
-  providers: [AppComponent,ChoiceService],
+  providers: [AppComponent,ChoiceService,ImagesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

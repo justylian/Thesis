@@ -1,7 +1,8 @@
 <div id="city-longlat">{{citiesFuture[0].longlat}}</div>
 
 <div id="city-name">{{citiesFuture[0].cityName}}</div>
-<div id="leave-note"><div id="leave-note-inner">Leaving in</div> {{remainingDays}} days</div>
+<div id="leave-note">
+    <div id="leave-note-inner">Leaving in</div> {{remainingDays}} days</div>
 <div id="info-frame">
 
     <div id="dates">
@@ -129,6 +130,27 @@
 
                 <h1>Places</h1>
 
+                <div id="places-inner" (click)="showHideImages();" *ngIf="imagesFound">
+                    <div *ngFor="let image of images; let i=index">
+                        <li id="{{ 'scroll-places-' + (i+1)}}" class="deactive">
+
+                            <div id="places-desc" class="saved"></div>
+
+                            <img id="places-image-one" src={{image.webformatURL}}>
+                        </li>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!--    <div id="places">
+            <div class="upper-border"></div>
+
+            <div id="places-icon"></div>
+            <div class="infotable-inner-texts">
+
+                <h1>Places</h1>
+
                 <div id="places-inner" (click)="showHideImages();">
                     <li id="scroll-places-1" class="deactive">
                         <div id="places-desc" class="saved"></div>
@@ -157,6 +179,6 @@
 
                 </div>
             </div>
-        </div>
+        </div>-->
     </div>
 </div>

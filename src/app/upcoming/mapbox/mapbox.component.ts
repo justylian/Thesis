@@ -14,20 +14,20 @@ declare var jQuery: any;
 })
 export class MapboxComponent implements OnInit {
   citiesFuture=timelinejson.citiesFuture;
-  
-  constructor(private choiceService:  ChoiceService) { 
+
+  constructor(private choiceService:  ChoiceService) {
 
     this.choiceService.upcoming$.subscribe(
       () => {
         //alert('(Component2) Method called!'+i);
-        this.mapBox();
+        //this.mapBox();
       }
     );
 
-  
+
   }
 
- 
+
   ngOnInit() {
 
   }
@@ -46,15 +46,15 @@ export class MapboxComponent implements OnInit {
       center: coordinates,
       //pitch: 60,
       zoom: 3,
-    
+
       });
     client.geocodeForward(this.citiesFuture[0].cityName, function(err, data, res) {
       coordinates = data.features[0].center;
       //console.log(coordinates);
 
     });
-    
-    
+
+
 
     setTimeout(function() {
         mymap.flyTo({
@@ -63,8 +63,8 @@ export class MapboxComponent implements OnInit {
           });
     },7000);
         // tslint:disable-next-line: align
-  
-     
+
+
         //mapcanvas.width='1070px';
       //  mapcanvas.height='1080px';
 
@@ -173,10 +173,10 @@ export class MapboxComponent implements OnInit {
 
 
      // jQuery(window).resize(function(){map.resize()});
-   
+
   }
-  
-  
+
+
 
 
   public focusPin(no){

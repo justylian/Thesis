@@ -23,29 +23,11 @@ export class LeapService {
 
 
 
-  /* ----- Upcoming ----- */
-
-
-
-
-
-
-
-  /* ----- Initial ----- */
-
-
-  /* ----- Away ----- */
-
   /* ----- Leap function ----- */
 
 
     public manageLeap(): void {
-      // tslint:disable-next-line: member-ordering
 
-     // nextScroll$ = this.nextScrollSource.asObservable();
-    //  nextScroll(){
-
-     // }
       var imagesawayComponent=this.imagesawayComponent;
       var musicComponent=this.musicComponent;
       var imagesComponent=this.imagesComponent;
@@ -53,8 +35,6 @@ export class LeapService {
       var placesComponent=this.placesComponent;
       var infotableComponent=this.infotableComponent;
       var onceFlag=true;
-
-
 
       var leapjs      = require('leapjs');
       var options = {
@@ -70,9 +50,9 @@ export class LeapService {
 
                       if($('#initial').css('display')==='block'){
                         console.log("Circle Gesture");
-      
+
                         musicComponent.playerManage();
-      
+
                       }
                     }
                     break;
@@ -80,34 +60,34 @@ export class LeapService {
                     if (gesture.state == "stop") {
 
                       if($('#upcoming').css('display')==='block'){
-    
+
                           if($('#places').css('display')==='block'){
                             console.log("Key Tap Gesture");
 
                             placesComponent.savePlace();
                             infotableComponent.savePlace();
-    
+
                           }
-    
+
                       }
                       else if($('#choice').css('display')==='block'){
                         console.log("Key Tap Gesture");
-    
+
                         appComponent.activeChoose();
-    
+
                       }
                     }
                     break;
                 case "screenTap":
                     if (gesture.state == "stop") {
 
-                    
+
                         if($('#initial').css('display')==='block'){
                           console.log("Screen Tap Gesture");
-        
+
                           if(onceFlag===true){
                             imagesComponent.slideShow();
-        
+
                             onceFlag=false;
                           }
                           else{
@@ -116,72 +96,60 @@ export class LeapService {
                         }
                         else if($('#upcoming').css('display')==='block'){
                           console.log("Screen Tap Gesture");
-        
+
                           infotableComponent.showHideImages();
-        
                         }
                         else if($('#choice').css('display')==='block'){
                           console.log("Screen Tap Gesture");
-        
                           appComponent.activeChoose();
-        
                         }
                     }
                     break;
                 case "swipe":
                     if (gesture.state == "stop") {
-                     
+
                       if($('#initial').css('display')==='block'){
                         if (gesture.direction[0] > 0){
                           console.log("Swipe left Gesture");
                           imagesComponent.previousCity();
-
-      
                         }
                         else{
                           console.log("Swipe right Gesture");
                           imagesComponent.nextCity();
-      
                         }
                       }
                       else if($('#upcoming').css('display')==='block'){
                         if($('#map').css('display')==='block'){
-      
+
                           if (gesture.direction[0] > 0){
                             console.log("Swipe left Gesture");
                             infotableComponent.previousScroll();
-
-      
                           }
                           else{
                             console.log("Swipe right Gesture");
                             infotableComponent.nextScroll();
-
-      
                           }
                         }
                         else if($('#places').css('display')==='block'){
                           console.log("Swipe Gesture");
-
                           placesComponent.nextImageUpcoming();
-      
+
                         }
                      }
                      else if($('#choice').css('display')==='block'){
                       console.log("Swipe Gesture");
-    
                       appComponent.activeChange();
-    
+
                     }
                     else if($('#away').css('display')==='block'){
                       console.log('swipe');
-    
+
                       imagesawayComponent.showImage();
-    
+
                     }
                     }
                     break;
-                    
+
 
               }
             });
@@ -190,7 +158,7 @@ export class LeapService {
 
       });
 
-      
+
    /*   var controller = leapjs.loop({enableGestures: true}, function(frame){
         if(frame.valid && frame.gestures.length > 0){
 
@@ -332,7 +300,7 @@ export class LeapService {
           //console.log('NEXTTTLEAP OK');
 
           //leapjs.loop(controller, function(frame) {
-          
+
           for(var i = 0; i < frame.gestures.length; i++){
             demo();
 
@@ -455,8 +423,8 @@ export class LeapService {
 
               }
           }
-          
-          
+
+
         });
 
 
@@ -469,15 +437,14 @@ export class LeapService {
 
 
 
-  function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-  }
-  
-  async function demo() {
+    function sleep(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
+    async function demo() {
     //console.log('Taking a break...');
     await sleep(20000);
     //console.log('Two seconds later, showing sleep in a loop...');
-  
+
     // Sleep in loop
     for (let i = 0; i < 5; i++) {
       if (i === 3)

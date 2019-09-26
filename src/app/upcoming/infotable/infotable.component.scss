@@ -23,7 +23,7 @@
     filter: drop-shadow(-50px 0px 50px #fff);
 }
 
-#leave-note{
+#leave-note {
     background-color: var(--main-timeline-color);
     position: absolute;
     font-family: "Avenir";
@@ -38,13 +38,11 @@
     font-size: 38px;
     border: 1px solid var(--main-timeline-color);
     border-radius: 0px 20px 20px 20px;
-    transition:3s;
+    transition: 3s;
     filter: drop-shadow(0 0 100px #fff);
-
-    #leave-note-inner{
+    #leave-note-inner {
         font-size: 20px;
         font-family: "AvenirLight";
-
     }
 }
 
@@ -165,7 +163,8 @@
             margin-top: 2px;
         }
         #flight-info-outbound {
-            width: 275px;            font-size: 18px;
+            width: 275px;
+            font-size: 18px;
             color: #677C7C;
             #flight-info-outbound-icon {
                 background-image: url("../../../assets/images/icons/flightarrow.png");
@@ -182,7 +181,8 @@
             }
         }
         #flight-info-inbound {
-            width: 275px;            margin-top: 5px;
+            width: 275px;
+            margin-top: 5px;
             font-size: 18px;
             top: 10px;
             color: #677C7C;
@@ -372,6 +372,7 @@
             left: 21px;
             position: absolute;
             overflow: scroll;
+            transition: 2s;
             li {
                 list-style-type: none;
             }
@@ -379,8 +380,7 @@
                 width: 100%;
                 height: auto;
             }
-            
-            .saved::before{
+            .saved::before {
                 //background-image: url("../../../assets/images/icons/saved.png");
                 //background-color: white;
                 //color: #254f50;
@@ -403,14 +403,11 @@
                 padding-right: 11px;
                 filter: drop-shadow(0 0 4px #fff);
                 content: "+";
-
             }
-            .unsaved{
+            .unsaved {
                 content: "";
-
             }
             #places-desc {
-                
                 //display: none;
             }
             .active {

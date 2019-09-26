@@ -1,8 +1,8 @@
-import { LeapService } from './../../services/leap.service';
+import { ImagesService } from './../../services/images.service';
 import { MapboxComponent } from './../mapbox/mapbox.component';
 import { PlacesComponent } from './../places/places.component';
 import timelinejson from '../../../assets/json/timeline.json';
-import upcomingjson from '../../../assets/json/upcoming.json';  
+import upcomingjson from '../../../assets/json/upcoming.json';
 
 import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 import { Component, OnInit } from '@angular/core';
@@ -23,6 +23,10 @@ export class InfotableComponent implements OnInit {
   upcoming=upcomingjson;
   arrivaldiff=false;
   remainingDays:number;
+  images: any[];
+  imagesFound: boolean = false;
+  searching: boolean = false;
+
   public day1="../../../assets/images/weather/"+this.upcoming.weather.day1.state+".png";
   public day2="../../../assets/images/weather/"+this.upcoming.weather.day2.state+".png";
   public day3="../../../assets/images/weather/"+this.upcoming.weather.day3.state+".png";
@@ -31,9 +35,11 @@ export class InfotableComponent implements OnInit {
 
   public Todaymessage=JSON.parse(JSON.stringify(this.upcoming.weather.day1.state));
 
-  constructor(private placesComponent: PlacesComponent,private mapboxComponent:MapboxComponent) {
+  constructor(private placesComponent: PlacesComponent,private mapboxComponent:MapboxComponent,private imagesService:ImagesService) {
     this.remainingDays=this.getRemainingdays(this.remainingDays);
+    this.searchImages(this.citiesFuture[0].cityName);
 
+    //console.log(this.images.hits[0].pageURL);
    /* this.leapService.manageLeap$.subscribe(
       () => {
         //alert('(Component2) Method called!'+i);
@@ -52,14 +58,20 @@ export class InfotableComponent implements OnInit {
   }
 
   ngOnInit() {
-    
     this.mapboxComponent.focusPin(1);
 
     if(this.upcoming.flight.arrival.arrivalmonth=== this.upcoming.flight.departure.departuremonth){
       this.arrivaldiff=true;
     }
 
+    this.weatherMessage();
 
+  }
+
+
+  /* -------------- Weather messages --------------- */
+
+  public weatherMessage(){
     if(this.Todaymessage==="Showers"){
       this.Todaymessage="Don't forget your umbrella. It's pouring out there!";
     }
@@ -72,12 +84,33 @@ export class InfotableComponent implements OnInit {
     else{
       this.Todaymessage="Who cares about the clouds when we're together!";
     }
-    
-
-   
   }
 
-  /* -------------- Remaining days --------------- */ 
+
+
+  /* -------------- Pixabay API --------------- */
+
+
+  handleSuccess(data){
+    this.imagesFound = true;
+    this.images = data.hits;
+    console.log(data.hits);
+  }
+
+  handleError(error){
+    console.log(error);
+  }
+
+  public searchImages(query: string){
+    this.searching = true;
+    return this.imagesService.getImage(query).subscribe(
+      data => this.handleSuccess(data),
+      error => this.handleError(error),
+      () => this.searching = false
+    )
+  }
+
+  /* -------------- Remaining days --------------- */
   public getRemainingdays(remainingDays){
     var today = new Date();
     var dd = today.getDate();
@@ -97,7 +130,7 @@ export class InfotableComponent implements OnInit {
     const date1 = +new Date(todaystring);
     const date2 = +new Date(departuredate);
     const diffTime = Math.abs(date2 - date1);
-    remainingDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+    remainingDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
     return remainingDays;
   }
 
@@ -116,7 +149,7 @@ export class InfotableComponent implements OnInit {
       this.mapboxComponent.showMap();
       this.placesComponent.hideImagesUpcoming();
 
-      
+
       this.turn=true;
 
     }
@@ -139,9 +172,9 @@ export class InfotableComponent implements OnInit {
         $('#scroll-places-'+this.currentImage+' #places-desc').addClass("saved");
        }
     }
-    
+
    }
-  
+
 
   currentImage=0;
 
