@@ -1,9 +1,11 @@
+import { MapawayComponent } from './../../away/mapaway/mapaway.component';
+import { POIService } from '../../services/poi.service';
+import { PlacesService } from './../../services/places.service';
 import { ImagesService } from './../../services/images.service';
 import { MapboxComponent } from './../mapbox/mapbox.component';
 import { PlacesComponent } from './../places/places.component';
 import timelinejson from '../../../assets/json/timeline.json';
 import upcomingjson from '../../../assets/json/upcoming.json';
-
 import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 import { Component, OnInit } from '@angular/core';
 const { getColorFromURL } = require('color-thief-node');
@@ -25,8 +27,11 @@ export class InfotableComponent implements OnInit {
   remainingDays:number;
   images: any[];
   imagesFound: boolean = false;
+  imagesPlace: any[];
   searching: boolean = false;
-
+  places: any[];
+  placesFound: boolean = false;
+  pois: any[];
   public day1="../../../assets/images/weather/"+this.upcoming.weather.day1.state+".png";
   public day2="../../../assets/images/weather/"+this.upcoming.weather.day2.state+".png";
   public day3="../../../assets/images/weather/"+this.upcoming.weather.day3.state+".png";
@@ -35,26 +40,19 @@ export class InfotableComponent implements OnInit {
 
   public Todaymessage=JSON.parse(JSON.stringify(this.upcoming.weather.day1.state));
 
-  constructor(private placesComponent: PlacesComponent,private mapboxComponent:MapboxComponent,private imagesService:ImagesService) {
+  constructor(private mapawayComponent:MapawayComponent,private placesComponent: PlacesComponent,private mapboxComponent:MapboxComponent,private imagesService:ImagesService,private placesService:PlacesService,private poiService:POIService) {
+
+
     this.remainingDays=this.getRemainingdays(this.remainingDays);
-    this.searchImages(this.citiesFuture[0].cityName);
 
-    //console.log(this.images.hits[0].pageURL);
-   /* this.leapService.manageLeap$.subscribe(
-      () => {
-        //alert('(Component2) Method called!'+i);
-        this.nextScroll();
-      }
-    );
+    //geonames
+    this.searchPOI(this.citiesFuture[0].cityName);
 
 
 
-    this.leapService.showHideImages$.subscribe(
-      () => {
-        //alert('(Component2) Method called!'+i);
-        this.showHideImages();
-      }
-    );*/
+    //wiki
+    this.searchPlace(this.citiesFuture[0].cityName);
+
   }
 
   ngOnInit() {
@@ -87,13 +85,90 @@ export class InfotableComponent implements OnInit {
   }
 
 
+ /* -------------- POI API --------------- */
 
+
+ public handleSuccessPOI(data){
+  this.places = data.geonames;
+  for(var i=0;i<data.geonames.length;i++)
+  {
+      this.pois[i]=data.geonames[i].toponymName;
+  }
+  //pixabay
+  console.log(this.pois[0]);
+  this.searchImages(this.citiesFuture[0].cityName);
+
+}
+
+handleErrorPOI(error){
+  console.log(error);
+}
+
+async  searchPOI(query: string){
+  var coordinates=await this.mapawayComponent.mapboxDistance("upcoming",query);
+  this.searching = true;
+  //return this.placesService.getInfo(query);
+  return this.poiService.getPOI(coordinates).subscribe(
+    data => this.handleSuccessPOI(data),
+    error => this.handleErrorPOI(error),
+    () => this.searching = false
+  )
+
+
+}
+ /* -------------- Places API --------------- */
+
+
+ handleSuccessPlace(data){
+  this.placesFound = true;
+  this.places = data.extract;
+ // console.log(data);
+  console.log(data.extract);
+
+}
+
+handleErrorPlace(error){
+  console.log(error);
+}
+
+public searchPlace(query: string){
+  this.searching = true;
+  console.log(query);
+  //return this.placesService.getInfo(query);
+  return this.placesService.getInfo(query).subscribe(
+    data => this.handleSuccessPlace(data),
+    error => this.handleErrorPlace(error),
+    () => this.searching = false
+  )
+}
   /* -------------- Pixabay API --------------- */
 
 
-  handleSuccess(data){
+public  handleSuccess(data,query){
     this.imagesFound = true;
+    var pois=this.pois;
+    console.log(this.pois);
     this.images = data.hits;
+    console.log(data.hits);
+
+    console.log(data.hits[0].tags);
+    for(var j=0;j<5;j++){
+      var words=data.hits[j].tags.split(',');
+
+      for(var i=0;i<words.length;i++){
+
+        if(words[i].toUpperCase() !==query.toUpperCase() ){
+          console.log(pois);
+
+          if(pois.includes(words[i])){
+            this.imagesPlace = words[i];
+            console.log( this.imagesPlace );
+            break;
+          }
+
+        }
+      }
+    }
     console.log(data.hits);
   }
 
@@ -104,7 +179,7 @@ export class InfotableComponent implements OnInit {
   public searchImages(query: string){
     this.searching = true;
     return this.imagesService.getImage(query).subscribe(
-      data => this.handleSuccess(data),
+      data => this.handleSuccess(data,query),
       error => this.handleError(error),
       () => this.searching = false
     )

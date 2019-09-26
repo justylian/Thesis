@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import timelinejson from '../../../assets/json/timeline.json';
-import upcomingjson from '../../../assets/json/upcoming.json';  
+import upcomingjson from '../../../assets/json/upcoming.json';
 declare var require: any
 
 declare var Load: any;
@@ -17,10 +17,11 @@ export class MapawayComponent implements OnInit {
   remainingDays:number;
   upcoming=upcomingjson;
   dist:number;
+  parameter="";
   public day1="../../../assets/images/weather/Showerstrans.png";
 
   constructor() {
-    this.dist=this.mapboxDistance();
+    this.dist=this.mapboxDistance("",this.citiesFuture[0].cityName)[0];
     this.remainingDays=this.getRemainingdays(this.remainingDays);
 
 
@@ -32,28 +33,30 @@ export class MapawayComponent implements OnInit {
 
 
 
-  public mapboxDistance(){
+  async  mapboxDistance(parameter,city){
 
     var coordinates=[12.486, 41.89]; //Rome as start
     var MapboxClient = require('mapbox');
     var client = new MapboxClient('pk.eyJ1IjoieGVuYWtpcyIsImEiOiJjanczdDBpMHAwZWgzM3lrbW9xaDVpNnlzIn0.9O8d2q7A_DUaGbswoygSTA');
-    
-    client.geocodeForward(this.citiesFuture[0].cityName, function(err, data, res) {
-      coordinates = data.features[0].center;
-      //console.log(coordinates);
+
+    await client.geocodeForward(city, function(err, data, res) {
+       coordinates = data.features[0].center;
+       return coordinates;
 
     });
-    
-        // tslint:disable-next-line: align
 
     this.dist=this.distance(coordinates[0],coordinates[1], 35.337211, 25.124940, "K")
     var distsub=this.dist;
     distsub=parseInt(distsub.toPrecision(8));
     //console.log(distsub);
-
-    return distsub;
+    if(parameter===""){
+      return distsub;
+    }
+    else if(parameter==="upcoming"){
+      return coordinates;
+    }
   }
-   
+
 
 
 
@@ -80,7 +83,7 @@ export class MapawayComponent implements OnInit {
   }
 
 
-/* -------------- Remaining days --------------- */ 
+/* -------------- Remaining days --------------- */
 public getRemainingdays(remainingDays){
   var today = new Date();
   var dd = today.getDate();
@@ -100,7 +103,7 @@ public getRemainingdays(remainingDays){
   const date1 = +new Date(todaystring);
   const date2 = +new Date(arrivaldate);
   const diffTime = Math.abs(date2 - date1);
-  remainingDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+  remainingDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
   return remainingDays;
 }
 
