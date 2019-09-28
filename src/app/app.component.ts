@@ -10,8 +10,8 @@ declare var jQuery: any;
 })
 export class AppComponent {
   constructor(private choiceService:ChoiceService) {
-    
-  
+
+
     }
 
   title = 'thesis-app';

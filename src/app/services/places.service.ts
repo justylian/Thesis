@@ -25,7 +25,7 @@ export class PlacesService {
     var params = "format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=Stack%20Overflow";
 
 
-    return  this._http.get("https://en.wikipedia.org/api/rest_v1/page/media/"+query)
+    return  this._http.get("https://en.wikipedia.org/api/rest_v1/page/summary/"+query)
     .map(data => data);
   }
 

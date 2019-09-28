@@ -3,7 +3,11 @@
     height: auto;
     z-index: 5;
     display: none;
-    top:0px;
+    top: 0px;
+}
+
+#places2 {
+    display: none;
 }
 
 #places-main-inner {
@@ -94,7 +98,8 @@
     z-index: 5;
     display: none;
 }
-.saved::before{
+
+.saved::before {
     //background-image: url("../../../assets/images/icons/saved.png");
     //background-color: white;
     //color: #254f50;
@@ -118,13 +123,13 @@
     -webkit-filter: drop-shadow(0 0 10px #000);
     filter: drop-shadow(0 0 10px #000);
     content: "+";
+}
 
-}
-.unsaved{
-    
-}
-.image6-inner{
-display:none;    position: absolute;
+.unsaved {}
+
+.image6-inner {
+    display: none;
+    position: absolute;
     z-index: 10;
     /* bottom: 37px; */
     top: 1050px;

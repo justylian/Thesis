@@ -16,9 +16,17 @@ export class POIService {
 
   }
 
-   public getPOI(coordinates){
+   public getPOI(query,placename){
 
-    console.log(coordinates);
-    return this._http.get("http://api.geonames.org/findNearbyJSON?lng="+coordinates[0]+"&lat="+coordinates[1]+"&radius=15&maxRows=100&username=stylianx").map(data => data);
+    //console.log(coordinates);
+   // return this._http.get("http://api.geonames.org/searchJSON?q="+query+"&featureCode=L&H&S&T&radius=15&maxRows=500&username=stylianx").map(data => data);
+
+
+
+    return this._http.get("http://api.geonames.org/searchJSON?q="+query+"&name="+placename+"&featureCode=S&radius=25&maxRows=1&username=stylianx").map(data => data);
+
+    //return this._http.get("http://api.geonames.org/searchJSON?lng="+coordinates[0]+"&lat="+coordinates[1]+"&featureCode=PRT&radius=15&maxRows=50&username=stylianx").map(data => data);
+    //return this._http.get("http://api.geonames.org/findNearbyPOIsOSMJSON?lng="+coordinates[0]+"&lat="+coordinates[1]+"&radius=1&maxRows=50&username=stylianx").map(data => data);
+
   }
 }

@@ -20,7 +20,7 @@
     font-size: 5vw;
     transition: 3s;
     text-transform: uppercase;
-    filter: drop-shadow(-50px 0px 50px #fff);
+    filter: drop-shadow(-50px 0px 50px rgba(255, 255, 255, 0.26));
 }
 
 #leave-note {
@@ -346,6 +346,9 @@
             color: #8d9fa0;
             font-size: 18px;
         }
+    }
+    #places2 {
+        display: none;
     }
     #places {
         width: 430px;

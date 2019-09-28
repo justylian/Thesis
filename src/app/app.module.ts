@@ -1,10 +1,7 @@
-import { POIService } from './services/poi.service';
-import { PlacesService } from './services/places.service';
-import { ImagesService } from './services/images.service';
+
 import { AwayModule } from './away/away.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ChoiceService }from './services/choice.service';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { InitialModule } from './initial/initial.module';
@@ -23,7 +20,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
     AwayModule,
     HttpClientModule
   ],
-  providers: [AppComponent,ChoiceService,ImagesService,PlacesService,POIService],
+  providers: [AppComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

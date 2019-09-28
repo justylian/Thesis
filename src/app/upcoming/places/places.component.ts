@@ -1,9 +1,10 @@
+import { logging } from 'protractor';
+import { UpcomingService } from './../../services/upcoming.service';
 import { LeapService } from './../../services/leap.service';
 import { DominantcolorService } from './../../services/dominantcolor.service';
 import { Component, OnInit } from '@angular/core';
 import timelinejson from '../../../assets/json/timeline.json';
 import timesjson from '../../../assets/json/times.json';
-
 declare var Load: any;
 declare var $: any;
 declare var jQuery: any;
@@ -16,9 +17,55 @@ export class PlacesComponent implements OnInit {
   citiesFuture=timelinejson.citiesFuture;
   timePerPhoto=timesjson.timePerPhoto;
   timePerCity=this.timePerPhoto*5;
+  images= new Array(5);
+  imagesLoc= new Array(5);
+  places= new Array(5);
+  once1=true;
+  once2=true;
+  once3=true;
+  allfound=false;
+  constructor(private upcomingService:UpcomingService,private dominantcolorService:DominantcolorService) {
+    this.upcomingService.images$.subscribe(
+      (i) => {
+        //alert('(Component2) Method called!'+i);
+        if(this.once1===true){
+          this.images=i;
+          console.log(this.images);
+          this.once1=false;
+        }
+      }
+    );
+    this.upcomingService.imagesloc$.subscribe(
+      (k) => {
+        if(this.once2===true){
+          this.imagesLoc=k;
+          console.log(this.imagesLoc);
+        this.once2=false;
+        }
+
+      }
+    );
+    this.upcomingService.places$.subscribe(
+      (l) => {
+        //alert('(Component2) Method called!'+i);
+        //console.log(l);
+        if(this.once3===true){
+          this.places=l;
+          console.log(this.places);
+          this.once3=false;
+        }
+
+      }
+    );
+    this.upcomingService.found$.subscribe(
+      (allfound) => {
+        //alert('(Component2) Method called!'+i);
+        //console.log(l);
+        this.allfound=allfound;
 
 
-  constructor(private dominantcolorService:DominantcolorService) {
+      }
+    );
   /*  this.leapService.nextImageUpcoming$.subscribe(
       () => {
         //alert('(Component2) Method called!'+i);
@@ -34,7 +81,7 @@ export class PlacesComponent implements OnInit {
 
   }
 
-  
+
   currentImage=1;
   public savePlace(){
    if($('#cityImages6 #image6-'+this.currentImage).hasClass("saved")){
@@ -90,7 +137,7 @@ export class PlacesComponent implements OnInit {
     if(i===5){
       this.currentImage=5;
       //$('#cityImages6 #image6-four').hide();
-      
+
 
       $('#cityImages6 #image6-three').hide();
       $('#cityImages6 #image6-one').hide();
@@ -107,7 +154,7 @@ export class PlacesComponent implements OnInit {
     }
     else if(i===4){
       this.currentImage=4;
-      
+
 
       $('#cityImages6 #image6-five').hide();
       //$('#cityImages6 #image6-three').hide();
@@ -127,7 +174,7 @@ export class PlacesComponent implements OnInit {
     }
     else if(i===3){
       this.currentImage=3;
-     
+
 
       $('#cityImages6 #image6-five').hide();
       $('#cityImages6 #image6-four').hide();
@@ -146,7 +193,7 @@ export class PlacesComponent implements OnInit {
     }
     else if(i===2){
       this.currentImage=2;
-     
+
 
       $('#cityImages6 #image6-five').hide();
       $('#cityImages6 #image6-four').hide();
@@ -164,7 +211,7 @@ export class PlacesComponent implements OnInit {
     }
     else if(i===1){
       this.currentImage=1;
-     
+
 
       //$('#cityImages6 #image6-five').hide();
       $('#cityImages6 #image6-four').hide();
@@ -423,13 +470,13 @@ function getColors(){
     if(j===5){
       $('#cityImages6 #image6-five-inner').css({ "top": lessy, "left": lessx });
       if(length>=3800){
-        $('#cityImages6 #image6-five-inner h1').css({ 
+        $('#cityImages6 #image6-five-inner h1').css({
           "filter": "drop-shadow(0 0 30px #fff)",
           "mix-blend-mode": "unset",
           "color":"black",
           "text-shadow": "0px 0px 5px #fff"
         });
-        $('#cityImages6 #image6-five-inner  h2').css({ 
+        $('#cityImages6 #image6-five-inner  h2').css({
           "filter": "drop-shadow(0 0 30px #fff)",
           "mix-blend-mode": "unset",
           "color":"black",
@@ -440,13 +487,13 @@ function getColors(){
     else  if(j===4){
       $('#cityImages6 #image6-four-inner').css({ "top": lessy, "left": lessx });
       if(length>=3800){
-        $('#cityImages6 #image6-four-inner h1').css({ 
+        $('#cityImages6 #image6-four-inner h1').css({
           "filter": "drop-shadow(0 0 30px #fff)",
           "mix-blend-mode": "unset",
           "color":"black",
           "text-shadow": "0px 0px 5px #fff"
         });
-        $('#cityImages6 #image6-four-inner  h2').css({ 
+        $('#cityImages6 #image6-four-inner  h2').css({
           "filter": "drop-shadow(0 0 30px #fff)",
           "mix-blend-mode": "unset",
           "color":"black",
@@ -456,13 +503,13 @@ function getColors(){
     }else  if(j===3){
       $('#cityImages6 #image6-three-inner').css({ "top": lessy, "left": lessx  });
       if(length>=3800){
-        $('#cityImages6 #image6-three-inner h1').css({ 
+        $('#cityImages6 #image6-three-inner h1').css({
           "filter": "drop-shadow(0 0 30px #fff)",
           "mix-blend-mode": "unset",
           "color":"black",
           "text-shadow": "0px 0px 5px #fff"
         });
-        $('#cityImages6 #image6-three-inner  h2').css({ 
+        $('#cityImages6 #image6-three-inner  h2').css({
           "filter": "drop-shadow(0 0 30px #fff)",
           "mix-blend-mode": "unset",
           "color":"black",
@@ -472,13 +519,13 @@ function getColors(){
     }else  if(j===2){
       $('#cityImages6 #image6-two-inner').css({ "top": lessy, "left": lessx  });
       if(length>=3800){
-        $('#cityImages6 #image6-two-inner h1').css({ 
+        $('#cityImages6 #image6-two-inner h1').css({
           "filter": "drop-shadow(0 0 30px #fff)",
           "mix-blend-mode": "unset",
           "color":"black",
           "text-shadow": "0px 0px 5px #fff"
         });
-        $('#cityImages6 #image6-two-inner  h2').css({ 
+        $('#cityImages6 #image6-two-inner  h2').css({
           "filter": "drop-shadow(0 0 30px #fff)",
           "mix-blend-mode": "unset",
           "color":"black",
@@ -489,13 +536,13 @@ function getColors(){
       $('#cityImages6 #image6-one-inner').css({ "top": lessy, "left": lessx  });
 
       if(length>=3800){
-        $('#cityImages6 #image6-one-inner h1').css({ 
+        $('#cityImages6 #image6-one-inner h1').css({
           "filter": "drop-shadow(0 0 30px #fff)",
           "mix-blend-mode": "unset",
           "color":"black",
           "text-shadow": "0px 0px 5px #fff"
         });
-        $('#cityImages6 #image6-one-inner  h2').css({ 
+        $('#cityImages6 #image6-one-inner  h2').css({
           "filter": "drop-shadow(0 0 30px #fff)",
           "mix-blend-mode": "unset",
           "color":"black",

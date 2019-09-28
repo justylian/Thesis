@@ -1,3 +1,4 @@
+import { UpcomingService } from './../../services/upcoming.service';
 import { DominantcolorService } from './../../services/dominantcolor.service';
 import { ChoiceService } from './../../services/choice.service';
 import { Component, OnInit } from '@angular/core';
@@ -14,22 +15,28 @@ declare var jQuery: any;
 })
 export class MapboxComponent implements OnInit {
   citiesFuture=timelinejson.citiesFuture;
-
-  constructor(private choiceService:  ChoiceService) {
+  imagesLoc;
+  constructor(private choiceService:  ChoiceService,private upcomingService:UpcomingService) {
 
     this.choiceService.upcoming$.subscribe(
       () => {
         //alert('(Component2) Method called!'+i);
-        //this.mapBox();
+        this.mapBox();
       }
     );
 
+    this.upcomingService.imagesloc$.subscribe(
+      (i) => {
+        //alert('(Component2) Method called!'+i);
+        this.imagesLoc=i;
+
+      }
+    );
 
   }
 
 
   ngOnInit() {
-
   }
 
   public mapBox(){
@@ -62,21 +69,9 @@ export class MapboxComponent implements OnInit {
           zoom: 12
           });
     },7000);
-        // tslint:disable-next-line: align
 
 
-        //mapcanvas.width='1070px';
-      //  mapcanvas.height='1080px';
-
-
-         /* map.on('load', function () {
-        map.flyTo({
-          center: [12.585791540330206, 55.69010470068136],
-          zoom: 13});
-
-      });*/
-
-
+/*  JSON
     var ad1=this.citiesFuture[0].cityName+" "+this.citiesFuture[0].photos.one.title;
     var ad1title=this.citiesFuture[0].photos.one.title;
     var ad2=this.citiesFuture[0].cityName+" "+this.citiesFuture[0].photos.two.title;
@@ -88,18 +83,21 @@ export class MapboxComponent implements OnInit {
     var ad5=this.citiesFuture[0].cityName+" "+this.citiesFuture[0].photos.five.title;
     var ad5title=this.citiesFuture[0].photos.five.title;
 
+*/
+var ad1=this.citiesFuture[0].cityName+" "+this.imagesLoc[0];
+var ad1title=this.imagesLoc[0];
+var ad2=this.citiesFuture[0].cityName+" "+this.imagesLoc[1];
+var ad2title=this.imagesLoc[1];
+var ad3=this.citiesFuture[0].cityName+" "+this.imagesLoc[2];
+var ad3title=this.imagesLoc[2];
+var ad4=this.citiesFuture[0].cityName+" "+this.imagesLoc[3];
+var ad4title=this.imagesLoc[3];
+var ad5=this.citiesFuture[0].cityName+" "+this.imagesLoc[4];
+var ad5title=this.imagesLoc[4];
 
-    /* this.infotableComponent.getDominantColor(1,"one");
-   this.infotableComponent.getDominantColor(2,"two");
-    this.infotableComponent.getDominantColor(3,"three");
-    this.infotableComponent.getDominantColor(4,"four");
-    this.infotableComponent.getDominantColor(5,"five");*/
 
 
-
-
-      // tslint:disable-next-line: align
-      var test = client.geocodeForward(ad1, function(err, data, res) {
+    var test = client.geocodeForward(ad1, function(err, data, res) {
         //console.log(data);
 
         var coordinates = data.features[0].center;

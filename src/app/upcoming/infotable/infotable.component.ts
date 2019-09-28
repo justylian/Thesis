@@ -1,7 +1,10 @@
+import { ChoiceService } from './../../services/choice.service';
+import { UpcomingService } from './../../services/upcoming.service';
 import { MapawayComponent } from './../../away/mapaway/mapaway.component';
 import { POIService } from '../../services/poi.service';
 import { PlacesService } from './../../services/places.service';
 import { ImagesService } from './../../services/images.service';
+import { ImageslocationService } from './../../services/imageslocation.service';
 import { MapboxComponent } from './../mapbox/mapbox.component';
 import { PlacesComponent } from './../places/places.component';
 import timelinejson from '../../../assets/json/timeline.json';
@@ -25,13 +28,17 @@ export class InfotableComponent implements OnInit {
   upcoming=upcomingjson;
   arrivaldiff=false;
   remainingDays:number;
-  images: any[];
+  images= [];
+
   imagesFound: boolean = false;
   imagesPlace: any[];
   searching: boolean = false;
-  places: any[];
+  places= new Array(5);
   placesFound: boolean = false;
-  pois: any[];
+  //pois= new Array(5);
+  pois=[];
+  allFound=false;
+  imagesLoc= new Array(5);
   public day1="../../../assets/images/weather/"+this.upcoming.weather.day1.state+".png";
   public day2="../../../assets/images/weather/"+this.upcoming.weather.day2.state+".png";
   public day3="../../../assets/images/weather/"+this.upcoming.weather.day3.state+".png";
@@ -40,22 +47,34 @@ export class InfotableComponent implements OnInit {
 
   public Todaymessage=JSON.parse(JSON.stringify(this.upcoming.weather.day1.state));
 
-  constructor(private mapawayComponent:MapawayComponent,private placesComponent: PlacesComponent,private mapboxComponent:MapboxComponent,private imagesService:ImagesService,private placesService:PlacesService,private poiService:POIService) {
+  constructor(private choiceService:ChoiceService,private upcomingService:UpcomingService,private mapawayComponent:MapawayComponent,private placesComponent: PlacesComponent,private mapboxComponent:MapboxComponent,private imagesService:ImagesService,private placesService:PlacesService,private poiService:POIService,private imageslocationService:ImageslocationService) {
+    this.choiceService.upcoming$.subscribe(
+      () => {
 
+      }
+    );
+  }
 
+  async ngOnInit() {
     this.remainingDays=this.getRemainingdays(this.remainingDays);
 
-    //geonames
-    this.searchPOI(this.citiesFuture[0].cityName);
 
+
+    var images
+    (async () => {
+      await this.searchImages(this.citiesFuture[0].cityName);
+      images=this.images;
+    })()
+
+
+
+
+    //$.when(method1(), method2()).then(showData);​
 
 
     //wiki
-    this.searchPlace(this.citiesFuture[0].cityName);
+   //this.searchPlace(this.citiesFuture[0].cityName);
 
-  }
-
-  ngOnInit() {
     this.mapboxComponent.focusPin(1);
 
     if(this.upcoming.flight.arrival.arrivalmonth=== this.upcoming.flight.departure.departuremonth){
@@ -65,8 +84,21 @@ export class InfotableComponent implements OnInit {
     this.weatherMessage();
 
   }
+  /* -------------- Get messages --------------- */
 
+  sendimagesLocVar() {
+    this.upcomingService.imagesloc(this.imagesLoc);
+  }
+  sendimagesVar() {
+    this.upcomingService.images(this.images);
 
+  }
+  sendplacesVar() {
+    this.upcomingService.places(this.places);
+  }
+  sendfoundVar(allFound) {
+    this.upcomingService.found(allFound);
+  }
   /* -------------- Weather messages --------------- */
 
   public weatherMessage(){
@@ -88,15 +120,22 @@ export class InfotableComponent implements OnInit {
  /* -------------- POI API --------------- */
 
 
- public handleSuccessPOI(data){
-  this.places = data.geonames;
+ public handleSuccessPOI(data,placename){
+ // console.log(data+"POOI");
+ console.log(data.geonames);
+
+  //this.places=data.geonames;
+  //console.log(this.places);
+
   for(var i=0;i<data.geonames.length;i++)
   {
-      this.pois[i]=data.geonames[i].toponymName;
+
+      this.pois.push(data.geonames[i].toponymName);
+
   }
-  //pixabay
-  console.log(this.pois[0]);
-  this.searchImages(this.citiesFuture[0].cityName);
+
+  console.log(this.pois+"POOI");
+
 
 }
 
@@ -104,26 +143,38 @@ handleErrorPOI(error){
   console.log(error);
 }
 
-async  searchPOI(query: string){
-  var coordinates=await this.mapawayComponent.mapboxDistance("upcoming",query);
+public  searchPOI(query: string,placename){
+  //var coordinates=await this.mapawayComponent.mapboxDistance("upcoming",query);
+
   this.searching = true;
   //return this.placesService.getInfo(query);
-  return this.poiService.getPOI(coordinates).subscribe(
-    data => this.handleSuccessPOI(data),
-    error => this.handleErrorPOI(error),
-    () => this.searching = false
-  )
+
+    return this.poiService.getPOI(query,placename).subscribe(
+      data => this.handleSuccessPOI(data,placename),
+      error => this.handleErrorPOI(error),
+      () => this.searching = false
+    )
+
+
 
 
 }
  /* -------------- Places API --------------- */
 
-
+placecount=0;
  handleSuccessPlace(data){
   this.placesFound = true;
-  this.places = data.extract;
+  this.places[this.placecount] = data.extract;
+  this.placecount=this.placecount+1;
+  if(this.placecount===4){
+    this.allFound=true;
+    this.sendplacesVar();
+    this.sendimagesVar();
+    this.sendimagesLocVar();
+    this.sendfoundVar(this.allFound)
+  }
  // console.log(data);
-  console.log(data.extract);
+ // console.log(this.places);
 
 }
 
@@ -133,59 +184,183 @@ handleErrorPlace(error){
 
 public searchPlace(query: string){
   this.searching = true;
-  console.log(query);
+  //console.log(query);
   //return this.placesService.getInfo(query);
-  return this.placesService.getInfo(query).subscribe(
-    data => this.handleSuccessPlace(data),
-    error => this.handleErrorPlace(error),
-    () => this.searching = false
-  )
+
+
+      return this.placesService.getInfo(query).subscribe(
+        data => this.handleSuccessPlace(data),
+        error => this.handleErrorPlace(error),
+        () => this.searching = false
+      )
+
 }
-  /* -------------- Pixabay API --------------- */
 
 
-public  handleSuccess(data,query){
+
+
+  /* -------------- Images API --------------- */
+
+
+  handleSuccess(data,query){
+    //console.log(data.results[0].id);
+
+    console.log(data.results);
+
+    this.images=data.results;
+
     this.imagesFound = true;
-    var pois=this.pois;
-    console.log(this.pois);
-    this.images = data.hits;
-    console.log(data.hits);
 
-    console.log(data.hits[0].tags);
-    for(var j=0;j<5;j++){
+
+    console.log(this.images);
+    this.searchImagesLoc(this.citiesFuture[0].cityName);
+    /*
+    var images=this.images;
+    var that=this;
+    setInterval(function() {
+      console.log("n");
+
+      if(typeof images[9] !=='undefined'){
+        console.log("in");
+        that.searchImagesLoc(that.citiesFuture[0].cityName);
+
+      }
+    }, 1000);
+        //while(typeof this.images[14]==='undefined'){
+
+    //}
+
+    //geonames
+    //
+
+
+
+
+   /*  for(var j=0;j<14;j++){
+
+      var words=this.images[j].description;
+      var cityflag=false;
+      console.log(words+"  words[0]");
+      this.searchPOI(query,words);
+
+     for(var i=0;i<words.length;i++){
+        if(words[i].toUpperCase()!==query.toUpperCase() ){
+          console.log(words[i]+"words[0]");
+          this.searchPOI(query,words[i]);
+          cityflag=true;
+          break;
+        }
+      }
+      if(cityflag===false){
+        //place city
+        this.pois.push(query);
+
+
+      }*/
+
+    //}
+    //console.log(data.hits[0].tags);
+  /*  for(var j=0;j<5;j++){
       var words=data.hits[j].tags.split(',');
 
       for(var i=0;i<words.length;i++){
 
         if(words[i].toUpperCase() !==query.toUpperCase() ){
-          console.log(pois);
+          //console.log(words[i]);
 
-          if(pois.includes(words[i])){
-            this.imagesPlace = words[i];
-            console.log( this.imagesPlace );
-            break;
+          for(var k=0;k<pois.length;k++){
+            var poissplit=pois[k].split(' ');
+
+            for(var l=0;l<poissplit.length;l++){
+              console.log(words[i]);
+
+              if(poissplit[l]===words[i]){
+                this.imagesPlace = words[i];
+                console.log( "!!!!!!"+this.imagesPlace );
+                break;
+              }
+            }
           }
+
 
         }
       }
-    }
-    console.log(data.hits);
+    }*/
+    //console.log(data.hits);
   }
 
   handleError(error){
     console.log(error);
   }
 
-  public searchImages(query: string){
+  searchImages(query: string){
     this.searching = true;
-    return this.imagesService.getImage(query).subscribe(
-      data => this.handleSuccess(data,query),
+    return  this.imagesService.getImage(query).subscribe(
+       data =>  this.handleSuccess(data,query),
       error => this.handleError(error),
       () => this.searching = false
     )
   }
 
+
+   /* -------------- ImagesLocation API --------------- */
+
+searchImagesLoc(query){
+  console.log(this.images);
+
+    for(var j=0;j<5;j++){
+      this.searchLoc(this.images[j].id);
+    }
+}
+
+counter=0;
+handleSuccessLoc(data){
+ // console.log(data);
+ //console.log(data.location.name);
+    this.imagesLoc[this.counter]=data.location.name.split(" ")[0].replace(/,/g, '');
+    console.log(this.imagesLoc[this.counter]);
+    this.counter=this.counter+1;
+    if(this.counter===5){
+      for(var j=0;j<5;j++){
+        this.searchPlace(this.imagesLoc[j]);
+      }
+   /* for(var j=0;j<5;j++){
+      console.log(this.imagesLoc[j]);
+      console.log(this.images[j]);
+      if(typeof this.images[j] === 'undefined'){
+        this.imagesLoc.splice(j, j+1)
+        this.images.splice(j, j+1)
+        console.log("endef");
+      }
+      else if((this.imagesLoc[j].toUpperCase()).startsWith(this.citiesFuture[0].cityName.toUpperCase())){
+        this.imagesLoc.splice(j, j+1)
+        this.images.splice(j, j+1)
+        console.log("endis");
+      }
+    }*/
+    console.log(this.imagesLoc);
+    console.log(this.images);
+  }
+}
+
+
+handleErrorLoc(error){
+  console.log(error);
+}
+
+
+public searchLoc(id){
+
+      return this.imageslocationService.getImageLocation(id).subscribe(
+        data => this.handleSuccessLoc(data),
+        error => this.handleErrorLoc(error),
+        () => this.searching = false
+      )
+}
+
+
   /* -------------- Remaining days --------------- */
+
   public getRemainingdays(remainingDays){
     var today = new Date();
     var dd = today.getDate();
