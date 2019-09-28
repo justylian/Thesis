@@ -1,17 +1,18 @@
 <div id="places" (click)="nextImageUpcoming();">
-    <div id="places-main-inner">
-        <canvas id="myCanvas">
-        </canvas>
-        <canvas id="myCanvas1">
-          </canvas>
-        <canvas id="myCanvas2">
-            </canvas><canvas id="myCanvas3">
-              </canvas><canvas id="myCanvas4">
-                </canvas><canvas id="myCanvas5">
-                  </canvas>
+    <div id="places-main-inner" *ngIf="allfound">
 
 
-        <div id="cityImages6" *ngIf="allfound">
+
+        <div id="cityImages6">
+            <canvas id="myCanvas">
+              </canvas>
+            <canvas id="myCanvas1">
+                </canvas>
+            <canvas id="myCanvas2">
+                  </canvas><canvas id="myCanvas3">
+                    </canvas><canvas id="myCanvas4">
+                      </canvas><canvas id="myCanvas5">
+                        </canvas>
             <div id="image6-one" *ngFor="let image of images; let i=index">
                 <div class="places-inner-descs" id="image6-one-inner">
                     <h1>{{imagesLoc[0]}}</h1>
@@ -67,7 +68,7 @@
     </div>
 </div>
 
-
+<!--
 
 <div id="places2" (click)="nextImageUpcoming();">
     <div id="places-main-inner">
@@ -134,4 +135,4 @@
             </div>
         </div>
     </div>
-</div>
+</div>-->

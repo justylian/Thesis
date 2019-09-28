@@ -464,7 +464,7 @@ function getColors(){
       lessx=900;
       lessy=50;
     }
-    //console.log(length,lessx,lessy);
+    console.log(length,lessx,lessy);
 
 
     if(j===5){
@@ -580,6 +580,7 @@ function extractColors(cnv,x,y,j,i){
         else {
           var img = document.getElementById("image"+i+"-one-img");
         }
+       // console.log(img);
         context.drawImage(img,x,y,250,200,0, 0,250,200);
 
         var imageData = context.getImageData(0, 0, 250, 200);

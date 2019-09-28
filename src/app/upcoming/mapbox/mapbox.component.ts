@@ -21,7 +21,7 @@ export class MapboxComponent implements OnInit {
     this.choiceService.upcoming$.subscribe(
       () => {
         //alert('(Component2) Method called!'+i);
-        this.mapBox();
+       // this.mapBox();
       }
     );
 

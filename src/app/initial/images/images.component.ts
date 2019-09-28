@@ -1,3 +1,4 @@
+import { UpcomingService } from './../../services/upcoming.service';
 import { DominantcolorService } from './../../services/dominantcolor.service';
 import { MusicComponent } from './../music/music.component';
 import { InitialService } from './../../services/initial.service';
@@ -7,7 +8,6 @@ import { Component, OnInit } from '@angular/core';
 import timesjson from '../../../assets/json/times.json';
 import timelinejson from '../../../assets/json/timeline.json';
 import { LeapService } from './../../services/leap.service';
-
 declare var require: any
 
 declare var Load: any;
@@ -25,13 +25,59 @@ export class ImagesComponent implements OnInit {
   citiesPast=timelinejson.citiesPast;
   citiesFuture=timelinejson.citiesFuture;
   citiesPastCount=Object.keys(timelinejson.citiesPast).length;
-
   timePerPhoto=timesjson.timePerPhoto;
   timePerCity=this.timePerPhoto*5;
+  images= new Array(5);
+  imagesLoc= new Array(5);
+  places= new Array(5);
+  once1=true;
+  once2=true;
+  once3=true;
+  allfound=false;
+
+  constructor(private upcomingService:UpcomingService,private compMap: MapComponent,private compBubble: InfobubbleComponent,private initialService: InitialService,private compMusic: MusicComponent,private dominantcolorService:DominantcolorService) {
+    this.upcomingService.images$.subscribe(
+      (i) => {
+        //alert('(Component2) Method called!'+i);
+        if(this.once1===true){
+          this.images=i;
+          console.log(this.images);
+          this.once1=false;
+        }
+      }
+    );
+    this.upcomingService.imagesloc$.subscribe(
+      (k) => {
+        if(this.once2===true){
+          this.imagesLoc=k;
+          console.log(this.imagesLoc);
+        this.once2=false;
+        }
+
+      }
+    );
+    this.upcomingService.places$.subscribe(
+      (l) => {
+        //alert('(Component2) Method called!'+i);
+        //console.log(l);
+        if(this.once3===true){
+          this.places=l;
+          console.log(this.places);
+          this.once3=false;
+        }
+
+      }
+    );
+    this.upcomingService.found$.subscribe(
+      (allfound) => {
+        //alert('(Component2) Method called!'+i);
+        //console.log(l);
+        this.allfound=allfound;
 
 
-  constructor(private compMap: MapComponent,private compBubble: InfobubbleComponent,private initialService: InitialService,private compMusic: MusicComponent,private dominantcolorService:DominantcolorService) {
-   /* this.leapService.nextCity$.subscribe(
+      }
+    );
+    /* this.leapService.nextCity$.subscribe(
       () => {
         //alert('(Component2) Method called!'+i);
         this.nextCity();
@@ -168,7 +214,7 @@ export class ImagesComponent implements OnInit {
     }
     else if(this.isPaused===true){
       console.log("unpause");
-  
+
       this.chooseCity();
       this.isPaused=false;
     }
@@ -239,20 +285,20 @@ function getColors(i){
       lessx=700;
       lessy=50;
     }
-   // console.log(length,lessx,lessy);
+   console.log(length,lessx,lessy);
 
 
     if(j===5){
       $('#image'+i+'-five-inner').css({ "top": lessy, "left": lessx });
       //console.log(length);
       if(length>=3800){
-        $('#image'+i+'-five-inner h1').css({ 
+        $('#image'+i+'-five-inner h1').css({
         "filter": "drop-shadow(0 0 30px #fff)",
         "mix-blend-mode": "unset",
         "color":"black",
         "text-shadow": "0px 0px 5px #fff"
               });
-        $('#image'+i+'-five-inner h2').css({ 
+        $('#image'+i+'-five-inner h2').css({
           "filter": "drop-shadow(0 0 30px #fff)",
           "mix-blend-mode": "unset",
           "color":"black",
@@ -263,13 +309,13 @@ function getColors(i){
     else  if(j===4){
       $('#image'+i+'-four-inner').css({ "top": lessy, "left": lessx });
       if(length>=3800){
-        $('#image'+i+'-four-inner h1').css({ 
+        $('#image'+i+'-four-inner h1').css({
         "filter": "drop-shadow(0 0 30px #fff)",
         "mix-blend-mode": "unset",
         "color":"black",
         "text-shadow": "0px 0px 5px #fff"
         });
-        $('#image'+i+'-four-inner h2').css({ 
+        $('#image'+i+'-four-inner h2').css({
           "filter": "drop-shadow(0 0 30px #fff)",
           "mix-blend-mode": "unset",
           "color":"black",
@@ -279,13 +325,13 @@ function getColors(i){
     }else  if(j===3){
       $('#image'+i+'-three-inner').css({ "top": lessy, "left": lessx  });
       if(length>=3800){
-        $('#image'+i+'-three-inner h1').css({ 
+        $('#image'+i+'-three-inner h1').css({
           "filter": "drop-shadow(0 0 30px #fff)",
           "mix-blend-mode": "unset",
           "color":"black",
           "text-shadow": "0px 0px 5px #fff"
         });
-        $('#image'+i+'-three-inner h2').css({ 
+        $('#image'+i+'-three-inner h2').css({
           "filter": "drop-shadow(0 0 30px #fff)",
           "mix-blend-mode": "unset",
           "color":"black",
@@ -295,13 +341,13 @@ function getColors(i){
     }else  if(j===2){
       $('#image'+i+'-two-inner').css({ "top": lessy, "left": lessx  });
       if(length>=3800){
-        $('#image'+i+'-two-inner h1').css({ 
+        $('#image'+i+'-two-inner h1').css({
           "filter": "drop-shadow(0 0 30px #fff)",
           "mix-blend-mode": "unset",
           "color":"black",
           "text-shadow": "0px 0px 5px #fff"
         });
-        $('#image'+i+'-two-inner h2').css({ 
+        $('#image'+i+'-two-inner h2').css({
           "filter": "drop-shadow(0 0 30px #fff)",
           "mix-blend-mode": "unset",
           "color":"black",
@@ -311,13 +357,13 @@ function getColors(i){
     }else{
       $('#image'+i+'-one-inner').css({ "top": lessy, "left": lessx  });
       if(length>=3800){
-        $('#image'+i+'-one-inner h1').css({ 
+        $('#image'+i+'-one-inner h1').css({
           "filter": "drop-shadow(0 0 30px #fff)",
           "mix-blend-mode": "unset",
           "color":"black",
           "text-shadow": "0px 0px 5px #fff"
         });
-        $('#image'+i+'-one-inner h2').css({ 
+        $('#image'+i+'-one-inner h2').css({
           "filter": "drop-shadow(0 0 30px #fff)",
           "mix-blend-mode": "unset",
           "color":"black",
@@ -340,21 +386,26 @@ var colorList = {};
 function extractColors(cnv,x,y,j,i){
         var canvas : any = document.getElementById(cnv);
         var context = canvas.getContext('2d');
+        var img;
+
+        img=document.getElementById("image"+i+"-five-img");
         if(j===5){
-          var img = document.getElementById("image"+i+"-five-img");
+           img = document.getElementById("image"+i+"-five-img");
         }
         else if(j===4){
-          var img = document.getElementById("image"+i+"-four-img");
+           img =document.getElementById("image"+i+"-four-img");
         }
         else if(j===3){
-          var img = document.getElementById("image"+i+"-three-img");
+           img =document.getElementById("image"+i+"-three-img");
         }
         else if(j===2){
-          var img = document.getElementById("image"+i+"-two-img");
+           img =document.getElementById("image"+i+"-two-img");
         }
         else {
-          var img = document.getElementById("image"+i+"-one-img");
+           img =document.getElementById("image"+i+"-one-img");
         }
+        //img.crossOrigin = "Anonymous";
+
         context.drawImage(img,x,y,250,200,0, 0,250,200);
 
         var imageData = context.getImageData(0, 0, 250, 200);
@@ -483,7 +534,7 @@ function continueSlideShowInner(timePerCity,timePerPhoto,compMusic,compMap,compB
         currentCity=i;
         multiplier=1;
 
-        
+
 
         $('#image-main').fadeOut( 250, function() {});
         //hide prev
@@ -496,7 +547,7 @@ function continueSlideShowInner(timePerCity,timePerPhoto,compMusic,compMap,compB
         getColors(i);
 
         currentCity=i;
-  
+
 
         $('#image-main').fadeOut( 250, function() {});
         //hide prev

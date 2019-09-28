@@ -1,5 +1,6 @@
 import { InfobubbleComponent } from './../infobubble/infobubble.component';
 import { Component, OnInit } from '@angular/core';
+import { UpcomingService } from './../../services/upcoming.service';
 declare var $: any;
 declare var jQuery: any;
 import timelinejson from '../../../assets/json/timeline.json';
@@ -20,14 +21,37 @@ export class MapComponent implements OnInit {
   citiesFuture=timelinejson.citiesFuture;
   timePerPhoto=timesjson.timePerPhoto;
   timePerCity=this.timePerPhoto*5;
+  images= new Array(5);
+  once2=true;
+  allfound=false;
 
 
+  constructor(private upcomingService:UpcomingService) {
+    this.upcomingService.images$.subscribe(
+      (k) => {
+        if(this.once2===true){
+          this.images=k;
+          //console.log(this.images);
+          this.initPin();
+          this.once2=false;
+        }
 
-  constructor() { }
+      }
+    );
+    this.upcomingService.found$.subscribe(
+      (allfound) => {
+        //alert('(Component2) Method called!'+i);
+        //console.log(l);
+        this.allfound=allfound;
+
+
+      }
+    );
+  }
 
   ngOnInit() {
-    this.initPin()
-   
+
+
 
   }
 
@@ -44,7 +68,7 @@ export class MapComponent implements OnInit {
 
   }
   public manageInitialMin(timelineno){
-      var cityName=findCityName(timelineno,this.citiesPast,this.citiesFuture);//change city name
+      var cityName=findCityName(timelineno,this.citiesPast,this.images,this.citiesFuture);//change city name
       //cityFocus(timelineno);
       findCityLoc(timelineno,this.citiesPast,this.citiesFuture,cityName);//change pin
 
@@ -54,11 +78,16 @@ export class MapComponent implements OnInit {
   }
 
   public initPin(){
-    $('#image-stack-1').css('background-image', 'url(' + this.citiesFuture[0].photos.one.urlmin + ')');
+    /*$('#image-stack-1').css('background-image', 'url(' + this.citiesFuture[0].photos.one.urlmin + ')');
     $('#image-stack-2').css('background-image', 'url(' + this.citiesFuture[0].photos.two.urlmin + ')');
     $('#image-stack-3').css('background-image', 'url(' + this.citiesFuture[0].photos.three.urlmin + ')');
     $('#image-stack-4').css('background-image', 'url(' + this.citiesFuture[0].photos.four.urlmin + ')');
-    $('#image-stack-5').css('background-image', 'url(' + this.citiesFuture[0].photos.five.urlmin + ')');
+    $('#image-stack-5').css('background-image', 'url(' + this.citiesFuture[0].photos.five.urlmin + ')');*/
+    $('#image-stack-1').css('background-image', 'url(' + this.images[0].urls.thumb + ')');
+    $('#image-stack-2').css('background-image', 'url(' + this.images[1].urls.thumb + ')');
+    $('#image-stack-3').css('background-image', 'url(' + this.images[2].urls.thumb + ')');
+    $('#image-stack-4').css('background-image', 'url(' + this.images[3].urls.thumb + ')');
+    $('#image-stack-5').css('background-image', 'url(' + this.images[4].urls.thumb + ')');
   }
 }
 
@@ -92,17 +121,23 @@ function changeCityNamePin(timelineno,cityName,cityLocLeft,cityLocTop){
 }
 
 /* --------- Change pin-images ---------*/
-function changePinPhotos(timelineno,citiesPast,citiesFuture){
+function changePinPhotos(timelineno,citiesPast,images){
   if(timelineno===6){
     setTimeout(function() {
 
       //$('#image-stack-1').attr("data-src",'url(' + citiesFuture[0].photos.one.url + ')');
+      $('#image-stack-1').css('background-image', 'url(' + images[0].urls.thumb + ')');
+      $('#image-stack-2').css('background-image', 'url(' + images[1].urls.thumb + ')');
+      $('#image-stack-3').css('background-image', 'url(' + images[2].urls.thumb + ')');
+      $('#image-stack-4').css('background-image', 'url(' + images[3].urls.thumb + ')');
+      $('#image-stack-5').css('background-image', 'url(' + images[4].urls.thumb + ')');
+      /*
       $('#image-stack-1').css('background-image', 'url(' + citiesFuture[0].photos.one.urlmin + ')');
       $('#image-stack-2').css('background-image', 'url(' + citiesFuture[0].photos.two.urlmin + ')');
       $('#image-stack-3').css('background-image', 'url(' + citiesFuture[0].photos.three.urlmin + ')');
       $('#image-stack-4').css('background-image', 'url(' + citiesFuture[0].photos.four.urlmin + ')');
       $('#image-stack-5').css('background-image', 'url(' + citiesFuture[0].photos.five.url + ')');
-
+*/
       },400)
   }
   else {
@@ -120,29 +155,29 @@ function changePinPhotos(timelineno,citiesPast,citiesFuture){
 
 
 /* --------- Find next city ---------*/
-function findCityName(timelineno,citiesPast,citiesFuture){
+function findCityName(timelineno,citiesPast,images,citiesFuture){
   if(timelineno===1){
-    changePinPhotos(timelineno,citiesPast,citiesFuture);
+    changePinPhotos(timelineno,citiesPast,images);
     return citiesPast[0].cityName;
   }
   else if(timelineno===2){
-    changePinPhotos(timelineno,citiesPast,citiesFuture);
+    changePinPhotos(timelineno,citiesPast,images);
     return citiesPast[1].cityName;
   }
   else if(timelineno===3){
-    changePinPhotos(timelineno,citiesPast,citiesFuture);
+    changePinPhotos(timelineno,citiesPast,images);
     return citiesPast[2].cityName;
   }
   else if(timelineno===4){
-    changePinPhotos(timelineno,citiesPast,citiesFuture);
+    changePinPhotos(timelineno,citiesPast,images);
     return citiesPast[3].cityName;
   }
   else if(timelineno===5){
-    changePinPhotos(timelineno,citiesPast,citiesFuture);
+    changePinPhotos(timelineno,citiesPast,images);
     return citiesPast[4].cityName;
   }
   else{
-    changePinPhotos(timelineno,citiesPast,citiesFuture);
+    changePinPhotos(timelineno,citiesPast,images);
     return citiesFuture[0].cityName;
   }
 }

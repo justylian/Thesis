@@ -119,6 +119,7 @@
                height: 50px;
                left: 35px;
                top: 25px;
+               transition: 2s;
            }
            #image-stack-2 {
                position: absolute;
@@ -129,6 +130,7 @@
                height: 50px;
                left: -40px;
                top: 30px;
+               transition: 2s;
            }
            #image-stack-3 {
                position: absolute;
@@ -139,6 +141,7 @@
                height: 50px;
                left: 15px;
                top: -20px;
+               transition: 2s;
            }
            #image-stack-4 {
                position: absolute;
@@ -149,6 +152,7 @@
                height: 50px;
                left: -15px;
                top: 45px;
+               transition: 2s;
            }
            #image-stack-5 {
                position: absolute;
@@ -158,6 +162,7 @@
                width: 100px;
                height: 50px;
                top: 20px;
+               transition: 2s;
            }
        }
    }

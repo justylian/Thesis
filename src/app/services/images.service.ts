@@ -27,7 +27,7 @@ export class ImagesService {
    /*  return this._http.get(this.URL + query + this.perPage + this.width  + this.categories + this.imagetype)
     .map(res => res);*/
     //console.log(query);
-    return  this._http.get("https://api.unsplash.com/search/photos/?client_id=d8022994ba1054ae0c2cd3775b92cc7b0d59f21a49a30b47d07b8aad5688caba&per_page=5&orientation=landscape&query=landmarks-"+query)
+    return  this._http.get("https://api.unsplash.com/search/photos/?client_id=d8022994ba1054ae0c2cd3775b92cc7b0d59f21a49a30b47d07b8aad5688caba&per_page=5&orientation=landscape&query=city-"+query)
     .map(res => res);
 
 
