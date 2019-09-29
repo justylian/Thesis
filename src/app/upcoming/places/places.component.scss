@@ -6,10 +6,6 @@
     top: 0px;
 }
 
-#places2 {
-    display: none;
-}
-
 #places-main-inner {
     position: absolute;
     top: 0px;
@@ -68,35 +64,35 @@
     left: 900px;
     position: absolute;
     z-index: 5;
-    // display: none;
+    display: none;
 }
 
 #myCanvas2 {
     left: 500px;
     position: absolute;
     z-index: 5;
-    //display: none;
+    display: none;
 }
 
 #myCanvas3 {
     left: 800px;
     position: absolute;
     z-index: 5;
-    // display: none;
+    display: none;
 }
 
 #myCanvas4 {
     top: 500px;
     position: absolute;
     z-index: 5;
-    // display: none;
+    display: none;
 }
 
 #myCanvas5 {
     top: 800px;
     position: absolute;
     z-index: 5;
-    //  display: none;
+    display: none;
 }
 
 .saved::before {

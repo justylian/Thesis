@@ -31,6 +31,7 @@ export class PlacesComponent implements OnInit {
         if(this.once1===true){
           this.images=i;
           console.log(this.images);
+
           this.once1=false;
         }
       }
@@ -109,7 +110,6 @@ export class PlacesComponent implements OnInit {
     if(nextImage===6){
       nextImage=1;
     }
-
     //console.log(nextImage);
     this.manageImagesUpcoming(nextImage);
 
@@ -130,7 +130,7 @@ export class PlacesComponent implements OnInit {
     var timePerCity=this.timePerCity;
     var timePerPhoto=this.timePerPhoto;
     var dominantcolorService=this.dominantcolorService;
-    getColors();
+   // getColors();
     $('#places').fadeIn( 250, function() {});
     //console.log(i);
 
@@ -308,7 +308,6 @@ export class PlacesComponent implements OnInit {
 
 function imagePlay(i,timePerCity,timePerPhoto,dominantcolorService,startingImage,flag,time) {
 
-// tslint:disable-next-line: align
 
 if(startingImage!==1){
   if(flag===false){
@@ -325,7 +324,6 @@ console.log(i);
 setTimeout(function() {
 
   //if(isPaused===false){
-
       //console.log("inpause"+timelineno+i);
     //console.log(i,timelineno);
 
@@ -419,14 +417,14 @@ function getColors(){
     colorList={};
     templength=extractColors('myCanvas1',600,800,j,i);
     colorList={};
-
+    //console.log(length);
+    //console.log(templength);
     if(length>templength){
       length=templength;
       lessx=600;
       lessy=800;
     }
-       // console.log(length);
-    //console.log(templength);
+
     templength=extractColors('myCanvas2',400,150,j,i);
     colorList={};
 
@@ -464,7 +462,7 @@ function getColors(){
       lessx=900;
       lessy=50;
     }
-    console.log(length,lessx,lessy);
+    console.log(i,j,length,lessx,lessy);
 
 
     if(j===5){
@@ -565,20 +563,23 @@ var colorList = {};
 function extractColors(cnv,x,y,j,i){
         var canvas : any = document.getElementById(cnv);
         var context = canvas.getContext('2d');
+        var img;
+
+        img=document.getElementById("image"+i+"-five-img");
         if(j===5){
-          var img = document.getElementById("image"+i+"-five-img");
+           img = document.getElementById("image"+i+"-five-img");
         }
         else if(j===4){
-          var img = document.getElementById("image"+i+"-four-img");
+           img =document.getElementById("image"+i+"-four-img");
         }
         else if(j===3){
-          var img = document.getElementById("image"+i+"-three-img");
+           img =document.getElementById("image"+i+"-three-img");
         }
         else if(j===2){
-          var img = document.getElementById("image"+i+"-two-img");
+           img =document.getElementById("image"+i+"-two-img");
         }
         else {
-          var img = document.getElementById("image"+i+"-one-img");
+           img =document.getElementById("image"+i+"-one-img");
         }
        // console.log(img);
         context.drawImage(img,x,y,250,200,0, 0,250,200);
