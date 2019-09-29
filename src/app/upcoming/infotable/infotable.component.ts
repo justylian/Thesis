@@ -1,88 +1,97 @@
-import { ChoiceService } from './../../services/choice.service';
-import { UpcomingService } from './../../services/upcoming.service';
-import { MapawayComponent } from './../../away/mapaway/mapaway.component';
-import { POIService } from '../../services/poi.service';
-import { PlacesService } from './../../services/places.service';
-import { ImagesService } from './../../services/images.service';
-import { ImageslocationService } from './../../services/imageslocation.service';
-import { MapboxComponent } from './../mapbox/mapbox.component';
-import { PlacesComponent } from './../places/places.component';
-import timelinejson from '../../../assets/json/timeline.json';
-import upcomingjson from '../../../assets/json/upcoming.json';
-import { Message } from '@angular/compiler/src/i18n/i18n_ast';
-import { Component, OnInit } from '@angular/core';
-const { getColorFromURL } = require('color-thief-node');
-declare var require: any
-
+import { ChoiceService } from "./../../services/choice.service";
+import { UpcomingService } from "./../../services/upcoming.service";
+import { MapawayComponent } from "./../../away/mapaway/mapaway.component";
+import { POIService } from "../../services/poi.service";
+import { PlacesService } from "./../../services/places.service";
+import { ImagesService } from "./../../services/images.service";
+import { ImageslocationService } from "./../../services/imageslocation.service";
+import { MapboxComponent } from "./../mapbox/mapbox.component";
+import { PlacesComponent } from "./../places/places.component";
+import timelinejson from "../../../assets/json/timeline.json";
+import upcomingjson from "../../../assets/json/upcoming.json";
+import { Message } from "@angular/compiler/src/i18n/i18n_ast";
+import { Component, OnInit } from "@angular/core";
+const { getColorFromURL } = require("color-thief-node");
+declare var require: any;
 declare var $: any;
 declare var jQuery: any;
 
 @Component({
-  selector: 'app-infotable',
-  templateUrl: './infotable.component.html',
-  styleUrls: ['./infotable.component.scss']
+  selector: "app-infotable",
+  templateUrl: "./infotable.component.html",
+  styleUrls: ["./infotable.component.scss"]
 })
-
 export class InfotableComponent implements OnInit {
-  citiesFuture=timelinejson.citiesFuture;
-  upcoming=upcomingjson;
-  arrivaldiff=false;
-  remainingDays:number;
-  images= [];
-
+  citiesFuture = timelinejson.citiesFuture;
+  upcoming = upcomingjson;
+  arrivaldiff = false;
+  remainingDays: number;
+  images = [];
   imagesFound: boolean = false;
   imagesPlace: any[];
   searching: boolean = false;
-  places= new Array(5);
+  places = new Array(5);
   placesFound: boolean = false;
-  //pois= new Array(5);
-  pois=[];
-  allFound=false;
-  imagesLoc= new Array(5);
-  public day1="../../../assets/images/weather/"+this.upcoming.weather.day1.state+".png";
-  public day2="../../../assets/images/weather/"+this.upcoming.weather.day2.state+".png";
-  public day3="../../../assets/images/weather/"+this.upcoming.weather.day3.state+".png";
-  public day4="../../../assets/images/weather/"+this.upcoming.weather.day4.state+".png";
-  public day5="../../../assets/images/weather/"+this.upcoming.weather.day5.state+".png";
+  pois = [];
+  allFound = false;
+  imagesLoc = new Array(5);
+  public day1 =
+    "../../../assets/images/weather/" +
+    this.upcoming.weather.day1.state +
+    ".png";
+  public day2 =
+    "../../../assets/images/weather/" +
+    this.upcoming.weather.day2.state +
+    ".png";
+  public day3 =
+    "../../../assets/images/weather/" +
+    this.upcoming.weather.day3.state +
+    ".png";
+  public day4 =
+    "../../../assets/images/weather/" +
+    this.upcoming.weather.day4.state +
+    ".png";
+  public day5 =
+    "../../../assets/images/weather/" +
+    this.upcoming.weather.day5.state +
+    ".png";
+  public Todaymessage = JSON.parse(
+    JSON.stringify(this.upcoming.weather.day1.state)
+  );
 
-  public Todaymessage=JSON.parse(JSON.stringify(this.upcoming.weather.day1.state));
-
-  constructor(private choiceService:ChoiceService,private upcomingService:UpcomingService,private mapawayComponent:MapawayComponent,private placesComponent: PlacesComponent,private mapboxComponent:MapboxComponent,private imagesService:ImagesService,private placesService:PlacesService,private poiService:POIService,private imageslocationService:ImageslocationService) {
-    this.choiceService.upcoming$.subscribe(
-      () => {
-
-      }
-    );
-  }
+  constructor(
+    private choiceService: ChoiceService,
+    private upcomingService: UpcomingService,
+    private mapawayComponent: MapawayComponent,
+    private placesComponent: PlacesComponent,
+    private mapboxComponent: MapboxComponent,
+    private imagesService: ImagesService,
+    private placesService: PlacesService,
+    private poiService: POIService,
+    private imageslocationService: ImageslocationService
+  ) {}
 
   async ngOnInit() {
-    this.remainingDays=this.getRemainingdays(this.remainingDays);
+    this.remainingDays = this.getRemainingdays(this.remainingDays);
 
-
-
-    var images
-    (async () => {
-      await this.searchImages(this.citiesFuture[0].cityName);
-      images=this.images;
-    })()
-
-
-
-
-    //$.when(method1(), method2()).then(showData);​
-
-
-    //wiki
-   //this.searchPlace(this.citiesFuture[0].cityName);
+    this.searchImages(this.citiesFuture[0].cityName, -1);
 
     this.mapboxComponent.focusPin(1);
 
-    if(this.upcoming.flight.arrival.arrivalmonth=== this.upcoming.flight.departure.departuremonth){
-      this.arrivaldiff=true;
-    }
+    this.checkMonthDepArr();
 
     this.weatherMessage();
+  }
 
+  /* -------------- Check if Months different --------------- */
+
+  checkMonthDepArr() {
+    if (
+      this.upcoming.flight.arrival.arrivalmonth ===
+      this.upcoming.flight.departure.departuremonth
+    ) {
+      this.arrivaldiff = true;
+    }
   }
   /* -------------- Get messages --------------- */
 
@@ -91,7 +100,6 @@ export class InfotableComponent implements OnInit {
   }
   sendimagesVar() {
     this.upcomingService.images(this.images);
-
   }
   sendplacesVar() {
     this.upcomingService.places(this.places);
@@ -101,24 +109,20 @@ export class InfotableComponent implements OnInit {
   }
   /* -------------- Weather messages --------------- */
 
-  public weatherMessage(){
-    if(this.Todaymessage==="Showers"){
-      this.Todaymessage="Don't forget your umbrella. It's pouring out there!";
-    }
-    else if(this.Todaymessage==="Sunny"){
-      this.Todaymessage="Sun will shine. Don't forget your sunscreen!";
-    }
-    else if(this.Todaymessage==="Cloudysunny"){
-      this.Todaymessage="Who cares about the clouds when we're together!";
-    }
-    else{
-      this.Todaymessage="Who cares about the clouds when we're together!";
+  public weatherMessage() {
+    if (this.Todaymessage === "Showers") {
+      this.Todaymessage = "Don't forget your umbrella. It's pouring out there!";
+    } else if (this.Todaymessage === "Sunny") {
+      this.Todaymessage = "Sun will shine. Don't forget your sunscreen!";
+    } else if (this.Todaymessage === "Cloudysunny") {
+      this.Todaymessage = "Who cares about the clouds when we're together!";
+    } else {
+      this.Todaymessage = "Who cares about the clouds when we're together!";
     }
   }
 
-
- /* -------------- POI API --------------- */
-
+  /* -------------- POI API --------------- */
+  /*
 
  public handleSuccessPOI(data,placename){
  // console.log(data+"POOI");
@@ -154,66 +158,70 @@ public  searchPOI(query: string,placename){
       error => this.handleErrorPOI(error),
       () => this.searching = false
     )
+}*/
 
+  /* -------------- Places API --------------- */
 
+  placecount = 0;
+  handleSuccessPlace(data) {
+    this.placesFound = true;
+    this.places[this.placecount] = data.extract;
+    this.placecount = this.placecount + 1;
+    if (this.placecount === 4) {
+      console.log(this.places);
 
+      this.allFound = true;
+      this.imagesFound = true;
 
-}
- /* -------------- Places API --------------- */
-
-placecount=0;
- handleSuccessPlace(data){
-  this.placesFound = true;
-  this.places[this.placecount] = data.extract;
-  this.placecount=this.placecount+1;
-  if(this.placecount===4){
-    this.allFound=true;
-    this.sendplacesVar();
-    this.sendimagesVar();
-    this.sendimagesLocVar();
-    this.sendfoundVar(this.allFound)
+      this.sendplacesVar();
+      this.sendimagesVar();
+      this.sendimagesLocVar();
+      this.sendfoundVar(this.allFound);
+    }
+    // console.log(data);
   }
- // console.log(data);
- // console.log(this.places);
 
-}
+  handleErrorPlace(error) {
+    console.log(error);
+  }
 
-handleErrorPlace(error){
-  console.log(error);
-}
+  public searchPlace(query: string) {
+    this.searching = true;
+    //console.log(query);
+    //return this.placesService.getInfo(query);
 
-public searchPlace(query: string){
-  this.searching = true;
-  //console.log(query);
-  //return this.placesService.getInfo(query);
-
-
-      return this.placesService.getInfo(query).subscribe(
+    return this.placesService
+      .getInfo(query)
+      .subscribe(
         data => this.handleSuccessPlace(data),
         error => this.handleErrorPlace(error),
-        () => this.searching = false
-      )
-
-}
-
-
-
+        () => (this.searching = false)
+      );
+  }
 
   /* -------------- Images API --------------- */
 
-
-  handleSuccess(data,query){
-    //console.log(data.results[0].id);
-
-    console.log(data.results);
-
-    this.images=data.results;
-
-    this.imagesFound = true;
+  handleSuccess(data, query, toChange) {
+    if (toChange <= 0) {
+      this.images = data.results;
 
 
-    console.log(this.images);
-    this.searchImagesLoc(this.citiesFuture[0].cityName);
+      console.log(
+        "FOUND IMAGES:\n" + data.results[0].id,
+        data.results[1].id,
+        data.results[2].id,
+        data.results[3].id,
+        data.results[4].id
+      );
+      this.searchImagesLoc(query,-1);
+    } else {
+
+      this.images[toChange] = data.results;
+      console.log("CHNaGING?:" + data.results[0].id);
+
+      this.searchImagesLoc(query,toChange);
+    }
+
     /*
     var images=this.images;
     var that=this;
@@ -260,7 +268,7 @@ public searchPlace(query: string){
 
     //}
     //console.log(data.hits[0].tags);
-  /*  for(var j=0;j<5;j++){
+    /*  for(var j=0;j<5;j++){
       var words=data.hits[j].tags.split(',');
 
       for(var i=0;i<words.length;i++){
@@ -289,42 +297,87 @@ public searchPlace(query: string){
     //console.log(data.hits);
   }
 
-  handleError(error){
+  handleError(error) {
     console.log(error);
   }
 
-  searchImages(query: string){
+  searchImages(query: string, toChange) {
     this.searching = true;
-    return  this.imagesService.getImage(query).subscribe(
-       data =>  this.handleSuccess(data,query),
-      error => this.handleError(error),
-      () => this.searching = false
-    )
+    return this.imagesService
+      .getImage(query)
+      .subscribe(
+        data => this.handleSuccess(data, query, toChange),
+        error => this.handleError(error),
+        () => (this.searching = false)
+      );
   }
 
-
-   /* -------------- ImagesLocation API --------------- */
-
-searchImagesLoc(query){
-  console.log(this.images);
-
-    for(var j=0;j<5;j++){
-      this.searchLoc(this.images[j].id);
+  /* -------------- Dual Locations Check --------------- */
+  checkingLoc;
+  checkingInnerLoc;
+  checkDuality(i) {
+    for (var j = 0; j < 5; j++) {
+      this.checkingInnerLoc = this.imagesLoc[j];
+      if (i !== j && this.checkingLoc === this.checkingInnerLoc) {
+        console.log("FOUND DOUBLE" + j + this.checkingInnerLoc);
+        return j;
+      }
     }
-}
 
-counter=0;
-handleSuccessLoc(data){
- // console.log(data);
- //console.log(data.location.name);
-    this.imagesLoc[this.counter]=data.location.name.split(" ")[0].replace(/,/g, '');
-    console.log(this.imagesLoc[this.counter]);
-    this.counter=this.counter+1;
-    if(this.counter===5){
-      for(var j=0;j<5;j++){
+    return "none";
+  }
+  /* -------------- ImagesLocation API --------------- */
+
+  //Search for each image
+
+  searchImagesLoc(query,toChange) {
+    if(toChange<=0){
+      for (var j = 0; j < 5; j++) {
+        this.searchLoc(this.images[j].id);
+      }
+    }
+    else{
+      this.searchLoc(this.images[toChange].id);
+
+    }
+
+  }
+
+  counter = 0;
+  toChange;
+  async handleSuccessLoc(data) {
+    // console.log(data);
+    //console.log(data.location.name);
+
+    this.imagesLoc[this.counter] = data.location.name
+      .split(" ")[0]
+      .replace(/,/g, "");
+    this.counter = this.counter + 1;
+    if (this.counter === 5) {
+      while (true) {
+        for (var i = 0; i < 5; i++) {
+          console.log("CHECK FOR" + i + this.checkingLoc);
+
+          this.checkingLoc = this.imagesLoc[i];
+          this.toChange = await this.checkDuality(i);
+          if (this.toChange === "none") {
+            break;
+          }
+          this.searchImages(this.citiesFuture[0].cityName, this.toChange);
+          //NOO
+          break;
+        }
+        break;
+        //}
+        this.counter--;
+      }
+
+      for (var j = 0; j < 5; j++) {
         this.searchPlace(this.imagesLoc[j]);
       }
-   /* for(var j=0;j<5;j++){
+      console.log("FOUND IMAGELOCS:" + this.imagesLoc);
+    }
+    /* for(var j=0;j<5;j++){
       console.log(this.imagesLoc[j]);
       console.log(this.images[j]);
       if(typeof this.images[j] === 'undefined'){
@@ -338,44 +391,44 @@ handleSuccessLoc(data){
         console.log("endis");
       }
     }*/
-    console.log(this.imagesLoc);
-    console.log(this.images);
   }
-}
 
+  handleErrorLoc(error) {
+    console.log(error);
+  }
 
-handleErrorLoc(error){
-  console.log(error);
-}
-
-
-public searchLoc(id){
-
-      return this.imageslocationService.getImageLocation(id).subscribe(
+  public searchLoc(id) {
+    return this.imageslocationService
+      .getImageLocation(id)
+      .subscribe(
         data => this.handleSuccessLoc(data),
         error => this.handleErrorLoc(error),
-        () => this.searching = false
-      )
-}
-
+        () => (this.searching = false)
+      );
+  }
 
   /* -------------- Remaining days --------------- */
 
-  public getRemainingdays(remainingDays){
+  public getRemainingdays(remainingDays) {
     var today = new Date();
     var dd = today.getDate();
-    var mm =today.getMonth()+1;
+    var mm = today.getMonth() + 1;
     var yyyy = today.getFullYear();
 
-    var todaystring = mm + '/' + dd + '/' + yyyy;
+    var todaystring = mm + "/" + dd + "/" + yyyy;
 
-    var str=this.upcoming.flight.departure.departuremonth
-    var strsub=str.substring(0, 3);
-    var monthno=( "JanFebMarAprMayJunJulAugSepOctNovDec".indexOf(strsub) / 3 + 1 )
+    var str = this.upcoming.flight.departure.departuremonth;
+    var strsub = str.substring(0, 3);
+    var monthno =
+      "JanFebMarAprMayJunJulAugSepOctNovDec".indexOf(strsub) / 3 + 1;
     //console.log(monthno)
 
-    var departuredate= monthno+ '/' +  this.upcoming.flight.departure.departuredate+ '/' + this.upcoming.flight.departure.departureyear;
-
+    var departuredate =
+      monthno +
+      "/" +
+      this.upcoming.flight.departure.departuredate +
+      "/" +
+      this.upcoming.flight.departure.departureyear;
 
     const date1 = +new Date(todaystring);
     const date2 = +new Date(departuredate);
@@ -384,83 +437,99 @@ public searchLoc(id){
     return remainingDays;
   }
 
-
-
-  turn=true;
-  public showHideImages():void{
-    if(this.turn===true){
-      $('#info-frame').fadeOut('slow');
+  turn = true;
+  public showHideImages(): void {
+    if (this.turn === true) {
+      $("#info-frame").fadeOut("slow");
       this.mapboxComponent.hideMap();
       this.placesComponent.manageImagesUpcoming(this.currentImage);
-      this.turn=false;
-    }
-    else{
-      $('#info-frame').fadeIn('slow');
+      this.turn = false;
+    } else {
+      $("#info-frame").fadeIn("slow");
       this.mapboxComponent.showMap();
       this.placesComponent.hideImagesUpcoming();
 
-
-      this.turn=true;
-
+      this.turn = true;
     }
-
-
   }
 
-  public nextImageUpcoming(){
+  public nextImageUpcoming() {
     this.placesComponent.nextImageUpcoming();
   }
 
-  public savePlace(){
-    if(this.currentImage!=0){
-      if($('#scroll-places-'+this.currentImage+' #places-desc').hasClass("saved")){
-        $('#scroll-places-'+this.currentImage+' #places-desc').removeClass("saved");
-        $('#scroll-places-'+this.currentImage+' #places-desc').addClass("unsaved");
-       }
-       else{
-        $('#scroll-places-'+this.currentImage+' #places-desc').removeClass("unsaved");
-        $('#scroll-places-'+this.currentImage+' #places-desc').addClass("saved");
-       }
-    }
-
-   }
-
-
-  currentImage=0;
-
-  public nextScroll():void{
-      var prevImage=this.currentImage;
-      this.currentImage=++this.currentImage;
-      if(this.currentImage===6){
-        this.currentImage=1;
+  public savePlace() {
+    if (this.currentImage != 0) {
+      if (
+        $("#scroll-places-" + this.currentImage + " #places-desc").hasClass(
+          "saved"
+        )
+      ) {
+        $("#scroll-places-" + this.currentImage + " #places-desc").removeClass(
+          "saved"
+        );
+        $("#scroll-places-" + this.currentImage + " #places-desc").addClass(
+          "unsaved"
+        );
+      } else {
+        $("#scroll-places-" + this.currentImage + " #places-desc").removeClass(
+          "unsaved"
+        );
+        $("#scroll-places-" + this.currentImage + " #places-desc").addClass(
+          "saved"
+        );
       }
-      this.mapboxComponent.focusPin(this.currentImage);
-      var element = document.getElementById('scroll-places-'+this.currentImage);
-      $('#scroll-places-'+prevImage).addClass('deactive').removeClass('active');
-
-      $('#scroll-places-'+this.currentImage).addClass('active').removeClass('deactive');
-      //console.log(element);
-      element.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
-
+    }
   }
 
-  public previousScroll():void{
-    var prevImage=this.currentImage;
-    this.currentImage=--this.currentImage;
-    if(this.currentImage<=0){
-      this.currentImage=5;
+  currentImage = 0;
+
+  public nextScroll(): void {
+    var prevImage = this.currentImage;
+    this.currentImage = ++this.currentImage;
+    if (this.currentImage === 6) {
+      this.currentImage = 1;
     }
     this.mapboxComponent.focusPin(this.currentImage);
-    var element = document.getElementById('scroll-places-'+this.currentImage);
-    $('#scroll-places-'+prevImage).addClass('deactive').removeClass('active');
+    var element = document.getElementById("scroll-places-" + this.currentImage);
+    $("#scroll-places-" + prevImage)
+      .addClass("deactive")
+      .removeClass("active");
 
-    $('#scroll-places-'+this.currentImage).addClass('active').removeClass('deactive');
+    $("#scroll-places-" + this.currentImage)
+      .addClass("active")
+      .removeClass("deactive");
     //console.log(element);
-    element.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+    element.scrollIntoView({
+      behavior: "smooth",
+      block: "nearest",
+      inline: "start"
+    });
+  }
 
-}
+  public previousScroll(): void {
+    var prevImage = this.currentImage;
+    this.currentImage = --this.currentImage;
+    if (this.currentImage <= 0) {
+      this.currentImage = 5;
+    }
+    this.mapboxComponent.focusPin(this.currentImage);
+    var element = document.getElementById("scroll-places-" + this.currentImage);
+    $("#scroll-places-" + prevImage)
+      .addClass("deactive")
+      .removeClass("active");
 
-/*
+    $("#scroll-places-" + this.currentImage)
+      .addClass("active")
+      .removeClass("deactive");
+    //console.log(element);
+    element.scrollIntoView({
+      behavior: "smooth",
+      block: "nearest",
+      inline: "start"
+    });
+  }
+
+  /*
     public getDominantColor(no,imgno):void{
       //var imageURL= document.getElementById('places-image-one');
      // var imageURL=$('#places #places-inner #places-image-one').attr('src');//get img color
@@ -472,20 +541,14 @@ public searchLoc(id){
       })();
 
     }*/
-
-
 }
-
-
 
 //AUTO RESIZE CITY NAME
 $(document).ready(function() {
-  var fontSize = 1130/parseInt($("#city-name").text().length)+"px";
+  var fontSize = 1130 / parseInt($("#city-name").text().length) + "px";
 
   //alert(fontSize);
-  $("#city-name").css('font-size', fontSize);
-
-
+  $("#city-name").css("font-size", fontSize);
 });
 /*
 $(document).ready(function(){
@@ -530,4 +593,3 @@ $(document).ready(function(){
     }
 });
  });*/
-
