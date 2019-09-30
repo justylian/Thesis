@@ -5,12 +5,10 @@
             <div id="cityImages6">
                 <div id="image6-one">
 
-                    <div id="image6-five">
+                    <div id="image6-five" *ngIf="allfound">
                         <div class="image-inner-descs" id="image6-five-inner">
 
-                            <h1>{{citiesFuture[0].photos.five.title}}</h1>
-                            <h2>{{citiesFuture[0].photos.five.desc}}</h2>
-                        </div> <img id="image6-five-img" data-src={{citiesFuture[0].photos.five.url}}></div>
+                        </div> <img id="image6-five-img" data-src={{images[0].largeImageURL}}></div>
 
                 </div>
             </div>

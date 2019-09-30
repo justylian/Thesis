@@ -131,18 +131,20 @@
                 <h1>Places</h1>
 
                 <div id="places-inner" (click)="showHideImages();" *ngIf="imagesFound">
-                    <div *ngFor="let image of images; let i=index">
-                        <li id="{{ 'scroll-places-' + (i+1)}}" class="deactive">
+                    <div *ngFor="let image of images; let i=index ">
+                        <div *ngIf="i<5">
+                            <li id="{{ 'scroll-places-' + (i+1)}}" class="deactive">
 
-                            <div id="places-desc" class="saved"></div>
-                            <!--             <img id="places-image-one" src={{image.webformatURL}}>-->
-                        </li>
+                                <div id="places-desc" class="saved"></div>
+                                <img id="places-image-one" src={{image.webformatURL}}>
+                            </li>
+                        </div>
                     </div>
                 </div>
 
             </div>
         </div>
-        <div id="places2">
+        <!-- <div id="places">
             <div class="upper-border"></div>
 
             <div id="places-icon"></div>
@@ -150,34 +152,34 @@
 
                 <h1>Places</h1>
 
-                <div id="places-inner" (click)="showHideImages();">
+                <div id="places-inner" (click)="showHideImages();" *ngIf="allFound">
                     <li id="scroll-places-1" class="deactive">
                         <div id="places-desc" class="saved"></div>
 
-                        <img id="places-image-one" src={{citiesFuture[0].photos.one.url}}>
+                        <img id="places-image-one" src={{images[placesNums[0]].webformatURL}}>
                     </li>
                     <li id="scroll-places-2" class="deactive">
                         <div id="places-desc" class="saved"></div>
 
-                        <img id="places-image-two" src={{citiesFuture[0].photos.two.url}}>
+                        <img id="places-image-two" src={{images[placesNums[1]].webformatURL}}>
                     </li>
                     <li id="scroll-places-3" class="deactive">
                         <div id="places-desc" class="saved"></div>
 
-                        <img id="places-image-three" src={{citiesFuture[0].photos.three.url}}>
+                        <img id="places-image-three" src={{images[placesNums[2]].webformatURL}}>
                     </li>
                     <li id="scroll-places-4" class="deactive">
                         <div id="places-desc" class="saved"></div>
-                        <img id="places-image-four" src={{citiesFuture[0].photos.four.url}}>
+                        <img id="places-image-four" src={{images[placesNums[3]].webformatURL}}>
                     </li>
                     <li id="scroll-places-5" class="deactive">
                         <div id="places-desc" class="saved"></div>
 
-                        <img id="places-image-five" src={{citiesFuture[0].photos.five.url}}>
+                        <img id="places-image-five" src={{images[placesNums[4]].webformatURL}}>
                     </li>
 
                 </div>
             </div>
         </div>
+    </div>-->
     </div>
-</div>

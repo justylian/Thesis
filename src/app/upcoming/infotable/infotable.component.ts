@@ -35,7 +35,7 @@ export class InfotableComponent implements OnInit {
   searchingImage: boolean = false;
   searchingPlace: boolean = false;
   searchingLoc: boolean = false;
-
+  placesNums = [];
   places = [];
   placesOrdered = [];
   placesFound: boolean = false;
@@ -102,8 +102,8 @@ export class InfotableComponent implements OnInit {
   }
   /* -------------- Get messages --------------- */
 
-  sendimagesLocVar() {
-    this.upcomingService.imagesloc(this.imagesLoc);
+  sendpoisVar() {
+    this.upcomingService.pois(this.pois);
   }
   sendimagesVar() {
     this.upcomingService.images(this.images);
@@ -133,28 +133,66 @@ export class InfotableComponent implements OnInit {
   public fixPlaces() {
     for (var i = 0; i < this.pois.length; i++) {
       //this.currPois = this.pois[i];
-      if (typeof this.pois[i].title !== "undefined") {
+      //console.log(this.pois[i]);
+      if (typeof this.images[i] !== "undefined") {
         for (var j = 0; j < this.pois.length; j++) {
           //this.currPlace = this.places[j];
-          //console.log(this.places[j].title);
-          if (typeof this.places[j].title !== "undefined") {
+          //console.log(this.places[j]);
+          if (typeof this.places[j] !== "undefined") {
             if (
               this.places[j].title
                 .toUpperCase()
                 .includes(this.pois[i].toponymName.toUpperCase()) ||
-                this.pois[i].toponymName
+              this.pois[i].toponymName
                 .toUpperCase()
                 .includes(this.places[j].title.toUpperCase())
             ) {
-              this.placesOrdered[i] = this.currPlace.extract;
+              this.placesOrdered[i] = this.places[j].extract;
+              this.placesNums[i] = i;
               this.places[j] = undefined;
               break;
             }
           }
         }
+      } else {
+        this.placesOrdered[i] = undefined;
       }
     }
+    console.log(this.pois);
+
+    for (var i = 0; i < this.pois.length; i++) {
+      if (typeof this.placesOrdered[i] === "undefined") {
+        this.images[i] = undefined;
+        this.pois[i] = undefined;
+      }
+    }
+
+    this.pois = this.pois.filter(function(el) {
+      return el != null;
+    });
+    this.images = this.images.filter(function(el) {
+      return el != null;
+    });
+    this.places = this.placesOrdered.filter(function(el) {
+      return el != null;
+    });
+
+    console.log(this.places);
+    console.log(this.images);
+    console.log(this.pois);
+    if(this.pois.length<5){
+      alert("Not enough places found!");
+    }
+    this.imagesFound = true;
+    this.placesFound = true;
+    this.allFound = true;
+
+    this.sendplacesVar();
+    this.sendimagesVar();
+    this.sendpoisVar();
+    this.sendfoundVar(this.allFound);
   }
+
   /* -------------- POI API --------------- */
 
   public handleSuccessPOI(data) {
@@ -165,25 +203,10 @@ export class InfotableComponent implements OnInit {
     //console.log(this.places);
     this.pois = data.geonames;
 
-    //console.log(this.pois[0].toponymName+"POOI");
-    for (var i = 0; i <= this.pois.length; i++) {
-      if(i===this.pois.length){
-        this.fixPlaces();
-        break;
-      }
+    console.log(this.pois.length);
+    for (var i = 0; i < this.pois.length; i++) {
       this.searchImages(this.pois[i].toponymName);
       this.searchPlace(this.pois[i].toponymName);
-
-
-    }
-
-
-    console.log(this.images);
-    console.log(this.places);
-    console.log(this.placesOrdered);
-
-    for (var i = 0; i < this.images.length; i++) {
-      console.log("FOUND IMAGES :\n" + this.images[i].webformatURL);
     }
   }
 
@@ -210,20 +233,22 @@ export class InfotableComponent implements OnInit {
 
   placecount = 0;
   handleSuccessPlace(data) {
-    this.placesFound = true;
     this.places[this.placecount] = data;
     //console.log(data.extract);
 
     this.placecount = this.placecount + 1;
-    /*  if (this.placecount === this.pois.length) {
+    if (this.placecount === this.pois.length) {
+      console.log(this.images);
+      console.log(this.places);
+      this.fixPlaces();
 
-       this.allFound = true;
+      /* this.allFound = true;
 
       this.sendplacesVar();
       this.sendimagesVar();
       this.sendimagesLocVar();
-      this.sendfoundVar(this.allFound);
-    }*/
+      this.sendfoundVar(this.allFound);*/
+    }
     //console.log(data);
   }
 
@@ -252,7 +277,6 @@ export class InfotableComponent implements OnInit {
   handleSuccess(data, query) {
     this.images[this.counter] = data.hits[0];
     //console.log(this.images);
-    this.imagesFound = true;
     this.counter = this.counter + 1;
     //console.log(this.counter );
 

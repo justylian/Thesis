@@ -379,6 +379,9 @@
             li {
                 list-style-type: none;
             }
+            li:5th-of-type() {
+                display: none;
+            }
             img {
                 width: 100%;
                 height: auto;

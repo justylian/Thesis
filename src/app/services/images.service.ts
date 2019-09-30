@@ -17,6 +17,8 @@ export class ImagesService {
   private URL: string = this.API_URL + this.API_KEY + '&q=';
   private perPage: string = "&per_page=3";
   private width: string = "&min_width=1920";
+  private height: string = "&min_height=1080";
+
   private orientation: string = "&orientation=horizontal";
   private imagetype:string ="&image_type=photo";
   constructor(private _http: HttpClient) { }
@@ -25,7 +27,7 @@ export class ImagesService {
     //return
     query=query.split(' ').join('-');
     //console.log(this.URL + query + this.perPage+ this.imagetype);
-    return this._http.get(this.URL + query + this.perPage+ this.imagetype)
+    return this._http.get(this.URL + query + this.height + this.width +this.perPage+this.orientation+ this.imagetype)
     .map(res => res);
     //console.log(query);
 

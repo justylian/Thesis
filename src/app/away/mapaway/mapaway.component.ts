@@ -46,11 +46,9 @@ export class MapawayComponent implements OnInit {
     });
 
     this.dist=this.distance(coordinates[0],coordinates[1], 35.337211, 25.124940, "K")
-    var distsub=this.dist;
-    distsub=parseInt(distsub.toPrecision(8));
-    //console.log(distsub);
+    this.dist=parseInt(this.dist.toPrecision(8));
     if(parameter===""){
-      return distsub;
+      return this.dist;
     }
     else if(parameter==="upcoming"){
       return coordinates;

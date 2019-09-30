@@ -6,6 +6,7 @@ declare var require: any
 import timelinejson from '../../../assets/json/timeline.json';
 declare var $: any;
 declare var jQuery: any;
+
 //import 'mapbox-gl/dist/mapbox-gl.css';
 
 @Component({
@@ -15,29 +16,39 @@ declare var jQuery: any;
 })
 export class MapboxComponent implements OnInit {
   citiesFuture=timelinejson.citiesFuture;
-  imagesLoc;
+  pois;
+  allfound=false;
   constructor(private choiceService:  ChoiceService,private upcomingService:UpcomingService) {
 
     this.choiceService.upcoming$.subscribe(
       () => {
         //alert('(Component2) Method called!'+i);
-       // this.mapBox();
+        this.mapBox();
+
       }
     );
 
-    this.upcomingService.imagesloc$.subscribe(
+    this.upcomingService.pois$.subscribe(
       (i) => {
         //alert('(Component2) Method called!'+i);
-        this.imagesLoc=i;
+        this.pois=i;
 
       }
     );
+    this.upcomingService.found$.subscribe(
+      (allfound) => {
+      //alert('(Component2) Method called!'+i);
+      //console.log(l);
+      this.allfound = allfound;
+
+    });
 
   }
 
 
   ngOnInit() {
   }
+
 
   public mapBox(){
     //if(this.mapboxflag===true){
@@ -84,16 +95,16 @@ export class MapboxComponent implements OnInit {
     var ad5title=this.citiesFuture[0].photos.five.title;
 
 */
-var ad1=this.citiesFuture[0].cityName+" "+this.imagesLoc[0];
-var ad1title=this.imagesLoc[0];
-var ad2=this.citiesFuture[0].cityName+" "+this.imagesLoc[1];
-var ad2title=this.imagesLoc[1];
-var ad3=this.citiesFuture[0].cityName+" "+this.imagesLoc[2];
-var ad3title=this.imagesLoc[2];
-var ad4=this.citiesFuture[0].cityName+" "+this.imagesLoc[3];
-var ad4title=this.imagesLoc[3];
-var ad5=this.citiesFuture[0].cityName+" "+this.imagesLoc[4];
-var ad5title=this.imagesLoc[4];
+var ad1=this.citiesFuture[0].cityName+" "+this.pois[0].toponymName;
+var ad1title=this.pois[0].toponymName;
+var ad2=this.citiesFuture[0].cityName+" "+this.pois[1].toponymName;
+var ad2title=this.pois[1].toponymName;
+var ad3=this.citiesFuture[0].cityName+" "+this.pois[2].toponymName;
+var ad3title=this.pois[2].toponymName;
+var ad4=this.citiesFuture[0].cityName+" "+this.pois[3].toponymName;
+var ad4title=this.pois[3].toponymName;
+var ad5=this.citiesFuture[0].cityName+" "+this.pois[4].toponymName;
+var ad5title=this.pois[4].toponymName;
 
 
 

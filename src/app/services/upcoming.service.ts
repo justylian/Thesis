@@ -49,15 +49,15 @@ export class UpcomingService {
 
 
 
-  private imageslocSource = new Subject<any>();
+  private poisSource = new Subject<any>();
 
   // Observable string streams
-  imagesloc$ = this.imageslocSource.asObservable();
+  pois$ = this.poisSource.asObservable();
 
-  imagesloc(l){
+  pois(l){
    // console.log(l);
 
-    this.imageslocSource.next(l);
+    this.poisSource.next(l);
   }
 
 

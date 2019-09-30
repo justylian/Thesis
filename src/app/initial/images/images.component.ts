@@ -28,7 +28,7 @@ export class ImagesComponent implements OnInit {
   timePerPhoto = timesjson.timePerPhoto;
   timePerCity = this.timePerPhoto * 5;
   images = new Array(5);
-  imagesLoc = new Array(5);
+  pois = new Array(5);
   places = new Array(5);
   once1 = true;
   once2 = true;
@@ -51,9 +51,9 @@ export class ImagesComponent implements OnInit {
         this.once1 = false;
       }
     });
-    this.upcomingService.imagesloc$.subscribe(k => {
+    this.upcomingService.pois$.subscribe(k => {
       if (this.once2 === true) {
-        this.imagesLoc = k;
+        this.pois = k;
         //console.log(this.imagesLoc);
         this.once2 = false;
       }

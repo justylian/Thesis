@@ -9,7 +9,7 @@
                     "urlmin": "../../../assets/images/paris/1min.jpg",
                     "title": "The Iconic Arc De Triomphe",
                     "desc": "Our first evening in Paris was spent taking a stroll (that was anything but leisurely) down the Avenue des Champs-Élysées. I knew before we came to Paris that this street was popular, but popular is an understatement. It was absolutely packed with people shopping, eating, taking photos, busking, and my favorite – people workin’ it. And by that, I’m referring to those people (both men and women) who were walking along the street with their backs arched, lips in a pout, eyes with vacant stares, ready to burn us with their cigarettes if we got too close. For those people, the Champs-Élysées isn’t a street, it’s a runway."
-                         },
+                },
                 "two": {
                     "url": "../../../assets/images/paris/2.jpg",
                     "urlmin": "../../../assets/images/paris/2min.jpg",
@@ -229,7 +229,7 @@
         }
     ],
     "citiesFuture": [{
-        "cityName": "Copenhagen",
+        "cityName": "Athens ",
         "currency": "Krone",
         "timezone": "GMT +1",
         "language": "Danish",
@@ -239,44 +239,6 @@
             "templow": "14°",
             "temphigh": "21°",
             "rainydays": "12"
-        },
-        "photos": {
-            "one": {
-                "url": "../../../assets/images/copenhagen/1.jpg",
-                "urlmin": "../../../assets/images/copenhagen/1min.jpg",
-
-                "title": "Opera House",
-                "desc": "The Copenhagen Opera House (in Danish usually called Operaen, literally The opera) is the national opera house of Denmark, and among the most modern opera houses in the world. It is also one of the most expensive opera houses ever built with construction costs well over US$500 million. It is located on the island of Holmen in central Copenhagen. The Opera is located in Copenhagen just opposite the main castle Amalienborg at the shore of the harbour. The opera house is built in alignment with Amalienborg and The Marble Church, so that if one stands in the main entrance of the Opera, one can see the Marble Church over the water along the road through Amalienborg."
-            },
-            "two": {
-                "url": "../../../assets/images/copenhagen/2.jpg",
-                "urlmin": "../../../assets/images/copenhagen/2min.jpg",
-
-                "title": "Little Mermaid",
-                "desc": "At Langelinje Pier you will find one of Copenhagen's most famous tourist attractions: The sculpture of The Little Mermaid. 23 August 2013 she turned 100 years old. Unveiled on 23 August 1913, The Little Mermaid was a gift from Danish brewer Carl Jacobsen to the City of Copenhagen. The sculpture is made of bronze and granite and was inspired by Hans Christian Andersen’s fairy tale about a mermaid who gives up everything to be united with a young, handsome prince on land. Every morning and evening she swims to the surface from the bottom of the sea and, perched on her rock in the water, she stares longingly towards the shore hoping to catch a glimpse of her beloved prince."
-            },
-            "three": {
-                "url": "../../../assets/images/copenhagen/3.jpg",
-                "urlmin": "../../../assets/images/copenhagen/3min.jpg",
-
-                "title": "Rundetaarn",
-                "desc": "The Round Tower (Danish: Rundetårn), formerly Stellaburgis Hafniens, is a 17th-century tower located in central Copenhagen, Denmark, and one of the many architectural projects of Christian IV of Denmark, built as an astronomical observatory. It is most noted for its equestrian staircase, a 7.5-turn helical corridor leading to the platform at the top at 34.8 meters above ground, and for the expansive views which it affords over Copenhagen."
-            },
-            "four": {
-                "url": "../../../assets/images/copenhagen/4.jpg",
-                "urlmin": "../../../assets/images/copenhagen/4min.jpg",
-                "title": "Oresund Bridge",
-                "desc": "On the third day we crossed the strait to get to Sweden. The bridge runs nearly 8 kilometres (5 miles) from the Swedish coast to the artificial island Peberholm in the middle of the strait. The crossing is completed by the 4-kilometre (2.5 mi) Drogden Tunnel from Peberholm to the Danish island of Amager. The underwater parts of the bridge have become covered in marine organisms and act as an artificial reef."
-            
-            },
-            "five": {
-                "url": "../../../assets/images/copenhagen/5.jpg",
-                "urlmin": "../../../assets/images/copenhagen/5min.jpg",
-                "title": "Nyhavn",
-                "desc": "Especially during summer, Nyhavn is the perfect place to end a long day. With a cold one on the quay like the locals, or at one of the many restaurants. Originally, Nyhavn was a busy commercial port where ships from all over the world would dock. The area was packed with sailors, ladies of pleasure, pubs and alehouses. Today the beautiful old houses have been renovated and restaurants dominate the old port. Nyhavn is filled with people enjoying the relaxed atmosphere by the canal, jazz music and great food."
-            
-                }
-
         },
         "longlat": "40° 43' 50.1960'' N | 73° 56' 6.8712'' W",
         "sound": {
