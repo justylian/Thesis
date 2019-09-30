@@ -16,14 +16,14 @@ export class POIService {
 
   }
 
-   public getPOI(query,placename){
+   public getPOI(query){
 
     //console.log(coordinates);
    // return this._http.get("http://api.geonames.org/searchJSON?q="+query+"&featureCode=L&H&S&T&radius=15&maxRows=500&username=stylianx").map(data => data);
 
 
 
-    return this._http.get("http://api.geonames.org/searchJSON?q="+query+"&name="+placename+"&featureCode=S&radius=25&maxRows=1&username=stylianx").map(data => data);
+    return this._http.get("http://api.geonames.org/searchJSON?q="+query+"&lang=en&featureCode=PIER&featureCode=OPRA&featureCode=THTR&featureCode=PRK&featureCode=STDM&featureCode=PAL&featureCode=NRWS&featureCode=CNL&featureCode=MUS&featureCode=MNMT&featureCode=ADMF&featureCode=BDG&featureCode=BCN&featureCode=ARCH&featureCode=CH&featureCode=CSTL&featureCode=FT&featureCode=LIBR&featureCode=MSQE&radius=30&maxRows=50&username=stylianx").map(data => data);
 
     //return this._http.get("http://api.geonames.org/searchJSON?lng="+coordinates[0]+"&lat="+coordinates[1]+"&featureCode=PRT&radius=15&maxRows=50&username=stylianx").map(data => data);
     //return this._http.get("http://api.geonames.org/findNearbyPOIsOSMJSON?lng="+coordinates[0]+"&lat="+coordinates[1]+"&radius=1&maxRows=50&username=stylianx").map(data => data);

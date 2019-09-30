@@ -15,6 +15,8 @@ const { getColorFromURL } = require("color-thief-node");
 declare var require: any;
 declare var $: any;
 declare var jQuery: any;
+import { of } from "rxjs/observable/of";
+import { Observable } from "rxjs";
 
 @Component({
   selector: "app-infotable",
@@ -29,12 +31,17 @@ export class InfotableComponent implements OnInit {
   images = [];
   imagesFound: boolean = false;
   imagesPlace: any[];
-  searching: boolean = false;
-  places = new Array(5);
+  searchingPOI: boolean = false;
+  searchingImage: boolean = false;
+  searchingPlace: boolean = false;
+  searchingLoc: boolean = false;
+
+  places = [];
+  placesOrdered = [];
   placesFound: boolean = false;
   pois = [];
   allFound = false;
-  imagesLoc = new Array(5);
+  imagesLoc = new Array();
   public day1 =
     "../../../assets/images/weather/" +
     this.upcoming.weather.day1.state +
@@ -74,7 +81,7 @@ export class InfotableComponent implements OnInit {
   async ngOnInit() {
     this.remainingDays = this.getRemainingdays(this.remainingDays);
 
-    this.searchImages(this.citiesFuture[0].cityName, -1);
+    this.searchPOI(this.citiesFuture[0].cityName);
 
     this.mapboxComponent.focusPin(1);
 
@@ -121,72 +128,113 @@ export class InfotableComponent implements OnInit {
     }
   }
 
+  currPois;
+  currPlace;
+  public fixPlaces() {
+    for (var i = 0; i < this.pois.length; i++) {
+      //this.currPois = this.pois[i];
+      if (typeof this.pois[i].title !== "undefined") {
+        for (var j = 0; j < this.pois.length; j++) {
+          //this.currPlace = this.places[j];
+          //console.log(this.places[j].title);
+          if (typeof this.places[j].title !== "undefined") {
+            if (
+              this.places[j].title
+                .toUpperCase()
+                .includes(this.pois[i].toponymName.toUpperCase()) ||
+                this.pois[i].toponymName
+                .toUpperCase()
+                .includes(this.places[j].title.toUpperCase())
+            ) {
+              this.placesOrdered[i] = this.currPlace.extract;
+              this.places[j] = undefined;
+              break;
+            }
+          }
+        }
+      }
+    }
+  }
   /* -------------- POI API --------------- */
-  /*
 
- public handleSuccessPOI(data,placename){
- // console.log(data+"POOI");
- console.log(data.geonames);
+  public handleSuccessPOI(data) {
+    // console.log(data+"POOI");
+    console.log(data.geonames);
 
-  //this.places=data.geonames;
-  //console.log(this.places);
+    //this.places=data.geonames;
+    //console.log(this.places);
+    this.pois = data.geonames;
 
-  for(var i=0;i<data.geonames.length;i++)
-  {
+    //console.log(this.pois[0].toponymName+"POOI");
+    for (var i = 0; i <= this.pois.length; i++) {
+      if(i===this.pois.length){
+        this.fixPlaces();
+        break;
+      }
+      this.searchImages(this.pois[i].toponymName);
+      this.searchPlace(this.pois[i].toponymName);
 
-      this.pois.push(data.geonames[i].toponymName);
 
+    }
+
+
+    console.log(this.images);
+    console.log(this.places);
+    console.log(this.placesOrdered);
+
+    for (var i = 0; i < this.images.length; i++) {
+      console.log("FOUND IMAGES :\n" + this.images[i].webformatURL);
+    }
   }
 
-  console.log(this.pois+"POOI");
+  handleErrorPOI(error) {
+    console.log(error);
+  }
 
+  public searchPOI(query: string) {
+    //var coordinates=await this.mapawayComponent.mapboxDistance("upcoming",query);
 
-}
+    this.searchingPOI = true;
+    //return this.placesService.getInfo(query);
 
-handleErrorPOI(error){
-  console.log(error);
-}
-
-public  searchPOI(query: string,placename){
-  //var coordinates=await this.mapawayComponent.mapboxDistance("upcoming",query);
-
-  this.searching = true;
-  //return this.placesService.getInfo(query);
-
-    return this.poiService.getPOI(query,placename).subscribe(
-      data => this.handleSuccessPOI(data,placename),
-      error => this.handleErrorPOI(error),
-      () => this.searching = false
-    )
-}*/
+    return this.poiService
+      .getPOI(query)
+      .subscribe(
+        data => this.handleSuccessPOI(data),
+        error => this.handleErrorPOI(error),
+        () => (this.searchingPOI = false)
+      );
+  }
 
   /* -------------- Places API --------------- */
 
   placecount = 0;
   handleSuccessPlace(data) {
     this.placesFound = true;
-    this.places[this.placecount] = data.extract;
-    this.placecount = this.placecount + 1;
-    if (this.placecount === 4) {
-      console.log(this.places);
+    this.places[this.placecount] = data;
+    //console.log(data.extract);
 
-      this.allFound = true;
-      this.imagesFound = true;
+    this.placecount = this.placecount + 1;
+    /*  if (this.placecount === this.pois.length) {
+
+       this.allFound = true;
 
       this.sendplacesVar();
       this.sendimagesVar();
       this.sendimagesLocVar();
       this.sendfoundVar(this.allFound);
-    }
-    // console.log(data);
+    }*/
+    //console.log(data);
   }
 
   handleErrorPlace(error) {
-    console.log(error);
+    this.places[this.placecount] = undefined;
+    this.placecount = this.placecount + 1;
+    //console.log(error);
   }
 
   public searchPlace(query: string) {
-    this.searching = true;
+    this.searchingPlace = true;
     //console.log(query);
     //return this.placesService.getInfo(query);
 
@@ -195,17 +243,20 @@ public  searchPOI(query: string,placename){
       .subscribe(
         data => this.handleSuccessPlace(data),
         error => this.handleErrorPlace(error),
-        () => (this.searching = false)
+        () => (this.searchingPlace = false)
       );
   }
 
   /* -------------- Images API --------------- */
+  counter = 0;
+  handleSuccess(data, query) {
+    this.images[this.counter] = data.hits[0];
+    //console.log(this.images);
+    this.imagesFound = true;
+    this.counter = this.counter + 1;
+    //console.log(this.counter );
 
-  handleSuccess(data, query, toChange) {
-    if (toChange <= 0) {
-      this.images = data.results;
-
-
+    /*
       console.log(
         "FOUND IMAGES:\n" + data.results[0].id,
         data.results[1].id,
@@ -213,16 +264,10 @@ public  searchPOI(query: string,placename){
         data.results[3].id,
         data.results[4].id
       );
-      this.searchImagesLoc(query,-1);
-    } else {
+      this.searchImagesLoc(query);
 
-      this.images[toChange] = data.results;
-      console.log("CHNaGING?:" + data.results[0].id);
 
-      this.searchImagesLoc(query,toChange);
-    }
 
-    /*
     var images=this.images;
     var that=this;
     setInterval(function() {
@@ -298,17 +343,21 @@ public  searchPOI(query: string,placename){
   }
 
   handleError(error) {
+    this.images[this.counter] = undefined;
+
+    this.counter = this.counter + 1;
     console.log(error);
   }
 
-  searchImages(query: string, toChange) {
-    this.searching = true;
+  searchImages(query: string) {
+    this.searchingImage = true;
+
     return this.imagesService
       .getImage(query)
       .subscribe(
-        data => this.handleSuccess(data, query, toChange),
+        data => this.handleSuccess(data, query),
         error => this.handleError(error),
-        () => (this.searching = false)
+        () => (this.searchingImage = false)
       );
   }
 
@@ -330,20 +379,12 @@ public  searchPOI(query: string,placename){
 
   //Search for each image
 
-  searchImagesLoc(query,toChange) {
-    if(toChange<=0){
-      for (var j = 0; j < 5; j++) {
-        this.searchLoc(this.images[j].id);
-      }
+  searchImagesLoc(query) {
+    for (var j = 0; j < 5; j++) {
+      this.searchLoc(this.images[j].id);
     }
-    else{
-      this.searchLoc(this.images[toChange].id);
-
-    }
-
   }
 
-  counter = 0;
   toChange;
   async handleSuccessLoc(data) {
     // console.log(data);
@@ -354,7 +395,7 @@ public  searchPOI(query: string,placename){
       .replace(/,/g, "");
     this.counter = this.counter + 1;
     if (this.counter === 5) {
-      while (true) {
+      /* while (true) {
         for (var i = 0; i < 5; i++) {
           console.log("CHECK FOR" + i + this.checkingLoc);
 
@@ -370,10 +411,10 @@ public  searchPOI(query: string,placename){
         break;
         //}
         this.counter--;
-      }
-
+      }*/
+      //canal museum statue river
       for (var j = 0; j < 5; j++) {
-        this.searchPlace(this.imagesLoc[j]);
+        // this.searchPlace(this.imagesLoc[j]);
       }
       console.log("FOUND IMAGELOCS:" + this.imagesLoc);
     }
@@ -403,7 +444,7 @@ public  searchPOI(query: string,placename){
       .subscribe(
         data => this.handleSuccessLoc(data),
         error => this.handleErrorLoc(error),
-        () => (this.searching = false)
+        () => (this.searchingLoc = false)
       );
   }
 

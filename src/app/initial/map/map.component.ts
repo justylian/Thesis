@@ -83,11 +83,11 @@ export class MapComponent implements OnInit {
     $('#image-stack-3').css('background-image', 'url(' + this.citiesFuture[0].photos.three.urlmin + ')');
     $('#image-stack-4').css('background-image', 'url(' + this.citiesFuture[0].photos.four.urlmin + ')');
     $('#image-stack-5').css('background-image', 'url(' + this.citiesFuture[0].photos.five.urlmin + ')');*/
-    $('#image-stack-1').css('background-image', 'url(' + this.images[0].urls.thumb + ')');
-    $('#image-stack-2').css('background-image', 'url(' + this.images[1].urls.thumb + ')');
-    $('#image-stack-3').css('background-image', 'url(' + this.images[2].urls.thumb + ')');
-    $('#image-stack-4').css('background-image', 'url(' + this.images[3].urls.thumb + ')');
-    $('#image-stack-5').css('background-image', 'url(' + this.images[4].urls.thumb + ')');
+    $('#image-stack-1').css('background-image', 'url(' + this.images[0].webformatURL + ')');
+    $('#image-stack-2').css('background-image', 'url(' + this.images[1].webformatURL + ')');
+    $('#image-stack-3').css('background-image', 'url(' + this.images[2].webformatURL + ')');
+    $('#image-stack-4').css('background-image', 'url(' + this.images[3].webformatURL + ')');
+    $('#image-stack-5').css('background-image', 'url(' + this.images[4].webformatURL + ')');
   }
 }
 
@@ -126,11 +126,11 @@ function changePinPhotos(timelineno,citiesPast,images){
     setTimeout(function() {
 
       //$('#image-stack-1').attr("data-src",'url(' + citiesFuture[0].photos.one.url + ')');
-      $('#image-stack-1').css('background-image', 'url(' + images[0].urls.thumb + ')');
-      $('#image-stack-2').css('background-image', 'url(' + images[1].urls.thumb + ')');
-      $('#image-stack-3').css('background-image', 'url(' + images[2].urls.thumb + ')');
-      $('#image-stack-4').css('background-image', 'url(' + images[3].urls.thumb + ')');
-      $('#image-stack-5').css('background-image', 'url(' + images[4].urls.thumb + ')');
+      $('#image-stack-1').css('background-image', 'url(' + images[0].webformatURL + ')');
+      $('#image-stack-2').css('background-image', 'url(' + images[1].webformatURL + ')');
+      $('#image-stack-3').css('background-image', 'url(' + images[2].webformatURL + ')');
+      $('#image-stack-4').css('background-image', 'url(' + images[3].webformatURL + ')');
+      $('#image-stack-5').css('background-image', 'url(' + images[4].webformatURL + ')');
       /*
       $('#image-stack-1').css('background-image', 'url(' + citiesFuture[0].photos.one.urlmin + ')');
       $('#image-stack-2').css('background-image', 'url(' + citiesFuture[0].photos.two.urlmin + ')');

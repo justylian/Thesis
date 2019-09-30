@@ -21,18 +21,13 @@ export class PlacesService {
   public getInfo(query){
 
 
-    var apiEndpoint = "https://en.wikipedia.org/w/api.php";
-    var params = "format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=Stack%20Overflow";
-
-
     return  this._http.get("https://en.wikipedia.org/api/rest_v1/page/summary/"+query)
-    .map(data => data);
+    .map(data => data)
   }
 
 
   //0j05m3231zn8su61830it0s20kafys9z
 }
-
 
 
 
