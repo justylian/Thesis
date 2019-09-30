@@ -10,7 +10,8 @@
     left: 0px;
     img {
         width: 1920px;
-        height: auto;
+        height: 100vh;
+        object-fit: cover;
         z-index: 1;
         position: absolute;
     }

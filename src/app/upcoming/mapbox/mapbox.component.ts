@@ -23,7 +23,7 @@ export class MapboxComponent implements OnInit {
     this.choiceService.upcoming$.subscribe(
       () => {
         //alert('(Component2) Method called!'+i);
-        this.mapBox();
+        //this.mapBox();
 
       }
     );
@@ -189,15 +189,15 @@ var ad5title=this.pois[4].toponymName;
 
 
   public focusPin(no){
-    //console.log(no);
-    $('#markerbubble'+no).animate({
+    //console.log('#markerbubble'+no);
+    $('#map #markerbubble'+no).animate({
       height: '20px',
       width: '20px',
       borderWidth: "13px"
     }, 500);
     for(var i=1;i<=5;i++){
       if(i!==no){
-        $('#markerbubble'+i).animate({
+        $('#map #markerbubble'+i).animate({
           height: '15px',
           width: '15px',
           borderWidth: "9px"

@@ -12,7 +12,8 @@
     left: 0px;
     img {
         width: 1920px;
-        height: auto;
+        height: 100vh;
+        object-fit: cover;
         z-index: 1;
         position: absolute;
     }
@@ -53,42 +54,42 @@
     //z-index: 1;
 }
 
-#myCanvas {
+#myCanvas6 {
     position: absolute;
     z-index: 5;
     top: 200px;
-    //display: none;
+    display: none;
 }
 
-#myCanvas1 {
+#myCanvas7 {
     left: 900px;
     position: absolute;
     z-index: 5;
     display: none;
 }
 
-#myCanvas2 {
+#myCanvas8 {
     left: 500px;
     position: absolute;
     z-index: 5;
     display: none;
 }
 
-#myCanvas3 {
+#myCanvas9 {
     left: 800px;
     position: absolute;
     z-index: 5;
     display: none;
 }
 
-#myCanvas4 {
+#myCanvas12 {
     top: 500px;
     position: absolute;
     z-index: 5;
     display: none;
 }
 
-#myCanvas5 {
+#myCanvas11 {
     top: 800px;
     position: absolute;
     z-index: 5;

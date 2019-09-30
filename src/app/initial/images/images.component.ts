@@ -271,80 +271,80 @@ function getColors(i) {
       //console.log(length);
       if (length >= 3800) {
         $("#image" + i + "-five-inner h1").css({
-          filter: "drop-shadow(0 0 30px #fff)",
+          filter: "drop-shadow(0 0 30px #000)",
           "mix-blend-mode": "unset",
-          color: "black",
-          "text-shadow": "0px 0px 5px #fff"
+          color: "#fff",
+          "text-shadow": "0px 0px 5px #000"
         });
         $("#image" + i + "-five-inner h2").css({
-          filter: "drop-shadow(0 0 30px #fff)",
+          filter: "drop-shadow(0 0 30px #000)",
           "mix-blend-mode": "unset",
-          color: "black",
-          "text-shadow": "0px 0px 5px #fff"
+          color: "#fff",
+          "text-shadow": "0px 0px 5px #000"
         });
       }
     } else if (j === 4) {
       $("#image" + i + "-four-inner").css({ top: lessy, left: lessx });
       if (length >= 3800) {
         $("#image" + i + "-four-inner h1").css({
-          filter: "drop-shadow(0 0 30px #fff)",
+          filter: "drop-shadow(0 0 30px #000)",
           "mix-blend-mode": "unset",
-          color: "black",
-          "text-shadow": "0px 0px 5px #fff"
+          color: "#fff",
+          "text-shadow": "0px 0px 5px #000"
         });
         $("#image" + i + "-four-inner h2").css({
-          filter: "drop-shadow(0 0 30px #fff)",
+          filter: "drop-shadow(0 0 30px #000)",
           "mix-blend-mode": "unset",
-          color: "black",
-          "text-shadow": "0px 0px 5px #fff"
+          color: "#fff",
+          "text-shadow": "0px 0px 5px #000"
         });
       }
     } else if (j === 3) {
       $("#image" + i + "-three-inner").css({ top: lessy, left: lessx });
       if (length >= 3800) {
         $("#image" + i + "-three-inner h1").css({
-          filter: "drop-shadow(0 0 30px #fff)",
+          filter: "drop-shadow(0 0 30px #000)",
           "mix-blend-mode": "unset",
-          color: "black",
-          "text-shadow": "0px 0px 5px #fff"
+          color: "#fff",
+          "text-shadow": "0px 0px 5px #000"
         });
         $("#image" + i + "-three-inner h2").css({
-          filter: "drop-shadow(0 0 30px #fff)",
+          filter: "drop-shadow(0 0 30px #000)",
           "mix-blend-mode": "unset",
-          color: "black",
-          "text-shadow": "0px 0px 5px #fff"
+          color: "#fff",
+          "text-shadow": "0px 0px 5px #000"
         });
       }
     } else if (j === 2) {
       $("#image" + i + "-two-inner").css({ top: lessy, left: lessx });
       if (length >= 3800) {
         $("#image" + i + "-two-inner h1").css({
-          filter: "drop-shadow(0 0 30px #fff)",
+          filter: "drop-shadow(0 0 30px #000)",
           "mix-blend-mode": "unset",
-          color: "black",
-          "text-shadow": "0px 0px 5px #fff"
+          color: "#fff",
+          "text-shadow": "0px 0px 5px #000"
         });
         $("#image" + i + "-two-inner h2").css({
-          filter: "drop-shadow(0 0 30px #fff)",
+          filter: "drop-shadow(0 0 30px #000)",
           "mix-blend-mode": "unset",
-          color: "black",
-          "text-shadow": "0px 0px 5px #fff"
+          color: "#fff",
+          "text-shadow": "0px 0px 5px #000"
         });
       }
     } else {
       $("#image" + i + "-one-inner").css({ top: lessy, left: lessx });
       if (length >= 3800) {
         $("#image" + i + "-one-inner h1").css({
-          filter: "drop-shadow(0 0 30px #fff)",
+          filter: "drop-shadow(0 0 30px #000)",
           "mix-blend-mode": "unset",
-          color: "black",
-          "text-shadow": "0px 0px 5px #fff"
+          color: "#fff",
+          "text-shadow": "0px 0px 5px #000"
         });
         $("#image" + i + "-one-inner h2").css({
-          filter: "drop-shadow(0 0 30px #fff)",
+          filter: "drop-shadow(0 0 30px #000)",
           "mix-blend-mode": "unset",
-          color: "black",
-          "text-shadow": "0px 0px 5px #fff"
+          color: "#fff",
+          "text-shadow": "0px 0px 5px #000"
         });
       }
     }

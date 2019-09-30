@@ -66,6 +66,9 @@ public getDominantColor(timelineno,no){
 
   (async () => {
     const dominantColor = await getColorFromURL(imageURL);
+    if(dominantColor[2]<120){
+      dominantColor[2]=170;
+    }
     //console.log(dominantColor);
     var rgb='rgb('+dominantColor[0]+','+dominantColor[1]+','+dominantColor[2]+')';
 

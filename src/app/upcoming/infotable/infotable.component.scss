@@ -20,7 +20,7 @@
     font-size: 5vw;
     transition: 3s;
     text-transform: uppercase;
-    filter: drop-shadow(-50px 0px 50px rgba(255, 255, 255, 0.26));
+    filter: drop-shadow(-50px 0px 50px #fff);
 }
 
 #leave-note {
@@ -413,7 +413,24 @@
             .unsaved {
                 content: "";
             }
-            #places-desc {
+            #places-desc1 {
+                color: var((--main-timeline-color-1));
+                //display: none;
+            }
+            #places-desc2 {
+                color: var((--main-timeline-color-2));
+                //display: none;
+            }
+            #places-desc3 {
+                color: var((--main-timeline-color-3));
+                //display: none;
+            }
+            #places-desc4 {
+                color: var((--main-timeline-color-4));
+                //display: none;
+            }
+            #places-desc5 {
+                color: var((--main-timeline-color-5));
                 //display: none;
             }
             .active {

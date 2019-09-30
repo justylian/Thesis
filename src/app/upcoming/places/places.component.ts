@@ -57,6 +57,7 @@ export class PlacesComponent implements OnInit {
       //alert('(Component2) Method called!'+i);
       //console.log(l);
       this.allfound = allfound;
+
     });
     /*  this.leapService.nextImageUpcoming$.subscribe(
       () => {
@@ -108,12 +109,15 @@ export class PlacesComponent implements OnInit {
   }
 
   /* ----- Photos manage main ----- */
-
+  onceColors = false;
   public manageImagesUpcoming(i) {
+    if (this.onceColors === false) {
+    getColors(6);
+    this.onceColors = true;
+  }
     var timePerCity = this.timePerCity;
     var timePerPhoto = this.timePerPhoto;
     var dominantcolorService = this.dominantcolorService;
-    // getColors();
     $("#places").fadeIn(250, function() {});
     //console.log(i);
 
@@ -199,172 +203,29 @@ export class PlacesComponent implements OnInit {
 
     //descplacingService.placeDescs(6);
   }
-
-  /* ----- Photos manage main ----- */
-  time;
-  flag = false;
-
-  public manageImagesShow(startingImage) {
-    var timePerCity = this.timePerCity;
-    var timePerPhoto = this.timePerPhoto;
-    var dominantcolorService = this.dominantcolorService;
-    getColors();
-
-    $("#places").fadeIn(250, function() {});
-    console.log(startingImage);
-
-    if (startingImage === 1) {
-      $("#cityImages6").show();
-      $("#cityImages6 #image6-five-inner").show(); //show desc
-    } else if (startingImage === 2) {
-      $("#cityImages6 #image6-five").hide();
-      $("#cityImages6").show();
-      $("#cityImages6 #image6-four-inner").show(); //show desc
-    } else if (startingImage === 3) {
-      $("#cityImages6 #image6-five").hide();
-      $("#cityImages6 #image6-four").hide();
-
-      $("#cityImages6").show();
-      $("#cityImages6 #image6-three-inner").show(); //show desc
-    } else if (startingImage === 4) {
-      $("#cityImages6 #image6-five").hide();
-      $("#cityImages6 #image6-four").hide();
-      $("#cityImages6 #image6-three").hide();
-      $("#cityImages6").show();
-      $("#cityImages6 #image6-two-inner").show(); //show desc
-    } else if (startingImage === 5) {
-      $("#cityImages6 #image6-five").hide();
-      $("#cityImages6 #image6-four").hide();
-      $("#cityImages6 #image6-three").hide();
-      $("#cityImages6 #image6-two").hide();
-      $("#cityImages6").show();
-      $("#cityImages6 #image6-one-inner").show(); //show desc
-    }
-
-    //descplacingService.placeDescs(6);
-    dominantcolorService.handleDominantColor(6, "five");
-
-    for (var i = startingImage; i <= 5; ++i) {
-      //5 images each city
-      if (this.flag === false) {
-        this.time = i;
-      }
-      imagePlay(
-        i,
-        timePerCity,
-        timePerPhoto,
-        dominantcolorService,
-        startingImage,
-        this.flag,
-        this.time
-      );
-    }
-  }
 }
-
-/* ----- Photos manage inner ----- */
-
-function imagePlay(
-  i,
-  timePerCity,
-  timePerPhoto,
-  dominantcolorService,
-  startingImage,
-  flag,
-  time
-) {
-  if (startingImage !== 1) {
-    if (flag === false) {
-      time = 1;
-      flag = true;
-    }
-  } else {
-    time = i;
-  }
-
-  console.log(i);
-  setTimeout(function() {
-    //if(isPaused===false){
-    //console.log("inpause"+timelineno+i);
-    //console.log(i,timelineno);
-
-    if (i === 1) {
-      $("#cityImages6 #image6-four-inner").show("fast", function() {});
-      dominantcolorService.handleDominantColor(6, "four");
-      $(" #cityImages6 #image6-five-inner").fadeOut("slow", function() {}); //hide prev desc
-      $("#cityImages6 #image6-five-img").fadeOut("slow", function() {
-        $("#cityImages6 #image6-five").fadeOut("fast");
-      });
-    } else if (i === 2) {
-      $("#cityImages6 #image6-three-inner").show("fast", function() {});
-
-      dominantcolorService.handleDominantColor(6, "three");
-      $("#cityImages6 #image6-four-inner").hide("slow", function() {}); //hide prev desc
-      $("#cityImages6 #image6-four-img").fadeOut("slow", function() {
-        $("#cityImages6 #image6-four").fadeOut("fast");
-      });
-    } else if (i === 3) {
-      $("#cityImages6 #image6-two-inner").show("fast", function() {});
-
-      dominantcolorService.handleDominantColor(6, "two");
-      $("#cityImages6 #image6-three-inner").hide("slow", function() {}); //hide prev desc
-      $("#cityImages6 #image6-three-img").fadeOut("slow", function() {
-        $("#cityImages6 #image6-three").fadeOut("fast");
-      });
-    } else if (i === 4) {
-      $("#cityImages6 #image6-one-inner").show("fast", function() {});
-
-      dominantcolorService.handleDominantColor(6, "one");
-      $("#cityImages6 #image6-two-inner").hide("slow", function() {}); //hide prev desc
-      $("#cityImages6 #image6-two-img").fadeOut("slow", function() {
-        $("#cityImages6 #image6-two").fadeOut("fast");
-      });
-    } else if (i === 5) {
-      $("#cityImages6 #image6-one-inner").hide("slow", function() {}); //hide prev desc
-      $("#cityImages6 #image6-one-img").fadeOut("slow", function() {
-        $("#cityImages6 #image6-one").fadeOut("fast", function() {
-          $("#cityImages6").hide();
-          $("#cityImages6 #image6-one-img").show();
-          $("#cityImages6 #image6-two-img").show();
-          $("#cityImages6 #image6-three-img").show();
-          $("#cityImages6 #image6-four-img").show();
-          $("#cityImages6 #image6-five-img").show();
-
-          $("#cityImages6 #image6-one").show();
-          $("#cityImages6 #image6-two").show();
-          $("#cityImages6 #image6-three").show();
-          $("#cityImages6 #image6-four").show();
-          $("#cityImages6 #image6-five").show();
-          $("#places").fadeOut();
-        });
-      });
-    }
-    //}
-  }, time * timePerPhoto);
-}
-
 /* ----- Desc placing  ----- */
 
-function getColors() {
-  var i = 6;
+function getColors(i) {
   for (var j = 5; j >= 1; j--) {
     var length = 0;
     var templength = 0;
     var lessx = 300;
     var lessy = 800;
-    length = extractColors("myCanvas", 300, 800, j, i);
-    colorList = {};
-    templength = extractColors("myCanvas1", 600, 800, j, i);
-    colorList = {};
+    length = extractColors("myCanvas6", 300, 800, j, i);
     //console.log(length);
-    //console.log(templength);
+    colorList = {};
+    templength = extractColors("myCanvas7", 600, 800, j, i);
+    colorList = {};
+
     if (length > templength) {
       length = templength;
       lessx = 600;
       lessy = 800;
     }
 
-    templength = extractColors("myCanvas2", 400, 150, j, i);
+    templength = extractColors("myCanvas8", 400, 150, j, i);
+
     colorList = {};
 
     //console.log(templength);
@@ -374,7 +235,8 @@ function getColors() {
       lessy = 150;
     }
 
-    templength = extractColors("myCanvas3", 300, 600, j, i);
+    templength = extractColors("myCanvas9", 300, 600, j, i);
+
     colorList = {};
 
     //console.log(templength);
@@ -383,16 +245,18 @@ function getColors() {
       lessx = 300;
       lessy = 600;
     }
-    templength = extractColors("myCanvas4", 1300, 150, j, i);
+    templength = extractColors("myCanvas12", 1000, 150, j, i);
+
     colorList = {};
 
     //console.log(templength);
     if (length > templength) {
       length = templength;
-      lessx = 1300;
+      lessx = 1000;
       lessy = 150;
     }
-    templength = extractColors("myCanvas5", 900, 50, j, i);
+    templength = extractColors("myCanvas11", 900, 50, j, i);
+
     colorList = {};
 
     //console.log(templength);
@@ -407,64 +271,64 @@ function getColors() {
       $("#cityImages6 #image6-five-inner").css({ top: lessy, left: lessx });
       if (length >= 3800) {
         $("#cityImages6 #image6-five-inner h1").css({
-          filter: "drop-shadow(0 0 30px #fff)",
+          filter: "drop-shadow(0 0 30px #000)",
           "mix-blend-mode": "unset",
-          color: "black",
-          "text-shadow": "0px 0px 5px #fff"
+          color: "#fff",
+          "text-shadow": "0px 0px 5px #000"
         });
         $("#cityImages6 #image6-five-inner  h2").css({
-          filter: "drop-shadow(0 0 30px #fff)",
+          filter: "drop-shadow(0 0 30px #000)",
           "mix-blend-mode": "unset",
-          color: "black",
-          "text-shadow": "0px 0px 5px #fff"
+          color: "#fff",
+          "text-shadow": "0px 0px 5px #000"
         });
       }
     } else if (j === 4) {
       $("#cityImages6 #image6-four-inner").css({ top: lessy, left: lessx });
       if (length >= 3800) {
         $("#cityImages6 #image6-four-inner h1").css({
-          filter: "drop-shadow(0 0 30px #fff)",
+          filter: "drop-shadow(0 0 30px #000)",
           "mix-blend-mode": "unset",
-          color: "black",
-          "text-shadow": "0px 0px 5px #fff"
+          color: "#fff",
+          "text-shadow": "0px 0px 5px #000"
         });
         $("#cityImages6 #image6-four-inner  h2").css({
-          filter: "drop-shadow(0 0 30px #fff)",
+          filter: "drop-shadow(0 0 30px #000)",
           "mix-blend-mode": "unset",
-          color: "black",
-          "text-shadow": "0px 0px 5px #fff"
+          color: "#fff",
+          "text-shadow": "0px 0px 5px #000"
         });
       }
     } else if (j === 3) {
       $("#cityImages6 #image6-three-inner").css({ top: lessy, left: lessx });
       if (length >= 3800) {
         $("#cityImages6 #image6-three-inner h1").css({
-          filter: "drop-shadow(0 0 30px #fff)",
+          filter: "drop-shadow(0 0 30px #000)",
           "mix-blend-mode": "unset",
-          color: "black",
-          "text-shadow": "0px 0px 5px #fff"
+          color: "#fff",
+          "text-shadow": "0px 0px 5px #000"
         });
         $("#cityImages6 #image6-three-inner  h2").css({
-          filter: "drop-shadow(0 0 30px #fff)",
+          filter: "drop-shadow(0 0 30px #000)",
           "mix-blend-mode": "unset",
-          color: "black",
-          "text-shadow": "0px 0px 5px #fff"
+          color: "#fff",
+          "text-shadow": "0px 0px 5px #000"
         });
       }
     } else if (j === 2) {
       $("#cityImages6 #image6-two-inner").css({ top: lessy, left: lessx });
       if (length >= 3800) {
         $("#cityImages6 #image6-two-inner h1").css({
-          filter: "drop-shadow(0 0 30px #fff)",
+          filter: "drop-shadow(0 0 30px #000)",
           "mix-blend-mode": "unset",
-          color: "black",
-          "text-shadow": "0px 0px 5px #fff"
+          color: "#fff",
+          "text-shadow": "0px 0px 5px #000"
         });
         $("#cityImages6 #image6-two-inner  h2").css({
-          filter: "drop-shadow(0 0 30px #fff)",
+          filter: "drop-shadow(0 0 30px #000)",
           "mix-blend-mode": "unset",
-          color: "black",
-          "text-shadow": "0px 0px 5px #fff"
+          color: "#fff",
+          "text-shadow": "0px 0px 5px #000"
         });
       }
     } else {
@@ -472,16 +336,16 @@ function getColors() {
 
       if (length >= 3800) {
         $("#cityImages6 #image6-one-inner h1").css({
-          filter: "drop-shadow(0 0 30px #fff)",
+          filter: "drop-shadow(0 0 30px #000)",
           "mix-blend-mode": "unset",
-          color: "black",
-          "text-shadow": "0px 0px 5px #fff"
+          color: "#fff",
+          "text-shadow": "0px 0px 5px #000"
         });
         $("#cityImages6 #image6-one-inner  h2").css({
-          filter: "drop-shadow(0 0 30px #fff)",
+          filter: "drop-shadow(0 0 30px #000)",
           "mix-blend-mode": "unset",
-          color: "black",
-          "text-shadow": "0px 0px 5px #fff"
+          color: "#fff",
+          "text-shadow": "0px 0px 5px #000"
         });
       }
     }
@@ -494,6 +358,7 @@ function extractColors(cnv, x, y, j, i) {
   var canvas: any = document.getElementById(cnv);
   var context = canvas.getContext("2d");
   var img;
+  //console.log(j);
 
   img = document.getElementById("image" + i + "-five-img");
   if (j === 5) {
@@ -507,7 +372,8 @@ function extractColors(cnv, x, y, j, i) {
   } else {
     img = document.getElementById("image" + i + "-one-img");
   }
-  // console.log(img);
+  //img.crossOrigin = "Anonymous";
+  //console.log(img);
   context.drawImage(img, x, y, 250, 200, 0, 0, 250, 200);
 
   var imageData = context.getImageData(0, 0, 250, 200);
@@ -526,6 +392,8 @@ function extractColors(cnv, x, y, j, i) {
       colorList[hex]++;
     }
   }
+  //console.log(colorList);
   var keys = Object.keys(colorList);
+  //console.log(keys,keys.length);
   return keys.length;
 }

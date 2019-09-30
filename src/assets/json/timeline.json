@@ -229,7 +229,8 @@
         }
     ],
     "citiesFuture": [{
-        "cityName": "Athens ",
+        "cityName": "Rome",
+        "countryName": "Italy",
         "currency": "Krone",
         "timezone": "GMT +1",
         "language": "Danish",

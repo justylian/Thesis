@@ -52,7 +52,7 @@ export class MapComponent implements OnInit {
   ngOnInit() {
 
 
-
+    findCityLoc(0,this.citiesPast,this.citiesFuture,this.citiesFuture[0].cityName);
   }
 
   public showNextCity(){
@@ -192,7 +192,7 @@ function findCityLoc(timelineno,citiesPast,citiesFuture,cityName){
   for(var i=0;i<citiesonmap.citieslocs.length;i++){
     //console.log(citiesonmap.citieslocs[i]);
     if(citiesonmap.citieslocs[i].city===cityName){
-      //console.log(i);
+      //console.log(cityName);
       cityLocLeft=citiesonmap.citieslocs[i].left
       cityLocTop=citiesonmap.citieslocs[i].top
 

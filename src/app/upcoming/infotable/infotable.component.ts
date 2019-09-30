@@ -81,7 +81,7 @@ export class InfotableComponent implements OnInit {
   async ngOnInit() {
     this.remainingDays = this.getRemainingdays(this.remainingDays);
 
-    this.searchPOI(this.citiesFuture[0].cityName);
+    this.searchPOI(this.citiesFuture[0].cityName+" "+this.citiesFuture[0].countryName);
 
     this.mapboxComponent.focusPin(1);
 
@@ -508,11 +508,15 @@ export class InfotableComponent implements OnInit {
       $("#info-frame").fadeOut("slow");
       this.mapboxComponent.hideMap();
       this.placesComponent.manageImagesUpcoming(this.currentImage);
+      $("#city-name").css({
+        filter: "drop-shadow(-50px 0px 50px var(--main-timeline-shadow))"});
       this.turn = false;
     } else {
       $("#info-frame").fadeIn("slow");
       this.mapboxComponent.showMap();
       this.placesComponent.hideImagesUpcoming();
+      $("#city-name").css({
+        filter: "drop-shadow(-50px 0px 50px #fff)"});
 
       this.turn = true;
     }
@@ -610,9 +614,13 @@ export class InfotableComponent implements OnInit {
 
 //AUTO RESIZE CITY NAME
 $(document).ready(function() {
-  var fontSize = 1130 / parseInt($("#city-name").text().length) + "px";
+  var fontSize =120+ "px";
+  if(1130 / parseInt($("#city-name").text().length)<120){
+     fontSize =1130 / parseInt($("#city-name").text().length)+ "px";
+  }
 
   //alert(fontSize);
+
   $("#city-name").css("font-size", fontSize);
 });
 /*
