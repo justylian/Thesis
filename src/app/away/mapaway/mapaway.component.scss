@@ -8,7 +8,7 @@
         width: 1395px;
         border: none;
     }*/
-
+   
    #ball-out {
        position: absolute;
        border: none;
@@ -16,7 +16,7 @@
        left: 170px;
        top: 165px;
    }
-
+   
    .stage {
        height: 750px;
        width: 1395px;
@@ -34,7 +34,7 @@
        -o-perspective-origin: 50% 50%;
        perspective-origin: 50% 50%;
    }
-
+   
    .ball-in {
        display: block;
        width: 100%;
@@ -52,7 +52,7 @@
        -webkit-transform-style: preserve-3d;
        background-size: auto 100%;
    }
-
+   
    .ball-in:before {
        content: "";
        position: relative;
@@ -63,7 +63,7 @@
        box-shadow: -40px 10px 100px 10px rgba(0, 0, 0, 0.32) inset;
        z-index: 2;
    }
-
+   
    .ball-in:after {
        content: "";
        position: relative;
@@ -74,7 +74,7 @@
        box-shadow: -40px 10px 100px 10px rgba(0, 0, 0, 0.32) inset;
        z-index: 2;
    }
-
+   
    #ballshadow {
        content: "";
        position: absolute;
@@ -88,7 +88,7 @@
        display: none;
        background: radial-gradient(circle at 50% 80%, #b3b3b300, #b3b3b300 10%, #00000073 66%, #000000 100%);
    }
-
+   
    #pin-images {
        position: absolute;
        top: 300px;
@@ -112,7 +112,7 @@
            z-index: 1;
        }
    }
-
+   
    #citytext {
        mix-blend-mode: difference;
        font-size: 80px;
@@ -121,35 +121,35 @@
        color: #111626;
        top: 159px;
    }
-
+   
    #city1 {
        opacity: 1;
    }
-
+   
    #city2 {
        opacity: 0;
    }
-
+   
    #city3 {
        opacity: 0;
    }
-
+   
    #city4 {
        opacity: 0;
    }
-
+   
    #city5 {
        opacity: 0;
    }
-
+   
    #city6 {
        opacity: 0;
    }
-
+   
    #city7 {
        opacity: 0;
    }
-
+   
    .city-map-name-inner {
        mix-blend-mode: difference;
        color: var(--main-timeline-color);
@@ -163,8 +163,27 @@
        //color: white;
        text-transform: uppercase;
        //color: rgb(61, 78, 99);
+       #weather-away {
+           font-size: 1.5vw;
+           font-family: "AvenirLight";
+           top: 185px;
+           //text-transform: uppercase;
+           mix-blend-mode: difference;
+           color: #b0b6b6;
+           left: 51px;
+           position: absolute;
+           letter-spacing: -2px;
+       }
+       #weather-away-img {
+           display: inline;
+           position: absolute;
+           width: 40px;
+           left: 7px;
+           top: 170px;
+           padding-top: 7px;
+       }
    }
-
+   
    #next-city {
        font-size: 1.5vw;
        font-family: "AvenirLight";
@@ -175,30 +194,7 @@
        left: 8px;
        position: absolute;
    }
-   #weather-away
-   {
-        font-size: 1.5vw;
-        font-family: "AvenirLight";
-        top: 185px;
-        //text-transform: uppercase;
-        mix-blend-mode: difference;
-        color: #b0b6b6;
-        left: 51px;
-        position: absolute;
-        letter-spacing: -2px;
-
-        
-    }
-    #weather-away-img{
-        display: inline;
-    position: absolute;
-    width: 40px;
-    left: 7px;
-    top: 170px;
-    padding-top: 7px;
-        
-    }
-
+   
    //ANIMATION
    @-moz-keyframes move-map-globe {
        0% {
@@ -208,7 +204,7 @@
            background-position: calc(-500%) calc(100% - 0px);
        }
    }
-
+   
    @-webkit-keyframes move-map-globe {
        0% {
            background-position: calc(-500%) calc(100% - 0px);
@@ -217,7 +213,7 @@
            background-position: calc(100% - 0px) calc(100% - 0px);
        }
    }
-
+   
    @-o-keyframes move-map-globe {
        0% {
            background-position: calc(100% - 0px) calc(100% - 0px);
@@ -226,7 +222,7 @@
            background-position: calc(-500%) calc(100% - 0px);
        }
    }
-
+   
    @-ms-keyframes move-map-globe {
        0% {
            background-position: calc(100% - 0px) calc(100% - 0px);
@@ -235,7 +231,7 @@
            background-position: calc(-500%) calc(100% - 0px);
        }
    }
-
+   
    @keyframes move-map-globe {
        0% {
            background-position: calc(100% - 0px) calc(100% - 0px);
@@ -244,26 +240,24 @@
            background-position: -1000px calc(100% - 0px);
        }
    }
-   #leave-note{
-    background-color: var(--main-timeline-color);
-    position: absolute;
-    font-family: "Avenir";
-    width: 163px;
-    height: 65px;
-    line-height: 28px;
-    top: 2%;
-    right: 1%;
-    color: white;
-    z-index: 10;
-    
-
-    padding: 5px;
-    font-size: 38px;
-    border: 1px solid var(--main-timeline-color);
-    border-radius: 0px 20px 20px 20px;
-    #leave-note-inner{
-        font-size: 20px;
-        font-family: "AvenirLight";
-  
-    }
-  }
+   
+   #leave-note {
+       background-color: var(--main-timeline-color);
+       position: absolute;
+       font-family: "Avenir";
+       width: 163px;
+       height: 65px;
+       line-height: 30px;
+       top: 2%;
+       right: 1%;
+       color: white;
+       z-index: 10;
+       padding: 5px;
+       font-size: 38px;
+       border: 1px solid var(--main-timeline-color);
+       border-radius: 0px 20px 20px 20px;
+       #leave-note-inner {
+           font-size: 20px;
+           font-family: "AvenirLight";
+       }
+   }

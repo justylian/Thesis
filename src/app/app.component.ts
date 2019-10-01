@@ -31,6 +31,21 @@ export class AppComponent {
     }
   }
 
+  public activeChangePrev(){
+    if ($("#choice-1").hasClass("active")) {
+      $("#choice-1").removeClass("active");
+      $("#choice-3").addClass("active");
+    }
+    else if ($("#choice-2").hasClass("active")) {
+      $("#choice-2").removeClass("active");
+      $("#choice-1").addClass("active");
+    }
+    else if ($("#choice-3").hasClass("active")) {
+      $("#choice-3").removeClass("active");
+      $("#choice-2").addClass("active");
+    }
+  }
+
   public activeChoose(){
     if ($("#choice-1").hasClass("active")) {
 

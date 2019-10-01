@@ -1,6 +1,8 @@
 <div id="away">
     <!--<div id="map"></div>-->
-                                                    <div id="leave-note"><div id="leave-note-inner">Returns in</div> {{remainingDays}} days</div>
+    <div id="leave-note">
+        <div id="leave-note-inner">Returns in</div> {{remainingDays}} days
+    </div>
 
     <div id="ball-out">
         <section class="stage">
@@ -8,14 +10,11 @@
             <figure class="ball-in" id="glb1">
 
                 <div id="next-city">{{dist}} km away</div>
-        
-              
-              
-
                 <div class="city-map-name-inner" id="city1">
                     {{citiesFuture[0].cityName}}
-                      <div id="weather-away">{{upcoming.weather.day1.temphigh}}</div>
-                <img id="weather-away-img" [attr.src]="day1"></div>
+                    <div id="weather-away">{{upcoming.weather.day1.temphigh}}</div>
+                    <img id="weather-away-img" [attr.src]="day1">
+                </div>
 
 
             </figure>

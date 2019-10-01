@@ -229,13 +229,13 @@
         }
     ],
     "citiesFuture": [{
-        "cityName": "Rome",
-        "countryName": "Italy",
-        "currency": "Krone",
+        "cityName": "Barcelona",
+        "countryName": "Spain",
+        "currency": "Euro",
         "timezone": "GMT +1",
-        "language": "Danish",
-        "countrycode": "+45",
-        "lingo": "'God morgen!'",
+        "language": "Spanish",
+        "countrycode": "+31",
+        "lingo": "'Buenos Dias!'",
         "weather": {
             "templow": "14°",
             "temphigh": "21°",

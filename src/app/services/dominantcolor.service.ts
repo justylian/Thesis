@@ -35,9 +35,17 @@ public handleDominantColor(timelineno,no){
   (async () => {
     const dominantColor = await getColorFromURL(imageURL);
     //console.log(dominantColor);
-    var rgb='rgb('+dominantColor[0]+','+dominantColor[1]+','+dominantColor[2]+')';
+    var dominantColorUp;
+    if(dominantColor[2]<120){
+      dominantColorUp=120;
 
-    $("body").css("--main-timeline-color", 'rgb('+dominantColor[0]+','+dominantColor[1]+','+dominantColor[2]+')');
+      var rgb='rgb('+dominantColor[0]+','+dominantColor[1]+','+dominantColorUp+')';
+      $("body").css("--main-timeline-color", 'rgb('+dominantColor[0]+','+dominantColor[1]+','+dominantColorUp+')');
+    }
+
+
+    var rgb2='rgb('+dominantColor[0]+','+dominantColor[1]+','+dominantColor[2]+')';
+    $("body").css("--main-timeline-color-upcoming", 'rgb('+dominantColor[0]+','+dominantColor[1]+','+dominantColor[2]+')');
 
     var hsp = Math.sqrt(
       0.299 * (dominantColor[0] * dominantColor[0]) +
@@ -59,7 +67,7 @@ public handleDominantColor(timelineno,no){
 
 
 
-
+/*
 
 public getDominantColor(timelineno,no){
   var imageURL=$('#cityImages'+timelineno+' #image'+timelineno+'-'+no+'-img').attr('src');//get img color
@@ -68,6 +76,8 @@ public getDominantColor(timelineno,no){
     const dominantColor = await getColorFromURL(imageURL);
     if(dominantColor[2]<120){
       dominantColor[2]=170;
+      //console.log("CHAA"+dominantColor);
+
     }
     //console.log(dominantColor);
     var rgb='rgb('+dominantColor[0]+','+dominantColor[1]+','+dominantColor[2]+')';
@@ -75,5 +85,5 @@ public getDominantColor(timelineno,no){
     $("body").css("--main-timeline-color-"+no+"", 'rgb('+dominantColor[0]+','+dominantColor[1]+','+dominantColor[2]+')');
 
   })();
-}
+}*/
 }

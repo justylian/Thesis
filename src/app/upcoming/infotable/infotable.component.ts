@@ -42,6 +42,8 @@ export class InfotableComponent implements OnInit {
   pois = [];
   allFound = false;
   imagesLoc = new Array();
+  coors:number[];
+  coor=false;
   public day1 =
     "../../../assets/images/weather/" +
     this.upcoming.weather.day1.state +
@@ -76,14 +78,20 @@ export class InfotableComponent implements OnInit {
     private placesService: PlacesService,
     private poiService: POIService,
     private imageslocationService: ImageslocationService
-  ) {}
+  ) {
 
-  async ngOnInit() {
+  }
+
+   async ngOnInit() {
+
     this.remainingDays = this.getRemainingdays(this.remainingDays);
 
+   // this.coors=this.mapawayComponent.mapboxDistance("upcoming",this.citiesFuture[0].cityName);
+    //console.log(this.coors);
     this.searchPOI(this.citiesFuture[0].cityName+" "+this.citiesFuture[0].countryName);
 
     this.mapboxComponent.focusPin(1);
+
 
     this.checkMonthDepArr();
 
@@ -186,7 +194,7 @@ export class InfotableComponent implements OnInit {
     this.imagesFound = true;
     this.placesFound = true;
     this.allFound = true;
-
+    this.coor=true;
     this.sendplacesVar();
     this.sendimagesVar();
     this.sendpoisVar();

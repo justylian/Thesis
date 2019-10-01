@@ -211,17 +211,17 @@ function getColors(i) {
     var length = 0;
     var templength = 0;
     var lessx = 300;
-    var lessy = 800;
-    length = extractColors("myCanvas6", 300, 800, j, i);
+    var lessy = 300;
+    length = extractColors("myCanvas6", 300, 300, j, i);
     //console.log(length);
     colorList = {};
-    templength = extractColors("myCanvas7", 600, 800, j, i);
+    templength = extractColors("myCanvas7", 1200, 50, j, i);
     colorList = {};
 
     if (length > templength) {
       length = templength;
-      lessx = 600;
-      lessy = 800;
+      lessx = 1200;
+      lessy = 50;
     }
 
     templength = extractColors("myCanvas8", 400, 150, j, i);
@@ -245,7 +245,7 @@ function getColors(i) {
       lessx = 300;
       lessy = 600;
     }
-    templength = extractColors("myCanvas12", 1000, 150, j, i);
+    templength = extractColors("myCanvas12", 1000, 250, j, i);
 
     colorList = {};
 
@@ -253,17 +253,17 @@ function getColors(i) {
     if (length > templength) {
       length = templength;
       lessx = 1000;
-      lessy = 150;
+      lessy = 850;
     }
-    templength = extractColors("myCanvas11", 900, 50, j, i);
+    templength = extractColors("myCanvas11", 600, 800, j, i);
 
     colorList = {};
 
     //console.log(templength);
     if (length > templength) {
       length = templength;
-      lessx = 900;
-      lessy = 50;
+      lessx = 600;
+      lessy = 800;
     }
     console.log(i, j, length, lessx, lessy);
 

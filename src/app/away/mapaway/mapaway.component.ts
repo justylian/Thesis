@@ -33,7 +33,7 @@ export class MapawayComponent implements OnInit {
 
 
 
-  async  mapboxDistance(parameter,city){
+  public async  mapboxDistance(parameter,city){
 
     var coordinates=[12.486, 41.89]; //Rome as start
     var MapboxClient = require('mapbox');
@@ -51,6 +51,7 @@ export class MapawayComponent implements OnInit {
       return this.dist;
     }
     else if(parameter==="upcoming"){
+
       return coordinates;
     }
   }

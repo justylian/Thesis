@@ -1,4 +1,6 @@
-<div id="city-longlat">{{citiesFuture[0].longlat}}</div>
+<div *ngIf="coor">
+    <div id="city-longlat">{{citiesFuture[0].longlat}}{{coors}}</div>
+</div>
 
 <div id="city-name">{{citiesFuture[0].cityName}}</div>
 <div id="leave-note">
