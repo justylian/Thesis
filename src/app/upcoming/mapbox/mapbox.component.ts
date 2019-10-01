@@ -28,7 +28,7 @@ export class MapboxComponent implements OnInit {
   ) {
     this.choiceService.upcoming$.subscribe(() => {
       //alert('(Component2) Method called!'+i);
-      //this.mapBox();
+      this.mapBox();
     });
 
     this.upcomingService.pois$.subscribe(i => {
@@ -78,7 +78,7 @@ export class MapboxComponent implements OnInit {
     setTimeout(function() {
       mymap.flyTo({
         center: that.coordinates,
-        zoom: 10
+        zoom: 13
       });
     }, 7000);
 

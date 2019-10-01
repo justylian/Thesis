@@ -28,8 +28,10 @@ export class ImagesawayComponent implements OnInit {
     });
     this.upcomingService.found$.subscribe(allfound => {
       //alert('(Component2) Method called!'+i);
-      //console.log(l);
+      //console.log(this.allfound);
       this.allfound = allfound;
+      //console.log(this.allfound);
+
     });
   }
   ngOnInit() {

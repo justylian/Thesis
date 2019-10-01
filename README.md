@@ -6,6 +6,11 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
+WARNING: Disable CORS to run.
+  Mac: open -a Google\ Chrome --args --disable-web-security --user-data-dir
+  Windows: chrome.exe --user-data-dir="C://Chrome dev session" --disable-web-security
+
+
 ## Configurable
 
     timeline.json: Information about past destinations

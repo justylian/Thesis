@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import timelinejson from '../../../assets/json/timeline.json';
 import upcomingjson from '../../../assets/json/upcoming.json';
 declare var require: any
+import citiesonmap from '../../../assets/json/citiesonmap.json';
+import { UpcomingService } from './../../services/upcoming.service';
 
 declare var Load: any;
 declare var $: any;
@@ -13,21 +15,43 @@ declare var jQuery: any;
 })
 export class MapawayComponent implements OnInit {
   citiesFuture=timelinejson.citiesFuture;
+  citiesPast=timelinejson.citiesPast;
+  citiesonmap=citiesonmap;
   arrivaldiff=false;
   remainingDays:number;
   upcoming=upcomingjson;
   dist:number;
   parameter="";
+  images;
+  once1;
+  allfound=false;
   public day1="../../../assets/images/weather/Showerstrans.png";
 
-  constructor() {
+  constructor( private upcomingService: UpcomingService) {
+    this.upcomingService.images$.subscribe(i => {
+      //alert('(Component2) Method called!'+i);
+      if (this.once1 === true) {
+        this.images = i;
+        //console.log(this.images);
+
+        this.once1 = false;
+      }
+    });
+    this.upcomingService.found$.subscribe(allfound => {
+      //alert('(Component2) Method called!'+i);
+      //console.log(l);
+      this.allfound = allfound;
+      //$('#image-stack-1').css('background-image', 'url(' + this.images[0].previewURL + ')');
+
+    });
     this.dist=this.mapboxDistance("",this.citiesFuture[0].cityName)[0];
     this.remainingDays=this.getRemainingdays(this.remainingDays);
-
 
    }
 
   ngOnInit() {
+    this.findCityLoc(this.citiesFuture[0].cityName);
+
   }
 
 
@@ -112,7 +136,7 @@ public mapMinify() {
   $("#away .city-map-name-inner").fadeOut( 400, function() {});
   $('#away #next-city').fadeOut( 400, function() {});
 
-  $("#away #pin-images").fadeOut(400, function() {});
+  $("#away #pin-images-away").fadeOut(400, function() {});
 
   setTimeout(function() {
     $("#away .stage").animate({ width: 180, height: 170, borderRadius: '50%' }, 800);
@@ -131,7 +155,7 @@ public mapMinify() {
 public mapMaximize() {
 setTimeout(function() {
   $("#away .city-map-name-inner").fadeTo( 500,1, function() {});
-  $("#away #pin-images").fadeTo( 800,1,function() {});
+  $("#away #pin-images-away").fadeTo( 800,1,function() {});
   $('#away #next-city').fadeIn( 400, function() {});
 
 }, 800);
@@ -142,4 +166,39 @@ $("#away .ball-in").animate({ borderRadius: '0%' }, 200);
 $("#away .ball-in").css("animation", "none");
 $("#away #ballshadow").hide(500);
 };
+
+
+/* --------- Find pin location ---------*/
+public findCityLoc(cityName){
+  var cityLocLeft;
+  var cityLocTop;
+
+
+
+  for(var i=0;i<this.citiesonmap.citieslocs.length;i++){
+    //console.log(this.citiesonmap.citieslocs[i]);
+    if(this.citiesonmap.citieslocs[i].city===cityName){
+      //console.log(cityName);
+      cityLocLeft=this.citiesonmap.citieslocs[i].left
+      cityLocTop=this.citiesonmap.citieslocs[i].top
+
+    }
+  }
+  //console.log($("#away #pin-images-away"));
+  //$("#away #pin-images-away").fadeOut(400, function() {});
+
+  $('#away #pin-images-away').fadeOut( 400, function() {
+    $('#away #pin-images-away').animate({ left: cityLocLeft, top: cityLocTop}, 200);
+    $('#away #pin-images-away').fadeIn( 600, function() {
+    });
+  });
+
+
+
 }
+
+
+}
+
+
+

@@ -1,138 +1,139 @@
-{"citieslocs":
-    [{
-    
-        "city":"London",
-        "left": "845",
-        "top": "300"
-    },
-    {
-        "city":"Copenhagen",
-        "left": "900",
-        "top": "300"
-    },
-    {
-        "city":"Paris",
-        "left": "840",
-        "top": "350"
-    },
-    {
-        "city":"Lisbon",
-        "left": "778",
-        "top": "400"
-    },
-    {
-        "city":"New York",
-        "left": "580",
-        "top": "400"
-    },
-    {
-        "city":"Washington",
-        "left": "580",
-        "top": "400"
-    },
-    {
-        "city":"Philadelphia",
-        "left": "580",
-        "top": "400"
-    },
-    {
-        "city":"Boston",
-        "left": "580",
-        "top": "400"
-    },
-    {
-        "city":"Tokyo",
-       "left": "1400",
-        "top": "400"
-    },
-    {
-        "city":"Istanbul",
-        "left": "950",
-        "top": "400"
-    },
-    {
-        "city":"Athens",
-        "left": "920",
-        "top": "400"
-    },
-    {
-        "city":"Thessaloniki",
-        "left": "920",
-        "top": "400"
-    },
-    {
-        "city":"Heraklion",
-        "left": "920",
-        "top": "400"
-    },
-    {
-        "city":"Barcelona",
-        "left": "920",
-        "top": "400"
-    },
-    {
-        "city":"Rome",
-        "left": "900",
-        "top": "400"
-    },
-    {
-        "city":"Milan",
-        "left": "920",
-        "top": "380"
-    },
-    {
-        "city":"Vienna",
-        "left": "920",
-        "top": "380"
-    },
-    {
-        "city":"Prague",
-        "left": "920",
-        "top": "370"
-    },
-    {
-        "city":"Moscow",
-        "left": "945",
-        "top": "340"
-    },
-    {
-        "city":"Berlin",
-        "left": "900",
-        "top": "340"
-    },
-    {
-        "city":"Stockholm",
-        "left": "900",
-        "top": "300"
-    },
-    {
-        "city":"Oslo",
-        "left": "900",
-        "top": "300"
-    },
-    {
-        "city":"Miami",
-        "left": "530",
-        "top": "440"
-    },
-    {
-        "city":"Orlando",
-        "left": "530",
-        "top": "440"
-    },
-    {
-        "city":"San Francisco",
-        "left": "380",
-        "top": "440"
-    },
-    {
-        "city":"San Diego",
-        "left": "380",
-        "top": "440"
-    },
-    {
-        "city":"Los Angeles",
-        "left": "380",
-        "top": "440"
-    }]
+{
+    "citieslocs": [{
+
+            "city": "London",
+            "left": "845",
+            "top": "300"
+        },
+        {
+            "city": "Copenhagen",
+            "left": "900",
+            "top": "300"
+        },
+        {
+            "city": "Paris",
+            "left": "840",
+            "top": "350"
+        },
+        {
+            "city": "Lisbon",
+            "left": "778",
+            "top": "400"
+        },
+        {
+            "city": "New York",
+            "left": "580",
+            "top": "400"
+        },
+        {
+            "city": "Washington",
+            "left": "580",
+            "top": "400"
+        },
+        {
+            "city": "Philadelphia",
+            "left": "580",
+            "top": "400"
+        },
+        {
+            "city": "Boston",
+            "left": "580",
+            "top": "400"
+        },
+        {
+            "city": "Tokyo",
+            "left": "1400",
+            "top": "400"
+        },
+        {
+            "city": "Istanbul",
+            "left": "950",
+            "top": "400"
+        },
+        {
+            "city": "Athens",
+            "left": "920",
+            "top": "400"
+        },
+        {
+            "city": "Thessaloniki",
+            "left": "920",
+            "top": "400"
+        },
+        {
+            "city": "Heraklion",
+            "left": "920",
+            "top": "400"
+        },
+        {
+            "city": "Barcelona",
+            "left": "850",
+            "top": "400"
+        },
+        {
+            "city": "Rome",
+            "left": "900",
+            "top": "400"
+        },
+        {
+            "city": "Milan",
+            "left": "920",
+            "top": "380"
+        },
+        {
+            "city": "Vienna",
+            "left": "920",
+            "top": "380"
+        },
+        {
+            "city": "Prague",
+            "left": "920",
+            "top": "370"
+        },
+        {
+            "city": "Moscow",
+            "left": "945",
+            "top": "340"
+        },
+        {
+            "city": "Berlin",
+            "left": "900",
+            "top": "340"
+        },
+        {
+            "city": "Stockholm",
+            "left": "900",
+            "top": "300"
+        },
+        {
+            "city": "Oslo",
+            "left": "900",
+            "top": "300"
+        },
+        {
+            "city": "Miami",
+            "left": "530",
+            "top": "440"
+        },
+        {
+            "city": "Orlando",
+            "left": "530",
+            "top": "440"
+        },
+        {
+            "city": "San Francisco",
+            "left": "380",
+            "top": "440"
+        },
+        {
+            "city": "San Diego",
+            "left": "380",
+            "top": "440"
+        },
+        {
+            "city": "Los Angeles",
+            "left": "380",
+            "top": "440"
+        }
+    ]
 }
