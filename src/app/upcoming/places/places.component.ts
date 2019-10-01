@@ -269,7 +269,7 @@ function getColors(i) {
 
     if (j === 5) {
       $("#cityImages6 #image6-five-inner").css({ top: lessy, left: lessx });
-      if (length >= 3800) {
+      if (length >= 3600) {
         $("#cityImages6 #image6-five-inner h1").css({
           filter: "drop-shadow(0 0 30px #000)",
           "mix-blend-mode": "unset",
@@ -285,7 +285,7 @@ function getColors(i) {
       }
     } else if (j === 4) {
       $("#cityImages6 #image6-four-inner").css({ top: lessy, left: lessx });
-      if (length >= 3800) {
+      if (length >= 3600) {
         $("#cityImages6 #image6-four-inner h1").css({
           filter: "drop-shadow(0 0 30px #000)",
           "mix-blend-mode": "unset",
@@ -301,7 +301,7 @@ function getColors(i) {
       }
     } else if (j === 3) {
       $("#cityImages6 #image6-three-inner").css({ top: lessy, left: lessx });
-      if (length >= 3800) {
+      if (length >= 3600) {
         $("#cityImages6 #image6-three-inner h1").css({
           filter: "drop-shadow(0 0 30px #000)",
           "mix-blend-mode": "unset",
@@ -317,7 +317,7 @@ function getColors(i) {
       }
     } else if (j === 2) {
       $("#cityImages6 #image6-two-inner").css({ top: lessy, left: lessx });
-      if (length >= 3800) {
+      if (length >= 3600) {
         $("#cityImages6 #image6-two-inner h1").css({
           filter: "drop-shadow(0 0 30px #000)",
           "mix-blend-mode": "unset",
@@ -334,7 +334,7 @@ function getColors(i) {
     } else {
       $("#cityImages6 #image6-one-inner").css({ top: lessy, left: lessx });
 
-      if (length >= 3800) {
+      if (length >= 3600) {
         $("#cityImages6 #image6-one-inner h1").css({
           filter: "drop-shadow(0 0 30px #000)",
           "mix-blend-mode": "unset",

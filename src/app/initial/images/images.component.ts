@@ -269,7 +269,7 @@ function getColors(i) {
     if (j === 5) {
       $("#image" + i + "-five-inner").css({ top: lessy, left: lessx });
       //console.log(length);
-      if (length >= 3800) {
+      if (length >= 3600) {
         $("#image" + i + "-five-inner h1").css({
           filter: "drop-shadow(0 0 30px #000)",
           "mix-blend-mode": "unset",
@@ -285,7 +285,7 @@ function getColors(i) {
       }
     } else if (j === 4) {
       $("#image" + i + "-four-inner").css({ top: lessy, left: lessx });
-      if (length >= 3800) {
+      if (length >= 3600) {
         $("#image" + i + "-four-inner h1").css({
           filter: "drop-shadow(0 0 30px #000)",
           "mix-blend-mode": "unset",
@@ -301,7 +301,7 @@ function getColors(i) {
       }
     } else if (j === 3) {
       $("#image" + i + "-three-inner").css({ top: lessy, left: lessx });
-      if (length >= 3800) {
+      if (length >= 3600) {
         $("#image" + i + "-three-inner h1").css({
           filter: "drop-shadow(0 0 30px #000)",
           "mix-blend-mode": "unset",
@@ -317,7 +317,7 @@ function getColors(i) {
       }
     } else if (j === 2) {
       $("#image" + i + "-two-inner").css({ top: lessy, left: lessx });
-      if (length >= 3800) {
+      if (length >= 3600) {
         $("#image" + i + "-two-inner h1").css({
           filter: "drop-shadow(0 0 30px #000)",
           "mix-blend-mode": "unset",
@@ -333,7 +333,7 @@ function getColors(i) {
       }
     } else {
       $("#image" + i + "-one-inner").css({ top: lessy, left: lessx });
-      if (length >= 3800) {
+      if (length >= 3600) {
         $("#image" + i + "-one-inner h1").css({
           filter: "drop-shadow(0 0 30px #000)",
           "mix-blend-mode": "unset",
