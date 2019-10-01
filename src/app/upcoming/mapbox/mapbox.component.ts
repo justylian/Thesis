@@ -71,14 +71,14 @@ export class MapboxComponent implements OnInit {
       res
     ) {
       that.coordinates = data.features[0].center;
-      console.log( that.mymap);
+      //console.log( that.mymap);
     });
 
     var mymap = this.mymap;
     setTimeout(function() {
       mymap.flyTo({
         center: that.coordinates,
-        zoom: 13
+        zoom: 12
       });
     }, 7000);
 
