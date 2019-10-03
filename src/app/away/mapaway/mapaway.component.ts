@@ -1,10 +1,10 @@
+import { SocketService } from './../../services/socket.service';
 import { Component, OnInit } from '@angular/core';
 import timelinejson from '../../../assets/json/timeline.json';
 import upcomingjson from '../../../assets/json/upcoming.json';
 declare var require: any
 import citiesonmap from '../../../assets/json/citiesonmap.json';
 import { UpcomingService } from './../../services/upcoming.service';
-
 declare var Load: any;
 declare var $: any;
 declare var jQuery: any;
@@ -25,9 +25,18 @@ export class MapawayComponent implements OnInit {
   images;
   once1;
   allfound=false;
+  loadedAway=false;
   public day1="../../../assets/images/weather/Showerstrans.png";
 
-  constructor( private upcomingService: UpcomingService) {
+  constructor( private upcomingService: UpcomingService,private socketService:SocketService) {
+    this.socketService.getCity().subscribe(city => {
+      //console.log(city);
+      this.citiesFuture[0].cityName= city;
+      this.dist=this.mapboxDistance("",this.citiesFuture[0].cityName)[0];
+      this.loadedAway=true;
+      this.findCityLoc(this.citiesFuture[0].cityName);
+
+    });
     this.upcomingService.images$.subscribe(i => {
       //alert('(Component2) Method called!'+i);
       if (this.once1 === true) {
@@ -44,13 +53,12 @@ export class MapawayComponent implements OnInit {
       //$('#image-stack-1').css('background-image', 'url(' + this.images[0].previewURL + ')');
 
     });
-    this.dist=this.mapboxDistance("",this.citiesFuture[0].cityName)[0];
+
     this.remainingDays=this.getRemainingdays(this.remainingDays);
 
    }
 
   ngOnInit() {
-    this.findCityLoc(this.citiesFuture[0].cityName);
 
   }
 
@@ -174,11 +182,12 @@ public findCityLoc(cityName){
   var cityLocTop;
 
 
-
   for(var i=0;i<this.citiesonmap.citieslocs.length;i++){
     //console.log(this.citiesonmap.citieslocs[i]);
-    if(this.citiesonmap.citieslocs[i].city===cityName){
+    if((this.citiesonmap.citieslocs[i].city).toUpperCase()===(cityName).toUpperCase()){
       //console.log(cityName);
+      console.log((cityName).toUpperCase(),(this.citiesonmap.citieslocs[i].city).toUpperCase());
+
       cityLocLeft=this.citiesonmap.citieslocs[i].left
       cityLocTop=this.citiesonmap.citieslocs[i].top
 
@@ -186,7 +195,7 @@ public findCityLoc(cityName){
   }
   //console.log($("#away #pin-images-away"));
   //$("#away #pin-images-away").fadeOut(400, function() {});
-
+  console.log(cityLocTop,cityLocLeft);
   $('#away #pin-images-away').fadeOut( 400, function() {
     $('#away #pin-images-away').animate({ left: cityLocLeft, top: cityLocTop}, 200);
     $('#away #pin-images-away').fadeIn( 600, function() {

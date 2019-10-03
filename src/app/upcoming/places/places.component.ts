@@ -108,13 +108,19 @@ export class PlacesComponent implements OnInit {
     $("#places").fadeOut(250, function() {});
   }
 
-  /* ----- Photos manage main ----- */
   onceColors = false;
-  public manageImagesUpcoming(i) {
+  public showImagesUpcoming(i) {
     if (this.onceColors === false) {
-    getColors(6);
-    this.onceColors = true;
+      getColors(6);
+      this.onceColors = true;
+    }
+    this.manageImagesUpcoming(i)
   }
+
+  /* ----- Photos manage main ----- */
+
+  public manageImagesUpcoming(i) {
+
     var timePerCity = this.timePerCity;
     var timePerPhoto = this.timePerPhoto;
     var dominantcolorService = this.dominantcolorService;
@@ -215,12 +221,12 @@ function getColors(i) {
     length = extractColors("myCanvas6", 300, 300, j, i);
     //console.log(length);
     colorList = {};
-    templength = extractColors("myCanvas7", 1200, 50, j, i);
+    templength = extractColors("myCanvas7", 1250, 50, j, i);
     colorList = {};
 
     if (length > templength) {
       length = templength;
-      lessx = 1200;
+      lessx = 1250;
       lessy = 50;
     }
 

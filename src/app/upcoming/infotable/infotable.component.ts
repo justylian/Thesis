@@ -52,7 +52,8 @@ export class InfotableComponent implements OnInit {
   countryFound = false;
   city;
   country;
-  searchEnd=true;
+  searchEnd = true;
+  loadedUpcoming=false;
   public day1 =
     "../../../assets/images/weather/" +
     this.upcoming.weather.day1.state +
@@ -91,41 +92,60 @@ export class InfotableComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    $('#choice #choice-loader #loader-text').fadeIn();
+
     this.socketService.getCity().subscribe(city => {
       //console.log(city);
-      this.city = city;
+      this.citiesFuture[0].cityName = city;
       this.cityFound = true;
+
       if (this.countryFound === true && this.cityFound == true) {
-        this.searchPOI(this.city + " " + this.country);
+
+        this.searchPOI(
+          this.citiesFuture[0].cityName + " " + this.citiesFuture[0].countryName
+        );
+
+
+        this.remainingDays = this.getRemainingdays(this.remainingDays);
+
+        this.mapboxComponent.focusPin(1);
+
+        this.checkMonthDepArr();
+
+        this.weatherMessage();
+        this.loadedUpcoming=true;
       }
     });
     this.socketService.getCountry().subscribe(country => {
       //console.log(country);
-      this.country = country;
+      this.citiesFuture[0].countryName = country;
       this.countryFound = true;
       if (this.countryFound === true && this.cityFound == true) {
-        this.searchPOI(this.city + " " + this.country);
+        this.searchPOI(
+          this.citiesFuture[0].cityName + " " + this.citiesFuture[0].countryName
+        );
+
+        this.remainingDays = this.getRemainingdays(this.remainingDays);
+
+        this.mapboxComponent.focusPin(1);
+
+        this.checkMonthDepArr();
+
+        this.weatherMessage();
+        this.loadedUpcoming=true;
+
       }
     });
-
-    this.remainingDays = this.getRemainingdays(this.remainingDays);
 
     // this.coors=this.mapawayComponent.mapboxDistance("upcoming",this.citiesFuture[0].cityName);
     //console.log(this.coors);
     if (window.screen.width < 1920) {
       // 768px portrait
       this.mobile = true;
+
     } else {
-      this.searchPOI(
-        this.citiesFuture[0].cityName + " " + this.citiesFuture[0].countryName
-      );
+      // this.searchPOI(this.citiesFuture[0].cityName + " " + this.citiesFuture[0].countryName );
     }
-
-    this.mapboxComponent.focusPin(1);
-
-    this.checkMonthDepArr();
-
-    this.weatherMessage();
   }
 
   /* -------------- Check if Months different --------------- */
@@ -220,7 +240,12 @@ export class InfotableComponent implements OnInit {
     console.log(this.pois);
     if (this.pois.length < 5) {
       alert("Not enough places found!");
+
     }
+
+    $('#loader-text').fadeOut("slow");
+    $('#choice-loader').fadeOut("slow");
+
     this.imagesFound = true;
     this.placesFound = true;
     this.allFound = true;
@@ -240,12 +265,13 @@ export class InfotableComponent implements OnInit {
     //console.log(this.places);
     this.pois = data.geonames;
 
-    console.log(this.pois.length);
+    //console.log(this.pois.length);
     for (var i = 0; i < this.pois.length; i++) {
-      console.log("in loop");
+      //console.log("in loop");
+      this.searchImages(this.pois[i].toponymName);
+
       this.searchPlace(this.pois[i].toponymName);
 
-      this.searchImages(this.pois[i].toponymName);
     }
   }
 
@@ -272,11 +298,19 @@ export class InfotableComponent implements OnInit {
   handleSuccessPlace(data) {
     this.places[this.placecount] = data;
     //console.log(data.extract);
+    //console.log("in loop place");
     this.placecount = this.placecount + 1;
-    if (this.placecount === this.pois.length && this.imagecount === this.images.length && this.searchEnd===true) {
-      this.searchEnd=false;
+    if (
+      this.placecount === this.pois.length &&
+      this.imagecount === this.pois.length &&
+      this.searchEnd === true
+    ) {
+      this.searchEnd = false;
       console.log(this.images);
       console.log(this.places);
+      this.placecount = 0;
+      this.imagecount = 0;
+
       this.fixPlaces();
 
       /* this.allFound = true;
@@ -298,7 +332,6 @@ export class InfotableComponent implements OnInit {
   public searchPlace(query: string) {
     this.searchingPlace = true;
     //console.log(query);
-    console.log("in loop place");
 
     return this.placesService
       .getInfo(query)
@@ -314,11 +347,19 @@ export class InfotableComponent implements OnInit {
   handleSuccess(data, query) {
     this.images[this.imagecount] = data.hits[0];
     //console.log(this.images);
+    //console.log("in loop img");
+
     this.imagecount = this.imagecount + 1;
-    if (this.placecount === this.pois.length && this.imagecount === this.images.length && this.searchEnd===true) {
-      this.searchEnd=false;
+    if (
+      this.placecount === this.pois.length &&
+      this.imagecount === this.pois.length &&
+      this.searchEnd === true
+    ) {
+      this.searchEnd = false;
       console.log(this.images);
       console.log(this.places);
+      this.placecount = 0;
+      this.imagecount = 0;
       this.fixPlaces();
 
       /* this.allFound = true;
@@ -338,7 +379,6 @@ export class InfotableComponent implements OnInit {
 
   searchImages(query: string) {
     this.searchingImage = true;
-    console.log("in loop img");
 
     return this.imagesService
       .getImage(query)
@@ -384,7 +424,7 @@ export class InfotableComponent implements OnInit {
     if (this.turn === true) {
       $("#info-frame").fadeOut("slow");
       this.mapboxComponent.hideMap();
-      this.placesComponent.manageImagesUpcoming(this.currentImage);
+      this.placesComponent.showImagesUpcoming(this.currentImage);
       $("#city-name").css({
         filter: "drop-shadow(-50px 0px 50px var(--main-timeline-shadow))"
       });

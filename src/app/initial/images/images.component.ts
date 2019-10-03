@@ -8,6 +8,8 @@ import { Component, OnInit } from "@angular/core";
 import timesjson from "../../../assets/json/times.json";
 import timelinejson from "../../../assets/json/timeline.json";
 import { LeapService } from "./../../services/leap.service";
+import { SocketService } from './../../services/socket.service';
+
 declare var require: any;
 
 declare var Load: any;
@@ -41,8 +43,16 @@ export class ImagesComponent implements OnInit {
     private compBubble: InfobubbleComponent,
     private initialService: InitialService,
     private compMusic: MusicComponent,
-    private dominantcolorService: DominantcolorService
+    private dominantcolorService: DominantcolorService,
+    private socketService:SocketService
   ) {
+    this.socketService.getCity().subscribe(city => {
+      //console.log(city);
+      this.citiesFuture[0].cityName= city;
+      Load.allTheThings();
+      //this.loadedAway=true;
+
+    });
     this.upcomingService.images$.subscribe(i => {
       //alert('(Component2) Method called!'+i);
       if (this.once1 === true) {
@@ -88,7 +98,7 @@ export class ImagesComponent implements OnInit {
   }
 
   ngOnInit() {
-    Load.allTheThings();
+
     //descPlacing();
     //this.compMusic.manageMusic(6)
   }

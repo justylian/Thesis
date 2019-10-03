@@ -4,7 +4,7 @@
         <div id="leave-note-inner">Returns in</div> {{remainingDays}} days
     </div>
 
-    <div id="ball-out">
+    <div id="ball-out" *ngIf="loadedAway">
         <section class="stage">
             <div id="ballshadow"></div>
             <figure class="ball-in" id="glb1">

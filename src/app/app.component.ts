@@ -39,6 +39,8 @@ export class AppComponent implements OnInit{
   sendMessage() {
     this.socketService.sendCity(this.city);
     this.socketService.sendCountry(this.country);
+    window.location.reload(false);
+
   }
 
   title = "thesis-app";

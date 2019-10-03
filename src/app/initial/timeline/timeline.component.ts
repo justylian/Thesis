@@ -1,10 +1,11 @@
+import { SocketService } from './../../services/socket.service';
 import { MusicComponent } from './../music/music.component';
 import { ImagesComponent } from './../images/images.component';
 import { Component, OnInit } from '@angular/core';
 import { Timelineinfo } from './../../models/timelineinfo';
 import timelinejson from '../../../assets/json/timeline.json';
 import { InitialService } from './../../services/initial.service';
-import upcomingjson from '../../../assets/json/upcoming.json';  
+import upcomingjson from '../../../assets/json/upcoming.json';
 declare var require: any
 declare var $: any;
 declare var jQuery: any;
@@ -60,8 +61,15 @@ export class TimelineComponent implements OnInit {
    citiesFuture=timelinejson.citiesFuture;
 
 
-  constructor(private compMusic: MusicComponent,private compImages: ImagesComponent,private initialService: InitialService) {
+  constructor(private compMusic: MusicComponent,private compImages: ImagesComponent,private initialService: InitialService,private socketService:SocketService) {
     //var instance = new ExampleClass().deserialize(timelinejson);
+    this.socketService.getCity().subscribe(city => {
+      //console.log(city);
+      this.citiesFuture[0].cityName= city;
+
+      //this.loadedAway=true;
+
+    });
     this.initialService.timelineFocus$.subscribe(
       (i) => {
         //alert('(Component2) Method called!'+i);

@@ -1,98 +1,151 @@
-#initial {
-    display: none;
-}
-
-#upcoming {
-    display: none;
-}
-
-#away {
-    display: none;
-}
-
-#mobile {
-    z-index: 6;
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(0deg, #122323, #121426);
-    form {
+    #initial {
+        display: none;
+    }
+    
+    #upcoming {
+        display: none;
+    }
+    
+    #away {
+        display: none;
+    }
+    
+    #mobile {
+        z-index: 7;
+        position: fixed;
         width: 100%;
         height: 100%;
-        text-align: center;
-        margin-top: 50%;
-        .form-text {
-            font-size: 40px;
-            padding-top: 5%;
-            color: rgba(255, 255, 255, 0.596);
+        background: linear-gradient(0deg, #122323, #121426);
+        form {
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            margin-top: 50%;
+            .form-text {
+                font-size: 40px;
+                padding-top: 5%;
+                color: rgba(255, 255, 255, 0.596);
+            }
+            input {
+                width: 300px;
+                height: 80px;
+                border: 2px solid white;
+                border-radius: 0px 55px 55px 55px;
+                font-size: 20px;
+                color: rgb(22, 21, 26);
+            }
+            input:focus {
+                outline: none;
+            }
+            select {
+                width: 300px;
+                height: 80px;
+                border: 2px solid white;
+                border-radius: 0px 55px 55px 55px;
+                font-size: 20px;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                outline: none;
+                appearance: none;
+                /* Remove default arrow */
+                content: ">";
+                /* Add custom arrow */
+            }
         }
-        input {
-            width: 300px;
-            height: 80px;
-            border: 2px solid white;
-            border-radius: 0px 55px 55px 55px;
-            font-size: 20px;
-            color: rgb(22, 21, 26);
+        #form-country {
+            font-size: 25px;
+            padding-left: 2%;
+            background: white;
         }
-        input:focus {
-            outline: none;
-        }
-        select {
-            width: 300px;
-            height: 80px;
-            border: 2px solid white;
-            border-radius: 0px 55px 55px 55px;
-            font-size: 20px;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            outline: none;
-            appearance: none;
-            /* Remove default arrow */
-            content: ">";
-            /* Add custom arrow */
+        #form-city {
+            font-size: 25px;
+            padding-left: 2%;
         }
     }
-    #form-country {
-        font-size: 25px;
-        padding-left: 2%;
-        background: white;
-    }
-    #form-city {
-        font-size: 25px;
-        padding-left: 2%;
-    }
-}
-
-#choice {
-    position: absolute;
-    color: white;
-    display: block;
-    #choice-1 {
-        top: 500px;
-        font-size: 30px;
-        left: 300px;
-        padding-top: 10px;
+    
+    #choice {
         position: absolute;
+        color: white;
+        display: block;
+        #choice-loader {
+            z-index: 6;
+            #loader-text {
+                font-size: 20px;
+                position: absolute;
+                left: 880px;
+                top: 700px;
+                width: 400px;
+                z-index: 7;
+                color: #ffffffab;
+                display: none;
+            }
+            .loader {
+                left: 855px;
+                top: 391px;
+                position: absolute;
+                border: 20px solid #f3f3f30a;
+                border-radius: 50%;
+                border-top: 20px solid #a6a6a6;
+                width: 220px;
+                height: 220px;
+                -webkit-animation: spin 2s linear infinite;
+                animation: spin 2s linear infinite;
+                z-index: 7;
+            }
+            #loader-background {
+                background: #000c;
+                width: 1920px;
+                z-index: 6;
+                height: 1080px;
+                position: absolute;
+            }
+            /* Safari */
+            @-webkit-keyframes spin {
+                0% {
+                    -webkit-transform: rotate(0deg);
+                }
+                100% {
+                    -webkit-transform: rotate(360deg);
+                }
+            }
+            @keyframes spin {
+                0% {
+                    transform: rotate(0deg);
+                }
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+        }
+        #choice-1 {
+            top: 500px;
+            font-size: 30px;
+            left: 300px;
+            padding-top: 10px;
+            position: absolute;
+            z-index: 5;
+        }
+        #choice-2 {
+            top: 500px;
+            font-size: 30px;
+            left: 900px;
+            padding-top: 10px;
+            position: absolute;
+            z-index: 5;
+        }
+        #choice-3 {
+            top: 500px;
+            font-size: 30px;
+            left: 1600px;
+            padding-top: 10px;
+            position: absolute;
+            z-index: 5;
+        }
+        .active {
+            position: absolute;
+            border-top: 2px solid #fff;
+            border-radius: 0px 0px 15px 15px;
+            transition: 2s;
+            filter: drop-shadow(0px 0px 50px #fff);
+        }
     }
-    #choice-2 {
-        top: 500px;
-        font-size: 30px;
-        left: 900px;
-        padding-top: 10px;
-        position: absolute;
-    }
-    #choice-3 {
-        top: 500px;
-        font-size: 30px;
-        left: 1600px;
-        padding-top: 10px;
-        position: absolute;
-    }
-    .active {
-        position: absolute;
-        border-top: 2px solid #fff;
-        border-radius: 0px 0px 15px 15px;
-        transition: 2s;
-        filter: drop-shadow(0px 0px 50px #fff);
-    }
-}

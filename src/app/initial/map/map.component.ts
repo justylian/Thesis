@@ -1,3 +1,4 @@
+import { SocketService } from './../../services/socket.service';
 import { InfobubbleComponent } from './../infobubble/infobubble.component';
 import { Component, OnInit } from '@angular/core';
 import { UpcomingService } from './../../services/upcoming.service';
@@ -7,7 +8,6 @@ import timelinejson from '../../../assets/json/timeline.json';
 import timesjson from '../../../assets/json/times.json';
 import citiesonmap from '../../../assets/json/citiesonmap.json';
 declare var require: any;
-
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
@@ -26,7 +26,15 @@ export class MapComponent implements OnInit {
   allfound=false;
 
 
-  constructor(private upcomingService:UpcomingService) {
+  constructor(private upcomingService:UpcomingService,private socketService:SocketService) {
+    this.socketService.getCity().subscribe(city => {
+      //console.log(city);
+      this.citiesFuture[0].cityName= city;
+      findCityLoc(0,this.citiesPast,this.citiesFuture,this.citiesFuture[0].cityName);
+
+      //this.loadedAway=true;
+
+    });
     this.upcomingService.images$.subscribe(
       (k) => {
         if(this.once2===true){
@@ -52,7 +60,6 @@ export class MapComponent implements OnInit {
   ngOnInit() {
 
 
-    findCityLoc(0,this.citiesPast,this.citiesFuture,this.citiesFuture[0].cityName);
   }
 
   public showNextCity(){
@@ -191,7 +198,7 @@ function findCityLoc(timelineno,citiesPast,citiesFuture,cityName){
 
   for(var i=0;i<citiesonmap.citieslocs.length;i++){
     //console.log(citiesonmap.citieslocs[i]);
-    if(citiesonmap.citieslocs[i].city===cityName){
+    if((citiesonmap.citieslocs[i].city).toUpperCase()===(cityName).toUpperCase()){
       //console.log(cityName);
       cityLocLeft=citiesonmap.citieslocs[i].left
       cityLocTop=citiesonmap.citieslocs[i].top

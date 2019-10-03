@@ -104,6 +104,7 @@
            border: 15px solid var(--main-timeline-color);
            border-radius: 50%;
            display: inline-block;
+           filter: drop-shadow(0 0 7px var(--main-timeline-shadow));
        }
        #images-stack {
            width: 100%;
