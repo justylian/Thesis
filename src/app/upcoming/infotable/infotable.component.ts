@@ -48,10 +48,11 @@ export class InfotableComponent implements OnInit {
   coor = false;
   mobile = false;
   once = false;
-  cityFound=false;
-  countryFound=false;
+  cityFound = false;
+  countryFound = false;
   city;
   country;
+  searchEnd=true;
   public day1 =
     "../../../assets/images/weather/" +
     this.upcoming.weather.day1.state +
@@ -90,20 +91,19 @@ export class InfotableComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.socketService.getCity().subscribe(( city) => {
+    this.socketService.getCity().subscribe(city => {
       //console.log(city);
-      this.city=city;
-      this.cityFound=true;
-      if(this.countryFound===true && this.cityFound==true){
+      this.city = city;
+      this.cityFound = true;
+      if (this.countryFound === true && this.cityFound == true) {
         this.searchPOI(this.city + " " + this.country);
-
       }
     });
-    this.socketService.getCountry().subscribe((country) => {
+    this.socketService.getCountry().subscribe(country => {
       //console.log(country);
-      this.country=country;
-      this.countryFound=true;
-      if(this.countryFound===true && this.cityFound==true){
+      this.country = country;
+      this.countryFound = true;
+      if (this.countryFound === true && this.cityFound == true) {
         this.searchPOI(this.city + " " + this.country);
       }
     });
@@ -116,7 +116,9 @@ export class InfotableComponent implements OnInit {
       // 768px portrait
       this.mobile = true;
     } else {
-       this.searchPOI(this.citiesFuture[0].cityName+" "+this.citiesFuture[0].countryName);
+      this.searchPOI(
+        this.citiesFuture[0].cityName + " " + this.citiesFuture[0].countryName
+      );
     }
 
     this.mapboxComponent.focusPin(1);
@@ -234,7 +236,6 @@ export class InfotableComponent implements OnInit {
   public handleSuccessPOI(data) {
     // console.log(data+"POOI");
     console.log(data.geonames);
-
     //this.places=data.geonames;
     //console.log(this.places);
     this.pois = data.geonames;
@@ -242,8 +243,9 @@ export class InfotableComponent implements OnInit {
     console.log(this.pois.length);
     for (var i = 0; i < this.pois.length; i++) {
       console.log("in loop");
-      this.searchImages(this.pois[i].toponymName);
       this.searchPlace(this.pois[i].toponymName);
+
+      this.searchImages(this.pois[i].toponymName);
     }
   }
 
@@ -253,10 +255,8 @@ export class InfotableComponent implements OnInit {
 
   public searchPOI(query: string) {
     //var coordinates=await this.mapawayComponent.mapboxDistance("upcoming",query);
-
     this.searchingPOI = true;
     //return this.placesService.getInfo(query);
-
     return this.poiService
       .getPOI(query)
       .subscribe(
@@ -272,9 +272,9 @@ export class InfotableComponent implements OnInit {
   handleSuccessPlace(data) {
     this.places[this.placecount] = data;
     //console.log(data.extract);
-
     this.placecount = this.placecount + 1;
-    if (this.placecount === this.pois.length) {
+    if (this.placecount === this.pois.length && this.imagecount === this.images.length && this.searchEnd===true) {
+      this.searchEnd=false;
       console.log(this.images);
       console.log(this.places);
       this.fixPlaces();
@@ -298,7 +298,7 @@ export class InfotableComponent implements OnInit {
   public searchPlace(query: string) {
     this.searchingPlace = true;
     //console.log(query);
-    //return this.placesService.getInfo(query);
+    console.log("in loop place");
 
     return this.placesService
       .getInfo(query)
@@ -310,108 +310,35 @@ export class InfotableComponent implements OnInit {
   }
 
   /* -------------- Images API --------------- */
-  counter = 0;
+  imagecount = 0;
   handleSuccess(data, query) {
-    this.images[this.counter] = data.hits[0];
+    this.images[this.imagecount] = data.hits[0];
     //console.log(this.images);
-    this.counter = this.counter + 1;
-    //console.log(this.counter );
+    this.imagecount = this.imagecount + 1;
+    if (this.placecount === this.pois.length && this.imagecount === this.images.length && this.searchEnd===true) {
+      this.searchEnd=false;
+      console.log(this.images);
+      console.log(this.places);
+      this.fixPlaces();
 
-    /*
-      console.log(
-        "FOUND IMAGES:\n" + data.results[0].id,
-        data.results[1].id,
-        data.results[2].id,
-        data.results[3].id,
-        data.results[4].id
-      );
-      this.searchImagesLoc(query);
+      /* this.allFound = true;
 
-
-
-    var images=this.images;
-    var that=this;
-    setInterval(function() {
-      console.log("n");
-
-      if(typeof images[9] !=='undefined'){
-        console.log("in");
-        that.searchImagesLoc(that.citiesFuture[0].cityName);
-
-      }
-    }, 1000);
-        //while(typeof this.images[14]==='undefined'){
-
-    //}
-
-    //geonames
-    //
-
-
-
-
-   /*  for(var j=0;j<14;j++){
-
-      var words=this.images[j].description;
-      var cityflag=false;
-      console.log(words+"  words[0]");
-      this.searchPOI(query,words);
-
-     for(var i=0;i<words.length;i++){
-        if(words[i].toUpperCase()!==query.toUpperCase() ){
-          console.log(words[i]+"words[0]");
-          this.searchPOI(query,words[i]);
-          cityflag=true;
-          break;
-        }
-      }
-      if(cityflag===false){
-        //place city
-        this.pois.push(query);
-
-
-      }*/
-
-    //}
-    //console.log(data.hits[0].tags);
-    /*  for(var j=0;j<5;j++){
-      var words=data.hits[j].tags.split(',');
-
-      for(var i=0;i<words.length;i++){
-
-        if(words[i].toUpperCase() !==query.toUpperCase() ){
-          //console.log(words[i]);
-
-          for(var k=0;k<pois.length;k++){
-            var poissplit=pois[k].split(' ');
-
-            for(var l=0;l<poissplit.length;l++){
-              console.log(words[i]);
-
-              if(poissplit[l]===words[i]){
-                this.imagesPlace = words[i];
-                console.log( "!!!!!!"+this.imagesPlace );
-                break;
-              }
-            }
-          }
-
-
-        }
-      }
-    }*/
-    //console.log(data.hits);
+      this.sendplacesVar();
+      this.sendimagesVar();
+      this.sendimagesLocVar();
+      this.sendfoundVar(this.allFound);*/
+    }
   }
 
   handleError(error) {
-    this.images[this.counter] = undefined;
-
-    this.counter = this.counter + 1;
+    this.images[this.imagecount] = undefined;
+    this.imagecount = this.imagecount + 1;
     console.log(error);
   }
 
   searchImages(query: string) {
     this.searchingImage = true;
+    console.log("in loop img");
 
     return this.imagesService
       .getImage(query)
@@ -419,93 +346,6 @@ export class InfotableComponent implements OnInit {
         data => this.handleSuccess(data, query),
         error => this.handleError(error),
         () => (this.searchingImage = false)
-      );
-  }
-
-  /* -------------- Dual Locations Check --------------- */
-  checkingLoc;
-  checkingInnerLoc;
-  checkDuality(i) {
-    for (var j = 0; j < 5; j++) {
-      this.checkingInnerLoc = this.imagesLoc[j];
-      if (i !== j && this.checkingLoc === this.checkingInnerLoc) {
-        console.log("FOUND DOUBLE" + j + this.checkingInnerLoc);
-        return j;
-      }
-    }
-
-    return "none";
-  }
-  /* -------------- ImagesLocation API --------------- */
-
-  //Search for each image
-
-  searchImagesLoc(query) {
-    for (var j = 0; j < 5; j++) {
-      this.searchLoc(this.images[j].id);
-    }
-  }
-
-  toChange;
-  async handleSuccessLoc(data) {
-    // console.log(data);
-    //console.log(data.location.name);
-
-    this.imagesLoc[this.counter] = data.location.name
-      .split(" ")[0]
-      .replace(/,/g, "");
-    this.counter = this.counter + 1;
-    if (this.counter === 5) {
-      /* while (true) {
-        for (var i = 0; i < 5; i++) {
-          console.log("CHECK FOR" + i + this.checkingLoc);
-
-          this.checkingLoc = this.imagesLoc[i];
-          this.toChange = await this.checkDuality(i);
-          if (this.toChange === "none") {
-            break;
-          }
-          this.searchImages(this.citiesFuture[0].cityName, this.toChange);
-          //NOO
-          break;
-        }
-        break;
-        //}
-        this.counter--;
-      }*/
-      //canal museum statue river
-      for (var j = 0; j < 5; j++) {
-        // this.searchPlace(this.imagesLoc[j]);
-      }
-      console.log("FOUND IMAGELOCS:" + this.imagesLoc);
-    }
-    /* for(var j=0;j<5;j++){
-      console.log(this.imagesLoc[j]);
-      console.log(this.images[j]);
-      if(typeof this.images[j] === 'undefined'){
-        this.imagesLoc.splice(j, j+1)
-        this.images.splice(j, j+1)
-        console.log("endef");
-      }
-      else if((this.imagesLoc[j].toUpperCase()).startsWith(this.citiesFuture[0].cityName.toUpperCase())){
-        this.imagesLoc.splice(j, j+1)
-        this.images.splice(j, j+1)
-        console.log("endis");
-      }
-    }*/
-  }
-
-  handleErrorLoc(error) {
-    console.log(error);
-  }
-
-  public searchLoc(id) {
-    return this.imageslocationService
-      .getImageLocation(id)
-      .subscribe(
-        data => this.handleSuccessLoc(data),
-        error => this.handleErrorLoc(error),
-        () => (this.searchingLoc = false)
       );
   }
 
