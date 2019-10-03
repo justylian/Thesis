@@ -9,6 +9,8 @@ import { MapboxComponent } from "./../mapbox/mapbox.component";
 import { PlacesComponent } from "./../places/places.component";
 import timelinejson from "../../../assets/json/timeline.json";
 import upcomingjson from "../../../assets/json/upcoming.json";
+import { SocketService } from "./../../services/socket.service";
+
 import { Message } from "@angular/compiler/src/i18n/i18n_ast";
 import { Component, OnInit } from "@angular/core";
 const { getColorFromURL } = require("color-thief-node");
@@ -42,8 +44,14 @@ export class InfotableComponent implements OnInit {
   pois = [];
   allFound = false;
   imagesLoc = new Array();
-  coors:number[];
-  coor=false;
+  coors: number[];
+  coor = false;
+  mobile = false;
+  once = false;
+  cityFound=false;
+  countryFound=false;
+  city;
+  country;
   public day1 =
     "../../../assets/images/weather/" +
     this.upcoming.weather.day1.state +
@@ -77,21 +85,41 @@ export class InfotableComponent implements OnInit {
     private imagesService: ImagesService,
     private placesService: PlacesService,
     private poiService: POIService,
-    private imageslocationService: ImageslocationService
-  ) {
+    private imageslocationService: ImageslocationService,
+    private socketService: SocketService
+  ) {}
 
-  }
+  ngOnInit() {
+    this.socketService.getCity().subscribe(( city) => {
+      //console.log(city);
+      this.city=city;
+      this.cityFound=true;
+      if(this.countryFound===true && this.cityFound==true){
+        this.searchPOI(this.city + " " + this.country);
 
-   async ngOnInit() {
+      }
+    });
+    this.socketService.getCountry().subscribe((country) => {
+      //console.log(country);
+      this.country=country;
+      this.countryFound=true;
+      if(this.countryFound===true && this.cityFound==true){
+        this.searchPOI(this.city + " " + this.country);
+      }
+    });
 
     this.remainingDays = this.getRemainingdays(this.remainingDays);
 
-   // this.coors=this.mapawayComponent.mapboxDistance("upcoming",this.citiesFuture[0].cityName);
+    // this.coors=this.mapawayComponent.mapboxDistance("upcoming",this.citiesFuture[0].cityName);
     //console.log(this.coors);
-    this.searchPOI(this.citiesFuture[0].cityName+" "+this.citiesFuture[0].countryName);
+    if (window.screen.width < 1920) {
+      // 768px portrait
+      this.mobile = true;
+    } else {
+       this.searchPOI(this.citiesFuture[0].cityName+" "+this.citiesFuture[0].countryName);
+    }
 
     this.mapboxComponent.focusPin(1);
-
 
     this.checkMonthDepArr();
 
@@ -188,13 +216,13 @@ export class InfotableComponent implements OnInit {
     console.log(this.places);
     console.log(this.images);
     console.log(this.pois);
-    if(this.pois.length<5){
+    if (this.pois.length < 5) {
       alert("Not enough places found!");
     }
     this.imagesFound = true;
     this.placesFound = true;
     this.allFound = true;
-    this.coor=true;
+    this.coor = true;
     this.sendplacesVar();
     this.sendimagesVar();
     this.sendpoisVar();
@@ -213,6 +241,7 @@ export class InfotableComponent implements OnInit {
 
     console.log(this.pois.length);
     for (var i = 0; i < this.pois.length; i++) {
+      console.log("in loop");
       this.searchImages(this.pois[i].toponymName);
       this.searchPlace(this.pois[i].toponymName);
     }
@@ -517,14 +546,16 @@ export class InfotableComponent implements OnInit {
       this.mapboxComponent.hideMap();
       this.placesComponent.manageImagesUpcoming(this.currentImage);
       $("#city-name").css({
-        filter: "drop-shadow(-50px 0px 50px var(--main-timeline-shadow))"});
+        filter: "drop-shadow(-50px 0px 50px var(--main-timeline-shadow))"
+      });
       this.turn = false;
     } else {
       $("#info-frame").fadeIn("slow");
       this.mapboxComponent.showMap();
       this.placesComponent.hideImagesUpcoming();
       $("#city-name").css({
-        filter: "drop-shadow(-50px 0px 50px #fff)"});
+        filter: "drop-shadow(-50px 0px 50px #fff)"
+      });
 
       this.turn = true;
     }
@@ -622,9 +653,9 @@ export class InfotableComponent implements OnInit {
 
 //AUTO RESIZE CITY NAME
 $(document).ready(function() {
-  var fontSize =120+ "px";
-  if(1130 / parseInt($("#city-name").text().length)<120){
-     fontSize =1130 / parseInt($("#city-name").text().length)+ "px";
+  var fontSize = 120 + "px";
+  if (1130 / parseInt($("#city-name").text().length) < 120) {
+    fontSize = 1130 / parseInt($("#city-name").text().length) + "px";
   }
 
   //alert(fontSize);

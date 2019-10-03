@@ -48,4 +48,15 @@ export class ChoiceService {
   dist(i){
     this.distSource.next(i);
   }
+
+
+
+  private mobileSource = new Subject<any>();
+
+  // Observable string streams
+  mobile$ = this.mobileSource.asObservable();
+
+  mobile(){
+    this.mobileSource.next();
+  }
 }

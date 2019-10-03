@@ -1,3 +1,4 @@
+import { SocketService } from './services/socket.service';
 
 import { AwayModule } from './away/away.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -20,7 +21,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
     AwayModule,
     HttpClientModule
   ],
-  providers: [AppComponent],
+  providers: [AppComponent,SocketService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

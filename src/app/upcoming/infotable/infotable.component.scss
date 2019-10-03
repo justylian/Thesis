@@ -6,6 +6,7 @@
     z-index: 4;
     color: var(--main-timeline-color-upcoming);
     font-size: 0.7vw;
+    z-index: 6;
 }
 
 #city-name {
@@ -21,6 +22,7 @@
     transition: 3s;
     text-transform: uppercase;
     filter: drop-shadow(-50px 0px 50px #fff);
+    z-index: 6;
 }
 
 #leave-note {
@@ -52,7 +54,7 @@
     background: white;
     top: 0px;
     position: fixed;
-    z-index: 3;
+    z-index: 6;
     overflow-x: hidden;
     overflow-y: hidden;
     .upper-border {
