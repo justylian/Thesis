@@ -146,7 +146,17 @@ export class InfotableComponent implements OnInit {
 
     } else {
       this.searchPOI(this.citiesFuture[0].cityName + " " + this.citiesFuture[0].countryName );
+      this.remainingDays = this.getRemainingdays(this.remainingDays);
+
+      this.mapboxComponent.focusPin(1);
+
+      this.checkMonthDepArr();
+
+      this.weatherMessage();
+      this.loadedUpcoming=true;
+
     }
+
   }
 
   /* -------------- Check if Months different --------------- */
@@ -221,8 +231,8 @@ export class InfotableComponent implements OnInit {
 
     for (var i = 0; i < this.pois.length; i++) {
       if (typeof this.placesOrdered[i] === "undefined") {
-        this.images[i] = undefined;
-        this.pois[i] = undefined;
+        //this.images[i] = undefined;
+        //this.pois[i] = undefined;
       }
     }
 
@@ -235,9 +245,11 @@ export class InfotableComponent implements OnInit {
     this.places = this.placesOrdered.filter(function(el) {
       return el != null;
     });
-
+    console.log("PLACES:");
     console.log(this.places);
+    console.log("IMAGES:");
     console.log(this.images);
+    console.log("POIS:");
     console.log(this.pois);
     if (this.pois.length < 5) {
       alert("Not enough places found!");
@@ -261,17 +273,18 @@ export class InfotableComponent implements OnInit {
 
   public handleSuccessPOI(data) {
     // console.log(data+"POOI");
-    console.log(data.geonames);
+    //console.log(data.geonames);
     //this.places=data.geonames;
     //console.log(this.places);
     this.pois = data.geonames;
-
-    //console.log(this.pois.length);
+    console.log("POIS:");
+    console.log(this.pois);
     for (var i = 0; i < this.pois.length; i++) {
-      //console.log("in loop");
-      this.searchImages(this.pois[i].name);
-
+      console.log("SEARCHING..."+this.pois[i].name);
       this.searchPlace(this.pois[i].name);
+
+      this.searchImages(this.pois[i].name+" "+this.citiesFuture[0].cityName);
+
 
     }
   }
@@ -357,8 +370,8 @@ export class InfotableComponent implements OnInit {
       this.searchEnd === true
     ) {
       this.searchEnd = false;
-      console.log(this.images);
-      console.log(this.places);
+      //console.log(this.images);
+      //console.log(this.places);
       this.placecount = 0;
       this.imagecount = 0;
       this.fixPlaces();

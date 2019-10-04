@@ -1,5 +1,5 @@
 <div id="places" (click)="nextImageUpcoming();">
-    <div id="places-main-inner" *ngIf="allfound">
+    <div id="places-main-inner" (click)="getColors(6);">
 
 
         <canvas id="myCanvas6">
@@ -11,7 +11,7 @@
     </canvas><canvas id="myCanvas11">
     </canvas><canvas id="myCanvas12">
       </canvas>
-        <div id="cityImages6">
+        <div id="cityImages6" *ngIf="allfound">
 
             <div id="image6-one">
                 <div class="places-inner-descs" id="image6-one-inner">

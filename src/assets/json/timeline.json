@@ -229,8 +229,8 @@
         }
     ],
     "citiesFuture": [{
-        "cityName": "Athens",
-        "countryName": "Greece",
+        "cityName": "athens",
+        "countryName": "greece",
         "currency": "Euro",
         "timezone": "GMT +1",
         "language": "Spanish",

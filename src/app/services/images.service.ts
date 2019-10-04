@@ -26,7 +26,8 @@ export class ImagesService {
 
     //return
     query=query.split(' ').join('-');
-    //console.log(this.URL + query + this.height +this.colors+this.perPage+this.orientation+ this.imagetype);
+    //console.log(query);
+    console.log(this.URL + query + this.height +this.perPage+this.orientation+ this.imagetype);
     return this._http.get(this.URL + query + this.height +this.colors +this.perPage+this.orientation+ this.imagetype)
     .map(res => res);
     //console.log(query);

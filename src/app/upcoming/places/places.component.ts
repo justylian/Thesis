@@ -58,6 +58,8 @@ export class PlacesComponent implements OnInit {
       //console.log(l);
       this.allfound = allfound;
 
+      //this.getColors(6);
+
     });
     /*  this.leapService.nextImageUpcoming$.subscribe(
       () => {
@@ -110,8 +112,10 @@ export class PlacesComponent implements OnInit {
 
   onceColors = false;
   public showImagesUpcoming(i) {
+
     if (this.onceColors === false) {
-      getColors(6);
+
+
       this.onceColors = true;
     }
     this.manageImagesUpcoming(i)
@@ -120,12 +124,12 @@ export class PlacesComponent implements OnInit {
   /* ----- Photos manage main ----- */
 
   public manageImagesUpcoming(i) {
-
     var timePerCity = this.timePerCity;
     var timePerPhoto = this.timePerPhoto;
     var dominantcolorService = this.dominantcolorService;
-    $("#places").fadeIn(250, function() {});
     //console.log(i);
+
+    $("#places").fadeIn(250, function() {});
 
     if (i === 5) {
       this.currentImage = 5;
@@ -209,10 +213,11 @@ export class PlacesComponent implements OnInit {
 
     //descplacingService.placeDescs(6);
   }
-}
+
+
 /* ----- Desc placing  ----- */
 
-function getColors(i) {
+public getColors(i) {
   for (var j = 5; j >= 1; j--) {
     var length = 0;
     var templength = 0;
@@ -357,7 +362,7 @@ function getColors(i) {
     }
   }
 }
-
+}
 var colorList = {};
 
 function extractColors(cnv, x, y, j, i) {
