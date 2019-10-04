@@ -30,7 +30,7 @@ export class LeapService {
 
   /* ----- Leap function ----- */
 
-  async manageLeap(){
+  async manageLeap() {
     var imagesawayComponent = this.imagesawayComponent;
     var musicComponent = this.musicComponent;
     var imagesComponent = this.imagesComponent;
@@ -45,51 +45,179 @@ export class LeapService {
       enableGestures: true,
       frameEventName: "animationFrame"
     };
-    var current1=0;
-    var current2=0;
-    var current3=0;
+    var left = 0;
+    var tap = 0;
+    var push=0;
+    var right=0;
+    var controllerOptions = { enableGestures: true };
 
-    var controller = leapjs.loop(function(frame) {
+    var controller = leapjs.loop(controllerOptions, function(frame) {
+      var extendedFingers = 0;
+      for (var i = 0; i < frame.fingers.length; i++) {
+        var finger = frame.fingers[i];
+        if (finger.extended) extendedFingers++;
+        //console.log(finger.tipPosition[1]);
+        if(finger.tipPosition[1]<=30){
+          if (push === 0) {
+            if ($("#initial").css("display") === "block") {
+              console.log("music")
+              musicComponent.playerManage();
+            }
+            else  if ($("#upcoming").css("display") === "block") {
+              if ($("#places").css("display") === "block") {
+                console.log("save/unsave")
+                placesComponent.savePlace();
+                infotableComponent.savePlace();
+              }
+            }
+            push = -1;
+            setTimeout(function() {
+              push = 0;
+            }, 300);
+          }
+        }
+        if (extendedFingers <= 1) {
+          if (finger.type === 1) {
+            //index
+            //console.log(finger.id);
+            if (finger.extended) {
+              if (finger.tipPosition[2] < -100) {
+                if (tap === 0) {
+                  //console.log(finger.tipPosition[2]);
+                  //console.log(finger.type);
+                  if ($("#initial").css("display") === "block") {
+                    console.log("tap"); //mprosta(z) me <5 daxtylia
+
+                    if (onceFlag === true) {
+                      imagesComponent.slideShow();
+
+                      onceFlag = false;
+                    } else {
+                      imagesComponent.pause();
+                    }
+                  } else if ($("#upcoming").css("display") === "block") {
+                    console.log("tap"); //mprosta(z) me <5 daxtylia
+
+                    infotableComponent.showHideImages();
+                  } else if ($("#choice").css("display") === "block") {
+                    console.log("tap"); //mprosta(z) me <5 daxtylia
+                    appComponent.activeChoose();
+                  }
+                  tap = -1;
+                  setTimeout(function() {
+                    tap = 0;
+                  }, 500);
+                }
+              }
+            }
+          }
+        }
+      }
+      var extendedFingers = 0;
+      for (var i = 0; i < frame.hands.length; i++) {
+        var hand = frame.hands[i];
+        var previousFrame = controller.frame(1);
+        var movement = hand.translation(previousFrame);
 
 
+        for (var i = 0; i < frame.fingers.length; i++) {
+          var finger = frame.fingers[i];
 
+          if (finger.extended) extendedFingers++;
 
-      var handString = "";
-     if (frame.hands.length > 0) {
+          if (extendedFingers >= 5) {
+            if (movement[0] < -7 && movement[0] > -50) {
+              if (left === 0 && right === 0 ) {
+                console.log("Left");
+                if ($("#initial").css("display") === "block") {
+                  imagesComponent.nextCity();
+
+                }
+                else if ($("#upcoming").css("display") === "block") {
+                  if ($("#map").css("display") === "block") {
+                    infotableComponent.nextScroll();
+                  }
+                  else if ($("#places").css("display") === "block") {
+                    console.log("Swipe Gesture");
+                    placesComponent.nextImageUpcoming();
+                  }
+                }
+                else if ($("#choice").css("display") === "block") {
+                  appComponent.activeChange();
+                }
+                else if ($("#away").css("display") === "block") {
+                  imagesawayComponent.showImage();
+                }
+                left = -1;
+                setTimeout(function() {
+                  left = 0;
+                  right = 0;
+
+                }, 500);
+              }
+            }
+            if (movement[0] > 7 && movement[0] < 50) {
+              if (right === 0 && left === 0) {
+                console.log("right");
+                if ($("#initial").css("display") === "block") {
+                  imagesComponent.previousCity();
+                }
+                else if ($("#upcoming").css("display") === "block") {
+                  if ($("#map").css("display") === "block") {
+                    infotableComponent.previousScroll();
+                  }
+                  else if ($("#places").css("display") === "block") {
+                    placesComponent.nextImageUpcoming();
+                  }
+                } else if ($("#choice").css("display") === "block") {
+                  appComponent.activeChangePrev();
+                }
+                else if ($("#away").css("display") === "block") {
+                  imagesawayComponent.showImage();
+                }
+                right = -1;
+                setTimeout(function() {
+                  right = 0;
+                  left = 0;
+
+                }, 500);
+              }
+            }
+          }
+        }
+      }
+      // Array containing all the fingers
+
+      /* var handString = "";
+      if (frame.hands.length > 0) {
          var hand = frame.hands[0];
           var yawRadians = hand.yaw();
 
           var previousFrame = controller.frame(1);
           var movement = hand.translation(previousFrame);
-          console.table(movement[2]);
-         if(movement[2]<=(-12)){
-            if(current3!==3 ){
-            console.log("ompros");
-            current3=3;
-            }
-
-          }
-          if(movement[0]<=(-12)){
-
-            if(current1!==1  ){
+        console.log(movement[0]);
+          if(movement[0]<(-7)){
+            if(current!==1  ){
               console.log("Left");
               appComponent.activeChange();
-              current1=1;
-
+              current=1;
             }
-
           }
-          else if (movement[0]>12){
-
-            if(current2!==2 ){
+          else if (movement[0]>7){
+            if(current!==2 ){
               console.log("right");
               appComponent.activeChangePrev();
-              current2=2;
-
+              current=2;
             }
           }
-          setTimeout(function() { current1 = 0;current2 = 0;current3 = 0; }, 800);
+          if(current===2 || current===1){
+            setTimeout(function() {
+              console.log("NULL");
+              current = 0;
+            }, 500);
+          }
 
+        }
 
 
           // And so on...
@@ -228,7 +356,6 @@ export class LeapService {
           }
 
         });*/
-      }
     });
   }
 }
