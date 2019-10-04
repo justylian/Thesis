@@ -149,7 +149,7 @@ export class ImagesComponent implements OnInit {
     if (previousCity === 0) {
       previousCity = 6;
     }
-    if (previousCity > this.citiesPastCount) {
+    if (previousCity > this.citiesPastCount && previousCity !== 6) {
       previousCity = this.citiesPastCount;
     }
 
@@ -256,25 +256,25 @@ function getColors(i) {
       lessx = 300;
       lessy = 600;
     }
-    templength = extractColors("myCanvas4", 1300, 100, j, i);
+    templength = extractColors("myCanvas4", 1300, 150, j, i);
     colorList = {};
 
     //console.log(templength);
     if (length > templength) {
       length = templength;
       lessx = 1300;
-      lessy = 100;
+      lessy = 150;
     }
-    templength = extractColors("myCanvas5", 700, 50, j, i);
+    templength = extractColors("myCanvas5", 750, 50, j, i);
     colorList = {};
 
     //console.log(templength);
     if (length > templength) {
       length = templength;
-      lessx = 700;
+      lessx = 750;
       lessy = 50;
     }
-    console.log(length, lessx, lessy);
+    console.log(i,j,length, lessx, lessy);
 
     if (j === 5) {
       $("#image" + i + "-five-inner").css({ top: lessy, left: lessx });

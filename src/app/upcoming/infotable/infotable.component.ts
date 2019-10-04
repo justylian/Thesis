@@ -145,7 +145,7 @@ export class InfotableComponent implements OnInit {
       this.mobile = true;
 
     } else {
-      //this.searchPOI(this.citiesFuture[0].cityName + " " + this.citiesFuture[0].countryName );
+      this.searchPOI(this.citiesFuture[0].cityName + " " + this.citiesFuture[0].countryName );
     }
   }
 

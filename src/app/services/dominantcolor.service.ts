@@ -35,16 +35,20 @@ public handleDominantColor(timelineno,no){
   (async () => {
     const dominantColor = await getColorFromURL(imageURL);
     //console.log(dominantColor);
-    var dominantColorUp;
+   /* var dominantColorUp;
     if(dominantColor[2]<120){
       dominantColorUp=120;
 
       var rgb='rgb('+dominantColor[0]+','+dominantColor[1]+','+dominantColorUp+')';
-      $("body").css("--main-timeline-color", 'rgb('+dominantColor[0]+','+dominantColor[1]+','+dominantColorUp+')');
+      $("body").css("--main-timeline-color", 'rgb('+dominantColor[0]+','+dominantColor[1]+','+dominantColor[2]+')');
+      console.log("GOTT"+rgb);
+
     }
+        var rgb2='rgb('+dominantColor[0]+','+dominantColor[1]+','+dominantColor[2]+')';
+*/
 
+    $("body").css("--main-timeline-color", 'rgb('+dominantColor[0]+','+dominantColor[1]+','+dominantColor[2]+')');
 
-    var rgb2='rgb('+dominantColor[0]+','+dominantColor[1]+','+dominantColor[2]+')';
     $("body").css("--main-timeline-color-upcoming", 'rgb('+dominantColor[0]+','+dominantColor[1]+','+dominantColor[2]+')');
 
     var hsp = Math.sqrt(
