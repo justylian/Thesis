@@ -103,16 +103,16 @@ export class MapboxComponent implements OnInit {
     var ad5title=this.citiesFuture[0].photos.five.title;
 
 */
-      var ad1 = this.citiesFuture[0].cityName + " " + this.pois[0].toponymName;
-      var ad1title = this.pois[0].toponymName;
-      var ad2 = this.citiesFuture[0].cityName + " " + this.pois[1].toponymName;
-      var ad2title = this.pois[1].toponymName;
-      var ad3 = this.citiesFuture[0].cityName + " " + this.pois[2].toponymName;
-      var ad3title = this.pois[2].toponymName;
-      var ad4 = this.citiesFuture[0].cityName + " " + this.pois[3].toponymName;
-      var ad4title = this.pois[3].toponymName;
-      var ad5 = this.citiesFuture[0].cityName + " " + this.pois[4].toponymName;
-      var ad5title = this.pois[4].toponymName;
+      var ad1 = this.citiesFuture[0].cityName + " " + this.pois[0].name;
+      var ad1title = this.pois[0].name;
+      var ad2 = this.citiesFuture[0].cityName + " " + this.pois[1].name;
+      var ad2title = this.pois[1].name;
+      var ad3 = this.citiesFuture[0].cityName + " " + this.pois[2].name;
+      var ad3title = this.pois[2].name;
+      var ad4 = this.citiesFuture[0].cityName + " " + this.pois[3].name;
+      var ad4title = this.pois[3].name;
+      var ad5 = this.citiesFuture[0].cityName + " " + this.pois[4].name;
+      var ad5title = this.pois[4].name;
 
       var test = client.geocodeForward(ad1, function(err, data, res) {
         //console.log(data);

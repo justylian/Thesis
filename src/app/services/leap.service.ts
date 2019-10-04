@@ -1,4 +1,4 @@
-import { MapboxComponent } from './../upcoming/mapbox/mapbox.component';
+import { MapboxComponent } from "./../upcoming/mapbox/mapbox.component";
 import { AppComponent } from "./../app.component";
 import { ImagesawayComponent } from "./../away/imagesaway/imagesaway.component";
 import { MusicComponent } from "./../initial/music/music.component";
@@ -22,7 +22,7 @@ export class LeapService {
     private imagesComponent: ImagesComponent,
     private musicComponent: MusicComponent,
     private placesComponent: PlacesComponent,
-    private mapboxComponent:MapboxComponent
+    private mapboxComponent: MapboxComponent
   ) {
     this.manageLeap();
   }
@@ -30,14 +30,14 @@ export class LeapService {
 
   /* ----- Leap function ----- */
 
-  public manageLeap(): void {
+  async manageLeap(){
     var imagesawayComponent = this.imagesawayComponent;
     var musicComponent = this.musicComponent;
     var imagesComponent = this.imagesComponent;
     var appComponent = this.appComponent;
     var placesComponent = this.placesComponent;
     var infotableComponent = this.infotableComponent;
-    var mapboxComponent=this.mapboxComponent;
+    var mapboxComponent = this.mapboxComponent;
     var onceFlag = true;
 
     var leapjs = require("leapjs");
@@ -45,8 +45,57 @@ export class LeapService {
       enableGestures: true,
       frameEventName: "animationFrame"
     };
-    var controller = leapjs.loop({ enableGestures: true }, function(frame) {
-     /* for(var i = 0; i < frame.hands.length; i++){
+    var current1=0;
+    var current2=0;
+    var current3=0;
+
+    var controller = leapjs.loop(function(frame) {
+
+
+
+
+      var handString = "";
+     if (frame.hands.length > 0) {
+         var hand = frame.hands[0];
+          var yawRadians = hand.yaw();
+
+          var previousFrame = controller.frame(1);
+          var movement = hand.translation(previousFrame);
+          console.table(movement[2]);
+         if(movement[2]<=(-12)){
+            if(current3!==3 ){
+            console.log("ompros");
+            current3=3;
+            }
+
+          }
+          if(movement[0]<=(-12)){
+
+            if(current1!==1  ){
+              console.log("Left");
+              appComponent.activeChange();
+              current1=1;
+
+            }
+
+          }
+          else if (movement[0]>12){
+
+            if(current2!==2 ){
+              console.log("right");
+              appComponent.activeChangePrev();
+              current2=2;
+
+            }
+          }
+          setTimeout(function() { current1 = 0;current2 = 0;current3 = 0; }, 800);
+
+
+
+          // And so on...
+ /*
+      }
+      for(var i = 0; i < frame.hands.length; i++){
         var hand = frame.hands[i];
         if(hand.pinchStrength===1.0){
           mapboxComponent.zoom("in");
@@ -58,9 +107,12 @@ export class LeapService {
           console.log( hand.pinchStrength);
         }
 
-      }*/
-      if (frame.valid && frame.gestures.length > 0) {
-        frame.gestures.forEach(function(gesture) {
+      }
+      if (frame.valid && frame.hands.length > 0) {
+        frame.hands.forEach(function(gesture) {
+          var direction = gesture.direction;
+          //console.table(direction);
+
           switch (gesture.type) {
             case "circle":
               if (gesture.state == "stop") {
@@ -133,14 +185,7 @@ export class LeapService {
                       imagesComponent.nextCity();
                     }
                   }
-                  /*    if (gesture.direction[0] > 0){
-                          console.log("Swipe left Gesture");
-                          imagesComponent.previousCity();
-                        }
-                        else{
-                          console.log("Swipe right Gesture");
-                          imagesComponent.nextCity();
-                        }*/
+
                 } else if ($("#upcoming").css("display") === "block") {
                   if ($("#map").css("display") === "block") {
                     if (xMov > 0.3) {
@@ -160,14 +205,7 @@ export class LeapService {
                         infotableComponent.nextScroll();
                       }
                     }
-/*
-                    if (gesture.direction[0] > 0) {
-                      console.log("Swipe left Gesture");
-                      infotableComponent.previousScroll();
-                    } else {
-                      console.log("Swipe right Gesture");
-                      infotableComponent.nextScroll();
-                    }*/
+
                   } else if ($("#places").css("display") === "block") {
                     console.log("Swipe Gesture");
                     placesComponent.nextImageUpcoming();
@@ -188,7 +226,8 @@ export class LeapService {
               }
               break;
           }
-        });
+
+        });*/
       }
     });
   }

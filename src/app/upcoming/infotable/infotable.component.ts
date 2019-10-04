@@ -92,7 +92,6 @@ export class InfotableComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    $('#choice #choice-loader #loader-text').fadeIn();
 
     this.socketService.getCity().subscribe(city => {
       //console.log(city);
@@ -105,6 +104,7 @@ export class InfotableComponent implements OnInit {
           this.citiesFuture[0].cityName + " " + this.citiesFuture[0].countryName
         );
 
+        $('#choice #choice-loader #loader-text').fadeIn();
 
         this.remainingDays = this.getRemainingdays(this.remainingDays);
 
@@ -124,6 +124,7 @@ export class InfotableComponent implements OnInit {
         this.searchPOI(
           this.citiesFuture[0].cityName + " " + this.citiesFuture[0].countryName
         );
+        $('#choice #choice-loader #loader-text').fadeIn();
 
         this.remainingDays = this.getRemainingdays(this.remainingDays);
 
@@ -144,7 +145,7 @@ export class InfotableComponent implements OnInit {
       this.mobile = true;
 
     } else {
-      // this.searchPOI(this.citiesFuture[0].cityName + " " + this.citiesFuture[0].countryName );
+      this.searchPOI(this.citiesFuture[0].cityName + " " + this.citiesFuture[0].countryName );
     }
   }
 
@@ -200,8 +201,8 @@ export class InfotableComponent implements OnInit {
             if (
               this.places[j].title
                 .toUpperCase()
-                .includes(this.pois[i].toponymName.toUpperCase()) ||
-              this.pois[i].toponymName
+                .includes(this.pois[i].name.toUpperCase()) ||
+              this.pois[i].name
                 .toUpperCase()
                 .includes(this.places[j].title.toUpperCase())
             ) {
@@ -268,9 +269,9 @@ export class InfotableComponent implements OnInit {
     //console.log(this.pois.length);
     for (var i = 0; i < this.pois.length; i++) {
       //console.log("in loop");
-      this.searchImages(this.pois[i].toponymName);
+      this.searchImages(this.pois[i].name);
 
-      this.searchPlace(this.pois[i].toponymName);
+      this.searchPlace(this.pois[i].name);
 
     }
   }
