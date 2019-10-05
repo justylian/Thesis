@@ -229,8 +229,10 @@
         }
     ],
     "citiesFuture": [{
-        "cityName": "chicago",
-        "countryName": "usa",
+        "cityName": "sydney",
+        "countryName": "australia",
+        "dateMonth": "October",
+        "dateYear": "2019",
         "currency": "Euro",
         "timezone": "GMT +1",
         "language": "Spanish",

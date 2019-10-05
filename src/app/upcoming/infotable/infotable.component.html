@@ -66,20 +66,20 @@
 
                     <div id="weather-today">
                         <div id="weather-today-state">{{upcoming.weather.day1.state}}<img [attr.src]="day1"></div>
-                        <div id="weather-today-date">{{upcoming.weather.day1.day}} {{upcoming.weather.day1.date}}</div>
+                        <div id="weather-today-date">{{upcoming.weather.day1.day}} <br> {{upcoming.weather.day1.date}}</div>
                         <div id="weather-today-temp">{{upcoming.weather.day1.templow}} {{upcoming.weather.day1.temphigh}}</div>
                     </div>
 
                     <div id="weather-message">{{Todaymessage}}</div>
 
                     <div class="weather-boxes" id="weather-1"><img [attr.src]="day2">
-                        <div class="weather-boxes-temps">{{upcoming.weather.day2.templow}}-{{upcoming.weather.day2.temphigh}}</div> &nbsp; {{upcoming.weather.day2.date}}</div>
+                        <div class="weather-boxes-temps">{{upcoming.weather.day2.templow}}-{{upcoming.weather.day2.temphigh}}</div> {{upcoming.weather.day2.date}}</div>
                     <div class="weather-boxes" id="weather-2"><img [attr.src]="day3">
-                        <div class="weather-boxes-temps">{{upcoming.weather.day3.templow}}-{{upcoming.weather.day3.temphigh}}</div> &nbsp; {{upcoming.weather.day3.date}}</div>
+                        <div class="weather-boxes-temps">{{upcoming.weather.day3.templow}}-{{upcoming.weather.day3.temphigh}}</div> {{upcoming.weather.day3.date}}</div>
                     <div class="weather-boxes" id="weather-3"><img [attr.src]="day4">
-                        <div class="weather-boxes-temps">{{upcoming.weather.day4.templow}}-{{upcoming.weather.day4.temphigh}}</div> &nbsp; {{upcoming.weather.day4.date}}</div>
+                        <div class="weather-boxes-temps">{{upcoming.weather.day4.templow}}-{{upcoming.weather.day4.temphigh}}</div> {{upcoming.weather.day4.date}}</div>
                     <div class="weather-boxes" id="weather-4"><img [attr.src]="day5">
-                        <div class="weather-boxes-temps">{{upcoming.weather.day5.templow}}-{{upcoming.weather.day5.temphigh}}</div> &nbsp; {{upcoming.weather.day5.date}}</div>
+                        <div class="weather-boxes-temps">{{upcoming.weather.day5.templow}}-{{upcoming.weather.day5.temphigh}}</div> {{upcoming.weather.day5.date}}</div>
                 </div>
             </div>
         </div>

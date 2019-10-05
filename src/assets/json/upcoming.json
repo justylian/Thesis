@@ -26,8 +26,8 @@
     "accommodation": {
         "hotel": "Grand Central Hotel",
         "address": "Juan Pijon Ave. 19A, 1655",
-        "checkin": "24 May 9:00-21:00",
-        "checkout": "26 May 9:00-12:00"
+        "checkin": "24 October 9:00-21:00",
+        "checkout": "26 October 9:00-12:00"
 
 
     },
@@ -39,35 +39,35 @@
         "day1": {
             "state": "Showers",
             "day": "Sunday",
-            "date": "24 May",
+            "date": "24 October",
             "templow": "12°",
             "temphigh": "14°"
         },
         "day2": {
             "state": "Sunny",
             "day": "Sunday",
-            "date": "25 May",
+            "date": "25 October",
             "templow": "15°",
             "temphigh": "19°"
         },
         "day3": {
             "state": "Cloudy",
             "day": "Sunday",
-            "date": "26 May",
+            "date": "26 October",
             "templow": "10°",
             "temphigh": "15°"
         },
         "day4": {
             "state": "Cloudysunny",
             "day": "Sunday",
-            "date": "27 May",
+            "date": "27 October",
             "templow": "12°",
             "temphigh": "16°"
         },
         "day5": {
             "state": "Cloudy",
             "day": "Sunday",
-            "date": "28 May",
+            "date": "28 October",
             "templow": "13°",
             "temphigh": "16°"
         }

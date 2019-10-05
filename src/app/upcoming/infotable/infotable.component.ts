@@ -236,14 +236,13 @@ export class InfotableComponent implements OnInit {
   }
 
   /* -------------- POI API --------------- */
-i=0;
-j=0;
+  i=0;
+  j=0;
   public handleSuccessPOI(data) {
-    // console.log(data+"POOI");
+     console.log(data.geonames);
     //console.log(data.geonames);
     //this.places=data.geonames;
     //console.log(this.places);
-    //console.log(this.pois);
     this.pois = data.geonames;
 
     for ( this.j = 0; this.j < this.pois.length; this.j++) {
@@ -258,12 +257,7 @@ j=0;
 
 
     }
-    // console.log("PLACES:");
-    // console.log(this.places);
-    // console.log("IMAGES:");
-    // console.log(this.images);
-    // console.log("POIS:");
-    // console.log(this.pois);
+
     var that=this;
     setTimeout(function() {
       that.fixPlaces();

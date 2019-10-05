@@ -1,3 +1,4 @@
+import { WeatherService } from './../../services/weather.service';
 import { SocketService } from './../../services/socket.service';
 import { CountryinfoService } from './../../services/countryinfo.service';
 import { TimelineComponent } from './../timeline/timeline.component';
@@ -21,7 +22,9 @@ export class InfobubbleComponent implements OnInit {
   infobubbletime=timesjson.infobubbletime;
   searchingInfo=false;
   infoFound=false;
-  constructor(private socketService:SocketService,private countryinfoService:CountryinfoService) {
+  infoFoundWeather=false;
+  searchingInfoWeather=false;
+  constructor(private weatherService:WeatherService,private socketService:SocketService,private countryinfoService:CountryinfoService) {
 
 
    }
@@ -40,6 +43,7 @@ export class InfobubbleComponent implements OnInit {
 
 
 
+  /* ----- Info Bubble API ----- */
 
   handleSuccess(data) {
     console.log(data)
@@ -50,7 +54,10 @@ export class InfobubbleComponent implements OnInit {
     this.citiesFuture[0].timezone=data[0].timezones[0];
     this.infoFound = true;
     infoBubbleShow(this.infobubbletime);
+    this.searchWeather(data[0].latlng[0],data[0].latlng[1],1)
 
+
+    this.infoFoundWeather = true;
     //this.citiesFuture[0].weather.temphigh
    // this.citiesFuture[0].weather.templow
     //this.citiesFuture[0].weather.rainydays
@@ -71,6 +78,48 @@ export class InfobubbleComponent implements OnInit {
         () => (this.searchingInfo = false)
       );
   }
+
+
+
+  /* ----- Info Bubble Weather API ----- */
+
+
+
+  handleSuccessWeather(data,parameter) {
+    if(parameter===1){
+      console.log(data.data[0].id)
+      var stationid=data.data[0].id
+      this.searchWeather(1,1,stationid)
+    }
+    else{
+      var month=this.citiesFuture[0].dateMonth.substring(0, 3).toUpperCase();
+    this.citiesFuture[0].weather.temphigh=data.data.temperature_max[month];
+    this.citiesFuture[0].weather.templow=data.data.temperature_min[month]
+    this.citiesFuture[0].weather.rainydays=data.data.precipitation[month];
+    }
+
+
+
+  }
+
+  handleErrorWeather(error) {
+    console.log(error);
+  }
+
+  searchWeather(lat,lang,parameter) {
+    this.searchingInfoWeather = true;
+
+    return this.weatherService
+      .getWeather(lat,lang,parameter)
+      .subscribe(
+        data => this.handleSuccessWeather(data,parameter),
+        error => this.handleErrorWeather(error),
+        () => (this.searchingInfoWeather = false)
+      );
+  }
+
+
+
 
 
 
