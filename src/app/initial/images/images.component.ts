@@ -53,6 +53,7 @@ export class ImagesComponent implements OnInit {
       //this.loadedAway=true;
 
     });
+
     this.upcomingService.images$.subscribe(i => {
       //alert('(Component2) Method called!'+i);
       if (this.once1 === true) {

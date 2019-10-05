@@ -196,7 +196,7 @@ export class InfotableComponent implements OnInit {
 
   public fixPlaces() {
     for (var i = 0; i < this.pois.length; i++) {
-      console.log(this.pois[i].adminCode1);
+    //  console.log(this.pois[i].adminCode1);
       if (this.pois[i].adminCode1 !== 2) {
         this.pois[i] = undefined;
         this.places[i] = undefined;
@@ -258,12 +258,12 @@ j=0;
 
 
     }
-    console.log("PLACES:");
-    console.log(this.places);
-    console.log("IMAGES:");
-    console.log(this.images);
-    console.log("POIS:");
-    console.log(this.pois);
+    // console.log("PLACES:");
+    // console.log(this.places);
+    // console.log("IMAGES:");
+    // console.log(this.images);
+    // console.log("POIS:");
+    // console.log(this.pois);
     var that=this;
     setTimeout(function() {
       that.fixPlaces();
@@ -297,26 +297,26 @@ j=0;
     //console.log(data.extract);
     //console.log("in loop place");
     //console.log("FOUND" + this.places[i]);
-    console.log(this.places[i]);
+   // console.log(this.places[i]);
     if (typeof this.places[i] !== undefined  ) {
-      console.log(this.pois[i]);
+     // console.log(this.pois[i]);
       this.temp = this.pois[i].adminCode1;
       if (this.temp !== 1) {
         this.pois[i].adminCode1 = 1;
       } else if (this.temp === 1) {
-        console.log("BOTH");
-        console.log(this.places[i]);
-        console.log(this.images[i]);
+        // console.log("BOTH");
+        // console.log(this.places[i]);
+        // console.log(this.images[i]);
 
         this.pois[i].adminCode1 = 2;
       }
     }
     //console.log(i+" "+this.pois.length);
     if (i === this.pois.length-1) {
-      console.log("OK END");
-      console.log(this.places);
-      console.log(this.images);
-      console.log(this.pois);
+      // console.log("OK END");
+      // console.log(this.places);
+      // console.log(this.images);
+      // console.log(this.pois);
      // this.fixPlaces();
     }
 
@@ -346,12 +346,12 @@ j=0;
   handleErrorPlace(error, i) {
     this.places[i] = undefined;
     this.placecount = this.placecount + 1;
-    console.log(i+" "+this.pois.length);
+    // console.log(i+" "+this.pois.length);
     if (i === this.pois.length-1) {
-      console.log("OK END");
-      console.log(this.places);
-      console.log(this.images);
-      console.log(this.pois);
+      // console.log("OK END");
+      // console.log(this.places);
+      // console.log(this.images);
+      // console.log(this.pois);
     //  this.fixPlaces();
     }
     //console.log(error);
@@ -373,22 +373,20 @@ j=0;
   /* -------------- Images API --------------- */
   handleSuccess(data, i) {
     this.images[i] = data.hits[0];
-    console.log("FOUND" + this.images[i]);
+    //console.log("FOUND" + this.images[i]);
     if (typeof this.images[i] !== undefined && typeof this.images[i] !== "undefined") {
       this.temp = this.pois[i].adminCode1;
       if (this.temp !== 1) {
         this.pois[i].adminCode1 = 1;
       } else if (this.temp === 1) {
-        console.log("BOTH");
-        console.log(this.places[i]);
-        console.log(this.images[i]);
+        // console.log("BOTH");
+        // console.log(this.places[i]);
+        // console.log(this.images[i]);
 
         this.pois[i].adminCode1 = 2;
       }
     }
-    if (i === this.pois.length) {
-      console.log(this.images);
-    }
+
     //console.log(this.images);
     //console.log("in loop img");
 
