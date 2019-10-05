@@ -1,28 +1,33 @@
-#city-longlat {
-    opacity: 0.8;
-    top: 10px;
-    position: absolute;
-    left: 10px;
-    z-index: 4;
-    color: var(--main-timeline-color-upcoming);
-    font-size: 0.7vw;
-    z-index: 6;
-}
-
-#city-name {
-    color: var(--main-timeline-color-upcoming);
-    top: 20px;
-    left: 10px;
-    width: 840px;
-    overflow: hidden;
-    position: absolute;
-    z-index: 4;
-    font-family: "AvenirBolder";
-    font-size: 5vw;
-    transition: 3s;
-    text-transform: uppercase;
+#info-frame-up {
     filter: drop-shadow(-50px 0px 50px #fff);
+    height: 127px;
+    width: 851px;
+    position: absolute;
     z-index: 6;
+    #city-name {
+        color: var(--main-timeline-color-upcoming);
+        top: 20px;
+        left: 10px;
+        width: 840px;
+        overflow: hidden;
+        position: absolute;
+        z-index: 4;
+        font-family: "AvenirBolder";
+        font-size: 5vw;
+        transition: 3s;
+        text-transform: uppercase;
+        z-index: 6;
+    }
+    #city-longlat {
+        opacity: 0.8;
+        top: 10px;
+        position: absolute;
+        left: 10px;
+        z-index: 4;
+        color: var(--main-timeline-color-upcoming);
+        font-size: 0.7vw;
+        z-index: 6;
+    }
 }
 
 #leave-note {

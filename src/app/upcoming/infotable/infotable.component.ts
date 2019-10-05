@@ -458,7 +458,7 @@ export class InfotableComponent implements OnInit {
       $("#info-frame").fadeOut("slow");
       this.mapboxComponent.hideMap();
       this.placesComponent.showImagesUpcoming(this.currentImage);
-      $("#city-name").css({
+      $("#info-frame-up").css({
         filter: "drop-shadow(-50px 0px 50px var(--main-timeline-shadow))"
       });
       this.turn = false;
@@ -466,7 +466,7 @@ export class InfotableComponent implements OnInit {
       $("#info-frame").fadeIn("slow");
       this.mapboxComponent.showMap();
       this.placesComponent.hideImagesUpcoming();
-      $("#city-name").css({
+      $("#info-frame-up").css({
         filter: "drop-shadow(-50px 0px 50px #fff)"
       });
 
