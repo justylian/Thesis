@@ -1,0 +1,369 @@
+[{
+    "locale": "af",
+    "country": "Afrikaans",
+    "string": "Goeie more"
+}, {
+    "locale": "ar",
+    "country": "Arabic",
+    "string": "صباح الخير"
+}, {
+    "locale": "az",
+    "country": "Azerbaijani",
+    "string": "Sabahınız xeyir"
+}, {
+    "locale": "be",
+    "country": "Belarusian",
+    "string": "Добрай раніцы"
+}, {
+    "locale": "bg",
+    "country": "Bulgarian",
+    "string": "Добро утро"
+}, {
+    "locale": "bn",
+    "country": "Bengali",
+    "string": "সুপ্রভাত"
+}, {
+    "locale": "bs",
+    "country": "Bosnian",
+    "string": "Dobro jutro"
+}, {
+    "locale": "ca",
+    "country": "Catalan",
+    "string": "Bon dia"
+}, {
+    "locale": "ceb",
+    "country": "Cebuano",
+    "string": "Maayong buntag"
+}, {
+    "locale": "cs",
+    "country": "Czech",
+    "string": "Dobré ráno"
+}, {
+    "locale": "cy",
+    "country": "Welsh",
+    "string": "Bore Da"
+}, {
+    "locale": "da",
+    "country": "Danish",
+    "string": "god morgen"
+}, {
+    "locale": "de",
+    "country": "German",
+    "string": "Guten Morgen"
+}, {
+    "locale": "el",
+    "country": "Greek",
+    "string": "Καλημέρα"
+}, {
+    "locale": "en",
+    "country": "English",
+    "string": "Good Morning"
+}, {
+    "locale": "eo",
+    "country": "Esperanto",
+    "string": "Good Morning"
+}, {
+    "locale": "es",
+    "country": "Spanish",
+    "string": "Buenos días"
+}, {
+    "locale": "et",
+    "country": "Estonian",
+    "string": "Tere hommikust"
+}, {
+    "locale": "eu",
+    "country": "Basque",
+    "string": "Egun on"
+}, {
+    "locale": "fa",
+    "country": "Persian",
+    "string": "صبح بخیر"
+}, {
+    "locale": "fi",
+    "country": "Finnish",
+    "string": "Hyvää huomenta"
+}, {
+    "locale": "fr",
+    "country": "French",
+    "string": "Bonjour"
+}, {
+    "locale": "ga",
+    "country": "Irish",
+    "string": "Maidin mhaith"
+}, {
+    "locale": "gl",
+    "country": "Galician",
+    "string": "Bos días"
+}, {
+    "locale": "gu",
+    "country": "Gujarati",
+    "string": "સુપ્રભાત"
+}, {
+    "locale": "ha",
+    "country": "Hausa",
+    "string": "Da safe"
+}, {
+    "locale": "hi",
+    "country": "Hindi",
+    "string": "शुभ प्रभात"
+}, {
+    "locale": "hmn",
+    "country": "Hmong",
+    "string": "Good Morning"
+}, {
+    "locale": "hr",
+    "country": "Croatian",
+    "string": "Dobro jutro"
+}, {
+    "locale": "ht",
+    "country": "Haitian Creole",
+    "string": "Bonjou"
+}, {
+    "locale": "hu",
+    "country": "Hungarian",
+    "string": "Jó reggelt kívánok"
+}, {
+    "locale": "hy",
+    "country": "Armenian",
+    "string": "Բարի առավոտ"
+}, {
+    "locale": "id",
+    "country": "Indonesian",
+    "string": "Selamat pagi"
+}, {
+    "locale": "ig",
+    "country": "Igbo",
+    "string": "Ụtụtụ ọma"
+}, {
+    "locale": "is",
+    "country": "Icelandic",
+    "string": "Góðan daginn"
+}, {
+    "locale": "it",
+    "country": "Italian",
+    "string": "Buongiorno"
+}, {
+    "locale": "iw",
+    "country": "Hebrew",
+    "string": "בוקר טוב"
+}, {
+    "locale": "ja",
+    "country": "Japanese",
+    "string": "おはようございます"
+}, {
+    "locale": "jw",
+    "country": "Javanese",
+    "string": "Sugeng Apik"
+}, {
+    "locale": "ka",
+    "country": "Georgian",
+    "string": "Დილა მშვიდობისა"
+}, {
+    "locale": "kk",
+    "country": "Kazakh",
+    "string": "Қайырлы таң"
+}, {
+    "locale": "km",
+    "country": "Khmer",
+    "string": "អរុណ​សួស្តី"
+}, {
+    "locale": "kn",
+    "country": "Kannada",
+    "string": "ಶುಭೋದಯ"
+}, {
+    "locale": "ko",
+    "country": "Korean",
+    "string": "좋은 아침"
+}, {
+    "locale": "la",
+    "country": "Latin",
+    "string": "Good Morning"
+}, {
+    "locale": "lo",
+    "country": "Lao",
+    "string": "ສະ​ບາຍ​ດີ​ຕອນ​ເຊົ້າ"
+}, {
+    "locale": "lt",
+    "country": "Lithuanian",
+    "string": "Labas rytas"
+}, {
+    "locale": "lv",
+    "country": "Latvian",
+    "string": "Labrīt"
+}, {
+    "locale": "mg",
+    "country": "Malagasy",
+    "string": "Salama"
+}, {
+    "locale": "mi",
+    "country": "Maori",
+    "string": "Morena koutou"
+}, {
+    "locale": "mk",
+    "country": "Macedonian",
+    "string": "Добро утро"
+}, {
+    "locale": "ml",
+    "country": "Malayalam",
+    "string": "സുപ്രഭാതം"
+}, {
+    "locale": "mn",
+    "country": "Mongolian",
+    "string": "Өглөөний мэнд"
+}, {
+    "locale": "mr",
+    "country": "Marathi",
+    "string": "शुभ प्रभात"
+}, {
+    "locale": "ms",
+    "country": "Malay",
+    "string": "Selamat Pagi"
+}, {
+    "locale": "mt",
+    "country": "Maltese",
+    "string": "Bongu"
+}, {
+    "locale": "my",
+    "country": "Myanmar (Burmese)",
+    "string": "မင်္ဂလာနံနက်ခင်းပါ"
+}, {
+    "locale": "ne",
+    "country": "Nepali",
+    "string": "शुभ - प्रभात"
+}, {
+    "locale": "nl",
+    "country": "Dutch",
+    "string": "Goedemorgen"
+}, {
+    "locale": "no",
+    "country": "Norwegian",
+    "string": "God morgen"
+}, {
+    "locale": "ny",
+    "country": "Chichewa",
+    "string": "M&#39;mawa wabwino"
+}, {
+    "locale": "pa",
+    "country": "Punjabi",
+    "string": "ਸ਼ੁਭ ਸਵੇਰ"
+}, {
+    "locale": "pl",
+    "country": "Polish",
+    "string": "Dzień dobry"
+}, {
+    "locale": "pt",
+    "country": "Portuguese",
+    "string": "Bom Dia"
+}, {
+    "locale": "ro",
+    "country": "Romanian",
+    "string": "Buna dimineata"
+}, {
+    "locale": "ru",
+    "country": "Russian",
+    "string": "Доброе утро"
+}, {
+    "locale": "si",
+    "country": "Sinhala",
+    "string": "සුභ උදෑසනක්"
+}, {
+    "locale": "sk",
+    "country": "Slovak",
+    "string": "Dobré ráno"
+}, {
+    "locale": "sl",
+    "country": "Slovenian",
+    "string": "Dobro jutro"
+}, {
+    "locale": "so",
+    "country": "Somali",
+    "string": "Subax wanaagsan"
+}, {
+    "locale": "sq",
+    "country": "Albanian",
+    "string": "Miremengjes"
+}, {
+    "locale": "sr",
+    "country": "Serbian",
+    "string": "Добро јутро"
+}, {
+    "locale": "st",
+    "country": "Sesotho",
+    "string": "Khotsong"
+}, {
+    "locale": "su",
+    "country": "Sundanese",
+    "string": "Wilujeng énjing"
+}, {
+    "locale": "sv",
+    "country": "Swedish",
+    "string": "God morgon"
+}, {
+    "locale": "sw",
+    "country": "Swahili",
+    "string": "Habari za asubuhi"
+}, {
+    "locale": "ta",
+    "country": "Tamil",
+    "string": "காலை வணக்கம்"
+}, {
+    "locale": "te",
+    "country": "Telugu",
+    "string": "శుభోదయం"
+}, {
+    "locale": "tg",
+    "country": "Tajik",
+    "string": "Субҳ ба хайр"
+}, {
+    "locale": "th",
+    "country": "Thai",
+    "string": "สวัสดีตอนเช้าค่ะ"
+}, {
+    "locale": "tl",
+    "country": "Filipino",
+    "string": "Magandang umaga"
+}, {
+    "locale": "tr",
+    "country": "Turkish",
+    "string": "Günaydın"
+}, {
+    "locale": "uk",
+    "country": "Ukrainian",
+    "string": "Доброго ранку"
+}, {
+    "locale": "ur",
+    "country": "Urdu",
+    "string": "صبح بخیر"
+}, {
+    "locale": "uz",
+    "country": "Uzbek",
+    "string": "Xayrli tong"
+}, {
+    "locale": "vi",
+    "country": "Vietnamese",
+    "string": "Chào buổi sáng"
+}, {
+    "locale": "yi",
+    "country": "Yiddish",
+    "string": "גוט מארגן"
+}, {
+    "locale": "yo",
+    "country": "Yoruba",
+    "string": "E kaaro"
+}, {
+    "locale": "zh",
+    "country": "Chinese",
+    "string": "早上好"
+}, {
+    "locale": "zh-CN",
+    "country": "Chinese (Simplified)",
+    "string": "早上好"
+}, {
+    "locale": "zh-TW",
+    "country": "Chinese (Traditional)",
+    "string": "早上好"
+}, {
+    "locale": "zu",
+    "country": "Zulu",
+    "string": "Sawubona"
+}]

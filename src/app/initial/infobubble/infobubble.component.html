@@ -3,7 +3,7 @@
         <div class='info-bubble-inner-shadow' id="info-bubble-inner-shadow-1">
             <div class='info-bubble-inner' id='info-bubble-inner-1'>
 
-                <h5 class="info-bubble-title">Language</h5>
+                <h5 class="info-bubble-title" *ngIf="phraseFound">Language</h5>
                 <h6 class="info-bubble-desc" id="info-bubble-desc-lang">{{citiesFuture[0].language}}</h6>
                 <h5 class="info-bubble-inner-title">Speak the lingo:</h5>
                 <h6 class="info-bubble-desc">{{citiesFuture[0].lingo}}</h6>

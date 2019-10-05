@@ -4,6 +4,8 @@ import { CountryinfoService } from './../../services/countryinfo.service';
 import { TimelineComponent } from './../timeline/timeline.component';
 import { Component, OnInit } from '@angular/core';
 import timelinejson from '../../../assets/json/timeline.json';
+import phrasesjson from '../../../assets/json/phrases.json';
+
 import timesjson from '../../../assets/json/times.json';
 declare var $: any;
 declare var jQuery: any;
@@ -18,12 +20,14 @@ export class InfobubbleComponent implements OnInit {
   citiesPastCount=Object.keys(timelinejson.citiesPast).length;
 
   citiesFuture=timelinejson.citiesFuture;
+  phrases=phrasesjson;
 
   infobubbletime=timesjson.infobubbletime;
   searchingInfo=false;
   infoFound=false;
   infoFoundWeather=false;
   searchingInfoWeather=false;
+  phraseFound=false;
   constructor(private weatherService:WeatherService,private socketService:SocketService,private countryinfoService:CountryinfoService) {
 
 
@@ -40,7 +44,16 @@ export class InfobubbleComponent implements OnInit {
 
   }
 
+  searchPhrases(data){
+    for(var i=0;i<this.phrases.length;i++){
+      if(this.phrases[i].country.toUpperCase()===data.languages[0].name.toUpperCase()){
+        //console.log(this.phrases[i].string);
+        this.citiesFuture[0].lingo=this.phrases[i].string;
+        this.phraseFound=true;
+      }
 
+    }
+  }
 
 
   /* ----- Info Bubble API ----- */
@@ -55,9 +68,9 @@ export class InfobubbleComponent implements OnInit {
     this.infoFound = true;
     infoBubbleShow(this.infobubbletime);
     this.searchWeather(data[0].latlng[0],data[0].latlng[1],1)
+    this.searchPhrases(data[0]);
 
-
-    this.infoFoundWeather = true;
+    this.infoFound = true;
     //this.citiesFuture[0].weather.temphigh
    // this.citiesFuture[0].weather.templow
     //this.citiesFuture[0].weather.rainydays
@@ -97,6 +110,7 @@ export class InfobubbleComponent implements OnInit {
     this.citiesFuture[0].weather.templow=data.data.temperature_min[month]
     this.citiesFuture[0].weather.rainydays=data.data.precipitation[month];
     }
+    this.infoFoundWeather = true;
 
 
 
