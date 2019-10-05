@@ -110,14 +110,8 @@ export class PlacesComponent implements OnInit {
     $("#places").fadeOut(250, function() {});
   }
 
-  onceColors = false;
   public showImagesUpcoming(i) {
 
-    if (this.onceColors === false) {
-
-
-      this.onceColors = true;
-    }
     this.manageImagesUpcoming(i)
   }
 

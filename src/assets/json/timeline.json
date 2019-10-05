@@ -229,8 +229,8 @@
         }
     ],
     "citiesFuture": [{
-        "cityName": "athens",
-        "countryName": "greece",
+        "cityName": "chicago",
+        "countryName": "usa",
         "currency": "Euro",
         "timezone": "GMT +1",
         "language": "Spanish",

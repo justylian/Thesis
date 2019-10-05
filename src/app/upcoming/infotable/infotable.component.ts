@@ -19,6 +19,7 @@ declare var $: any;
 declare var jQuery: any;
 import { of } from "rxjs/observable/of";
 import { Observable } from "rxjs";
+import { ignoreElements } from "rxjs-compat/operator/ignoreElements";
 
 @Component({
   selector: "app-infotable",
@@ -53,7 +54,7 @@ export class InfotableComponent implements OnInit {
   city;
   country;
   searchEnd = true;
-  loadedUpcoming=false;
+  loadedUpcoming = false;
   public day1 =
     "../../../assets/images/weather/" +
     this.upcoming.weather.day1.state +
@@ -92,19 +93,17 @@ export class InfotableComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-
     this.socketService.getCity().subscribe(city => {
       //console.log(city);
       this.citiesFuture[0].cityName = city;
       this.cityFound = true;
 
       if (this.countryFound === true && this.cityFound == true) {
-
         this.searchPOI(
           this.citiesFuture[0].cityName + " " + this.citiesFuture[0].countryName
         );
 
-        $('#choice #choice-loader #loader-text').fadeIn();
+        $("#choice #choice-loader #loader-text").fadeIn();
 
         this.remainingDays = this.getRemainingdays(this.remainingDays);
 
@@ -113,7 +112,7 @@ export class InfotableComponent implements OnInit {
         this.checkMonthDepArr();
 
         this.weatherMessage();
-        this.loadedUpcoming=true;
+        this.loadedUpcoming = true;
       }
     });
     this.socketService.getCountry().subscribe(country => {
@@ -124,7 +123,7 @@ export class InfotableComponent implements OnInit {
         this.searchPOI(
           this.citiesFuture[0].cityName + " " + this.citiesFuture[0].countryName
         );
-        $('#choice #choice-loader #loader-text').fadeIn();
+        $("#choice #choice-loader #loader-text").fadeIn();
 
         this.remainingDays = this.getRemainingdays(this.remainingDays);
 
@@ -133,8 +132,7 @@ export class InfotableComponent implements OnInit {
         this.checkMonthDepArr();
 
         this.weatherMessage();
-        this.loadedUpcoming=true;
-
+        this.loadedUpcoming = true;
       }
     });
 
@@ -143,9 +141,10 @@ export class InfotableComponent implements OnInit {
     if (window.screen.width < 1920) {
       // 768px portrait
       this.mobile = true;
-
     } else {
-      this.searchPOI(this.citiesFuture[0].cityName + " " + this.citiesFuture[0].countryName );
+      this.searchPOI(
+        this.citiesFuture[0].cityName + " " + this.citiesFuture[0].countryName
+      );
       this.remainingDays = this.getRemainingdays(this.remainingDays);
 
       this.mapboxComponent.focusPin(1);
@@ -153,10 +152,8 @@ export class InfotableComponent implements OnInit {
       this.checkMonthDepArr();
 
       this.weatherMessage();
-      this.loadedUpcoming=true;
-
+      this.loadedUpcoming = true;
     }
-
   }
 
   /* -------------- Check if Months different --------------- */
@@ -197,52 +194,22 @@ export class InfotableComponent implements OnInit {
     }
   }
 
-  currPois;
-  currPlace;
   public fixPlaces() {
     for (var i = 0; i < this.pois.length; i++) {
-      //this.currPois = this.pois[i];
-      //console.log(this.pois[i]);
-      if (typeof this.images[i] !== "undefined") {
-        for (var j = 0; j < this.pois.length; j++) {
-          //this.currPlace = this.places[j];
-          //console.log(this.places[j]);
-          if (typeof this.places[j] !== "undefined") {
-            if (
-              this.places[j].title
-                .toUpperCase()
-                .includes(this.pois[i].name.toUpperCase()) ||
-              this.pois[i].name
-                .toUpperCase()
-                .includes(this.places[j].title.toUpperCase())
-            ) {
-              this.placesOrdered[i] = this.places[j].extract;
-              this.placesNums[i] = i;
-              this.places[j] = undefined;
-              break;
-            }
-          }
-        }
-      } else {
-        this.placesOrdered[i] = undefined;
+      console.log(this.pois[i].adminCode1);
+      if (this.pois[i].adminCode1 !== 2) {
+        this.pois[i] = undefined;
+        this.places[i] = undefined;
+        this.images[i] = undefined;
       }
     }
-    console.log(this.pois);
-
-    for (var i = 0; i < this.pois.length; i++) {
-      if (typeof this.placesOrdered[i] === "undefined") {
-        //this.images[i] = undefined;
-        //this.pois[i] = undefined;
-      }
-    }
-
     this.pois = this.pois.filter(function(el) {
       return el != null;
     });
     this.images = this.images.filter(function(el) {
       return el != null;
     });
-    this.places = this.placesOrdered.filter(function(el) {
+    this.places = this.places.filter(function(el) {
       return el != null;
     });
     console.log("PLACES:");
@@ -253,11 +220,10 @@ export class InfotableComponent implements OnInit {
     console.log(this.pois);
     if (this.pois.length < 5) {
       alert("Not enough places found!");
-
     }
 
-    $('#loader-text').fadeOut("slow");
-    $('#choice-loader').fadeOut("slow");
+    $("#loader-text").fadeOut("slow");
+    $("#choice-loader").fadeOut("slow");
 
     this.imagesFound = true;
     this.placesFound = true;
@@ -270,23 +236,38 @@ export class InfotableComponent implements OnInit {
   }
 
   /* -------------- POI API --------------- */
-
+i=0;
+j=0;
   public handleSuccessPOI(data) {
     // console.log(data+"POOI");
     //console.log(data.geonames);
     //this.places=data.geonames;
     //console.log(this.places);
+    //console.log(this.pois);
     this.pois = data.geonames;
-    console.log("POIS:");
-    console.log(this.pois);
-    for (var i = 0; i < this.pois.length; i++) {
-      console.log("SEARCHING..."+this.pois[i].name);
-      this.searchPlace(this.pois[i].name);
 
-      this.searchImages(this.pois[i].name+" "+this.citiesFuture[0].cityName);
+    for ( this.j = 0; this.j < this.pois.length; this.j++) {
+      this.searchPlace(this.pois[this.j].name, this.j);
+
+      //console.log("SEARCHING..." + this.pois[i].name);
+    }
+    for (this.i = 0; this.i < this.pois.length; this.i++) {
+      //console.log("SEARCHING..." + this.pois[i].name);
+      //this.searchPlace(this.pois[i].name,i);
+      this.searchImages(this.pois[this.i].name + " " + this.citiesFuture[0].cityName,this.i);
 
 
     }
+    console.log("PLACES:");
+    console.log(this.places);
+    console.log("IMAGES:");
+    console.log(this.images);
+    console.log("POIS:");
+    console.log(this.pois);
+    var that=this;
+    setTimeout(function() {
+      that.fixPlaces();
+    }, 4000);
   }
 
   handleErrorPOI(error) {
@@ -309,12 +290,37 @@ export class InfotableComponent implements OnInit {
   /* -------------- Places API --------------- */
 
   placecount = 0;
-  handleSuccessPlace(data) {
-    this.places[this.placecount] = data;
+  temp;
+  handleSuccessPlace(data, i) {
+    this.places[i] = data;
+
     //console.log(data.extract);
     //console.log("in loop place");
-    this.placecount = this.placecount + 1;
-    if (
+    //console.log("FOUND" + this.places[i]);
+    console.log(this.places[i]);
+    if (typeof this.places[i] !== undefined  ) {
+      console.log(this.pois[i]);
+      this.temp = this.pois[i].adminCode1;
+      if (this.temp !== 1) {
+        this.pois[i].adminCode1 = 1;
+      } else if (this.temp === 1) {
+        console.log("BOTH");
+        console.log(this.places[i]);
+        console.log(this.images[i]);
+
+        this.pois[i].adminCode1 = 2;
+      }
+    }
+    //console.log(i+" "+this.pois.length);
+    if (i === this.pois.length-1) {
+      console.log("OK END");
+      console.log(this.places);
+      console.log(this.images);
+      console.log(this.pois);
+     // this.fixPlaces();
+    }
+
+    /* if (
       this.placecount === this.pois.length &&
       this.imagecount === this.pois.length &&
       this.searchEnd === true
@@ -325,46 +331,68 @@ export class InfotableComponent implements OnInit {
       this.placecount = 0;
       this.imagecount = 0;
 
-      this.fixPlaces();
+      //this.fixPlaces();
 
-      /* this.allFound = true;
+       this.allFound = true;
 
       this.sendplacesVar();
       this.sendimagesVar();
       this.sendimagesLocVar();
-      this.sendfoundVar(this.allFound);*/
-    }
+      this.sendfoundVar(this.allFound);
+    }*/
     //console.log(data);
   }
 
-  handleErrorPlace(error) {
-    this.places[this.placecount] = undefined;
+  handleErrorPlace(error, i) {
+    this.places[i] = undefined;
     this.placecount = this.placecount + 1;
+    console.log(i+" "+this.pois.length);
+    if (i === this.pois.length-1) {
+      console.log("OK END");
+      console.log(this.places);
+      console.log(this.images);
+      console.log(this.pois);
+    //  this.fixPlaces();
+    }
     //console.log(error);
   }
 
-  public searchPlace(query: string) {
+  public searchPlace(query: string, i) {
     this.searchingPlace = true;
     //console.log(query);
 
     return this.placesService
       .getInfo(query)
       .subscribe(
-        data => this.handleSuccessPlace(data),
-        error => this.handleErrorPlace(error),
+        data => this.handleSuccessPlace(data, i),
+        error => this.handleErrorPlace(error, i),
         () => (this.searchingPlace = false)
       );
   }
 
   /* -------------- Images API --------------- */
-  imagecount = 0;
-  handleSuccess(data, query) {
-    this.images[this.imagecount] = data.hits[0];
+  handleSuccess(data, i) {
+    this.images[i] = data.hits[0];
+    console.log("FOUND" + this.images[i]);
+    if (typeof this.images[i] !== undefined && typeof this.images[i] !== "undefined") {
+      this.temp = this.pois[i].adminCode1;
+      if (this.temp !== 1) {
+        this.pois[i].adminCode1 = 1;
+      } else if (this.temp === 1) {
+        console.log("BOTH");
+        console.log(this.places[i]);
+        console.log(this.images[i]);
+
+        this.pois[i].adminCode1 = 2;
+      }
+    }
+    if (i === this.pois.length) {
+      console.log(this.images);
+    }
     //console.log(this.images);
     //console.log("in loop img");
 
-    this.imagecount = this.imagecount + 1;
-    if (
+    /*  if (
       this.placecount === this.pois.length &&
       this.imagecount === this.pois.length &&
       this.searchEnd === true
@@ -381,24 +409,23 @@ export class InfotableComponent implements OnInit {
       this.sendplacesVar();
       this.sendimagesVar();
       this.sendimagesLocVar();
-      this.sendfoundVar(this.allFound);*/
-    }
+      this.sendfoundVar(this.allFound);
+    }*/
   }
 
-  handleError(error) {
-    this.images[this.imagecount] = undefined;
-    this.imagecount = this.imagecount + 1;
+  handleError(error, i) {
+    this.images[i] = undefined;
     console.log(error);
   }
 
-  searchImages(query: string) {
+  searchImages(query: string, i) {
     this.searchingImage = true;
 
     return this.imagesService
       .getImage(query)
       .subscribe(
-        data => this.handleSuccess(data, query),
-        error => this.handleError(error),
+        data => this.handleSuccess(data, i),
+        error => this.handleError(error, i),
         () => (this.searchingImage = false)
       );
   }
@@ -484,13 +511,19 @@ export class InfotableComponent implements OnInit {
   }
 
   currentImage = 0;
-
+  onceColors=false;
   public nextScroll(): void {
     var prevImage = this.currentImage;
     this.currentImage = ++this.currentImage;
     if (this.currentImage === 6) {
       this.currentImage = 1;
     }
+
+    if (this.onceColors === false) {
+      this.placesComponent.getColors(6);
+      this.onceColors = true;
+    }
+
     this.mapboxComponent.focusPin(this.currentImage);
     var element = document.getElementById("scroll-places-" + this.currentImage);
     $("#scroll-places-" + prevImage)
@@ -507,12 +540,16 @@ export class InfotableComponent implements OnInit {
       inline: "start"
     });
   }
-
+  onceColorsPrev=false;
   public previousScroll(): void {
     var prevImage = this.currentImage;
     this.currentImage = --this.currentImage;
     if (this.currentImage <= 0) {
       this.currentImage = 5;
+    }
+    if (this.onceColorsPrev === false) {
+      this.placesComponent.getColors(6);
+      this.onceColorsPrev = true;
     }
     this.mapboxComponent.focusPin(this.currentImage);
     var element = document.getElementById("scroll-places-" + this.currentImage);
