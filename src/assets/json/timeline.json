@@ -1,6 +1,7 @@
 {
     "citiesPast": [{
             "cityName": "Paris",
+            "countryName": "France",
             "dateMonth": "January",
             "dateYear": "2017",
             "photos": {
@@ -44,6 +45,7 @@
 
         {
             "cityName": "Lisbon",
+            "countryName": "Portugal",
             "dateMonth": "January",
             "dateYear": "2018",
             "photos": {
@@ -90,6 +92,7 @@
         },
         {
             "cityName": "New York",
+            "countryName": "USA",
             "dateMonth": "June",
             "dateYear": "2017",
             "photos": {
@@ -136,6 +139,7 @@
         },
         {
             "cityName": "Tokyo",
+            "countryName": "Japan",
             "dateMonth": "February",
             "dateYear": "2018",
             "photos": {
@@ -182,6 +186,7 @@
         },
         {
             "cityName": "Istanbul",
+            "countryName": "Turkey",
             "dateMonth": "October",
             "dateYear": "2018",
             "photos": {
@@ -233,15 +238,15 @@
         "countryName": "germany",
         "dateMonth": "October",
         "dateYear": "2019",
-        "currency": "Euro",
-        "timezone": "GMT +1",
-        "language": "Spanish",
-        "countrycode": "+31",
-        "lingo": "'Buenos Dias!'",
+        "currency": "",
+        "timezone": "",
+        "language": "",
+        "countrycode": "",
+        "lingo": "",
         "weather": {
-            "templow": "14°",
-            "temphigh": "21°",
-            "rainydays": "12"
+            "templow": "",
+            "temphigh": "",
+            "rainydays": ""
         },
         "longlat": "40° 43' 50.1960'' N | 73° 56' 6.8712'' W",
         "sound": {

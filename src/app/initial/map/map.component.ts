@@ -1,3 +1,4 @@
+import { CountryinfoService } from './../../services/countryinfo.service';
 import { SocketService } from './../../services/socket.service';
 import { InfobubbleComponent } from './../infobubble/infobubble.component';
 import { Component, OnInit } from '@angular/core';
@@ -24,13 +25,16 @@ export class MapComponent implements OnInit {
   images= new Array(5);
   once2=true;
   allfound=false;
+  lat;
+  lang;
 
-
-  constructor(private upcomingService:UpcomingService,private socketService:SocketService) {
+  constructor(private countryinfoService:CountryinfoService,private upcomingService:UpcomingService,private socketService:SocketService) {
     this.socketService.getCity().subscribe(city => {
       //console.log(city);
       this.citiesFuture[0].cityName= city;
-      findCityLoc(0,this.citiesPast,this.citiesFuture,this.citiesFuture[0].cityName);
+      console.log(this.citiesFuture[0].countryName)
+
+      this.findCityLoc(0,this.citiesFuture[0].cityName,this.citiesFuture[0].countryName);
 
       //this.loadedAway=true;
 
@@ -58,10 +62,16 @@ export class MapComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.findCityLoc(0,this.citiesFuture[0].cityName,this.citiesFuture[0].countryName);
 
 
   }
 
+
+
+  public placePin(lat,lang){
+
+  }
   public showNextCity(){
     $('#next-city').fadeIn( 400, function() {});
 
@@ -75,9 +85,9 @@ export class MapComponent implements OnInit {
 
   }
   public manageInitialMin(timelineno){
-      var cityName=findCityName(timelineno,this.citiesPast,this.images,this.citiesFuture);//change city name
-      //cityFocus(timelineno);
-      findCityLoc(timelineno,this.citiesPast,this.citiesFuture,cityName);//change pin
+      var cityName=this.findCityName(timelineno,this.citiesPast,this.images,this.citiesFuture);//change city name
+
+
 
       setTimeout(function() {
           mapMinify();
@@ -96,6 +106,111 @@ export class MapComponent implements OnInit {
     $('#image-stack-4').css('background-image', 'url(' + this.images[3].previewURL + ')');
     $('#image-stack-5').css('background-image', 'url(' + this.images[4].previewURL + ')');
   }
+
+
+
+  /* --------- Find pin location ---------*/
+public findCityLoc(timelineno,cityName,countryName){
+
+
+
+
+
+  this.searchCountryInfo(cityName,timelineno,cityName,countryName)
+/*
+  for(var i=0;i<citiesonmap.citieslocs.length;i++){
+    //console.log(citiesonmap.citieslocs[i]);
+    if((citiesonmap.citieslocs[i].city).toUpperCase()===(cityName).toUpperCase()){
+      //console.log(cityName);
+      cityLocLeft=citiesonmap.citieslocs[i].left
+      cityLocTop=citiesonmap.citieslocs[i].top
+
+    }
+  }*/
+}
+
+   /* ----- Info Pin API ----- */
+
+   handleSuccess(data,timelineno,cityName,countryName) {
+    this.lat=data[0].latlng[0]
+    this.lang=data[0].latlng[1]
+    //console.log(this.lang,this.lat)
+
+    // get x
+    this.lang = (this.lang + 180) * (1395 / 360);
+      // convert from degrees to radians
+    var latRad = this.lat * Math.PI / 180;
+      // get y value
+    var mercN = Math.log(Math.tan((Math.PI / 4) + (latRad / 2)));
+    this.lat = (750 / 2) - (1395 * mercN / (2 * Math.PI));
+
+    //this.lang=(this.lang*1395)/180;
+
+    //this.lat=(this.lat*750)/360;
+    //console.log(this.lang,this.lat)
+    changeCityNamePin(timelineno,cityName,this.lang,this.lat);
+
+
+  }
+
+  handleError(error) {
+    console.log(error);
+  }
+
+  searchCountryInfo(query: string,timelineno,cityName,countryName) {
+
+    return this.countryinfoService
+      .getCountryInfo(countryName)
+      .subscribe(
+        data => this.handleSuccess(data,timelineno,cityName,countryName),
+        error => this.handleError(error)
+      );
+  }
+
+
+
+
+
+
+/* --------- Find next city ---------*/
+public findCityName(timelineno,citiesPast,images,citiesFuture){
+  if(timelineno===1){
+    changePinPhotos(timelineno,citiesPast,images);
+    this.findCityLoc(timelineno,citiesPast[0].cityName,citiesPast[0].countryName);//change pin
+    return citiesPast[0].cityName;
+  }
+  else if(timelineno===2){
+    changePinPhotos(timelineno,citiesPast,images);
+    this.findCityLoc(timelineno,citiesPast[1].cityName,citiesPast[1].countryName);//change pin
+
+    return citiesPast[1].cityName;
+  }
+  else if(timelineno===3){
+    changePinPhotos(timelineno,citiesPast,images);
+    this.findCityLoc(timelineno,citiesPast[2].cityName,citiesPast[2].countryName);//change pin
+
+    return citiesPast[2].cityName;
+  }
+  else if(timelineno===4){
+    changePinPhotos(timelineno,citiesPast,images);
+    this.findCityLoc(timelineno,citiesPast[3].cityName,citiesPast[3].countryName);//change pin
+
+    return citiesPast[3].cityName;
+  }
+  else if(timelineno===5){
+    changePinPhotos(timelineno,citiesPast,images);
+    this.findCityLoc(timelineno,citiesPast[4].cityName,citiesPast[4].countryName);//change pin
+
+    return citiesPast[4].cityName;
+  }
+  else{
+    changePinPhotos(timelineno,citiesPast,images);
+    this.findCityLoc(timelineno,citiesFuture[0].cityName,citiesFuture[0].countryName);//change pin
+
+    return citiesFuture[0].cityName;
+  }
+}
+
 }
 
 
@@ -161,50 +276,10 @@ function changePinPhotos(timelineno,citiesPast,images){
 
 
 
-/* --------- Find next city ---------*/
-function findCityName(timelineno,citiesPast,images,citiesFuture){
-  if(timelineno===1){
-    changePinPhotos(timelineno,citiesPast,images);
-    return citiesPast[0].cityName;
-  }
-  else if(timelineno===2){
-    changePinPhotos(timelineno,citiesPast,images);
-    return citiesPast[1].cityName;
-  }
-  else if(timelineno===3){
-    changePinPhotos(timelineno,citiesPast,images);
-    return citiesPast[2].cityName;
-  }
-  else if(timelineno===4){
-    changePinPhotos(timelineno,citiesPast,images);
-    return citiesPast[3].cityName;
-  }
-  else if(timelineno===5){
-    changePinPhotos(timelineno,citiesPast,images);
-    return citiesPast[4].cityName;
-  }
-  else{
-    changePinPhotos(timelineno,citiesPast,images);
-    return citiesFuture[0].cityName;
-  }
-}
-
-/* --------- Find pin location ---------*/
-function findCityLoc(timelineno,citiesPast,citiesFuture,cityName){
-  var cityLocLeft;
-  var cityLocTop;
 
 
 
-  for(var i=0;i<citiesonmap.citieslocs.length;i++){
-    //console.log(citiesonmap.citieslocs[i]);
-    if((citiesonmap.citieslocs[i].city).toUpperCase()===(cityName).toUpperCase()){
-      //console.log(cityName);
-      cityLocLeft=citiesonmap.citieslocs[i].left
-      cityLocTop=citiesonmap.citieslocs[i].top
 
-    }
-  }
 
   /*searchInCitiesJSON(cityLocLeft,cityLocTop);
   if(timelineno===1){
@@ -227,8 +302,7 @@ function findCityLoc(timelineno,citiesPast,citiesFuture,cityName){
     cityLocLeft=citiesFuture[0].cityLocation.left;
     cityLocTop=citiesFuture[0].cityLocation.top;
   }*/
-  changeCityNamePin(timelineno,cityName,cityLocLeft,cityLocTop);
-}
+
 
 
 

@@ -1,3 +1,4 @@
+import { MapComponent } from './../map/map.component';
 import { WeatherService } from './../../services/weather.service';
 import { SocketService } from './../../services/socket.service';
 import { CountryinfoService } from './../../services/countryinfo.service';
@@ -28,7 +29,8 @@ export class InfobubbleComponent implements OnInit {
   infoFoundWeather=false;
   searchingInfoWeather=false;
   phraseFound=false;
-  constructor(private weatherService:WeatherService,private socketService:SocketService,private countryinfoService:CountryinfoService) {
+
+  constructor(private mapComponent:MapComponent,private weatherService:WeatherService,private socketService:SocketService,private countryinfoService:CountryinfoService) {
 
 
    }
@@ -41,7 +43,6 @@ export class InfobubbleComponent implements OnInit {
     this.searchCountryInfo(this.citiesFuture[0].countryName);
 
     //infoBubbleShow(this.infobubbletime); //run first
-
   }
 
   searchPhrases(data){
@@ -59,7 +60,7 @@ export class InfobubbleComponent implements OnInit {
   /* ----- Info Bubble API ----- */
 
   handleSuccess(data) {
-    console.log(data)
+    //console.log(data)
     this.citiesFuture[0].language=data[0].languages[0].name;
     //this.citiesFuture[0].lingo=
     this.citiesFuture[0].countrycode=data[0].callingCodes[0];
@@ -69,6 +70,7 @@ export class InfobubbleComponent implements OnInit {
     infoBubbleShow(this.infobubbletime);
     this.searchWeather(data[0].latlng[0],data[0].latlng[1],1)
     this.searchPhrases(data[0]);
+
 
     this.infoFound = true;
     //this.citiesFuture[0].weather.temphigh
@@ -100,17 +102,19 @@ export class InfobubbleComponent implements OnInit {
 
   handleSuccessWeather(data,parameter) {
     if(parameter===1){
-      console.log(data.data[0].id)
+      //console.log(data)
       var stationid=data.data[0].id
       this.searchWeather(1,1,stationid)
     }
     else{
+      //console.log(data)
       var month=this.citiesFuture[0].dateMonth.substring(0, 3).toUpperCase();
-    this.citiesFuture[0].weather.temphigh=data.data.temperature_max[month];
-    this.citiesFuture[0].weather.templow=data.data.temperature_min[month]
-    this.citiesFuture[0].weather.rainydays=data.data.precipitation[month];
+      this.citiesFuture[0].weather.temphigh=data.data.temperature_max[month];
+      this.citiesFuture[0].weather.templow=data.data.temperature_min[month]
+      this.citiesFuture[0].weather.rainydays=data.data.precipitation[month];
+      this.infoFoundWeather = true;
+
     }
-    this.infoFoundWeather = true;
 
 
 

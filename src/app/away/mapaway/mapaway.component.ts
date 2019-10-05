@@ -1,3 +1,4 @@
+import { CountryinfoService } from './../../services/countryinfo.service';
 import { SocketService } from './../../services/socket.service';
 import { Component, OnInit } from '@angular/core';
 import timelinejson from '../../../assets/json/timeline.json';
@@ -26,15 +27,17 @@ export class MapawayComponent implements OnInit {
   once1;
   allfound=false;
   loadedAway=false;
+  lat;
+  lang;
   public day1="../../../assets/images/weather/Showerstrans.png";
 
-  constructor( private upcomingService: UpcomingService,private socketService:SocketService) {
+  constructor( private countryinfoService:CountryinfoService,private upcomingService: UpcomingService,private socketService:SocketService) {
     this.socketService.getCity().subscribe(city => {
       //console.log(city);
       this.citiesFuture[0].cityName= city;
       this.dist=this.mapboxDistance("",this.citiesFuture[0].cityName)[0];
       this.loadedAway=true;
-      this.findCityLoc(this.citiesFuture[0].cityName);
+      this.searchCountryInfo(this.citiesFuture[0].countryName)
 
     });
     this.upcomingService.images$.subscribe(i => {
@@ -59,7 +62,8 @@ export class MapawayComponent implements OnInit {
    }
 
   ngOnInit() {
-
+    this.loadedAway=true;
+    this.searchCountryInfo(this.citiesFuture[0].countryName)
   }
 
 
@@ -176,34 +180,49 @@ $("#away #ballshadow").hide(500);
 };
 
 
-/* --------- Find pin location ---------*/
-public findCityLoc(cityName){
-  var cityLocLeft;
-  var cityLocTop;
+ /* ----- Info Pin API ----- */
 
+ handleSuccess(data,countryName) {
+  this.lat=data[0].latlng[0]
+  this.lang=data[0].latlng[1]
+  //console.log(this.lang,this.lat)
 
-  for(var i=0;i<this.citiesonmap.citieslocs.length;i++){
-    //console.log(this.citiesonmap.citieslocs[i]);
-    if((this.citiesonmap.citieslocs[i].city).toUpperCase()===(cityName).toUpperCase()){
-      //console.log(cityName);
-      console.log((cityName).toUpperCase(),(this.citiesonmap.citieslocs[i].city).toUpperCase());
+  // get x
+  this.lang = (this.lang + 180) * (1395 / 360);
+    // convert from degrees to radians
+  var latRad = this.lat * Math.PI / 180;
+    // get y value
+  var mercN = Math.log(Math.tan((Math.PI / 4) + (latRad / 2)));
+  this.lat = (750 / 2) - (1395 * mercN / (2 * Math.PI));
 
-      cityLocLeft=this.citiesonmap.citieslocs[i].left
-      cityLocTop=this.citiesonmap.citieslocs[i].top
+  //this.lang=(this.lang*1395)/180;
+  var lang=this.lang;
+  var lat=this.lat-5;
 
-    }
-  }
-  //console.log($("#away #pin-images-away"));
-  //$("#away #pin-images-away").fadeOut(400, function() {});
-  console.log(cityLocTop,cityLocLeft);
-  $('#away #pin-images-away').fadeOut( 400, function() {
-    $('#away #pin-images-away').animate({ left: cityLocLeft, top: cityLocTop}, 200);
-    $('#away #pin-images-away').fadeIn( 600, function() {
+  //this.lat=(this.lat*750)/360;
+  console.log(this.lang,this.lat)
+  console.log($('#pin-images-away'));
+  $('#pin-images-away').fadeOut( 400, function() {
+    $('#pin-images-away').animate({ left:  lang, top: lat}, 200);
+    $('#pin-images-away').fadeIn( 600, function() {
     });
   });
 
 
+}
 
+handleError(error) {
+  console.log(error);
+}
+
+searchCountryInfo(countryName) {
+
+  return this.countryinfoService
+    .getCountryInfo(countryName)
+    .subscribe(
+      data => this.handleSuccess(data,countryName),
+      error => this.handleError(error)
+    );
 }
 
 

@@ -6,7 +6,7 @@
                 <h5 class="info-bubble-title" *ngIf="phraseFound">Language</h5>
                 <h6 class="info-bubble-desc" id="info-bubble-desc-lang">{{citiesFuture[0].language}}</h6>
                 <h5 class="info-bubble-inner-title">Speak the lingo:</h5>
-                <h6 class="info-bubble-desc">{{citiesFuture[0].lingo}}</h6>
+                <h6 class="info-bubble-desc">'{{citiesFuture[0].lingo}}'</h6>
                 <h6 class="info-bubble-inner-trans">(ENG) Good morning!</h6>
 
             </div>
@@ -45,8 +45,8 @@
             <div class='info-bubble-inner' id='info-bubble-inner-5'>
                 <h5 class="info-bubble-title">Weather</h5>
                 <h6 class="info-bubble-average-temps">Average Temperatures</h6>
-                <h6 class="info-bubble-desc" id="info-bubble-desc-weather-high">{{citiesFuture[0].weather.temphigh}}</h6>
-                <h6 class="info-bubble-desc" id="info-bubble-desc-weather-low">{{citiesFuture[0].weather.templow}}</h6>
+                <h6 class="info-bubble-desc" id="info-bubble-desc-weather-high">{{citiesFuture[0].weather.temphigh}}°</h6>
+                <h6 class="info-bubble-desc" id="info-bubble-desc-weather-low">{{citiesFuture[0].weather.templow}}°-</h6>
                 <h6 class="info-bubble-average-rainy">Average Rainy Days</h6>
                 <h6 class="info-bubble-desc" id="info-bubble-desc-weather-days">{{citiesFuture[0].weather.rainydays}}</h6>
 
