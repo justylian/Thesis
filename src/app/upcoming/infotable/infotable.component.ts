@@ -147,7 +147,7 @@ export class InfotableComponent implements OnInit {
       // 768px portrait
       this.mobile = true;
     } else {
-      this.searchPOI(
+   /*   this.searchPOI(
         this.citiesFuture[0].cityName + " " + this.citiesFuture[0].countryName
       );
       this.remainingDays = this.getRemainingdays(this.remainingDays);
@@ -160,7 +160,7 @@ export class InfotableComponent implements OnInit {
       this.coordinates(this.citiesFuture[0].cityName)
       this.upcoming.flight.arrival.arrivalairport=this.citiesFuture[0].cityName.toUpperCase().substring(0,3);
 
-      this.loadedUpcoming = true;
+      this.loadedUpcoming = true;*/
     }
   }
 
@@ -228,6 +228,8 @@ export class InfotableComponent implements OnInit {
     console.log(this.pois);
     if (this.pois.length < 5) {
       alert("Not enough places found!");
+      window.location.reload(false);
+
     }
 
     $("#loader-text").fadeOut("slow");
@@ -293,7 +295,9 @@ export class InfotableComponent implements OnInit {
   placecount = 0;
   temp;
   handleSuccessPlace(data, i) {
-    this.places[i] = data;
+    if(data.type==="standard"){
+      this.places[i] = data;
+
 
     //console.log(data.extract);
     //console.log("in loop place");
@@ -312,36 +316,9 @@ export class InfotableComponent implements OnInit {
         this.pois[i].adminCode1 = 2;
       }
     }
-    //console.log(i+" "+this.pois.length);
-    if (i === this.pois.length-1) {
-      // console.log("OK END");
-      // console.log(this.places);
-      // console.log(this.images);
-      // console.log(this.pois);
-     // this.fixPlaces();
-    }
+  }
 
-    /* if (
-      this.placecount === this.pois.length &&
-      this.imagecount === this.pois.length &&
-      this.searchEnd === true
-    ) {
-      this.searchEnd = false;
-      console.log(this.images);
-      console.log(this.places);
-      this.placecount = 0;
-      this.imagecount = 0;
 
-      //this.fixPlaces();
-
-       this.allFound = true;
-
-      this.sendplacesVar();
-      this.sendimagesVar();
-      this.sendimagesLocVar();
-      this.sendfoundVar(this.allFound);
-    }*/
-    //console.log(data);
   }
 
   handleErrorPlace(error, i) {

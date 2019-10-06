@@ -56,7 +56,7 @@ export class AppComponent implements OnInit{
   }
   public countrySelected(country){
     this.countrySelect=true;
-    var country=$('#mobile #form-country option:selected').text();
+    var country=$('#mobile #form-country option:selected').val();
     //alert(country);
     this.country=country;
 

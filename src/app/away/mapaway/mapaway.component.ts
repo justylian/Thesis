@@ -34,8 +34,14 @@ export class MapawayComponent implements OnInit {
       //console.log(city);
       this.citiesFuture[0].cityName= city;
       this.dist=this.mapboxDistance("",this.citiesFuture[0].cityName)[0];
-      this.loadedAway=true;
+      //this.searchCountryInfo(this.citiesFuture[0].countryName)
+
+    });
+    this.socketService.getCountry().subscribe(country => {
+      this.citiesFuture[0].countryName= country;
+
       this.searchCountryInfo(this.citiesFuture[0].countryName)
+      this.loadedAway=true;
 
     });
     this.upcomingService.images$.subscribe(i => {
@@ -60,9 +66,9 @@ export class MapawayComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.loadedAway=true;
-    this.searchCountryInfo(this.citiesFuture[0].countryName)
-    this.dist=this.mapboxDistance("",this.citiesFuture[0].cityName)[0];
+   // this.loadedAway=true;
+   // this.searchCountryInfo(this.citiesFuture[0].countryName)
+   //this.dist=this.mapboxDistance("",this.citiesFuture[0].cityName)[0];
 
   }
 
@@ -183,8 +189,8 @@ $("#away #ballshadow").hide(500);
  /* ----- Info Pin API ----- */
 
  handleSuccess(data,countryName) {
-  this.lat=data[0].latlng[0]
-  this.lang=data[0].latlng[1]
+  this.lat=data.latlng[0]
+  this.lang=data.latlng[1]
   //console.log(this.lang,this.lat)
 
   // get x

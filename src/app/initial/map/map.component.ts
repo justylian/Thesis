@@ -31,7 +31,17 @@ export class MapComponent implements OnInit {
     this.socketService.getCity().subscribe(city => {
       //console.log(city);
       this.citiesFuture[0].cityName= city;
-      console.log(this.citiesFuture[0].countryName)
+      //console.log(this.citiesFuture[0].countryName)
+
+      //this.findCityLoc(0,this.citiesFuture[0].cityName,this.citiesFuture[0].countryName);
+
+      //this.loadedAway=true;
+
+    });
+    this.socketService.getCountry().subscribe(country => {
+      //console.log(city);
+      this.citiesFuture[0].countryName= country;
+      //console.log(this.citiesFuture[0].countryName)
 
       this.findCityLoc(0,this.citiesFuture[0].cityName,this.citiesFuture[0].countryName);
 
@@ -61,7 +71,7 @@ export class MapComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.findCityLoc(0,this.citiesFuture[0].cityName,this.citiesFuture[0].countryName);
+    //this.findCityLoc(0,this.citiesFuture[0].cityName,this.citiesFuture[0].countryName);
 
 
   }
@@ -131,8 +141,9 @@ public findCityLoc(timelineno,cityName,countryName){
    /* ----- Info Pin API ----- */
 
    handleSuccess(data,timelineno,cityName,countryName) {
-    this.lat=data[0].latlng[0]
-    this.lang=data[0].latlng[1]
+    console.log(data,countryName)
+    this.lat=data.latlng[0]
+    this.lang=data.latlng[1]
     //console.log(this.lang,this.lat)
 
     // get x

@@ -41,12 +41,13 @@
                 <div class="infotable-inner-texts-inside">
 
                     <div id="flight-info-outbound">{{upcoming.flight.departure.departureairport}}-{{upcoming.flight.arrival.arrivalairport}}
-                        <div id="flight-info-outbound-icon"></div>&nbsp;&nbsp; {{upcoming.flight.departure.departuredate}} {{upcoming.flight.departure.departuremonth}} {{upcoming.flight.departure.departurehour}}
+                        <div id="flight-info-outbound-icon"></div>
+                        <div id="flight-info-outbound-date"> {{upcoming.flight.departure.departuredate}} {{upcoming.flight.departure.departuremonth}} {{upcoming.flight.departure.departurehour}}</div>
                         <div id="flight-info-outbound-flightinfo">{{upcoming.flight.departure.flight}}</div>
                     </div>
                     <div id="flight-info-inbound">{{upcoming.flight.arrival.arrivalairport}}-{{upcoming.flight.departure.departureairport}}
                         <div id="flight-info-inbound-icon"></div>
-                        &nbsp;&nbsp; {{upcoming.flight.arrival.arrivaldate}} {{upcoming.flight.arrival.arrivalmonth}} {{upcoming.flight.arrival.arrivalhour}}
+                        <div id="flight-info-inbound-date"> {{upcoming.flight.arrival.arrivaldate}} {{upcoming.flight.arrival.arrivalmonth}} {{upcoming.flight.arrival.arrivalhour}}</div>
                         <div id="flight-info-inbound-flightinfo">{{upcoming.flight.arrival.flight}}</div>
 
                     </div>

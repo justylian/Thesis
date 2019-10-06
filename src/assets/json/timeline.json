@@ -234,8 +234,8 @@
         }
     ],
     "citiesFuture": [{
-        "cityName": "berlin",
-        "countryName": "germany",
+        "cityName": "",
+        "countryName": "",
         "dateMonth": "October",
         "dateYear": "2019",
         "currency": "",
@@ -248,7 +248,7 @@
             "temphigh": "",
             "rainydays": ""
         },
-        "longlat": "40° 43' 50.1960'' N | 73° 56' 6.8712'' W",
+        "longlat": "",
         "sound": {
             "url": "../../../assets/music/Copenhagen Bicycles.mp3",
             "desc": "City Bustle"

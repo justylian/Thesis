@@ -270,11 +270,36 @@ public getColors(i) {
       lessx = 600;
       lessy = 800;
     }
+
+
+
+    templength = extractColors("myCanvas12", 1600, 100, j, i);
+
+    colorList = {};
+
+    //console.log(templength);
+    if (length > templength) {
+      length = templength;
+      lessx = 1600;
+      lessy = 100;
+    }
+
+
+    templength = extractColors("myCanvas13", 1200, 800, j, i);
+
+    colorList = {};
+
+    //console.log(templength);
+    if (length > templength) {
+      length = templength;
+      lessx = 1200;
+      lessy = 800;
+    }
     console.log(i, j, length, lessx, lessy);
 
     if (j === 5) {
       $("#cityImages6 #image6-five-inner").css({ top: lessy, left: lessx });
-      if (length >= 3600) {
+      if (length >= 1100) {
         $("#cityImages6 #image6-five-inner h1").css({
           filter: "drop-shadow(0 0 30px #000)",
           "mix-blend-mode": "unset",
@@ -290,7 +315,7 @@ public getColors(i) {
       }
     } else if (j === 4) {
       $("#cityImages6 #image6-four-inner").css({ top: lessy, left: lessx });
-      if (length >= 3600) {
+      if (length >= 1100) {
         $("#cityImages6 #image6-four-inner h1").css({
           filter: "drop-shadow(0 0 30px #000)",
           "mix-blend-mode": "unset",
@@ -306,7 +331,7 @@ public getColors(i) {
       }
     } else if (j === 3) {
       $("#cityImages6 #image6-three-inner").css({ top: lessy, left: lessx });
-      if (length >= 3600) {
+      if (length >= 1100) {
         $("#cityImages6 #image6-three-inner h1").css({
           filter: "drop-shadow(0 0 30px #000)",
           "mix-blend-mode": "unset",
@@ -322,7 +347,7 @@ public getColors(i) {
       }
     } else if (j === 2) {
       $("#cityImages6 #image6-two-inner").css({ top: lessy, left: lessx });
-      if (length >= 3600) {
+      if (length >= 1100) {
         $("#cityImages6 #image6-two-inner h1").css({
           filter: "drop-shadow(0 0 30px #000)",
           "mix-blend-mode": "unset",
@@ -339,7 +364,7 @@ public getColors(i) {
     } else {
       $("#cityImages6 #image6-one-inner").css({ top: lessy, left: lessx });
 
-      if (length >= 3600) {
+      if (length >= 1100) {
         $("#cityImages6 #image6-one-inner h1").css({
           filter: "drop-shadow(0 0 30px #000)",
           "mix-blend-mode": "unset",

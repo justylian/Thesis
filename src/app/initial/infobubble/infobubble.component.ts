@@ -39,7 +39,7 @@ export class InfobubbleComponent implements OnInit {
       this.citiesFuture[0].countryName= country;
       this.searchCountryInfo(this.citiesFuture[0].countryName);
     });
-    this.searchCountryInfo(this.citiesFuture[0].countryName);
+   // this.searchCountryInfo(this.citiesFuture[0].countryName);
 
     //infoBubbleShow(this.infobubbletime); //run first
   }
@@ -60,16 +60,16 @@ export class InfobubbleComponent implements OnInit {
 
   handleSuccess(data) {
     //console.log(data)
-    this.citiesFuture[0].language=data[0].languages[0].name;
+    this.citiesFuture[0].language=data.languages[0].name;
     //this.citiesFuture[0].lingo=
-    this.citiesFuture[0].countrycode=data[0].callingCodes[0];
-    this.citiesFuture[0].currency=data[0].currencies[0].code;
-    this.citiesFuture[0].timezone=data[0].timezones[0];
+    this.citiesFuture[0].countrycode=data.callingCodes[0];
+    this.citiesFuture[0].currency=data.currencies[0].code;
+    this.citiesFuture[0].timezone=data.timezones[0];
     this.infoFound = true;
     infoBubbleShow(this.infobubbletime);
-    this.searchWeather(data[0].latlng[0],data[0].latlng[1],1)
+    this.searchWeather(data.latlng[0],data.latlng[1],1)
     //
-    this.searchPhrases(data[0]);
+    this.searchPhrases(data);
 
 
     this.infoFound = true;

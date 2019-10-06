@@ -18,6 +18,6 @@ export class CountryinfoService {
 
     query = query.split(" ").join("-");
 
-    return this._http.get("https://restcountries.eu/rest/v2/name/"+query).map(data => data);
+    return this._http.get("https://restcountries.eu/rest/v2/alpha/"+query).map(data => data);
   }
 }

@@ -3,6 +3,7 @@
     height: 127px;
     width: 851px;
     position: absolute;
+    transition: 3s;
     z-index: 7;
     #city-name {
         color: var(--main-timeline-color-upcoming);
@@ -173,6 +174,17 @@
             width: 275px;
             font-size: 18px;
             color: #677C7C;
+            #flight-info-outbound-date {
+                position: absolute;
+                /* top: 0; */
+                /* display: inline; */
+                /* width: 91px; */
+                /* position: absolute; */
+                /* height: 15px; */
+                /* background-size: cover; */
+                margin-left: 100px;
+                margin-top: -21px;
+            }
             #flight-info-outbound-icon {
                 background-image: url("../../../assets/images/icons/flightarrow.png");
                 width: 21px;
@@ -193,6 +205,11 @@
             font-size: 18px;
             top: 10px;
             color: #677C7C;
+            #flight-info-inbound-date {
+                position: absolute;
+                margin-left: 100px;
+                margin-top: -21px;
+            }
             #flight-info-inbound-icon {
                 background-image: url("../../../assets/images/icons/flightarrow.png");
                 width: 21px;
