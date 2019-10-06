@@ -22,7 +22,7 @@ export class MapawayComponent implements OnInit {
   dist:number;
   parameter="";
   images;
-  once1;
+  once1=true;
   allfound=false;
   loadedAway=false;
   lat;
@@ -194,12 +194,12 @@ $("#away #ballshadow").hide(500);
   //console.log(this.lang,this.lat)
 
   // get x
-  this.lang = (this.lang + 180) * (1395 / 360);
+  this.lang = (this.lang + 180) * (1355 / 360);
     // convert from degrees to radians
   var latRad = this.lat * Math.PI / 180;
     // get y value
   var mercN = Math.log(Math.tan((Math.PI / 4) + (latRad / 2)));
-  this.lat = (750 / 2) - (1395 * mercN / (2 * Math.PI));
+  this.lat = (750 / 2) - (1355 * mercN / (2 * Math.PI));
 
   //this.lang=(this.lang*1395)/180;
   var lang=this.lang;
