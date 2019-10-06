@@ -270,7 +270,7 @@ export class InfotableComponent implements OnInit {
     var that=this;
     setTimeout(function() {
       that.fixPlaces();
-    }, 5000);
+    }, 6000);
   }
 
   handleErrorPOI(error) {

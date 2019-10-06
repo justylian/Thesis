@@ -1,7 +1,7 @@
 {
     "citiesPast": [{
             "cityName": "Paris",
-            "countryName": "France",
+            "countryName": "FR",
             "dateMonth": "January",
             "dateYear": "2017",
             "photos": {
@@ -45,7 +45,7 @@
 
         {
             "cityName": "Lisbon",
-            "countryName": "Portugal",
+            "countryName": "PT",
             "dateMonth": "January",
             "dateYear": "2018",
             "photos": {
@@ -92,7 +92,7 @@
         },
         {
             "cityName": "New York",
-            "countryName": "USA",
+            "countryName": "US",
             "dateMonth": "June",
             "dateYear": "2017",
             "photos": {
@@ -139,7 +139,7 @@
         },
         {
             "cityName": "Tokyo",
-            "countryName": "Japan",
+            "countryName": "JP",
             "dateMonth": "February",
             "dateYear": "2018",
             "photos": {
@@ -186,7 +186,7 @@
         },
         {
             "cityName": "Istanbul",
-            "countryName": "Turkey",
+            "countryName": "TR",
             "dateMonth": "October",
             "dateYear": "2018",
             "photos": {
