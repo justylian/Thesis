@@ -1,6 +1,7 @@
 import { UpcomingService } from "./../../services/upcoming.service";
 import { DominantcolorService } from "./../../services/dominantcolor.service";
 import { ChoiceService } from "./../../services/choice.service";
+
 import { Component, OnInit } from "@angular/core";
 declare var require: any;
 import timelinejson from "../../../assets/json/timeline.json";
@@ -31,7 +32,7 @@ export class MapboxComponent implements OnInit {
     this.choiceService.upcoming$.subscribe(() => {
       //alert('(Component2) Method called!'+i);
       if (this.once === false) {
-        //this.mapBox();
+        this.mapBox();
         this.once = true;
       }
     });

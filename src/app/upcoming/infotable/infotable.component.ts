@@ -45,8 +45,8 @@ export class InfotableComponent implements OnInit {
   pois = [];
   allFound = false;
   imagesLoc = new Array();
-  coors: number[];
-  coor = false;
+  coors;
+  coorFound = false;
   mobile = false;
   once = false;
   cityFound = false;
@@ -112,6 +112,8 @@ export class InfotableComponent implements OnInit {
         this.checkMonthDepArr();
 
         this.weatherMessage();
+        this.coordinates(this.citiesFuture[0].cityName)
+        this.upcoming.flight.arrival.arrivalairport=this.citiesFuture[0].cityName.toUpperCase().substring(0,3);
         this.loadedUpcoming = true;
       }
     });
@@ -132,6 +134,9 @@ export class InfotableComponent implements OnInit {
         this.checkMonthDepArr();
 
         this.weatherMessage();
+        this.coordinates(this.citiesFuture[0].cityName)
+        this.upcoming.flight.arrival.arrivalairport=this.citiesFuture[0].cityName.toUpperCase().substring(0,3);
+
         this.loadedUpcoming = true;
       }
     });
@@ -152,6 +157,9 @@ export class InfotableComponent implements OnInit {
       this.checkMonthDepArr();
 
       this.weatherMessage();
+      this.coordinates(this.citiesFuture[0].cityName)
+      this.upcoming.flight.arrival.arrivalairport=this.citiesFuture[0].cityName.toUpperCase().substring(0,3);
+
       this.loadedUpcoming = true;
     }
   }
@@ -228,7 +236,6 @@ export class InfotableComponent implements OnInit {
     this.imagesFound = true;
     this.placesFound = true;
     this.allFound = true;
-    this.coor = true;
     this.sendplacesVar();
     this.sendimagesVar();
     this.sendpoisVar();
@@ -261,7 +268,7 @@ export class InfotableComponent implements OnInit {
     var that=this;
     setTimeout(function() {
       that.fixPlaces();
-    }, 4000);
+    }, 5000);
   }
 
   handleErrorPOI(error) {
@@ -560,18 +567,18 @@ export class InfotableComponent implements OnInit {
     });
   }
 
-  /*
-    public getDominantColor(no,imgno):void{
-      //var imageURL= document.getElementById('places-image-one');
-     // var imageURL=$('#places #places-inner #places-image-one').attr('src');//get img color
-      console.log(imageURL);
-      (async () => {
-        const dominantColor = await getColorFromURL(imageURL);
-        var rgb='rgb('+dominantColor[0]+','+dominantColor[1]+','+dominantColor[2]+')';
-        $("body").css("--main-timeline-color-"+no+'', 'rgb('+dominantColor[0]+','+dominantColor[1]+','+dominantColor[2]+')');
-      })();
 
-    }*/
+
+  async coordinates(city){
+    this.coors=await this.mapawayComponent.mapboxDistance("upcoming",city);
+    this.citiesFuture[0].longlat=this.coors;
+    this.coorFound=true;
+    //console.log(this.coors);
+
+
+  }
+
+
 }
 
 //AUTO RESIZE CITY NAME

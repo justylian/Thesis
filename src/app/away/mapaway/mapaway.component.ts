@@ -4,7 +4,6 @@ import { Component, OnInit } from '@angular/core';
 import timelinejson from '../../../assets/json/timeline.json';
 import upcomingjson from '../../../assets/json/upcoming.json';
 declare var require: any
-import citiesonmap from '../../../assets/json/citiesonmap.json';
 import { UpcomingService } from './../../services/upcoming.service';
 declare var Load: any;
 declare var $: any;
@@ -17,7 +16,6 @@ declare var jQuery: any;
 export class MapawayComponent implements OnInit {
   citiesFuture=timelinejson.citiesFuture;
   citiesPast=timelinejson.citiesPast;
-  citiesonmap=citiesonmap;
   arrivaldiff=false;
   remainingDays:number;
   upcoming=upcomingjson;
@@ -64,6 +62,8 @@ export class MapawayComponent implements OnInit {
   ngOnInit() {
     this.loadedAway=true;
     this.searchCountryInfo(this.citiesFuture[0].countryName)
+    this.dist=this.mapboxDistance("",this.citiesFuture[0].cityName)[0];
+
   }
 
 
@@ -87,9 +87,9 @@ export class MapawayComponent implements OnInit {
       return this.dist;
     }
     else if(parameter==="upcoming"){
-
-      return coordinates;
+      return  convertDMS(coordinates[0], coordinates[1])
     }
+
   }
 
 
@@ -199,9 +199,8 @@ $("#away #ballshadow").hide(500);
   var lang=this.lang;
   var lat=this.lat-5;
 
-  //this.lat=(this.lat*750)/360;
-  console.log(this.lang,this.lat)
-  console.log($('#pin-images-away'));
+ // console.log(this.lang,this.lat)
+  //console.log($('#pin-images-away'));
   $('#pin-images-away').fadeOut( 400, function() {
     $('#pin-images-away').animate({ left:  lang, top: lat}, 200);
     $('#pin-images-away').fadeIn( 600, function() {
@@ -230,3 +229,22 @@ searchCountryInfo(countryName) {
 
 
 
+function toDegreesMinutesAndSeconds(coordinate) {
+  var absolute = Math.abs(coordinate);
+  var degrees = Math.floor(absolute);
+  var minutesNotTruncated = (absolute - degrees) * 60;
+  var minutes = Math.floor(minutesNotTruncated);
+  var seconds = Math.floor((minutesNotTruncated - minutes) * 60);
+
+  return degrees + "°  " + minutes + "'  " + seconds+"''  ";
+}
+
+function convertDMS(lat, lng) {
+  var latitude = toDegreesMinutesAndSeconds(lat);
+  var latitudeCardinal = lat >= 0 ? "N" : "S";
+
+  var longitude = toDegreesMinutesAndSeconds(lng);
+  var longitudeCardinal = lng >= 0 ? "E" : "W";
+
+  return latitude + "  " + latitudeCardinal + "'  |  " + longitude + "  " + longitudeCardinal;
+}

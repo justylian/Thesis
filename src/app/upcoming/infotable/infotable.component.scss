@@ -3,7 +3,7 @@
     height: 127px;
     width: 851px;
     position: absolute;
-    z-index: 6;
+    z-index: 7;
     #city-name {
         color: var(--main-timeline-color-upcoming);
         top: 20px;
@@ -59,7 +59,7 @@
     background: white;
     top: 0px;
     position: fixed;
-    z-index: 5;
+    z-index: 6;
     overflow-x: hidden;
     overflow-y: hidden;
     .upper-border {

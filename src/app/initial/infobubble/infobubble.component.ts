@@ -1,4 +1,3 @@
-import { MapComponent } from './../map/map.component';
 import { WeatherService } from './../../services/weather.service';
 import { SocketService } from './../../services/socket.service';
 import { CountryinfoService } from './../../services/countryinfo.service';
@@ -30,7 +29,7 @@ export class InfobubbleComponent implements OnInit {
   searchingInfoWeather=false;
   phraseFound=false;
 
-  constructor(private mapComponent:MapComponent,private weatherService:WeatherService,private socketService:SocketService,private countryinfoService:CountryinfoService) {
+  constructor(private weatherService:WeatherService,private socketService:SocketService,private countryinfoService:CountryinfoService) {
 
 
    }
@@ -69,6 +68,7 @@ export class InfobubbleComponent implements OnInit {
     this.infoFound = true;
     infoBubbleShow(this.infobubbletime);
     this.searchWeather(data[0].latlng[0],data[0].latlng[1],1)
+    //
     this.searchPhrases(data[0]);
 
 

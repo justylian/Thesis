@@ -1,6 +1,6 @@
 <div *ngIf="loadedUpcoming">
     <div id="info-frame-up">
-        <div id="city-longlat">{{citiesFuture[0].longlat}}</div>
+        <div id="city-longlat" *ngIf="coorFound">{{citiesFuture[0].longlat}}</div>
         <div id="city-name">{{this.citiesFuture[0].cityName}}</div>
     </div>
     <div id="leave-note">

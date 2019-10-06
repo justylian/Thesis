@@ -7,7 +7,6 @@ declare var $: any;
 declare var jQuery: any;
 import timelinejson from '../../../assets/json/timeline.json';
 import timesjson from '../../../assets/json/times.json';
-import citiesonmap from '../../../assets/json/citiesonmap.json';
 declare var require: any;
 @Component({
   selector: 'app-map',

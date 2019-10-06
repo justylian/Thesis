@@ -1,18 +1,25 @@
 #away {
-  left: 0%;    position: absolute;
+    left: 0%;
+    position: absolute;
 }
 
 #info-bubble {
     position: relative;
     min-width: 150px;
-    max-width: 200px;
+    max-width: 250px;
     margin-top: 20px;
     margin-left: 30px;
     filter: drop-shadow(0 0 20px #000);
+    #info-bubble-1 {
+        width: fit-content;
+    }
+    #info-bubble-2 {
+        width: fit-content;
+    }
     .info-bubble-inner {
         position: relative;
         border: 1px solid #647B7C;
-        width: 100%;
+        // width: 100%;
         z-index: 1;
         margin-top: 5px;
         padding-left: 10px;
@@ -67,4 +74,3 @@
         //opacity: 0;
     }
 }
-
