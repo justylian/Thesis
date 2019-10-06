@@ -4,17 +4,16 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-WARNING: Disable CORS to run.
-  Mac: open -a Google\ Chrome --args --disable-web-security --user-data-dir
-  Windows: chrome.exe --user-data-dir="C://Chrome dev session" --disable-web-security
+
+Run 'batch.command' file or 'socket-server/node index.js' then 'thesis-app/ng serve --host 0.0.0.0 -o'  and finally (Mac) 'open -a Google\ Chrome --args --disable-web-security --user-data-dir' or (Windows) 'chrome.exe --user-data-dir="C://Chrome dev session" --disable-web-security' . Then naviugate to `http://localhost:4200/` on desktop and 'YourIP:4200' on mobile.
+
 
 
 ## Configurable
 
-    timeline.json: Information about past destinations
-    upcoming.json: Information about future destination
+    timeline.json: Information about past destinations. City, Country, Date and your resources
+    upcoming.json: Information about future destination. Flights, dates etc.
     times.json: Timings(Image Slideshow & InfoBubble)
 
 
