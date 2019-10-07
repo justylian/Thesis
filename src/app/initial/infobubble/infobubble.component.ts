@@ -28,7 +28,7 @@ export class InfobubbleComponent implements OnInit {
   infoFoundWeather=false;
   searchingInfoWeather=false;
   phraseFound=false;
-
+  hideTranslation=false;
   constructor(private weatherService:WeatherService,private socketService:SocketService,private countryinfoService:CountryinfoService) {
 
 
@@ -47,8 +47,14 @@ export class InfobubbleComponent implements OnInit {
   searchPhrases(data){
     for(var i=0;i<this.phrases.length;i++){
       if(this.phrases[i].country.toUpperCase()===data.languages[0].name.toUpperCase()){
-        //console.log(this.phrases[i].string);
+        console.log(this.citiesFuture[0].lingo);
         this.citiesFuture[0].lingo=this.phrases[i].string;
+        if(this.citiesFuture[0].lingo==="Good Morning"){
+          this.hideTranslation=false;
+        }
+        else{
+          this.hideTranslation=true;
+        }
         this.phraseFound=true;
       }
 

@@ -220,24 +220,24 @@ public getColors(i) {
     length = extractColors("myCanvas6", 300, 300, j, i);
     //console.log(length);
     colorList = {};
-    templength = extractColors("myCanvas7", 1250, 50, j, i);
+    templength = extractColors("myCanvas7", 1200, 800, j, i);
     colorList = {};
 
     if (length > templength) {
       length = templength;
-      lessx = 1250;
-      lessy = 50;
+      lessx = 1200;
+      lessy = 800;
     }
 
-    templength = extractColors("myCanvas8", 400, 150, j, i);
+    templength = extractColors("myCanvas8", 750, 100, j, i);
 
     colorList = {};
 
     //console.log(templength);
     if (length > templength) {
       length = templength;
-      lessx = 400;
-      lessy = 150;
+      lessx = 750;
+      lessy = 100;
     }
 
     templength = extractColors("myCanvas9", 300, 600, j, i);
@@ -273,33 +273,33 @@ public getColors(i) {
 
 
 
-    templength = extractColors("myCanvas12", 1600, 100, j, i);
+    templength = extractColors("myCanvas12", 50, 500, j, i);
 
     colorList = {};
 
     //console.log(templength);
     if (length > templength) {
       length = templength;
-      lessx = 1600;
-      lessy = 100;
+      lessx = 50;
+      lessy = 500;
     }
 
 
-    templength = extractColors("myCanvas13", 1200, 800, j, i);
+    templength = extractColors("myCanvas13", 1250, 50, j, i);
 
     colorList = {};
 
     //console.log(templength);
     if (length > templength) {
       length = templength;
-      lessx = 1200;
-      lessy = 800;
+      lessx = 1250;
+      lessy = 50;
     }
     console.log(i, j, length, lessx, lessy);
 
     if (j === 5) {
       $("#cityImages6 #image6-five-inner").css({ top: lessy, left: lessx });
-      if (length >= 1100) {
+      if (length >= 200) {
         $("#cityImages6 #image6-five-inner h1").css({
           filter: "drop-shadow(0 0 30px #000)",
           "mix-blend-mode": "unset",
@@ -315,7 +315,7 @@ public getColors(i) {
       }
     } else if (j === 4) {
       $("#cityImages6 #image6-four-inner").css({ top: lessy, left: lessx });
-      if (length >= 1100) {
+      if (length >= 200) {
         $("#cityImages6 #image6-four-inner h1").css({
           filter: "drop-shadow(0 0 30px #000)",
           "mix-blend-mode": "unset",
@@ -331,7 +331,7 @@ public getColors(i) {
       }
     } else if (j === 3) {
       $("#cityImages6 #image6-three-inner").css({ top: lessy, left: lessx });
-      if (length >= 1100) {
+      if (length >= 200) {
         $("#cityImages6 #image6-three-inner h1").css({
           filter: "drop-shadow(0 0 30px #000)",
           "mix-blend-mode": "unset",
@@ -347,7 +347,7 @@ public getColors(i) {
       }
     } else if (j === 2) {
       $("#cityImages6 #image6-two-inner").css({ top: lessy, left: lessx });
-      if (length >= 1100) {
+      if (length >= 200) {
         $("#cityImages6 #image6-two-inner h1").css({
           filter: "drop-shadow(0 0 30px #000)",
           "mix-blend-mode": "unset",
@@ -364,7 +364,7 @@ public getColors(i) {
     } else {
       $("#cityImages6 #image6-one-inner").css({ top: lessy, left: lessx });
 
-      if (length >= 1100) {
+      if (length >= 200) {
         $("#cityImages6 #image6-one-inner h1").css({
           filter: "drop-shadow(0 0 30px #000)",
           "mix-blend-mode": "unset",
