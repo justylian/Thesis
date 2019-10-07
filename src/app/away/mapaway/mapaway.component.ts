@@ -153,6 +153,8 @@ public mapMinify() {
 
   $("#away .city-map-name-inner").fadeOut( 400, function() {});
   $('#away #next-city').fadeOut( 400, function() {});
+  $('#away #weather-away').fadeOut( 400, function() {});
+  $('#away #weather-away-img').fadeOut( 400, function() {});
 
   $("#away #pin-images-away").fadeOut(400, function() {});
 
@@ -175,6 +177,8 @@ setTimeout(function() {
   $("#away .city-map-name-inner").fadeTo( 500,1, function() {});
   $("#away #pin-images-away").fadeTo( 800,1,function() {});
   $('#away #next-city').fadeIn( 400, function() {});
+  $('#away #weather-away').fadeIn( 400, function() {});
+  $('#away #weather-away-img').fadeIn( 400, function() {});
 
 }, 800);
 
