@@ -1,28 +1,64 @@
-# ThesisApp
+# Thesis 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.0.
 
+## Summary
+Ambient Trip Planner for the Ambient Intelligence (AmI) Home Bedroom.
+
+
+**States**
+
 ## Development server
 
+Run 'batch.command' file 
+**or** 
+'socket-server/node index.js' then 'thesis-app/ng serve --host 0.0.0.0 -o' and finally (Mac) 'open -a Google\ Chrome --args --disable-web-security --user-data-dir' or (Windows) 'chrome.exe --user-data-dir="C://Chrome dev session" --disable-web-security' . Then naviugate to `http://localhost:4200/` on desktop and 'YourIP:4200' on mobile.
 
-
-Run 'batch.command' file or 'socket-server/node index.js' then 'thesis-app/ng serve --host 0.0.0.0 -o'  and finally (Mac) 'open -a Google\ Chrome --args --disable-web-security --user-data-dir' or (Windows) 'chrome.exe --user-data-dir="C://Chrome dev session" --disable-web-security' . Then naviugate to `http://localhost:4200/` on desktop and 'YourIP:4200' on mobile.
-
-
-
-## Configurable
+## Configurable JSONs
 
     timeline.json: Information about past destinations. City, Country, Date and your resources
     upcoming.json: Information about future destination. Flights, dates etc.
     times.json: Timings(Image Slideshow & InfoBubble)
 
+## User Guide 
 
-## Guide
+## Files Guide
 
-![alt text](guide/states.png)
+**Services**
+```
+
+
+```
+**Components**
+```
+
+
+```
+**Environments**
+```
+
+
+```
+**Resources**
+```
+
+
+```
+**External Imported Libraries-APIs**
+```
+
+
+```
+
+
+
+
+
+
+<!--![alt text](guide/states.png)
 ![alt text](guide/initial.png)
 ![alt text](guide/upcoming.png)
-![alt text](guide/away.png)
+![alt text](guide/away.png)-->
 
 ## Code scaffolding
 
@@ -43,6 +79,3 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
-
-
-

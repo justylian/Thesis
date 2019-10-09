@@ -1,5 +1,4 @@
-import { SocketService } from './services/socket.service';
-
+import { AppstateService } from './services/appstate.service';
 import { AwayModule } from './away/away.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -8,9 +7,13 @@ import { AppComponent } from './app.component';
 import { InitialModule } from './initial/initial.module';
 import { UpcomingModule } from './upcoming/upcoming.module';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { MobileComponent } from './routes/mobile/mobile.component';
+import { DesktopComponent } from './routes/desktop/desktop.component';
 @NgModule({
   declarations: [
     AppComponent,
+    MobileComponent,
+    DesktopComponent,
 
   ],
   imports: [
@@ -21,7 +24,9 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
     AwayModule,
     HttpClientModule
   ],
-  providers: [AppComponent,SocketService],
+  entryComponents: [DesktopComponent,MobileComponent],
+
+  providers: [AppComponent,DesktopComponent,MobileComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

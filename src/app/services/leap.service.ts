@@ -1,3 +1,4 @@
+import { DesktopComponent } from './../routes/desktop/desktop.component';
 import { MapboxComponent } from "./../upcoming/mapbox/mapbox.component";
 import { AppComponent } from "./../app.component";
 import { ImagesawayComponent } from "./../away/imagesaway/imagesaway.component";
@@ -18,7 +19,7 @@ export class LeapService {
   constructor(
     private infotableComponent: InfotableComponent,
     private imagesawayComponent: ImagesawayComponent,
-    private appComponent: AppComponent,
+    private desktopComponent: DesktopComponent,
     private imagesComponent: ImagesComponent,
     private musicComponent: MusicComponent,
     private placesComponent: PlacesComponent,
@@ -34,7 +35,7 @@ export class LeapService {
     var imagesawayComponent = this.imagesawayComponent;
     var musicComponent = this.musicComponent;
     var imagesComponent = this.imagesComponent;
-    var appComponent = this.appComponent;
+    var desktopComponent = this.desktopComponent;
     var placesComponent = this.placesComponent;
     var infotableComponent = this.infotableComponent;
     var mapboxComponent = this.mapboxComponent;
@@ -101,7 +102,7 @@ export class LeapService {
                     infotableComponent.showHideImages();
                   } else if ($("#choice").css("display") === "block") {
                     console.log("tap"); //mprosta(z) me <5 daxtylia
-                    appComponent.activeChoose();
+                    desktopComponent.activeChoose();
                   }
                   tap = -1;
                   setTimeout(function() {
@@ -143,7 +144,7 @@ export class LeapService {
                   }
                 }
                 else if ($("#choice").css("display") === "block") {
-                  appComponent.activeChange();
+                  desktopComponent.activeChange();
                 }
                 else if ($("#away").css("display") === "block") {
                   imagesawayComponent.showImage();
@@ -170,7 +171,7 @@ export class LeapService {
                     placesComponent.nextImageUpcoming();
                   }
                 } else if ($("#choice").css("display") === "block") {
-                  appComponent.activeChangePrev();
+                  desktopComponent.activeChangePrev();
                 }
                 else if ($("#away").css("display") === "block") {
                   imagesawayComponent.showImage();

@@ -33,7 +33,8 @@
                         "scripts": [
                             "node_modules/jquery/dist/jquery.min.js",
                             "src/assets/js/Load.allTheThings.js",
-                            "src/assets/js/Load.allTheThings.min.js"
+                            "src/assets/js/Load.allTheThings.min.js",
+                            "./node_modules/simple-peer/simplepeer.min.js"
                         ]
                     },
                     "configurations": {

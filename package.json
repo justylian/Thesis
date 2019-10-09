@@ -36,6 +36,7 @@
         "ngx-multi-window": "^0.3.2",
         "rxjs": "~6.4.0",
         "rxjs-compat": "^6.5.3",
+        "simple-peer": "^9.6.0",
         "socket.io-client": "^2.3.0",
         "tslib": "^1.10.0",
         "zone.js": "~0.9.1"

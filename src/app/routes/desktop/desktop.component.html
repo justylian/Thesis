@@ -1,0 +1,30 @@
+<div id="initial">
+    <app-infobubble></app-infobubble>
+    <app-timeline></app-timeline>
+    <app-images></app-images>
+    <app-map></app-map>
+    <app-music></app-music>
+</div>
+<div id="upcoming">
+    <app-places></app-places>
+    <app-infotable></app-infotable>
+    <app-mapbox></app-mapbox>
+</div>
+<div id="away">
+    <app-mapaway></app-mapaway>
+    <app-imagesaway></app-imagesaway>
+    <app-messages></app-messages>
+</div>
+<div id="choice">
+
+
+    <div id="choice-1" (click)="initialClicked()">INITIAL</div>
+    <div id="choice-2" (click)="upcomingClicked()" class="active">UPCOMING</div>
+    <div id="choice-3" (click)="awayClicked()">AWAY</div>
+    <div id="choice-loader">
+        <div id="loader-text">Loading Selected City...</div>
+        <div class="loader">
+        </div>
+        <div id="loader-background"></div>
+    </div>
+</div>
