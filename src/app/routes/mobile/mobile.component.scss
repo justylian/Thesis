@@ -4,6 +4,37 @@
     width: 100%;
     height: 100%;
     background: linear-gradient(0deg, #122323, #121426);
+    .submit-outer {
+        width: 84px;
+        height: 84px;
+        margin-top: 100px;
+        left: 702px;
+        position: absolute;
+        font-size: 35px;
+        border: 6px solid #ffffff;
+        border-radius: 50%;
+        .submit {
+            width: 29px;
+            height: 29px;
+            left: 14px;
+            top: 21px;
+            position: absolute;
+            font-size: 35px;
+            font-size: 40px;
+            -webkit-appearance: none;
+            /* top: 1300px; */
+            -moz-appearance: none;
+            outline: none;
+            color: #f7f7ff;
+            appearance: none;
+            content: ">";
+            border: solid white;
+            border-width: 0px 7px 7px 0;
+            transform: rotate(-45deg);
+            display: inline-block;
+            padding: 3px;
+        }
+    }
     form {
         width: 100%;
         height: 100%;

@@ -42,7 +42,7 @@ export class MobileComponent implements OnInit {
       this.mypeerid=this.peer.id;
       console.log(this.peer.id);
 
-  },1000)
+  },3000)
 
   }
 
@@ -88,18 +88,29 @@ export class MobileComponent implements OnInit {
     }
   }
   public changeUpcomingJSON(){
+    this.countrySelect=true;
+    var countrysel=$('#mobile #form-country option:selected').val();
+    //alert(country);
+    this.country=countrysel;
+    this.citySelect=true;
+    var city=$('#mobile #form-city').val();
+    //alert(city);
+    this.city=city;
+    if(this.citySelect===true && this.countrySelect===true)
+    {
+
     this.citiesFuture[0].cityName=this.city;
     this.citiesFuture[0].countryName=this.country;
     this.choiceService.mobile();
 
     this.connect(this.citiesFuture[0].cityName,this.citiesFuture[0].countryName);
-    setTimeout(()=>{
+/*    setTimeout(()=>{
       window.location.reload(false);
 
-    },5000)
+    },5000)*/
 
     //this.sendMessage();
-
+  }
 
   }
 

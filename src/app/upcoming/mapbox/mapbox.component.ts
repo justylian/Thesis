@@ -56,7 +56,7 @@ export class MapboxComponent implements OnInit {
     var mapboxgl = require("mapbox-gl/dist/mapbox-gl.js");
     mapboxgl.accessToken =
       "pk.eyJ1IjoieGVuYWtpcyIsImEiOiJjanczdDBpMHAwZWgzM3lrbW9xaDVpNnlzIn0.9O8d2q7A_DUaGbswoygSTA";
-    this.coordinates = [12.486, 41.89]; //Rome as start
+    this.coordinates = [35.3, 25.10]; //Heraklion as start
     var MapboxClient = require("mapbox");
     var client = new MapboxClient(
       "pk.eyJ1IjoieGVuYWtpcyIsImEiOiJjanczdDBpMHAwZWgzM3lrbW9xaDVpNnlzIn0.9O8d2q7A_DUaGbswoygSTA"
@@ -173,34 +173,34 @@ export class MapboxComponent implements OnInit {
       // jQuery(window).resize(function(){map.resize()});
     }
   }
-  public zoom(parameter) {
+  parameter=true;
+  public zoom() {
     var zoom = this.mymap.getZoom();
     //console.log(zoom);
-    if (parameter === "in" && this.inside === false) {
+    if (this.parameter ===true) {
       console.log("in");
       //this.outside = false;
-      this.inside = true;
-    } else if (parameter === "out" && this.outside === false) {
+      this.mymap.setZoom(++zoom);
+      this.parameter = true;
+    } else if (this.parameter===false) {
       //this.inside = false;
-      console.log("false");
+      console.log("out");
+      this.mymap.setZoom(--zoom);
 
-      this.outside = true;
-      //this.mymap.setZoom(3);
-      //this.mymap.setView([0, 0]);
+      this.parameter = true;
     }
-    console.log(this.mymap);
+    //this.mymap.setCenter([0, 50]);
 
-    var that = this;
-    this.mymap.setZoom(5);
-    this.mymap.setCenter([0, 50]);
-
-    setInterval(function() {
+   /* setInterval(function() {
       that.mymap.setZoom(0);
       setTimeout(function() {
         that.mymap.setZoom(1);
       }, 2000);
-    }, 4000);
+    }, 4000);*/
   }
+
+
+
 
   public focusPin(no) {
     //console.log('#markerbubble'+no);

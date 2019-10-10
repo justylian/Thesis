@@ -3,6 +3,7 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.0.
 
 ## Summary
+**Description**
 Ambient Trip Planner for the Ambient Intelligence (AmI) Home Bedroom.
 
 
@@ -34,6 +35,11 @@ Run 'batch.command' file
     times.json: Timings(Image Slideshow & InfoBubble)
 
 ## User Guide 
+1) LEAP
+-TAP ON LEAP
+-TAP IN SCREEN
+-SLIDE
+2) MOUSE
 
 
 ## Files Guide

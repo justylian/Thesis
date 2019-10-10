@@ -1,10 +1,10 @@
 <div id="mobile" *ngIf="mobile">
     <form>
         <div class="form-text">City</div>
-        <input type="text" id="form-city" name="form-city" (change)="citySelected()">
+        <input type="text" id="form-city" name="form-city">
         <div class="form-text"> Country</div>
 
-        <select id="form-country" name="country" (change)="countrySelected()">
+        <select id="form-country" name="country">
           <option value="AF">Afghanistan</option>
           <option value="AX">Åland Islands</option>
           <option value="AL">Albania</option>
@@ -255,5 +255,9 @@
           <option value="ZM">Zambia</option>
           <option value="ZW">Zimbabwe</option>
         </select>
+        <div class="submit-outer">
+            <div class="submit" (click)="changeUpcomingJSON()"></div>
+        </div>
+
     </form>
 </div>

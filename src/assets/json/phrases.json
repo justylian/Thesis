@@ -51,9 +51,9 @@
     "country": "German",
     "string": "Guten Morgen"
 }, {
-    "locale": "el",
+    "locale": "gr",
     "country": "Greek",
-    "string": "Kalimera"
+    "string": "Καλημέρα"
 }, {
     "locale": "en",
     "country": "English",

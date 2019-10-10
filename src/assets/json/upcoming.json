@@ -3,7 +3,7 @@
         "departure": {
             "flight": "Aegean Airlines A1490",
             "departureairport": "HER",
-            "departuredate": "10",
+            "departuredate": "15",
             "departuremonth": "October",
             "departurehour": "16:00",
             "departureyear": "2019"
@@ -13,7 +13,7 @@
         "arrival": {
             "flight": "Aegean Airlines A1490",
             "arrivalairport": "BCN",
-            "arrivaldate": "15",
+            "arrivaldate": "20",
             "arrivalmonth": "October",
             "arrivalhour": "9:20",
             "arrivalyear": "2019"
@@ -39,35 +39,35 @@
         "day1": {
             "state": "Showers",
             "day": "Sunday",
-            "date": "10 October",
+            "date": "16 October",
             "templow": "12°",
             "temphigh": "14°"
         },
         "day2": {
             "state": "Sunny",
             "day": "Sunday",
-            "date": "11 October",
+            "date": "17 October",
             "templow": "15°",
             "temphigh": "19°"
         },
         "day3": {
             "state": "Cloudy",
             "day": "Sunday",
-            "date": "12 October",
+            "date": "18 October",
             "templow": "10°",
             "temphigh": "15°"
         },
         "day4": {
             "state": "Cloudysunny",
             "day": "Sunday",
-            "date": "13 October",
+            "date": "19 October",
             "templow": "12°",
             "temphigh": "16°"
         },
         "day5": {
             "state": "Cloudy",
             "day": "Sunday",
-            "date": "14 October",
+            "date": "20 October",
             "templow": "13°",
             "temphigh": "16°"
         }

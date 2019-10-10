@@ -57,7 +57,7 @@ export class LeapService {
       for (var i = 0; i < frame.fingers.length; i++) {
         var finger = frame.fingers[i];
         if (finger.extended) extendedFingers++;
-        //console.log(finger.tipPosition[1]);
+        /*---------------- TAP ON LEAP ----------------*/
         if(finger.tipPosition[1]<=30){
           if (push === 0) {
             if ($("#initial").css("display") === "block") {
@@ -70,6 +70,10 @@ export class LeapService {
                 placesComponent.savePlace();
                 infotableComponent.savePlace();
               }
+              else if ($("#map").css("display") === "block") {
+                console.log("zoom")
+                mapboxComponent.zoom()
+              }
             }
             push = -1;
             setTimeout(function() {
@@ -77,15 +81,13 @@ export class LeapService {
             }, 300);
           }
         }
+        /*---------------- TAP ON SCREEN ----------------*/
+
         if (extendedFingers <= 1) {
           if (finger.type === 1) {
-            //index
-            //console.log(finger.id);
             if (finger.extended) {
               if (finger.tipPosition[2] < -100) {
                 if (tap === 0) {
-                  //console.log(finger.tipPosition[2]);
-                  //console.log(finger.type);
                   if ($("#initial").css("display") === "block") {
                     console.log("tap"); //mprosta(z) me <5 daxtylia
 
@@ -114,6 +116,10 @@ export class LeapService {
           }
         }
       }
+
+
+      /*---------------- SLIDE ----------------*/
+
       var extendedFingers = 0;
       for (var i = 0; i < frame.hands.length; i++) {
         var hand = frame.hands[i];
@@ -125,6 +131,8 @@ export class LeapService {
           var finger = frame.fingers[i];
 
           if (finger.extended) extendedFingers++;
+
+          /*---------------- SLIDE LEFT----------------*/
 
           if (extendedFingers >= 5) {
             if (movement[0] < -7 && movement[0] > -50) {
@@ -157,6 +165,9 @@ export class LeapService {
                 }, 500);
               }
             }
+
+            /*---------------- SLIDE RIGHT----------------*/
+
             if (movement[0] > 7 && movement[0] < 50) {
               if (right === 0 && left === 0) {
                 console.log("right");
@@ -187,201 +198,7 @@ export class LeapService {
           }
         }
       }
-      // Array containing all the fingers
 
-      /* var handString = "";
-      if (frame.hands.length > 0) {
-         var hand = frame.hands[0];
-          var yawRadians = hand.yaw();
-
-          var previousFrame = controller.frame(1);
-          var movement = hand.translation(previousFrame);
-        console.log(movement[0]);
-          if(movement[0]<(-7)){
-            if(current!==1  ){
-              console.log("Left");
-              appComponent.activeChange();
-              current=1;
-            }
-          }
-          else if (movement[0]>7){
-            if(current!==2 ){
-              console.log("right");
-              appComponent.activeChangePrev();
-              current=2;
-            }
-          }
-          if(current===2 || current===1){
-            setTimeout(function() {
-              console.log("NULL");
-              current = 0;
-            }, 500);
-          }
-
-        }
-
-
-          // And so on...
- /*
-      }
-      for(var i = 0; i < frame.hands.length; i++){
-        var hand = frame.hands[i];
-        if(hand.pinchStrength===1.0){
-          mapboxComponent.zoom("in");
-          console.log( hand.pinchStrength);
-        }
-        if(hand.pinchStrength===0){
-          mapboxComponent.zoom("out");
-
-          console.log( hand.pinchStrength);
-        }
-
-      }
-      if (frame.valid && frame.hands.length > 0) {
-        frame.hands.forEach(function(gesture) {
-          var direction = gesture.direction;
-          //console.table(direction);
-
-          switch (gesture.type) {
-            case "circle":
-              if (gesture.state == "stop") {
-                if ($("#initial").css("display") === "block") {
-                  console.log("Circle Gesture");
-
-                  musicComponent.playerManage();
-                }
-              }
-              break;
-            case "keyTap":
-              if (gesture.state == "stop") {
-                if ($("#upcoming").css("display") === "block") {
-                  if ($("#places").css("display") === "block") {
-                    console.log("Key Tap Gesture");
-
-                    placesComponent.savePlace();
-                    infotableComponent.savePlace();
-                  }
-                } else if ($("#choice").css("display") === "block") {
-                  console.log("Key Tap Gesture");
-
-                  appComponent.activeChoose();
-                }
-              }
-              break;
-            case "screenTap":
-              if (gesture.state == "stop") {
-                if ($("#initial").css("display") === "block") {
-                  console.log("Screen Tap Gesture");
-
-                  if (onceFlag === true) {
-                    imagesComponent.slideShow();
-
-                    onceFlag = false;
-                  } else {
-                    imagesComponent.pause();
-                  }
-                } else if ($("#upcoming").css("display") === "block") {
-                  console.log("Screen Tap Gesture");
-
-                  infotableComponent.showHideImages();
-                } else if ($("#choice").css("display") === "block") {
-                  console.log("Screen Tap Gesture");
-                  appComponent.activeChoose();
-                }
-              }
-              break;
-            case "swipe":
-              if (gesture.state == "stop") {
-                var xMov = Math.abs(gesture.direction[0]);
-                var yMov = Math.abs(gesture.direction[1]);
-
-                if ($("#initial").css("display") === "block") {
-                  if (xMov > 0.3) {
-                    if (gesture.direction[0] < 0) {
-                      console.log("Swipe LEFT Gesture");
-                      imagesComponent.previousCity();
-                    } else {
-                      console.log("Swipe right Gesture");
-                      imagesComponent.nextCity();
-                    }
-                  } else if (yMov > 0.3) {
-                    if (gesture.direction[1] < 0) {
-                      console.log("Swipe DOWN Gesture");
-
-                      imagesComponent.previousCity();
-                    } else {
-                      console.log("Swipe UP Gesture");
-                      imagesComponent.nextCity();
-                    }
-                  }
-
-                } else if ($("#upcoming").css("display") === "block") {
-                  if ($("#map").css("display") === "block") {
-                    if (xMov > 0.3) {
-                      if (gesture.direction[0] < 0) {
-                        console.log("Swipe LEFT Gesture");
-                        infotableComponent.previousScroll();
-                      } else {
-                        console.log("Swipe right Gesture");
-                        infotableComponent.nextScroll();
-                      }
-                    } else if (yMov > 0.3) {
-                      if (gesture.direction[1] < 0) {
-                        console.log("Swipe DOWN Gesture");
-                        infotableComponent.previousScroll();
-                      } else {
-                        console.log("Swipe UP Gesture");
-                        infotableComponent.nextScroll();
-                      }
-                    }
-
-                  } else if ($("#places").css("display") === "block") {
-                    console.log("Swipe Gesture");
-                    placesComponent.nextImageUpcoming();
-                  }
-                } else if ($("#choice").css("display") === "block") {
-                  if (gesture.direction[0] > 0) {
-                    console.log("Swipe left Gesture");
-                    appComponent.activeChangePrev();
-                  } else {
-                    console.log("Swipe right Gesture");
-                    appComponent.activeChange();
-                  }
-                } else if ($("#away").css("display") === "block") {
-                  console.log("swipe");
-
-                  imagesawayComponent.showImage();
-                }
-              }
-              break;
-          }
-
-        });*/
     });
-  }
-}
-
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
-async function demo() {
-  //console.log('Taking a break...');
-  await sleep(20000);
-  //console.log('Two seconds later, showing sleep in a loop...');
-
-  // Sleep in loop
-  for (let i = 0; i < 5; i++) {
-    if (i === 3) await sleep(20000);
-    //console.log(i);
-  }
-}
-
-var i = 0,
-  howManyTimes = 10;
-function f() {
-  //alert( "hi" );
-  i++;
-  if (i < howManyTimes) {
-    setTimeout(f, 3000);
   }
 }

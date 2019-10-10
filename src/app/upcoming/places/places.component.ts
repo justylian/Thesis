@@ -74,10 +74,6 @@ export class PlacesComponent implements OnInit {
   }
 
 
-  public return(){
-    $("#upcoming").hide();
-    $("#choice").show();
-  }
 
 
   currentImage = 1;

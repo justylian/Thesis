@@ -113,18 +113,19 @@
            z-index: 1;
            #image-stack-1 {
                position: absolute;
-               transform: rotate(25deg);
+               transform: rotate(55deg);
                background-repeat: no-repeat;
                background-size: auto 100%;
                width: 100px;
                height: 50px;
-               left: 35px;
-               top: 25px;
+               left: 37px;
+               top: 62px;
                transition: 2s;
                img {
                    position: absolute;
-                   width: 120px;
-                   left: -47px;
+                   width: 109px;
+                   left: -46px;
+                   top: 24px;
                }
            }
        }
@@ -170,7 +171,7 @@
    .city-map-name-inner {
        mix-blend-mode: difference;
        color: var(--main-timeline-color);
-       top: 250px;
+       top: 271px;
        left: 0px;
        position: absolute;
        z-index: 4;
@@ -185,7 +186,7 @@
    #weather-away {
        font-size: 1.5vw;
        font-family: "AvenirLight";
-       top: 429px;
+       top: 192px;
        opacity: 1;
        //text-transform: uppercase;
        mix-blend-mode: difference;
@@ -200,7 +201,7 @@
        position: absolute;
        width: 40px;
        left: 7px;
-       top: 420px;
+       top: 182px;
        opacity: 1;
        padding-top: 7px;
    }
@@ -208,7 +209,7 @@
    #next-city {
        font-size: 1.5vw;
        font-family: "AvenirLight";
-       top: 396px;
+       top: 226px;
        //text-transform: uppercase;
        mix-blend-mode: difference;
        color: var(--main-timeline-color);
