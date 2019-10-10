@@ -35,8 +35,8 @@ export class InfobubbleComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.socketService.getCountry().subscribe(country => {
-      this.citiesFuture[0].countryName= country;
+    this.socketService.p2p$.subscribe(data => {
+      this.citiesFuture[0].countryName= data.country;
       this.searchCountryInfo(this.citiesFuture[0].countryName);
     });
    // this.searchCountryInfo(this.citiesFuture[0].countryName);

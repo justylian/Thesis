@@ -1,3 +1,4 @@
+import { SocketService } from './../../services/socket.service';
 import { Component, OnInit } from '@angular/core';
 import timelinejson from "../../../assets/json/timeline.json";
 import { ChoiceService } from "./../../services/choice.service";
@@ -18,7 +19,7 @@ export class DesktopComponent implements OnInit {
   countrySelect=false;
   city;
   country;
-  constructor(private choiceService: ChoiceService) {
+  constructor(private socketService:SocketService,private choiceService: ChoiceService) {
 
   }
  //peer;
@@ -28,6 +29,7 @@ peer
 loadedAway=false;
   ngOnInit() {
     var that=this;
+    var socketService=this.socketService;
 
     this.peer = new Peer([1],{key: 'lwjd5qra8257b9'});
     setTimeout(()=>{
@@ -40,7 +42,7 @@ loadedAway=false;
         console.log(data);
         that.citiesFuture[0].cityName=data.city;
         that.citiesFuture[0].countryName=data.country;
-        this.loadedAway=true;
+        socketService.p2p(data);
       });
     });
 
@@ -48,17 +50,6 @@ loadedAway=false;
 
 
 
-
-  connect(){
-    console.log("conn");
-
-    var conn=this.peer.connect(this.anotherid)
-    conn.on('open', function() {
-      console.log('My peer ID is: ' );
-      conn.send('hi')
-    });
-
-  }
 
 
   public activeChange() {

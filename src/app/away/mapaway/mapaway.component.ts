@@ -30,20 +30,19 @@ export class MapawayComponent implements OnInit {
   public day1="../../../assets/images/weather/Showerstrans.png";
 
   constructor( private countryinfoService:CountryinfoService,private upcomingService: UpcomingService,private socketService:SocketService) {
-    this.socketService.getCity().subscribe(city => {
+    this.socketService.p2p$.subscribe(data => {
       //console.log(city);
-      this.citiesFuture[0].cityName= city;
+      this.citiesFuture[0].cityName= data.city;
+      this.citiesFuture[0].countryName= data.country;
+      this.searchCountryInfo(this.citiesFuture[0].countryName)
+
       this.dist=this.mapboxDistance("",this.citiesFuture[0].cityName)[0];
+      this.loadedAway=true;
+
       //this.searchCountryInfo(this.citiesFuture[0].countryName)
 
     });
-    this.socketService.getCountry().subscribe(country => {
-      this.citiesFuture[0].countryName= country;
 
-      this.searchCountryInfo(this.citiesFuture[0].countryName)
-      this.loadedAway=true;
-
-    });
     this.upcomingService.images$.subscribe(i => {
       //alert('(Component2) Method called!'+i);
       if (this.once1 === true) {

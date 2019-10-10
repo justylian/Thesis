@@ -63,12 +63,7 @@ export class MobileComponent implements OnInit {
 
 
 
-  sendMessage() {
-    this.socketService.sendCity(this.city);
-    this.socketService.sendCountry(this.country);
-    window.location.reload(false);
 
-  }
 
   title = "thesis-app";
   public citySelected(){
@@ -101,7 +96,7 @@ export class MobileComponent implements OnInit {
     setTimeout(()=>{
       window.location.reload(false);
 
-    },2000)
+    },5000)
 
     //this.sendMessage();
 

@@ -63,9 +63,10 @@ export class TimelineComponent implements OnInit {
 
   constructor(private compMusic: MusicComponent,private compImages: ImagesComponent,private initialService: InitialService,private socketService:SocketService) {
     //var instance = new ExampleClass().deserialize(timelinejson);
-    this.socketService.getCity().subscribe(city => {
+    this.socketService.p2p$.subscribe(
+      (data) => {
       //console.log(city);
-      this.citiesFuture[0].cityName= city;
+      this.citiesFuture[0].cityName= data.city;
 
       //this.loadedAway=true;
 

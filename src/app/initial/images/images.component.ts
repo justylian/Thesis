@@ -46,9 +46,9 @@ export class ImagesComponent implements OnInit {
     private dominantcolorService: DominantcolorService,
     private socketService:SocketService
   ) {
-    this.socketService.getCity().subscribe(city => {
+    this.socketService.p2p$.subscribe(data => {
       //console.log(city);
-      this.citiesFuture[0].cityName= city;
+      this.citiesFuture[0].cityName= data.city;
       Load.allTheThings();
       //this.loadedAway=true;
 

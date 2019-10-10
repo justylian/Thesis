@@ -93,9 +93,11 @@ export class InfotableComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.socketService.getCity().subscribe(city => {
+    this.socketService.p2p$.subscribe(data => {
       //console.log(city);
-      this.citiesFuture[0].cityName = city;
+      this.citiesFuture[0].cityName = data.city;
+      this.citiesFuture[0].countryName = data.country;
+      this.countryFound = true;
       this.cityFound = true;
 
       if (this.countryFound === true && this.cityFound == true) {
@@ -117,29 +119,7 @@ export class InfotableComponent implements OnInit {
         this.loadedUpcoming = true;
       }
     });
-    this.socketService.getCountry().subscribe(country => {
-      //console.log(country);
-      this.citiesFuture[0].countryName = country;
-      this.countryFound = true;
-      if (this.countryFound === true && this.cityFound == true) {
-        this.searchPOI(
-          this.citiesFuture[0].cityName + " " + this.citiesFuture[0].countryName
-        );
-        $("#choice #choice-loader #loader-text").fadeIn();
 
-        this.remainingDays = this.getRemainingdays(this.remainingDays);
-
-        this.mapboxComponent.focusPin(1);
-
-        this.checkMonthDepArr();
-
-        this.weatherMessage();
-        this.coordinates(this.citiesFuture[0].cityName)
-        this.upcoming.flight.arrival.arrivalairport=this.citiesFuture[0].cityName.toUpperCase().substring(0,3);
-
-        this.loadedUpcoming = true;
-      }
-    });
 
     // this.coors=this.mapawayComponent.mapboxDistance("upcoming",this.citiesFuture[0].cityName);
     //console.log(this.coors);

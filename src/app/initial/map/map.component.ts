@@ -28,9 +28,13 @@ export class MapComponent implements OnInit {
   lang;
 
   constructor(private countryinfoService:CountryinfoService,private upcomingService:UpcomingService,private socketService:SocketService) {
-    this.socketService.getCity().subscribe(city => {
+    this.socketService.p2p$.subscribe(data => {
       //console.log(city);
-      this.citiesFuture[0].cityName= city;
+      this.citiesFuture[0].cityName= data.city;
+      this.citiesFuture[0].countryName=data.country;
+      //console.log(this.citiesFuture[0].countryName)
+
+      this.findCityLoc(0,this.citiesFuture[0].cityName,this.citiesFuture[0].countryName);
       //console.log(this.citiesFuture[0].countryName)
 
       //this.findCityLoc(0,this.citiesFuture[0].cityName,this.citiesFuture[0].countryName);
@@ -38,16 +42,7 @@ export class MapComponent implements OnInit {
       //this.loadedAway=true;
 
     });
-    this.socketService.getCountry().subscribe(country => {
-      //console.log(city);
-      this.citiesFuture[0].countryName= country;
-      //console.log(this.citiesFuture[0].countryName)
 
-      this.findCityLoc(0,this.citiesFuture[0].cityName,this.citiesFuture[0].countryName);
-
-      //this.loadedAway=true;
-
-    });
     this.upcomingService.images$.subscribe(
       (k) => {
         if(this.once2===true){
