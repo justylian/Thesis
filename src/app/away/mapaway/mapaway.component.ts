@@ -124,6 +124,12 @@ export class MapawayComponent implements OnInit {
   }
 
 
+  public return(){
+    $("#away").hide();
+    $("#choice").show();
+  }
+
+
 /* -------------- Remaining days --------------- */
 public getRemainingdays(remainingDays){
   var today = new Date();

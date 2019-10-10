@@ -39,6 +39,11 @@ export class ImagesawayComponent implements OnInit {
 
 
 
+  public return(){
+    $("#away").hide();
+    $("#choice").show();
+  }
+
 
   turn=true;
   public showImage(){

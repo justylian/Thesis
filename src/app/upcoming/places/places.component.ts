@@ -73,6 +73,13 @@ export class PlacesComponent implements OnInit {
     //this.manageImagesShow();
   }
 
+
+  public return(){
+    $("#upcoming").hide();
+    $("#choice").show();
+  }
+
+
   currentImage = 1;
   public savePlace() {
     if ($("#cityImages6 #image6-" + this.currentImage).hasClass("saved")) {

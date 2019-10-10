@@ -7,7 +7,20 @@ Ambient Trip Planner for the Ambient Intelligence (AmI) Home Bedroom.
 
 
 **States**
+1) Initial
+```
+State set at least a week before the scheduled trip. Includes slideshow of past trips, if there are any, and future destination selected.
+```
+2) Upcoming
+```
+State set a week or less from scheduled trip. Includes all the information needed, notes and recommended places that the user may be interested in.
+```
 
+3) Away
+
+```
+State as the user is still away on the trip. Includes messages sent from the one away, a photo and information about their location.
+```
 ## Development server
 
 Run 'batch.command' file 
@@ -22,18 +35,53 @@ Run 'batch.command' file
 
 ## User Guide 
 
+
 ## Files Guide
 
 **Services**
 ```
-
+- appstate       -> Defines routes ( Mobile & Default/Desktop)
+- choice         -> Defines selected state (Initial, Upcoming & Away)
+- countryinfo    -> Returns basic info for input country 
+- dominantcolor  -> Returns background image's dominant color and defines suitable shadows
+- images         -> Retrieval of images for the Points-of-interest collected (Pixabay)
+- initial        -> Current city on slideshow focus
+- leap           -> Manages hand gestures through Leap Motion
+- places         -> Returns Wikipedia summary about selected place (Wikipedia)
+- poi            -> Returns Points-of-interest for selected city (Geonames)
+- socket         -> Connection with socket, delivering city and country selected
+- upcoming       -> Communication between three basic APIs (Images, Points-of-interest & Places)
+- weather        -> Weather history of future destination (Meteostat)
 
 ```
 **Components**
+Initial
 ```
+- images        -> Slideshow of images including the information on them.
+- map           -> The map that appears on the destination changes and revolves, also includes pins with each location.
+- infobubble    -> Bubble with information about the future destination
+- music         -> Music player 
+- timeline      -> Timeline of past and future destinations
 
 
 ```
+Upcoming
+```
+- infotable  -> All the information needed for the future trip
+- mapbox     -> Map showing pinned locations and the selected city
+- places     -> Places pinned on map slideshowed with images and information about each place
+
+```
+Away
+```
+- mapaway     -> Revolving map showing person's location, distance and current weather
+- imagesaway  -> Image sent from the traveller
+- messages    -> Message sent from the traveller
+
+```
+**Routes**
+
+Mobile
 **Environments**
 ```
 
@@ -41,7 +89,11 @@ Run 'batch.command' file
 ```
 **Resources**
 ```
-
+- images
+- font
+- js
+- json
+- music
 
 ```
 **External Imported Libraries-APIs**

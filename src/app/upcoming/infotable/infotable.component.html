@@ -1,3 +1,4 @@
+<div id="back" (click)="return()"> BACK</div>
 <div *ngIf="loadedUpcoming">
     <div id="info-frame-up">
         <div id="city-longlat" *ngIf="coorFound">{{citiesFuture[0].longlat}}</div>
@@ -116,7 +117,7 @@
             <div class="upper-border"></div>
 
             <div id="notes-icon"></div>
-            <div class="infotable-inner-texts" (click)="nextScroll()">
+            <div class="infotable-inner-texts">
 
                 <h1>Notes</h1>
                 <div class="infotable-inner-texts-inside">
@@ -132,12 +133,12 @@
             <div id="places-icon"></div>
             <div class="infotable-inner-texts">
 
-                <h1>Places</h1>
+                <h1 (click)="nextScroll()">Places</h1>
 
-                <div id="places-inner" (click)="showHideImages();" *ngIf="imagesFound">
+                <div id="places-inner" *ngIf="imagesFound">
                     <div *ngFor="let image of images; let i=index ">
                         <div *ngIf="i<5">
-                            <li id="{{ 'scroll-places-' + (i+1)}}" class="deactive">
+                            <li id="{{ 'scroll-places-' + (i+1)}}" class="deactive" (click)="showHideImages();">
 
                                 <div id="{{ 'places-desc' + (i+1)}}" class="saved"></div>
                                 <img id="places-image-one" src={{image.webformatURL}}>

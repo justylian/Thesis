@@ -7,6 +7,8 @@ declare var SimplePeer: any;
 
 declare var jQuery: any;
 declare var require: any;
+declare var Peer: any;
+
 @Component({
   selector: 'app-mobile',
   templateUrl: './mobile.component.html',
@@ -30,13 +32,34 @@ export class MobileComponent implements OnInit {
   connection;
   message;
 
+  peer;
+  mypeerid
+  ngOnInit() {
 
-  ngOnInit(): void {
 
+    this.peer = new Peer([2],{key: 'lwjd5qra8257b9'});
+    setTimeout(()=>{
+      this.mypeerid=this.peer.id;
+      console.log(this.peer.id);
+
+  },1000)
 
   }
 
 
+  connect(city,country){
+    console.log("conn");
+
+    var conn=this.peer.connect(1)
+    conn.on('open', function() {
+      console.log('My peer ID is: ' );
+      conn.send({
+        city: city,
+        country: country,
+      })
+    });
+
+  }
 
 
 
@@ -73,7 +96,14 @@ export class MobileComponent implements OnInit {
     this.citiesFuture[0].cityName=this.city;
     this.citiesFuture[0].countryName=this.country;
     this.choiceService.mobile();
-    this.sendMessage();
+
+    this.connect(this.citiesFuture[0].cityName,this.citiesFuture[0].countryName);
+    setTimeout(()=>{
+      window.location.reload(false);
+
+    },2000)
+
+    //this.sendMessage();
 
 
   }

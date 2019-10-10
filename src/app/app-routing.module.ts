@@ -6,18 +6,16 @@ import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { Router } from '@angular/router';
 import { CheckboxControlValueAccessor } from '@angular/forms';
 
-const MobileRoutes: Routes = [{
+const routes: Routes = [{
   path: 'mobile',
-  component: MobileComponent
-}];
-const DesktopRoutes: Routes=[
-{
+  component: MobileComponent},{
+
   path: '',
   component: DesktopComponent
 }];
 
 @NgModule({
-  imports: [RouterModule.forRoot(DesktopRoutes, {preloadingStrategy: PreloadAllModules})],
+  imports: [RouterModule.forRoot(routes, {preloadingStrategy: PreloadAllModules})],
   exports: [RouterModule]
 })
 
@@ -27,9 +25,11 @@ export class AppRoutingModule {
     private appstateService: AppstateService) {
 
     if (appstateService.getIsMobileResolution()) {
-      console.log("cds")
-      //this.router.navigate();
-      router.resetConfig(MobileRoutes);
+      router.navigate(['/mobile']);
+    }
+    else{
+      router.navigate(['']);
+
     }
   }
 }

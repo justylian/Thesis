@@ -35,6 +35,7 @@
                             "src/assets/js/Load.allTheThings.js",
                             "src/assets/js/Load.allTheThings.min.js",
                             "./node_modules/simple-peer/simplepeer.min.js"
+
                         ]
                     },
                     "configurations": {

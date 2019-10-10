@@ -51,3 +51,20 @@ body {
     --main-timeline-color-4: rgb(119, 151, 160);
     --main-timeline-color-5: rgb(167, 126, 136);
 }
+
+#back {
+    opacity: 0;
+    width: 150px;
+    height: 70px;
+    position: absolute;
+    color: white;
+    padding-top: 10px;
+    z-index: 7;
+    left: 50%;
+    -webkit-filter: drop-shadow(0 0 7px black);
+    filter: drop-shadow(0 0 7px black);
+}
+
+#back:hover {
+    opacity: 1;
+}

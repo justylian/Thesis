@@ -4,6 +4,7 @@ import { ChoiceService } from "./../../services/choice.service";
 declare var $: any;
 declare var jQuery: any;
 declare var require: any;
+declare var Peer: any;
 
 @Component({
   selector: 'app-desktop',
@@ -20,10 +21,44 @@ export class DesktopComponent implements OnInit {
   constructor(private choiceService: ChoiceService) {
 
   }
-
+ //peer;
+ anotherid;
+mypeerid;
+peer
+loadedAway=false;
   ngOnInit() {
+    var that=this;
+
+    this.peer = new Peer([1],{key: 'lwjd5qra8257b9'});
+    setTimeout(()=>{
+      this.mypeerid=this.peer.id;
+      console.log(this.peer.id);
+
+  },1000)
+    this.peer.on('connection',function(conn){
+      conn.on('data',function(data){
+        console.log(data);
+        that.citiesFuture[0].cityName=data.city;
+        that.citiesFuture[0].countryName=data.country;
+        this.loadedAway=true;
+      });
+    });
+
   }
 
+
+
+
+  connect(){
+    console.log("conn");
+
+    var conn=this.peer.connect(this.anotherid)
+    conn.on('open', function() {
+      console.log('My peer ID is: ' );
+      conn.send('hi')
+    });
+
+  }
 
 
   public activeChange() {

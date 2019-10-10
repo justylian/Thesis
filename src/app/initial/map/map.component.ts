@@ -72,11 +72,14 @@ export class MapComponent implements OnInit {
 
   ngOnInit() {
     //this.findCityLoc(0,this.citiesFuture[0].cityName,this.citiesFuture[0].countryName);
-
-
   }
 
 
+
+  public return(){
+    $("#initial").hide();
+    $("#choice").show();
+  }
 
   public placePin(lat,lang){
 

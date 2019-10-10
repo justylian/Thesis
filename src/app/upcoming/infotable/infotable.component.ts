@@ -164,6 +164,11 @@ export class InfotableComponent implements OnInit {
     }
   }
 
+
+  public return(){
+    $("#upcoming").hide();
+    $("#choice").show();
+  }
   /* -------------- Check if Months different --------------- */
 
   checkMonthDepArr() {
