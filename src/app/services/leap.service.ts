@@ -1,13 +1,11 @@
 import { DesktopComponent } from "./../routes/desktop/desktop.component";
 import { MapboxComponent } from "./../upcoming/mapbox/mapbox.component";
-import { AppComponent } from "./../app.component";
 import { ImagesawayComponent } from "./../away/imagesaway/imagesaway.component";
 import { MusicComponent } from "./../initial/music/music.component";
 import { ImagesComponent } from "./../initial/images/images.component";
 import { PlacesComponent } from "./../upcoming/places/places.component";
 import { InfotableComponent } from "./../upcoming/infotable/infotable.component";
 import { Injectable } from "@angular/core";
-import { Subject } from "rxjs";
 declare var $: any;
 declare var jQuery: any;
 declare var require: any;
@@ -80,26 +78,40 @@ export class LeapService {
         /*---------------- TAP ON SCREEN ----------------*/
 
         if (extendedFingers <= 1) {
+          //1 EXTENDED FINGER
           if (finger.type === 1) {
+            //INDEX FINGER
             if (finger.extended) {
               if (finger.tipPosition[2] < -100) {
+                //CLOSE TO DEVICE
                 if (tap === 0) {
                   if ($("#initial").css("display") === "block") {
-                    console.log("tap"); //mprosta(z) me <5 daxtylia
+                    console.log("tap");
 
                     if (onceFlag === true) {
+
+                      /*---------------- START SLIDESHOW (INITIAL) ----------------*/
+
                       imagesComponent.slideShow();
 
                       onceFlag = false;
                     } else {
+
+                      /*---------------- PAUSE SLIDESHOW (INITIAL) ----------------*/
+
                       imagesComponent.pause();
                     }
                   } else if ($("#upcoming").css("display") === "block") {
-                    console.log("tap"); //mprosta(z) me <5 daxtylia
+                    console.log("tap");
+
+                    /*---------------- SHOW/HIDE PLACES (UPCOMING) ----------------*/
 
                     infotableComponent.showHideImages();
                   } else if ($("#choice").css("display") === "block") {
-                    console.log("tap"); //mprosta(z) me <5 daxtylia
+                    console.log("tap");
+
+                    /*---------------- CHOOSE STATE (STATES) ----------------*/
+
                     desktopComponent.activeChoose();
                   }
                   tap = -1;
@@ -129,21 +141,38 @@ export class LeapService {
           /*---------------- SLIDE LEFT----------------*/
 
           if (extendedFingers >= 5) {
+            //FIVE EXTENDED FINGERS
             if (movement[0] < -7 && movement[0] > -50) {
+              //LEFT
               if (left === 0 && right === 0) {
                 console.log("Left");
                 if ($("#initial").css("display") === "block") {
+
+                  /*---------------- NEXT IN SLIDESHOW (INITIAL) ----------------*/
+
                   imagesComponent.nextCity();
                 } else if ($("#upcoming").css("display") === "block") {
                   if ($("#map").css("display") === "block") {
+
+                    /*---------------- NEXT IN LIST OF PLACES (UPCOMING) ----------------*/
+
                     infotableComponent.nextScroll();
                   } else if ($("#places").css("display") === "block") {
                     console.log("Swipe Gesture");
+
+                    /*---------------- NEXT IN PLACES-IMAGE SHOWN (UPCOMING) ----------------*/
+
                     placesComponent.nextImageUpcoming();
                   }
                 } else if ($("#choice").css("display") === "block") {
+
+                  /*---------------- NEXT IN STATES (STATES) ----------------*/
+
                   desktopComponent.activeChange();
                 } else if ($("#away").css("display") === "block") {
+
+                  /*---------------- NEXT SHOW/HIDE IMAGE (AWAY) ----------------*/
+
                   imagesawayComponent.showImage();
                 }
                 left = -1;
@@ -160,16 +189,31 @@ export class LeapService {
               if (right === 0 && left === 0) {
                 console.log("right");
                 if ($("#initial").css("display") === "block") {
+
+                  /*---------------- PREVIOUS IN SLIDESHOW (INITIAL) ----------------*/
+
                   imagesComponent.previousCity();
                 } else if ($("#upcoming").css("display") === "block") {
                   if ($("#map").css("display") === "block") {
+
+                    /*---------------- PREVIOUS IN LIST OF PLACES (UPCOMING) ----------------*/
+
                     infotableComponent.previousScroll();
                   } else if ($("#places").css("display") === "block") {
+
+                    /*---------------- PREVIOUS IN PLACES-IMAGE SHOWN (UPCOMING) ----------------*/
+
                     placesComponent.nextImageUpcoming();
                   }
                 } else if ($("#choice").css("display") === "block") {
+
+                  /*---------------- PREVIOUS IN STATES (STATES) ----------------*/
+
                   desktopComponent.activeChangePrev();
                 } else if ($("#away").css("display") === "block") {
+
+                  /*---------------- PREVIOUS SHOW/HIDE IMAGE (AWAY) ----------------*/
+
                   imagesawayComponent.showImage();
                 }
                 right = -1;
@@ -180,7 +224,7 @@ export class LeapService {
               }
             }
           }
-           /*---------------- PINCH TO ZOOM----------------*/
+          /*---------------- PINCH TO ZOOM----------------*/
           /*
 
           else if (extendedFingers === 2) {

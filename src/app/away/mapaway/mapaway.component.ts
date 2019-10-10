@@ -34,10 +34,11 @@ export class MapawayComponent implements OnInit {
       //console.log(city);
       this.citiesFuture[0].cityName= data.city;
       this.citiesFuture[0].countryName= data.country;
-      this.searchCountryInfo(this.citiesFuture[0].countryName)
 
       this.dist=this.mapboxDistance("",this.citiesFuture[0].cityName)[0];
       this.loadedAway=true;
+      this.searchCountryInfo(this.citiesFuture[0].countryName)
+
 
       //this.searchCountryInfo(this.citiesFuture[0].countryName)
 
@@ -200,7 +201,7 @@ $("#away #ballshadow").hide(500);
  handleSuccess(data,countryName) {
   this.lat=data.latlng[0]
   this.lang=data.latlng[1]
-  //console.log(this.lang,this.lat)
+  console.log(this.lang,this.lat)
 
   // get x
   this.lang = (this.lang + 180) * (1355 / 360);
@@ -214,13 +215,17 @@ $("#away #ballshadow").hide(500);
   var lang=this.lang;
   var lat=this.lat-5;
 
- // console.log(this.lang,this.lat)
+  console.log(this.lang,this.lat)
   //console.log($('#pin-images-away'));
+  setTimeout(function() {
   $('#pin-images-away').fadeOut( 400, function() {
     $('#pin-images-away').animate({ left:  lang, top: lat}, 200);
     $('#pin-images-away').fadeIn( 600, function() {
     });
   });
+},400)
+
+
 
 
 }
@@ -230,7 +235,7 @@ handleError(error) {
 }
 
 searchCountryInfo(countryName) {
-
+  //console.log(countryName)
   return this.countryinfoService
     .getCountryInfo(countryName)
     .subscribe(

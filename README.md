@@ -3,7 +3,6 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.0.
 
 ## Summary
-**Description**
 Ambient Trip Planner for the Ambient Intelligence (AmI) Home Bedroom.
 
 

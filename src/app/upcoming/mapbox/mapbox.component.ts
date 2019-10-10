@@ -87,7 +87,7 @@ export class MapboxComponent implements OnInit {
       setTimeout(function() {
         mymap.flyTo({
           center: that.coordinates,
-          zoom: 11
+          zoom: 12
         });
       }, 7000);
 

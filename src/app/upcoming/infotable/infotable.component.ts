@@ -449,6 +449,7 @@ export class InfotableComponent implements OnInit {
 
   public savePlace() {
     if (this.currentImage != 0) {
+      console.log("saving"+$("#scroll-places-" + this.currentImage + " #places-desc"))
       if (
         $("#scroll-places-" + this.currentImage + " #places-desc").hasClass(
           "saved"

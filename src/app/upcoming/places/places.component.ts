@@ -61,12 +61,7 @@ export class PlacesComponent implements OnInit {
       //this.getColors(6);
 
     });
-    /*  this.leapService.nextImageUpcoming$.subscribe(
-      () => {
-        //alert('(Component2) Method called!'+i);
-        this.nextImageUpcoming();
-      }
-    );*/
+ 
   }
 
   ngOnInit() {
