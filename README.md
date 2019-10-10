@@ -24,22 +24,61 @@ State as the user is still away on the trip. Includes messages sent from the one
 ```
 ## Development server
 
-Run 'batch.command' file 
+
+1) Exit Chrome & Run 'batch.command' file 
 **or** 
-'socket-server/node index.js' then 'thesis-app/ng serve --host 0.0.0.0 -o' and finally (Mac) 'open -a Google\ Chrome --args --disable-web-security --user-data-dir' or (Windows) 'chrome.exe --user-data-dir="C://Chrome dev session" --disable-web-security' . Then naviugate to `http://localhost:4200/` on desktop and 'YourIP:4200' on mobile.
+2) Run (Mac) `'open -a Google\ Chrome --args --disable-web-security --user-data-dir'` or (Windows) `'chrome.exe --user-data-dir="C://Chrome dev session" --disable-web-security' `
+and then
+`ng serve --host 0.0.0.0 --disableHostCheck`
+
+Then navigate to `http://localhost:4200/` on desktop and 'YourIP:4200' on mobile.
+
+
 
 ## Configurable JSONs
 
-    timeline.json: Information about past destinations. City, Country, Date and your resources
-    upcoming.json: Information about future destination. Flights, dates etc.
-    times.json: Timings(Image Slideshow & InfoBubble)
+    timeline.json -> Information about past & future destinations. City, Country, Date and your resources.
+    upcoming.json -> Information about future destination. Flights, dates, Accommodation, Notes etc.
+    times.json:   -> Timings (Image Slideshow & InfoBubble timeouts)
 
 ## User Guide 
-1) LEAP
--TAP ON LEAP
--TAP IN SCREEN
--SLIDE
-2) MOUSE
+1) **LEAP MOTION**
+Gestures:
+1.1) **TAP ON SCREEN**: Tap on Z Axis towards negatives (back of the leap device) with 1 finger
+1.2) **TAP ON LEAP**: Tap closely to the leap device with on finger.
+1.3) **SWIPE LEFT/RIGHT**: Swipe hand with all fingers extended towards one direction
+
+![alt text](guide/states.png)
+![alt text](guide/initial.png)
+![alt text](guide/upcoming.png)
+![alt text](guide/away.png)
+
+
+2) **MOUSE**
+* States (Start-up Screen): 
+```
+Choose State         -> Tap on state
+```
+* Initial: 
+```
+Start Slideshow      -> Tap on future destination
+Next on Slideshow    -> Tap on last past destination
+Play/Pause Slideshow -> Tap on image
+Play/Pause Music     -> Tap on player
+Back                 -> Hover on middle-top of screen to reveal button
+```
+* Upcoming: 
+```
+Show Place                     -> Tap on Photo
+Next Place (Photos on screen)  -> Tap on image
+Next Place (Map on screen)     -> Tap on Header "Places"
+Handle Map                     -> Scroll/Drag on map
+Back                 -> Hover on middle-top of screen to reveal button
+```
+* Away: 
+```
+Back                 -> Hover on middle-top of screen to reveal button
+```
 
 
 ## Files Guide
@@ -61,7 +100,7 @@ Run 'batch.command' file
 
 ```
 **Components**
-Initial
+* Initial
 ```
 - images        -> Slideshow of images including the information on them.
 - map           -> The map that appears on the destination changes and revolves, also includes pins with each location.
@@ -71,14 +110,14 @@ Initial
 
 
 ```
-Upcoming
+* Upcoming
 ```
 - infotable  -> All the information needed for the future trip
 - mapbox     -> Map showing pinned locations and the selected city
 - places     -> Places pinned on map slideshowed with images and information about each place
 
 ```
-Away
+* Away
 ```
 - mapaway     -> Revolving map showing person's location, distance and current weather
 - imagesaway  -> Image sent from the traveller
@@ -87,25 +126,32 @@ Away
 ```
 **Routes**
 
-Mobile
-**Environments**
-```
+* Mobile
+``
+Automated first screen for less than 1920px width.
+``
+* Desktop/Default
+``
+Automated first screen for more than 1920px width.
+``
 
-
-```
 **Resources**
 ```
-- images
-- font
-- js
-- json
-- music
+- images  -> Images used for past destinations and icons
+- font    -> Font types
+- js      -> External JavaScript libraries
+- json    -> JSONs for main data
+- music   -> Sounds of each city
 
 ```
 **External Imported Libraries-APIs**
 ```
-
-
+Geonames
+Wikipedia
+Pixabay
+Mapbox
+RESTcountries
+Meteostat
 ```
 
 
@@ -113,10 +159,6 @@ Mobile
 
 
 
-<!--![alt text](guide/states.png)
-![alt text](guide/initial.png)
-![alt text](guide/upcoming.png)
-![alt text](guide/away.png)-->
 
 ## Code scaffolding
 

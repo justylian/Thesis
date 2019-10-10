@@ -1,4 +1,4 @@
-import { DesktopComponent } from './../routes/desktop/desktop.component';
+import { DesktopComponent } from "./../routes/desktop/desktop.component";
 import { MapboxComponent } from "./../upcoming/mapbox/mapbox.component";
 import { AppComponent } from "./../app.component";
 import { ImagesawayComponent } from "./../away/imagesaway/imagesaway.component";
@@ -48,8 +48,9 @@ export class LeapService {
     };
     var left = 0;
     var tap = 0;
-    var push=0;
-    var right=0;
+    var push = 0;
+    var right = 0;
+    var pinch = 0;
     var controllerOptions = { enableGestures: true };
 
     var controller = leapjs.loop(controllerOptions, function(frame) {
@@ -58,21 +59,16 @@ export class LeapService {
         var finger = frame.fingers[i];
         if (finger.extended) extendedFingers++;
         /*---------------- TAP ON LEAP ----------------*/
-        if(finger.tipPosition[1]<=30){
+        if (finger.tipPosition[1] <= 30) {
           if (push === 0) {
             if ($("#initial").css("display") === "block") {
-              console.log("music")
+              console.log("music");
               musicComponent.playerManage();
-            }
-            else  if ($("#upcoming").css("display") === "block") {
+            } else if ($("#upcoming").css("display") === "block") {
               if ($("#places").css("display") === "block") {
-                console.log("save/unsave")
+                console.log("save/unsave");
                 placesComponent.savePlace();
                 infotableComponent.savePlace();
-              }
-              else if ($("#map").css("display") === "block") {
-                console.log("zoom")
-                mapboxComponent.zoom()
               }
             }
             push = -1;
@@ -117,7 +113,6 @@ export class LeapService {
         }
       }
 
-
       /*---------------- SLIDE ----------------*/
 
       var extendedFingers = 0;
@@ -125,7 +120,6 @@ export class LeapService {
         var hand = frame.hands[i];
         var previousFrame = controller.frame(1);
         var movement = hand.translation(previousFrame);
-
 
         for (var i = 0; i < frame.fingers.length; i++) {
           var finger = frame.fingers[i];
@@ -136,32 +130,26 @@ export class LeapService {
 
           if (extendedFingers >= 5) {
             if (movement[0] < -7 && movement[0] > -50) {
-              if (left === 0 && right === 0 ) {
+              if (left === 0 && right === 0) {
                 console.log("Left");
                 if ($("#initial").css("display") === "block") {
                   imagesComponent.nextCity();
-
-                }
-                else if ($("#upcoming").css("display") === "block") {
+                } else if ($("#upcoming").css("display") === "block") {
                   if ($("#map").css("display") === "block") {
                     infotableComponent.nextScroll();
-                  }
-                  else if ($("#places").css("display") === "block") {
+                  } else if ($("#places").css("display") === "block") {
                     console.log("Swipe Gesture");
                     placesComponent.nextImageUpcoming();
                   }
-                }
-                else if ($("#choice").css("display") === "block") {
+                } else if ($("#choice").css("display") === "block") {
                   desktopComponent.activeChange();
-                }
-                else if ($("#away").css("display") === "block") {
+                } else if ($("#away").css("display") === "block") {
                   imagesawayComponent.showImage();
                 }
                 left = -1;
                 setTimeout(function() {
                   left = 0;
                   right = 0;
-
                 }, 500);
               }
             }
@@ -173,32 +161,67 @@ export class LeapService {
                 console.log("right");
                 if ($("#initial").css("display") === "block") {
                   imagesComponent.previousCity();
-                }
-                else if ($("#upcoming").css("display") === "block") {
+                } else if ($("#upcoming").css("display") === "block") {
                   if ($("#map").css("display") === "block") {
                     infotableComponent.previousScroll();
-                  }
-                  else if ($("#places").css("display") === "block") {
+                  } else if ($("#places").css("display") === "block") {
                     placesComponent.nextImageUpcoming();
                   }
                 } else if ($("#choice").css("display") === "block") {
                   desktopComponent.activeChangePrev();
-                }
-                else if ($("#away").css("display") === "block") {
+                } else if ($("#away").css("display") === "block") {
                   imagesawayComponent.showImage();
                 }
                 right = -1;
                 setTimeout(function() {
                   right = 0;
                   left = 0;
-
                 }, 500);
               }
             }
           }
+           /*---------------- PINCH TO ZOOM----------------*/
+          /*
+
+          else if (extendedFingers === 2) {
+            if (
+              finger.type !== 2 &&
+              finger.type !== 3 &&
+              finger.type !== 4 &&
+              finger.type !== 5
+            ) {
+              if (finger.extended) {
+                  if (pinch === 0) {
+                    if ($("#upcoming").css("display") === "block") {
+                      if ($("#map").css("display") === "block") {
+                        if (hand.pinchStrength > 0.6) {
+                          console.log(hand.pinchStrength);
+
+                          console.log("zoom out");
+                          mapboxComponent.zoomOut();
+                          pinch = -1;
+                          setTimeout(function() {
+                            pinch = 0;
+                          }, 500);
+                        } else if (hand.pinchStrength === 0) {
+                          console.log(hand.pinchStrength);
+
+                          console.log("zoom in");
+                          mapboxComponent.zoomIn();
+                          pinch = -1;
+                          setTimeout(function() {
+                            pinch = 0;
+                          }, 500);
+                        }
+                      }
+
+                  }
+                }
+              }
+            }
+          }*/
         }
       }
-
     });
   }
 }

@@ -173,31 +173,27 @@ export class MapboxComponent implements OnInit {
       // jQuery(window).resize(function(){map.resize()});
     }
   }
-  parameter=true;
-  public zoom() {
+
+  public zoomOut() {
     var zoom = this.mymap.getZoom();
-    //console.log(zoom);
-    if (this.parameter ===true) {
-      console.log("in");
-      //this.outside = false;
-      this.mymap.setZoom(++zoom);
-      this.parameter = true;
-    } else if (this.parameter===false) {
-      //this.inside = false;
-      console.log("out");
-      this.mymap.setZoom(--zoom);
+    this.mymap.setCenter(this.coordinates);
+    this.mymap.setZoom(--zoom);
 
-      this.parameter = true;
-    }
-    //this.mymap.setCenter([0, 50]);
 
-   /* setInterval(function() {
-      that.mymap.setZoom(0);
-      setTimeout(function() {
-        that.mymap.setZoom(1);
-      }, 2000);
-    }, 4000);*/
+
   }
+
+  public zoomIn() {
+    var zoom = this.mymap.getZoom();
+    this.mymap.setCenter(this.coordinates);
+
+    this.mymap.setZoom(++zoom);
+    //console.log(zoom);
+
+
+
+  }
+
 
 
 

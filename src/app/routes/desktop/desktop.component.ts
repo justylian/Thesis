@@ -36,7 +36,7 @@ loadedAway=false;
       this.mypeerid=this.peer.id;
       console.log(this.peer.id);
 
-  },1000)
+  },3000)
     this.peer.on('connection',function(conn){
       conn.on('data',function(data){
         console.log(data);
