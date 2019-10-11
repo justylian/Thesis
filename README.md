@@ -72,7 +72,7 @@ Show Place                     -> Tap on Photo
 Next Place (Photos on screen)  -> Tap on image
 Next Place (Map on screen)     -> Tap on Header "Places"
 Handle Map                     -> Scroll/Drag on map
-Back                 -> Hover on middle-top of screen to reveal button
+Back                           -> Hover on middle-top of screen to reveal button
 ```
 * Away: 
 ```
