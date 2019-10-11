@@ -8,7 +8,7 @@ import { Component, OnInit } from "@angular/core";
 import timesjson from "../../../assets/json/times.json";
 import timelinejson from "../../../assets/json/timeline.json";
 import { LeapService } from "./../../services/leap.service";
-import { SocketService } from './../../services/socket.service';
+import { SocketService } from "./../../services/socket.service";
 
 declare var require: any;
 
@@ -44,14 +44,13 @@ export class ImagesComponent implements OnInit {
     private initialService: InitialService,
     private compMusic: MusicComponent,
     private dominantcolorService: DominantcolorService,
-    private socketService:SocketService
+    private socketService: SocketService
   ) {
     this.socketService.p2p$.subscribe(data => {
       //console.log(city);
-      this.citiesFuture[0].cityName= data.city;
+      this.citiesFuture[0].cityName = data.city;
       Load.allTheThings();
       //this.loadedAway=true;
-
     });
 
     this.upcomingService.images$.subscribe(i => {
@@ -99,7 +98,6 @@ export class ImagesComponent implements OnInit {
   }
 
   ngOnInit() {
-
     //descPlacing();
     //this.compMusic.manageMusic(6)
   }
@@ -193,11 +191,6 @@ export class ImagesComponent implements OnInit {
           i
         );
       }
-
-      /*if(i===6){ //loop
-          i=1;
-        }*/
-      //}, timer+=timePerCity);
     }
   }
 
@@ -275,7 +268,7 @@ function getColors(i) {
       lessx = 750;
       lessy = 50;
     }
-    console.log(i,j,length, lessx, lessy);
+    console.log(i, j, length, lessx, lessy);
 
     if (j === 5) {
       $("#image" + i + "-five-inner").css({ top: lessy, left: lessx });
@@ -404,16 +397,6 @@ function extractColors(cnv, x, y, j, i) {
   var keys = Object.keys(colorList);
   return keys.length;
 }
-
-/*
-function rgb2hex(rgb) {
-  rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
-  function hex(x) {
-      return ("0" + parseInt(x).toString(16)).slice(-2);
-  }
-  return "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
-}
-*/
 
 /* ----- Slideshow inner ----- */
 

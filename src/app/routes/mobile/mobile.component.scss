@@ -7,22 +7,24 @@
     .submit-outer {
         width: 84px;
         height: 84px;
-        margin-top: 100px;
-        left: 702px;
+        margin-top: 187px;
+        left: 48%;
         position: absolute;
         font-size: 35px;
+        background: none;
         border: 6px solid #ffffff;
         border-radius: 50%;
+        transition: 1s;
+        outline: 0;
         .submit {
-            width: 29px;
-            height: 29px;
+            width: 22px;
+            height: 22px;
             left: 14px;
-            top: 21px;
+            top: 19px;
             position: absolute;
             font-size: 35px;
             font-size: 40px;
             -webkit-appearance: none;
-            /* top: 1300px; */
             -moz-appearance: none;
             outline: none;
             color: #f7f7ff;
@@ -33,7 +35,17 @@
             transform: rotate(-45deg);
             display: inline-block;
             padding: 3px;
+            transition: 1s;
+            outline: 0;
         }
+        .submit:active {
+            outline: 0;
+            border-color: rgba(255, 255, 255, 0.233);
+        }
+    }
+    .submit-outer:active {
+        outline: 0;
+        border-color: #ffffff41;
     }
     form {
         width: 100%;

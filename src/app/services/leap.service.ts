@@ -86,9 +86,9 @@ export class LeapService {
                 //CLOSE TO DEVICE
                 if (tap === 0) {
                   if ($("#initial").css("display") === "block") {
-                    console.log("tap");
 
                     if (onceFlag === true) {
+                      console.log("tap");
 
                       /*---------------- START SLIDESHOW (INITIAL) ----------------*/
 
@@ -98,8 +98,11 @@ export class LeapService {
                     } else {
 
                       /*---------------- PAUSE SLIDESHOW (INITIAL) ----------------*/
+                      if ($("#image-main").css("display") === "block"){
+                      console.log("tap");
 
-                      imagesComponent.pause();
+                        imagesComponent.pause();
+                      }
                     }
                   } else if ($("#upcoming").css("display") === "block") {
                     console.log("tap");

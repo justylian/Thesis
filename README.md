@@ -36,8 +36,8 @@ Then navigate to `http://localhost:4200/` on desktop and 'YourIP:4200' on mobile
 
 ## Configurable JSONs
 
-    timeline.json -> Information about past & future destinations. City, Country, Date and your resources.
-    upcoming.json -> Information about future destination. Flights, dates, Accommodation, Notes etc.
+    timeline.json -> Information about past & future destinations. City, Country, Date and your resources. Leave citiesFuture as it is, only citiesPast is editable.
+    upcoming.json -> Information about future destination not submited by other device. Flights, dates, Accommodation, Notes etc.
     times.json:   -> Timings (Image Slideshow & InfoBubble timeouts)
 
 ## User Guide 
