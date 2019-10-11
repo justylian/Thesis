@@ -2,6 +2,8 @@ import { SocketService } from './../../services/socket.service';
 import { Component, OnInit } from '@angular/core';
 import timelinejson from "../../../assets/json/timeline.json";
 import { ChoiceService } from "./../../services/choice.service";
+import { HttpClient } from '@angular/common/http'
+
 declare var $: any;
 declare var jQuery: any;
 declare var require: any;
@@ -19,7 +21,7 @@ export class DesktopComponent implements OnInit {
   countrySelect=false;
   city;
   country;
-  constructor(private socketService:SocketService,private choiceService: ChoiceService) {
+  constructor(private socketService:SocketService,private choiceService: ChoiceService,private http: HttpClient) {
 
   }
  //peer;
@@ -27,28 +29,26 @@ export class DesktopComponent implements OnInit {
 mypeerid;
 peer
 loadedAway=false;
-  ngOnInit() {
+   ngOnInit() {
     var that=this;
-    var socketService=this.socketService;
+    var refreshIntervalId =setInterval(async function(){
+      that.http.get('http://localhost:3000/getNextDestination').subscribe(res => {
+        console.log("Waiting");
 
-    this.peer = new Peer([1],{key: 'lwjd5qra8257b9'});
-    setTimeout(()=>{
-      this.mypeerid=this.peer.id;
-      console.log(this.peer.id);
+        if(res!==null ){
+          console.log("Destination Found");
 
-  },3000)
-    this.peer.on('connection',function(conn){
-      conn.on('data',function(data){
-        console.log(data);
-        that.citiesFuture[0].cityName=data.city;
-        that.citiesFuture[0].countryName=data.country;
-        socketService.p2p(data);
+          clearInterval(refreshIntervalId);
+          that.socketService.resetInfo();
+          that.socketService.p2p(res);
+        }
       });
-    });
+
+     }, 1000);
+
+
 
   }
-
-
 
 
 

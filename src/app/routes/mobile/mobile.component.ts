@@ -1,13 +1,15 @@
 import { ChoiceService } from "./../../services/choice.service";
 import { SocketService } from "./../../services/socket.service";
 import { Component, OnInit } from "@angular/core";
+import { DesktopComponent } from './../../routes/desktop/desktop.component';
+
 import timelinejson from "../../../assets/json/timeline.json";
 declare var $: any;
-declare var SimplePeer: any;
-
+import { HttpClient } from '@angular/common/http'
 declare var jQuery: any;
 declare var require: any;
 declare var Peer: any;
+import * as express from 'express'
 
 @Component({
   selector: "app-mobile",
@@ -24,7 +26,9 @@ export class MobileComponent implements OnInit {
   country;
   constructor(
     private choiceService: ChoiceService,
-    private socketService: SocketService
+    private socketService: SocketService,
+    private http: HttpClient,
+    private desktopComponent:DesktopComponent
   ) {
     if (window.screen.width < 1920) {
       this.mobile = true;
@@ -38,25 +42,13 @@ export class MobileComponent implements OnInit {
   peer;
   mypeerid;
   ngOnInit() {
-    this.peer = new Peer([2], { key: "lwjd5qra8257b9" });
-    setTimeout(() => {
-      this.mypeerid = this.peer.id;
-      console.log(this.peer.id);
-    }, 3000);
+    this.socketService.resetInfo();
+
   }
 
-  connect(city, country) {
-    console.log("Connecting with other client...");
 
-    var conn = this.peer.connect(1);
-    conn.on("open", function() {
-      console.log("Connection Established.");
-      conn.send({
-        city: city,
-        country: country
-      });
-    });
-  }
+
+
 
   public changeUpcomingJSON() {
     this.countrySelect = true;
@@ -67,16 +59,22 @@ export class MobileComponent implements OnInit {
     var city = $("#mobile #form-city").val();
     //alert(city);
     this.city = city;
+    var  data=[city,countrysel];
+    console.log("Connecting with other client..."+data);
+    this.socketService.setInfo(data);
+
     if (this.citySelect === true && this.countrySelect === true) {
       this.citiesFuture[0].cityName = this.city;
       this.citiesFuture[0].countryName = this.country;
       this.choiceService.mobile();
 
-      this.connect(
+
+
+     /* this.connect(
         this.citiesFuture[0].cityName,
         this.citiesFuture[0].countryName
       );
-      /*    setTimeout(()=>{
+          setTimeout(()=>{
       window.location.reload(false);
 
     },5000)*/

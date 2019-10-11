@@ -28,6 +28,7 @@ State as the user is still away on the trip. Includes messages sent from the one
 **or** 
 2) Run (Mac) `'open -a Google\ Chrome --args --disable-web-security --user-data-dir'` or (Windows) `'chrome.exe --user-data-dir="C://Chrome dev session" --disable-web-security' `
 and then
+in "node" folder `node app.js`
 `ng serve --host 0.0.0.0 --disableHostCheck`
 
 Then navigate to `http://localhost:4200/` on desktop and 'YourIP:4200' on mobile.
