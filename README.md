@@ -3,7 +3,21 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.0.
 
 ## Summary
-Ambient Trip Planner for the Ambient Intelligence (AmI) Home Bedroom.
+Design and development of a multimodal system which creates an interactive experience for the imminent and past travels of the user using ambient technologies. The project is divided in three states.
+1. Recollection of memories from past excursions through the projection of personal media (Photographs, Notes & Music).
+2. Assistance for the trip planning procedure with recommendations and tips.
+3. Creation of a communication channel connecting the absent users with people staying at the Smart Home.
+The project was completed for the Ambient Intelligence Programme (AmI) in the HCI Laboratory of the Institute of Computer Science in the Foundation for Research and Technology - Hellas (ICS, FORTH).
+
+Multimodality:
+-Large-scale projector on the bedroom's wall
+-Leap Motion sensor
+-Mobile screen for the typing needs of the user
+-Smart lighting
+-Sound system
+
+Technologies used:
+Angular 8, Typescript, Javascript, SCSS, HTML5, Node.js Adobe Illustrator, Adobe XD.
 
 
 **States**
