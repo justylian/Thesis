@@ -19,6 +19,54 @@ Multimodality:
 Technologies used:
 Angular 8, Typescript, Javascript, SCSS, HTML5, Node.js Adobe Illustrator, Adobe XD.
 
+**Screens**
+
+![](guide/THESISREC.gif)
+
+![alt text](guide/Screenshot1.png)
+
+![alt text](guide/Screenshot2.png)
+
+![alt text](guide/Screenshot3.png)
+
+![alt text](guide/Screenshot4.png)
+
+![alt text](guide/Screenshot5.png)
+
+![alt text](guide/Screenshot6.png)
+
+![alt text](guide/Screenshot7.png)
+
+![alt text](guide/Screenshot8.png)
+
+![alt text](guide/Screenshot9.png)
+
+![alt text](guide/Screenshot10.png)
+
+![alt text](guide/Screenshot11.png)
+
+![alt text](guide/Screenshot12.png)
+
+![alt text](guide/Screenshot13.png)
+
+![alt text](guide/Screenshot14.png)
+
+![alt text](guide/Screenshot15.png)
+
+![alt text](guide/Screenshot16.png)
+
+![alt text](guide/Screenshot17.png)
+
+![alt text](guide/Screenshot18.png)
+
+![alt text](guide/Screenshot19.png)
+
+![alt text](guide/Screenshot20.png)
+
+![alt text](guide/Screenshot21.png)
+
+
+
 
 **States**
 1) Initial
