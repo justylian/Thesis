@@ -23,6 +23,9 @@ Angular 8, Typescript, Javascript, SCSS, HTML5, Node.js Adobe Illustrator, Adobe
 
 ![](guide/THESISREC.gif)
 
+
+![alt text](guide/Screenshot14.png)
+
 ![alt text](guide/Screenshot1.png)
 
 ![alt text](guide/Screenshot2.png)
@@ -48,8 +51,6 @@ Angular 8, Typescript, Javascript, SCSS, HTML5, Node.js Adobe Illustrator, Adobe
 ![alt text](guide/Screenshot12.png)
 
 ![alt text](guide/Screenshot13.png)
-
-![alt text](guide/Screenshot14.png)
 
 ![alt text](guide/Screenshot15.png)
 
