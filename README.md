@@ -1,4 +1,4 @@
-# Thesis 
+# Ambient Travel Experience System for the Smart Home Bedroom | Thesis
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.0.
 
