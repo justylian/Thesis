@@ -89,7 +89,7 @@ State as the user is still away on the trip. Includes messages sent from the one
 
 1) Exit Chrome & Run 'batch.command' file 
 **or** 
-2) Run (Mac) `'open -a Google\ Chrome --args --disable-web-security --user-data-dir'` or (Windows) `'chrome.exe --user-data-dir="C://Chrome dev session" --disable-web-security' `
+2) Run (Mac) `'open -a Google\ Chrome --args --disable-web-security --user-data-dir  --allow-file-access-from-files'` or (Windows) `'chrome.exe --user-data-dir="C://Chrome dev session" --disable-web-security' `
 and then
 in "node" folder `node app.js`
 `ng serve --host 0.0.0.0 --disableHostCheck`
