@@ -12,22 +12,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 
 
-
-**States**
-1) Initial
-```
-State set at least a week before the scheduled trip. Includes slideshow of past trips, if there are any, and future destination selected.
-```
-2) Upcoming
-```
-State set a week or less from scheduled trip. Includes all the information needed, notes and recommended places that the user may be interested in.
-```
-
-3) Away
-
-```
-State as the user is still away on the trip. Includes messages sent from the one away, a photo and information about their location.
-```
 ## Development server
 
 
