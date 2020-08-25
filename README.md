@@ -39,10 +39,7 @@ Gestures:
 1.2) **TAP ON LEAP**: Tap closely to the leap device with on finger.
 1.3) **SWIPE LEFT/RIGHT**: Swipe hand with all fingers extended towards one direction
 
-![alt text](guide/states.png)
-![alt text](guide/initial.png)
-![alt text](guide/upcoming.png)
-![alt text](guide/away.png)
+
 
 
 2) **MOUSE**
